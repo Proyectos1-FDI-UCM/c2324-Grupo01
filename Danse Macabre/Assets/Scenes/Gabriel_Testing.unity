@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 471888397}
   - component: {fileID: 471888396}
   - component: {fileID: 471888395}
+  - component: {fileID: 471888398}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -215,6 +216,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &471888398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471888394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6332107e0d3f05141a48e73fcb86b7da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerTransform: {fileID: 0}
+  cameraOffset: 20
 --- !u!1 &525939123
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +326,7 @@ GameObject:
   - component: {fileID: 731354338}
   - component: {fileID: 731354337}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,7 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4958371993e8718409ff0dde61fae748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 10
 --- !u!212 &731354338
 SpriteRenderer:
   m_ObjectHideFlags: 0

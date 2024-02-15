@@ -8,6 +8,8 @@ public class MovementComponent : MonoBehaviour
     [SerializeField]
     float speed;
 
+    bool canMove = true;
+
     Transform myTransform;
 
     // Start is called before the first frame update
@@ -19,6 +21,8 @@ public class MovementComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myTransform.position = new Vector3(myTransform.position.x + (speed * Time.deltaTime), myTransform.position.y, myTransform.position.z);
+        if (canMove = true) {
+            myTransform.position = new Vector3(myTransform.position.x + (speed * Time.deltaTime), myTransform.position.y, myTransform.position.z);
+        }
     }
 }
