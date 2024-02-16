@@ -5,27 +5,22 @@ using UnityEngine;
 
 public class MovementComponent : MonoBehaviour
 {
+    #region pearameters
     [SerializeField]
-    float speed;
+    private float speed;
+    private float maxSpeed = 0.1f;
+    private float verticalSpeed = 0;
+    #endregion
 
-    bool canMove = true;
-    float maxSpeed = 0.1f;
-    float verticalSpeed = 0;
+    #region references
+    private Transform myTransform;
+    #endregion
 
-    Transform myTransform;
+    #region properties
+    private bool canMove = true;
+    #endregion
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        myTransform = transform;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Gravity();
-        Move();
-    }
+    #region methods
     private void Move()
     {
         if (canMove)
@@ -44,4 +39,17 @@ public class MovementComponent : MonoBehaviour
         verticalSpeed = Mathf.Max(minSpeed, verticalSpeed + Physics.gravity.y * Time.deltaTime);
         verticalSpeed += Physics.gravity.y * 0.01f *Time.deltaTime;*/
     }
+    #endregion
+
+    void Start()
+    {
+        myTransform = transform;
+    }
+
+    void Update()
+    {
+        Gravity();
+        Move();
+    }
 }
+
