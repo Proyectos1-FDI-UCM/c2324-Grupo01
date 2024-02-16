@@ -17,14 +17,12 @@ public class MovementComponent : MonoBehaviour
     Transform myTransform;
     Rigidbody2D myRigidBody;
 
-    // Start is called before the first frame update
     void Start()
     {
         myTransform = transform;
         myRigidBody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Gravity();
@@ -49,3 +47,4 @@ public class MovementComponent : MonoBehaviour
         verticalSpeed += Physics.gravity.y * 0.01f *Time.deltaTime;*/
     }
 }
+
