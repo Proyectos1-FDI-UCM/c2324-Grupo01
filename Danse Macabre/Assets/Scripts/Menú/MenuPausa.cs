@@ -1,18 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuPausa : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject botonPausa;
+    [SerializeField] private GameObject menuPausa;
+    public void Pausa() 
     {
-        
+        Time.timeScale = 0f;   //Para detener el juego
+        botonPausa.SetActive(false);
+        menuPausa.SetActive(true);
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Reanudar() 
+    { 
+        Time.timeScale = 1f;    //Para arrancar el juego
+        botonPausa.SetActive(true);
+        menuPausa.SetActive(false);
+    }
+    public void Reiniciar() 
     {
-        
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);   //Reiniciar la escena que está
+    }
+    public void Quit() 
+    {
+        SceneManager.LoadScene(0);
     }
 }
