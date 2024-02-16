@@ -324,6 +324,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c093d324dbb83f04ab29144eec625412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _jumpSpeed: 5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!50 &1688835325
 Rigidbody2D:
   serializedVersion: 4
@@ -477,7 +481,7 @@ GameObject:
   - component: {fileID: 1698504375}
   - component: {fileID: 1698504374}
   - component: {fileID: 1698504373}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
