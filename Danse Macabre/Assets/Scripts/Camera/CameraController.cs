@@ -8,7 +8,7 @@ public class CameraController:MonoBehaviour
     [SerializeField]
     private Transform _playerTransform;
     [SerializeField]
-    private float cameraOffset = 20f;
+    private float cameraOffset = 7f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class CameraController:MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         FollowPlayer();
     }
