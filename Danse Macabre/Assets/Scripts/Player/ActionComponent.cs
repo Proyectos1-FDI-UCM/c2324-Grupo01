@@ -4,14 +4,40 @@ using UnityEngine;
 
 public class ActionComponent : MonoBehaviour
 {
-    #region references
-    private Transform _myTransform;
+    #region parameters
+    [SerializeField]
+    private float _jumpSpeed = 1.0f;
+
+    private float groundCheckDistance = 0.1f;
     #endregion
 
+    #region references
+    private Transform _myTransform;
+    private Rigidbody2D _myRB;
+    [SerializeField]
+    private LayerMask groundLayer; // Capa que representa el suelo
+    #endregion
+
+    #region properties
+    private float _verticalSpeed;
+    #endregion 
+
     //CAMBIAD LO QUE HACE CADA METODO!! (LO QUE HAY ES PARA PROBAR!)
+    private bool IsGrounded()
+    {
+        // Realiza un Raycast hacia abajo desde los pies del jugador
+        RaycastHit2D hit = Physics2D.Raycast(_myTransform.position, Vector2.down, groundCheckDistance, groundLayer);
+
+        // Si el Raycast golpea algo en la capa del suelo, el jugador está en el suelo
+        return hit.collider != null;
+
+    }
     public void Jump()
     {
-        gameObject.SetActive(false);
+        if (IsGrounded())
+        {
+            _myRB.velocity = new Vector2(_myRB.velocity.x, _jumpSpeed);
+        }
     }
     public void Stomp()
     {
@@ -25,6 +51,7 @@ public class ActionComponent : MonoBehaviour
     void Start()
     {
         _myTransform = transform;
+        _myRB = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
