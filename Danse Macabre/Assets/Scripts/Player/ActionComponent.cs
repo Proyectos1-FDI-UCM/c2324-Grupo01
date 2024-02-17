@@ -32,6 +32,8 @@ public class ActionComponent : MonoBehaviour
     // for dashing:
     private bool isDashing = false;
     private bool canDash = false;
+    // for sliding:
+    private bool isSliding = false;
     #endregion
 
     #region methods
@@ -93,17 +95,31 @@ public class ActionComponent : MonoBehaviour
                 _myRB.velocity = Vector2.zero;
                 _myRB.AddForce(impulseTrampolin * Vector2.up, ForceMode2D.Impulse);
                 isStomping = false;
-            }
-            if (obj.CompareTag("Enemigo"))
-            {
-                /* Animación matando enemigo */
-                Destroy(obj); // destroy enemigo
-            }            
+            } 
         }
 
         if (obj.CompareTag("Moneda dash"))
         {
             canDash = true;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject obj = collision.gameObject;
+
+        if (isStomping || isDashing || isSliding)
+        {
+            if (obj.CompareTag("Enemigo"))
+            {
+                /* Animación matando enemigo */
+                Destroy(obj); // destroy enemigo
+            }
+            if (obj.CompareTag("Caja"))
+            {
+                /* Animación destruyendo caja */
+                Destroy(obj); // destroy caja
+            }
         }
     }
     #endregion
