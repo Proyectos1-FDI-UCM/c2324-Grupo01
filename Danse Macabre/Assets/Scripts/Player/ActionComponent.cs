@@ -86,12 +86,21 @@ public class ActionComponent : MonoBehaviour
     {
         GameObject obj = collision.gameObject;
 
-        if (isStomping && obj.CompareTag("Trampolin"))
+        if (isStomping)
         {
-            _myRB.velocity = Vector2.zero;
-            _myRB.AddForce(impulseTrampolin * Vector2.up, ForceMode2D.Impulse);
-            isStomping = false;
+            if (obj.CompareTag("Trampolin"))
+            {
+                _myRB.velocity = Vector2.zero;
+                _myRB.AddForce(impulseTrampolin * Vector2.up, ForceMode2D.Impulse);
+                isStomping = false;
+            }
+            if (obj.CompareTag("Enemigo"))
+            {
+                /* Animación matando enemigo */
+                Destroy(obj); // destroy enemigo
+            }            
         }
+
         if (obj.CompareTag("Moneda dash"))
         {
             canDash = true;
