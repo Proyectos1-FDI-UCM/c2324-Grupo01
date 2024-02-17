@@ -7,7 +7,6 @@ public class ActionComponent : MonoBehaviour
     #region parameters
     [SerializeField]
     private float _jumpSpeed = 1.0f;
-
     private float groundCheckDistance = 0.1f;
     #endregion
 

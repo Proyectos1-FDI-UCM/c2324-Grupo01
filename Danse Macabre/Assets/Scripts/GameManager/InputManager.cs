@@ -8,6 +8,7 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private ActionComponent _playerActionComponent;
     #endregion
+
     void Start()
     {
         

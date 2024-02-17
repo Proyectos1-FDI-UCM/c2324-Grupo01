@@ -5,21 +5,24 @@ using UnityEngine;
 
 public class MovementComponent : MonoBehaviour
 {
-    [SerializeField]
-    float speed;
+    #region parameters
     [SerializeField]
     float maxSpeed = -100f;
     float verticalSpeed = 0;
+    #endregion
 
+    #region references
+    private Transform myTransform;
+    private Rigidbody2D myRigidBody;
+    #endregion
+
+    #region properties
+    [SerializeField]
+    float speed;
     public bool canMove = true;
     public bool grounded;
     private float lastYposition;
-
-    Transform myTransform;
-    Rigidbody2D myRigidBody;
-
-    
-    
+    #endregion
 
     void Start()
     {
@@ -38,6 +41,7 @@ public class MovementComponent : MonoBehaviour
         Move();
     }
 
+    #region methods
     private void Move()
     {
         if (canMove)
@@ -68,6 +72,5 @@ public class MovementComponent : MonoBehaviour
         Debug.Log(grounded + " " + positionDiff + " " + verticalSpeed);
         lastYposition = transform.position.y;
     }
-    
+    #endregion
 }
-
