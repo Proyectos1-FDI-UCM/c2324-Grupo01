@@ -13,18 +13,25 @@ public class ActionComponent : MonoBehaviour
     private float impulseStomp = 20;
     [SerializeField]
     private float impulseTrampolin = 12;
+    [SerializeField]
+    private float dashDuration = 2.0f;
+    private float dashEndTime = 0;
     #endregion
 
     #region references
     private Transform _myTransform;
     private Rigidbody2D _myRB;
+    private BoxCollider2D _myCollider;
     [SerializeField]
     private LayerMask groundLayer; // Capa que representa el suelo
     #endregion
 
     #region properties
-    private bool _stomping = false; // sirve para habilitar rebote del trampolin
     private float _verticalSpeed;
+    private bool isStomping = false; // sirve para habilitar rebote del trampolin
+    // for dashing:
+    private bool isDashing = false;
+    private bool canDash = false;
     #endregion
 
     #region methods
@@ -49,28 +56,63 @@ public class ActionComponent : MonoBehaviour
     // DONE
     public void Stomp()
     {
-        if (!IsGrounded() && !_stomping)
+        if (!IsGrounded() && !isStomping)
         {
-            _stomping = true;
+            isDashing = false;
+            isStomping = true;
             _myRB.AddForce(impulseStomp * Vector2.down, ForceMode2D.Impulse);
         }
     }
 
     public void Slide()
     {
-        _myTransform.localScale = new Vector3(0.5f, 0.5f, 1);
+        // DASH
+        if (!IsGrounded() && canDash)
+        {
+            isDashing = true;
+            canDash = false;
+            StartCoroutine(Dash());
+        }
+        else if (IsGrounded())
+        {
+            // a lo mejor _myCollider.transform.localScale?
+            _myTransform.localScale = new Vector3(0.5f, 0.5f, 1);
+        }
     }
 
     // DONE
     // Rebote del trampolín con collider isTrigger
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_stomping && collision.gameObject.tag == "Trampolin")
+        GameObject obj = collision.gameObject;
+
+        if (isStomping && obj.CompareTag("Trampolin"))
         {
             _myRB.velocity = Vector2.zero;
             _myRB.AddForce(impulseTrampolin * Vector2.up, ForceMode2D.Impulse);
-            _stomping = false;
+            isStomping = false;
         }
+        if (obj.CompareTag("Moneda dash"))
+        {
+            canDash = true;
+        }
+    }
+    #endregion
+
+    #region interface
+    private IEnumerator Dash()
+    {
+        float startTime = Time.time;
+        dashEndTime = startTime + dashDuration;
+
+        while (Time.time < dashEndTime && isDashing)
+        {
+            _myRB.velocity = Vector2.zero;
+            _myRB.AddForce(- Vector2.up * Physics.gravity, ForceMode2D.Force);
+            yield return null;
+        }
+
+        isDashing = false;
     }
     #endregion
 
@@ -79,11 +121,13 @@ public class ActionComponent : MonoBehaviour
     {
         _myTransform = transform;
         _myRB = GetComponent<Rigidbody2D>();
+        _myCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        // TERMPORARIOOOOOOOO candash:
+        if (IsGrounded()) canDash = true;
     }
 }
