@@ -45,7 +45,7 @@ public class ActionComponent : MonoBehaviour
         //Si hay algo en colision con el personaje esta en el suelo
         //Layer: Plataformas
         //Poner un ColisionTransform en los pies del personaje
-        RaycastHit2D hit = Physics2D.Raycast(_ColisionTransform.position, Vector2.down, groundCheckDistance, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(_myTransform.position, Vector2.down, groundCheckDistance, groundLayer);
         return hit.collider != null;
     }
     public void Jump()
@@ -53,6 +53,7 @@ public class ActionComponent : MonoBehaviour
         //JUMP 
         if (IsGrounded())
         {
+            isStomping = false;
             _myRB.velocity = new Vector2(_myRB.velocity.x, _jumpSpeed);
         }
     }
@@ -156,5 +157,7 @@ public class ActionComponent : MonoBehaviour
     {
         // TERMPORARIOOOOOOOO candash:
         if (IsGrounded()) canDash = true;
+        print(IsGrounded());
+
     }
 }

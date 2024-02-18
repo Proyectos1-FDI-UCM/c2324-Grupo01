@@ -37,7 +37,7 @@ public class MovementComponent : MonoBehaviour
         //Debug.Log(lastYposition + " " + transform.position.y);
 
         //CheckGrounded();
-        Gravity();
+        //Gravity();
         Move();
     }
 
@@ -46,7 +46,7 @@ public class MovementComponent : MonoBehaviour
     {
         if (canMove)
         {
-            Vector3 distanceToMove = new Vector3 (speed, verticalSpeed, 0) * Time.deltaTime;
+            Vector3 distanceToMove = new Vector3 (speed, 0, 0) * Time.deltaTime;
 
             myRigidBody.MovePosition(myTransform.position + distanceToMove);
         }

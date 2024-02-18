@@ -7,6 +7,7 @@ TagManager:
   - Trampolin
   - Moneda dash
   - Enemigo
+  - Caja
   layers:
   - Default
   - TransparentFX
