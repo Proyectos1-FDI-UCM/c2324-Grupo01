@@ -137,7 +137,7 @@ public class ActionComponent : MonoBehaviour
         {
             _myRB.velocity = Vector2.zero;
             _myRB.AddForce(- Vector2.up * Physics.gravity, ForceMode2D.Force);
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
 
         isDashing = false;
