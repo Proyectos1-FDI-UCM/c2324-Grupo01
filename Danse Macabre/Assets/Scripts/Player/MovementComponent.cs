@@ -36,7 +36,7 @@ public class MovementComponent : MonoBehaviour
     {
         //Debug.Log(lastYposition + " " + transform.position.y);
 
-        CheckGrounded();
+        //CheckGrounded();
         Gravity();
         Move();
     }
@@ -51,6 +51,7 @@ public class MovementComponent : MonoBehaviour
             myRigidBody.MovePosition(myTransform.position + distanceToMove);
         }
     }
+
     private void Gravity()
     {
         // Debug.Log(verticalSpeed + Physics.gravity.y * 0.01f);
@@ -69,7 +70,7 @@ public class MovementComponent : MonoBehaviour
         {
             verticalSpeed = 0;
         }
-        Debug.Log(grounded + " " + positionDiff + " " + verticalSpeed);
+        //Debug.Log(grounded + " " + positionDiff + " " + verticalSpeed);
         lastYposition = transform.position.y;
     }
     #endregion

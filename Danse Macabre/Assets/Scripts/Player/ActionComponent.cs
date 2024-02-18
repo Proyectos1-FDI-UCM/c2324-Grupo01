@@ -24,6 +24,9 @@ public class ActionComponent : MonoBehaviour
     private BoxCollider2D _myCollider;
     [SerializeField]
     private LayerMask groundLayer; // Capa que representa el suelo
+
+    [SerializeField]
+    private Transform _ColisionTransform;
     #endregion
 
     #region properties
@@ -37,18 +40,17 @@ public class ActionComponent : MonoBehaviour
     #endregion
 
     #region methods
-    //CAMBIAD LO QUE HACE CADA METODO!! (LO QUE HAY ES PARA PROBAR!)
     private bool IsGrounded()
     {
-        // Realiza un Raycast hacia abajo desde los pies del jugador
-        RaycastHit2D hit = Physics2D.Raycast(_myTransform.position, Vector2.down, groundCheckDistance, groundLayer);
-
-        // Si el Raycast golpea algo en la capa del suelo, el jugador está en el suelo
+        //Si hay algo en colision con el personaje esta en el suelo
+        //Layer: Plataformas
+        //Poner un ColisionTransform en los pies del personaje
+        RaycastHit2D hit = Physics2D.Raycast(_ColisionTransform.position, Vector2.down, groundCheckDistance, groundLayer);
         return hit.collider != null;
-
     }
     public void Jump()
     {
+        //JUMP 
         if (IsGrounded())
         {
             _myRB.velocity = new Vector2(_myRB.velocity.x, _jumpSpeed);
