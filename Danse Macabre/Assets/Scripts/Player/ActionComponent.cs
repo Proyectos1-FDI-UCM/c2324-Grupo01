@@ -12,8 +12,6 @@ public class ActionComponent : MonoBehaviour
     [SerializeField]
     private float impulseStomp = 20;
     [SerializeField]
-    private float impulseTrampolin = 12;
-    [SerializeField]
     private float dashDuration = 2.0f;
     private float dashEndTime = 0;
     #endregion
@@ -24,19 +22,16 @@ public class ActionComponent : MonoBehaviour
     private BoxCollider2D _myCollider;
     [SerializeField]
     private LayerMask groundLayer; // Capa que representa el suelo
-
-    [SerializeField]
-    private Transform _ColisionTransform;
     #endregion
 
     #region properties
     private float _verticalSpeed;
-    private bool isStomping = false; // sirve para habilitar rebote del trampolin
+    public bool isStomping = false; // sirve para habilitar rebote del trampolin
     // for dashing:
-    private bool isDashing = false;
-    private bool canDash = false;
+    public bool isDashing = false;
+    public bool canDash = false;
     // for sliding:
-    private bool isSliding = false;
+    public bool isSliding = false;
     #endregion
 
     #region methods
@@ -58,7 +53,6 @@ public class ActionComponent : MonoBehaviour
         }
     }
 
-    // DONE
     public void Stomp()
     {
         if (!IsGrounded() && !isStomping)
@@ -84,47 +78,6 @@ public class ActionComponent : MonoBehaviour
             _myTransform.localScale = new Vector3(0.5f, 0.5f, 1);
         }
     }
-
-    // DONE
-    // Rebote del trampolín con collider isTrigger
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        GameObject obj = collision.gameObject;
-
-        if (isStomping)
-        {
-            if (obj.CompareTag("Trampolin"))
-            {
-                _myRB.velocity = Vector2.zero;
-                _myRB.AddForce(impulseTrampolin * Vector2.up, ForceMode2D.Impulse);
-                isStomping = false;
-            } 
-        }
-
-        if (obj.CompareTag("Moneda dash"))
-        {
-            canDash = true;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        GameObject obj = collision.gameObject;
-
-        if (isStomping || isDashing || isSliding)
-        {
-            if (obj.CompareTag("Enemigo"))
-            {
-                /* Animación matando enemigo */
-                Destroy(obj); // destroy enemigo
-            }
-            if (obj.CompareTag("Caja"))
-            {
-                /* Animación destruyendo caja */
-                Destroy(obj); // destroy caja
-            }
-        }
-    }
     #endregion
 
     #region interface
@@ -144,7 +97,6 @@ public class ActionComponent : MonoBehaviour
     }
     #endregion
 
-    // Start is called before the first frame update
     void Start()
     {
         _myTransform = transform;
@@ -152,12 +104,9 @@ public class ActionComponent : MonoBehaviour
         _myCollider = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         // TERMPORARIOOOOOOOO candash:
         if (IsGrounded()) canDash = true;
-        print(IsGrounded());
-
     }
 }
