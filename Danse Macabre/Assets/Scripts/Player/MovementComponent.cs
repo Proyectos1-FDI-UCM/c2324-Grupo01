@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class MovementComponent : MonoBehaviour
 {
+    /*
     #region parameters
     [SerializeField]
     float maxSpeed = -100f;
     float verticalSpeed = 0;
     #endregion
-
+    */
+    [SerializeField]
     #region references
     private Transform myTransform;
     private Rigidbody2D myRigidBody;
@@ -20,27 +22,36 @@ public class MovementComponent : MonoBehaviour
     [SerializeField]
     float speed;
     public bool canMove = true;
+    /*
     public bool grounded;
     private float lastYposition;
+    */
     #endregion
 
     void Start()
     {
         myTransform = transform;
         myRigidBody = GetComponent<Rigidbody2D>();
-
-        lastYposition = transform.position.y;
+        Autoscroll();
+        //lastYposition = transform.position.y;
     }
-
+    /*
     void Update()
     {
-        //Debug.Log(lastYposition + " " + transform.position.y);
+        Debug.Log(lastYposition + " " + transform.position.y);
 
-        //CheckGrounded();
-        //Gravity();
+        CheckGrounded();
+        Gravity();
         Move();
+        
+    }
+    */
+    private void Autoscroll()
+    {
+        myRigidBody.velocity = Vector2.right * speed;
     }
 
+    /*
     #region methods
     private void Move()
     {
@@ -74,4 +85,5 @@ public class MovementComponent : MonoBehaviour
         lastYposition = transform.position.y;
     }
     #endregion
+    */
 }
