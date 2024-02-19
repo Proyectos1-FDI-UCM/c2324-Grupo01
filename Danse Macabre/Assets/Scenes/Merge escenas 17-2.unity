@@ -319,7 +319,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 10
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -388,10 +388,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4958371993e8718409ff0dde61fae748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: -150
-  speed: 100
+  myTransform: {fileID: 0}
+  speed: 10
   canMove: 1
-  grounded: 0
 --- !u!212 &975277625
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -474,12 +473,14 @@ MonoBehaviour:
   _jumpSpeed: 9
   groundCheckDistance: 0.55
   impulseStomp: 20
-  impulseTrampolin: 12
   dashDuration: 2
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
-  _ColisionTransform: {fileID: 0}
+  isStomping: 0
+  isDashing: 0
+  canDash: 0
+  isSliding: 0
 --- !u!1 &1024663360
 GameObject:
   m_ObjectHideFlags: 0
