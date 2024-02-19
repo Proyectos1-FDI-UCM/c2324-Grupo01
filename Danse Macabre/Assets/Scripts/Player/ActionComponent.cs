@@ -88,7 +88,7 @@ public class ActionComponent : MonoBehaviour
 
         while (Time.time < dashEndTime && isDashing)
         {
-            _myRB.velocity = Vector2.zero;
+            _myRB.velocity = new Vector2(_myRB.velocity.x, 0);
             _myRB.AddForce(- Vector2.up * Physics.gravity, ForceMode2D.Force);
             yield return new WaitForFixedUpdate();
         }

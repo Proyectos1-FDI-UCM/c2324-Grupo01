@@ -35,17 +35,18 @@ public class MovementComponent : MonoBehaviour
         Autoscroll();
         //lastYposition = transform.position.y;
     }
-    /*
+    
     void Update()
     {
-        Debug.Log(lastYposition + " " + transform.position.y);
+        //Autoscroll();
+        //Debug.Log(lastYposition + " " + transform.position.y);
 
-        CheckGrounded();
-        Gravity();
-        Move();
+        //CheckGrounded();
+        //Gravity();
+        //Move();
         
     }
-    */
+    
     private void Autoscroll()
     {
         myRigidBody.velocity = Vector2.right * speed;
