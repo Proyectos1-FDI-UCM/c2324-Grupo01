@@ -5,7 +5,13 @@ using UnityEngine;
 
 public class CoinComponent : MonoBehaviour
 {
-
+    #region parameters
+    [SerializeField]
+    private int _coinValue = 1;
+    #endregion
+    #region references
+    private PointsCounterComponent _points;
+    #endregion
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Comprueba si estácolisionando con el personaje (tiene que llevar el inventory component)
@@ -13,9 +19,15 @@ public class CoinComponent : MonoBehaviour
         
         if (_playerInventory)
         {
+            _points.AddPoints(_coinValue);
             _playerInventory.CoinRegister();
             Destroy(gameObject);
         }
+    }
+
+    void Start()
+    {
+        _points = FindObjectOfType<PointsCounterComponent>();
     }
 
 }
