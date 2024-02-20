@@ -22,6 +22,26 @@ public class ActionComponent : MonoBehaviour
     private BoxCollider2D _myCollider;
     [SerializeField]
     private LayerMask groundLayer; // Capa que representa el suelo
+
+    //collider references
+    [SerializeField]
+    private float DefaultCollisionSizeX;
+    [SerializeField]
+    private float DefaultCollisionSizeY;
+    [SerializeField]
+    private float DefaultCollisionOffsetX;
+    [SerializeField]
+    private float DefaultCollisionOffsetY;
+    [SerializeField]
+    private float SlideCollisionSizeX;
+    [SerializeField]
+    private float SlideCollisionSizeY;
+    [SerializeField]
+    private float SlideCollisionOffsetX;
+    [SerializeField]
+    private float SlideCollisionOffsetY;
+
+    BoxCollider2D myCollider;
     #endregion
 
     #region properties
@@ -74,9 +94,14 @@ public class ActionComponent : MonoBehaviour
         }
         else if (IsGrounded())
         {
-            // a lo mejor _myCollider.transform.localScale?
-            _myTransform.localScale = new Vector3(0.5f, 0.5f, 1);
+            myCollider.offset = new Vector2(SlideCollisionOffsetX, SlideCollisionOffsetY);
+            myCollider.size = new Vector2(SlideCollisionSizeX, SlideCollisionSizeY);
         }
+    }
+    public void SlideStop()
+    {
+        myCollider.offset = new Vector2(DefaultCollisionOffsetX, DefaultCollisionOffsetY);
+        myCollider.size = new Vector2(DefaultCollisionSizeX, DefaultCollisionSizeY);
     }
     #endregion
 
@@ -102,6 +127,10 @@ public class ActionComponent : MonoBehaviour
         _myTransform = transform;
         _myRB = GetComponent<Rigidbody2D>();
         _myCollider = GetComponent<BoxCollider2D>();
+
+        myCollider = this.gameObject.GetComponent<BoxCollider2D>();
+        myCollider.offset = new Vector2(DefaultCollisionOffsetX, DefaultCollisionOffsetY);
+        myCollider.size = new Vector2(DefaultCollisionSizeX, DefaultCollisionSizeY);
     }
 
     void Update()

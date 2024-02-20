@@ -28,5 +28,10 @@ public class InputManager : MonoBehaviour
         {
             _playerActionComponent.Slide();
         }
+        
+        if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            _playerActionComponent.SlideStop();
+        }
     }
 }
