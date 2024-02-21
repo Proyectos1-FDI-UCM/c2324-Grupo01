@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class EnemyAttackComponent : MonoBehaviour
 {
-    
+    #region references
+    private ActionComponent _playerActionComponent;
+    private GameManager _gameManager;
+    #endregion
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         if (other.GetComponent<MovementComponent>())
         {
-            Time.timeScale = 0f;
+            if (_playerActionComponent.isDashing || _playerActionComponent.isStomping)
+            {
+                Destroy(gameObject);
+            }
+            else _gameManager.Muerte();
         }
     }
-    // Start is called before the first frame update
     void Start()
     {
-        
+        _gameManager = GetComponent<GameManager>();
+        _playerActionComponent=GetComponent<ActionComponent>();
     }
 
     // Update is called once per frame

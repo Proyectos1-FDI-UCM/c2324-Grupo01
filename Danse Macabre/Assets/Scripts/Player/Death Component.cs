@@ -1,22 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    [SerializeField] private GameObject menuMuerte;
+    #region references
+    private GameManager _gameManager;
+    #endregion
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GetComponent<MovementComponent>()) 
         {
-            Time.timeScale = 0f;
-            menuMuerte.SetActive(true);
+            _gameManager.Muerte();
         }
+        
     }
     void Start()
     {
-        
+        _gameManager = GetComponent<GameManager>();
     }
     void Update()
     {
