@@ -41,6 +41,7 @@ public class InteractionComponent : MonoBehaviour
         {
             _myActionComponent.canDash = true;
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
