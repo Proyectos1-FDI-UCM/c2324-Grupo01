@@ -7,7 +7,8 @@ using static UnityEngine.ParticleSystem;
 public class PointsCounterComponent : MonoBehaviour
 {
     #region parameters
-    private double _puntoTotal = 0f;
+    private double _totalPoint = 0f;
+    private double _basicPoint = 0f;
     #endregion
 
     #region references
@@ -17,7 +18,7 @@ public class PointsCounterComponent : MonoBehaviour
     #region methods
     public void AddPoints(int points)
     {
-        _puntoTotal += points;
+        _totalPoint += points;
     }
     #endregion
     void Start()
@@ -30,7 +31,8 @@ public class PointsCounterComponent : MonoBehaviour
     void Update()
     {
 
-        _puntoTotal += Time.deltaTime;
-        _textPuntos.text = _puntoTotal.ToString("0");
+        _basicPoint += Time.deltaTime;
+        _totalPoint += Time.deltaTime;
+        _textPuntos.text = _totalPoint.ToString("0");
     }
 }
