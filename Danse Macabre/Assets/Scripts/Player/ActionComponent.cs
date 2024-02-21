@@ -14,6 +14,10 @@ public class ActionComponent : MonoBehaviour
     [SerializeField]
     private float dashDuration = 2.0f;
     private float dashEndTime = 0;
+
+    //rango de tiempo que puedes hacer dash (cuando coges la moneda especial)
+    [SerializeField]
+    private float _dashElapsedTime = 0.0f;
     #endregion
 
     #region references
@@ -103,6 +107,10 @@ public class ActionComponent : MonoBehaviour
         myCollider.offset = new Vector2(DefaultCollisionOffsetX, DefaultCollisionOffsetY);
         myCollider.size = new Vector2(DefaultCollisionSizeX, DefaultCollisionSizeY);
     }
+    public void DashCountDown(float _time)
+    {
+        _dashElapsedTime = _time;
+    }
     #endregion
 
     #region interface
@@ -136,6 +144,18 @@ public class ActionComponent : MonoBehaviour
     void Update()
     {
         // TERMPORARIOOOOOOOO candash:
-        if (IsGrounded()) canDash = true;
+        if (IsGrounded() ) canDash = false;
+
+        //Despues de coger la moneda, dash elapsed time se actualiza y entrará al condicional
+        if (_dashElapsedTime >= 0)
+        {
+            _dashElapsedTime -= Time.deltaTime;
+            canDash = true;
+        }
+        else
+        {
+            canDash = false;
+        }
+        Debug.Log("Dash time: "+_dashElapsedTime);
     }
 }

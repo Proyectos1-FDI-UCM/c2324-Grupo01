@@ -19,8 +19,4 @@ public class InventoryComponent : MonoBehaviour
     {
     }
 
-    void Update()
-    {
-        Debug.Log("monedas: " + _nCoins);
-    }
 }
