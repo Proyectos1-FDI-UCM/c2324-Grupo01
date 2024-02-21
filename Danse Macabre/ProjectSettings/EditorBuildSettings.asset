@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nivel 2.unity
     guid: 2ea740cc16738bd43b25c8cde471c032
+  - enabled: 1
+    path: Assets/Scenes/Kai_Muerte.unity
+    guid: 54146ec6c5acf014fab0bd6588a7f496
   m_configObjects: {}

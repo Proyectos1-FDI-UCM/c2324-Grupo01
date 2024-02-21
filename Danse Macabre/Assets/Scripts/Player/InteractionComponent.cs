@@ -11,7 +11,10 @@ public class InteractionComponent : MonoBehaviour
 
     #region references
     private Rigidbody2D _myRB;
+    private BoxCollider2D _myCollider;
     private ActionComponent _myActionComponent;
+    [SerializeField]
+    private LayerMask _platformLayer;
     #endregion
 
     #region properties
@@ -38,6 +41,7 @@ public class InteractionComponent : MonoBehaviour
         {
             _myActionComponent.canDash = true;
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -58,16 +62,24 @@ public class InteractionComponent : MonoBehaviour
             }
         }
     }
+
+    private void StompOverlapPrevention()
+    {
+
+    }
     #endregion
 
     void Start()
     {
         _myRB = GetComponent<Rigidbody2D>();
         _myActionComponent = GetComponent<ActionComponent>();
+        _myCollider = GetComponent<BoxCollider2D>();
+
+        
     }
 
     void Update()
     {
-
+        print(_myCollider.size.y / 2);
     }
 }
