@@ -31,7 +31,7 @@ public class InteractionComponent : MonoBehaviour
         {
             if (obj.CompareTag("Trampolin"))
             {
-                _myRB.velocity = Vector2.zero;
+                _myRB.velocity = new Vector2(_myRB.velocity.x, 0);
                 _myRB.AddForce(impulseTrampolin * Vector2.up, ForceMode2D.Impulse);
                 _myActionComponent.isStomping = false;
             }
@@ -64,10 +64,6 @@ public class InteractionComponent : MonoBehaviour
         }
     }
 
-    private void StompOverlapPrevention()
-    {
-
-    }
     #endregion
 
     void Start()
@@ -81,6 +77,6 @@ public class InteractionComponent : MonoBehaviour
 
     void Update()
     {
-        print(_myCollider.size.y / 2);
+
     }
 }
