@@ -7,11 +7,12 @@ public class InputManager : MonoBehaviour
     #region references
     [SerializeField]
     private ActionComponent _playerActionComponent;
+    private MenuPausa _menu;
     #endregion
 
     void Start()
     {
-        
+        _menu = GetComponent<MenuPausa>();
     }
 
     void Update()
@@ -32,6 +33,10 @@ public class InputManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.RightArrow))
         {
             _playerActionComponent.SlideStop();
+        }
+        if(Input.GetKeyDown(KeyCode.Escape)|| Input.GetKeyDown(KeyCode.P))
+        {
+            _menu.Pausa();
         }
     }
 }
