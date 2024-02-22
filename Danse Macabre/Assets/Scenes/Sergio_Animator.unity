@@ -3296,6 +3296,7 @@ MonoBehaviour:
   groundCheckDistance: 0.55
   impulseStomp: 30
   dashDuration: 2
+  _dashElapsedTime: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
