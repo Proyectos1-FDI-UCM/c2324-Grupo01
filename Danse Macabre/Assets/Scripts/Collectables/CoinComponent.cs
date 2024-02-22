@@ -8,12 +8,10 @@ public class CoinComponent : MonoBehaviour
     #region parameters
     [SerializeField]
     private int _coinValue = 1;
-
-
     #endregion
 
     #region references
-    private PointsCounterComponent _points;
+    private ScoreManager _points;
     #endregion
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,7 +21,7 @@ public class CoinComponent : MonoBehaviour
         
         if (_player)
         {
-            _points.AddPoints(_coinValue);
+            _points.AddCoinPoints(_coinValue);
             _points.CoinRegister();
             Destroy(gameObject);
         }
@@ -31,7 +29,7 @@ public class CoinComponent : MonoBehaviour
 
     void Start()
     {
-        _points = FindObjectOfType<PointsCounterComponent>();
+        _points = FindObjectOfType<ScoreManager>();
     }
 
 }

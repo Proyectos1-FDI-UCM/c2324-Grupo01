@@ -9,11 +9,15 @@ public class EnemyInteractionComponent : MonoBehaviour
     #region parameters
     [SerializeField]
     private float _destroyTime = 5f;
+
+    [SerializeField]
+    private int _enemyValue = 5;
     #endregion
     #region references
     private ActionComponent _playerActionComponent;
     private GameManager _gameManager;
     private EnemyAnimation _enemyAnimation;
+    private ScoreManager _scoreManager;
     #endregion
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -23,6 +27,7 @@ public class EnemyInteractionComponent : MonoBehaviour
             if (_playerActionComponent.isStomping || _playerActionComponent.isDashing)
             {
                 _enemyAnimation.DeathAnimation(); //Muere enemigo
+                _scoreManager.AddEnemyPoints(_enemyValue);
                 Invoke("DestroyEnemy", _destroyTime);
             }
             else _gameManager.Muerte(); //muere personaje
@@ -36,6 +41,7 @@ public class EnemyInteractionComponent : MonoBehaviour
     {
         _gameManager = FindObjectOfType<GameManager>();
         _playerActionComponent=FindObjectOfType<ActionComponent>();
+        _scoreManager = FindObjectOfType<ScoreManager>();
         _enemyAnimation= GetComponent<EnemyAnimation>();
     }
 }
