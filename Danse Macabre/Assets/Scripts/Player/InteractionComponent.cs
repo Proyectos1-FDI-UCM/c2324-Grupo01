@@ -50,11 +50,12 @@ public class InteractionComponent : MonoBehaviour
 
         if (_myActionComponent.isStomping || _myActionComponent.isDashing || _myActionComponent.isSliding)
         {
-            if (obj.CompareTag("Enemigo"))
+           /* if (obj.CompareTag("Enemigo"))
             {
-                /* Animación matando enemigo */
-                Destroy(obj); // destroy enemigo
+                // Animación matando enemigo
+               Destroy(obj); // destroy enemigo
             }
+           */
             if (obj.CompareTag("Caja"))
             {
                 /* Animación destruyendo caja */
