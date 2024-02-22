@@ -18,13 +18,13 @@ public class CoinComponent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Comprueba si est?colisionando con el personaje (tiene que llevar el inventory component)
-        InventoryComponent _playerInventory = collision.gameObject.GetComponent<InventoryComponent>();
+        //Comprueba si esta colisionando con el personaje
+        ActionComponent _player = collision.gameObject.GetComponent<ActionComponent>();
         
-        if (_playerInventory)
+        if (_player)
         {
             _points.AddPoints(_coinValue);
-            _playerInventory.CoinRegister();
+            _points.CoinRegister();
             Destroy(gameObject);
         }
     }

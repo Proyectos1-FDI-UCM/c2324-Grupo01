@@ -8,6 +8,8 @@ public class PointsCounterComponent : MonoBehaviour
     #region parameters
     private double _totalPoint = 0f;
     private double _basicPoint = 0f;
+
+    private int _nCoins = 0;
     #endregion
 
     #region references
@@ -19,6 +21,11 @@ public class PointsCounterComponent : MonoBehaviour
     public void AddPoints(int points)
     {
         _totalPoint += points;
+    }
+    
+    public void CoinRegister()
+    {
+        _nCoins++;
     }
     #endregion
     void Start()

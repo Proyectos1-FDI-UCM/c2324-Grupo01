@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class ActionComponent : MonoBehaviour
 {
     #region parameters
+    //Saltos
     [SerializeField]
-    private float _jumpSpeed = 9.0f;
+    private float _jumpSpeed;
+    //La altura maxima que alcanza el salto
+    [SerializeField]
+    private float _maxHeight = 9.0f;
+
     [SerializeField]
     private float groundCheckDistance = 0.55f; // Estaba pequeña
     [SerializeField]
@@ -50,13 +56,14 @@ public class ActionComponent : MonoBehaviour
     #endregion
 
     #region properties
-    private float _verticalSpeed;
     public bool isStomping = false; // sirve para habilitar rebote del trampolin
     // for dashing:
     public bool isDashing = false;
     public bool canDash = false;
     // for sliding:
     public bool isSliding = false;
+    //for jumping
+    public bool _isJumping = false;
     #endregion
 
     #region methods
@@ -71,12 +78,13 @@ public class ActionComponent : MonoBehaviour
     }
     public void Jump()
     {
-        
         //JUMP 
         if (IsGrounded())
         {
             isStomping = false;
             _myRB.velocity = new Vector2(_myRB.velocity.x, _jumpSpeed);
+            _isJumping = true;
+
         }
     }
 
@@ -147,7 +155,10 @@ public class ActionComponent : MonoBehaviour
     void Update()
     {
         // TERMPORARIOOOOOOOO candash:
-        if (IsGrounded() ) canDash = false;
+        if (IsGrounded())
+        {
+            canDash = false;
+        }
 
         //Despues de coger la moneda, dash elapsed time se actualiza y entrar?al condicional
         if (_dashElapsedTime >= 0)
@@ -160,5 +171,16 @@ public class ActionComponent : MonoBehaviour
             canDash = false;
         }
         //Debug.Log("Dash time: "+_dashElapsedTime);
+
+        if (_isJumping)
+        {
+            // Verificar si la altura alcanzada es mayor o igual a la altura máxima
+            if (_myTransform.position.y >= _maxHeight)
+            {
+                // Cambiar la dirección de la velocidad vertical para que el personaje comience a caer
+                _myRB.velocity = new Vector2(_myRB.velocity.x, -_jumpSpeed/2.75f);
+                _isJumping = false;
+            }
+        }
     }
 }
