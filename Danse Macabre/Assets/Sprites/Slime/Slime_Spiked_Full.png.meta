@@ -1,94 +1,88 @@
 fileFormatVersion: 2
-guid: 0ba61f9dd40068e4999bb58f3c876283
+guid: ea66931b963ce0c43ac4a901a9bd2e62
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6652092429531671927
-    second: Slime_Spiked_Full_FX_0
+      213: 899315698257640460
+    second: Slime_Spiked_Full_0
   - first:
-      213: 4389891636127469330
-    second: Slime_Spiked_Full_FX_1
+      213: 8985557641834257860
+    second: Slime_Spiked_Full_1
   - first:
-      213: -1091046979330540422
-    second: Slime_Spiked_Full_FX_2
+      213: 4976304455426132218
+    second: Slime_Spiked_Full_2
   - first:
-      213: -5141269123089300827
-    second: Slime_Spiked_Full_FX_3
+      213: 540140106925648943
+    second: Slime_Spiked_Full_3
   - first:
-      213: -8546585220000990537
-    second: Slime_Spiked_Full_FX_4
+      213: -3686540247359124011
+    second: Slime_Spiked_Full_4
   - first:
-      213: -1112753060379703251
-    second: Slime_Spiked_Full_FX_5
+      213: -7500368697047136689
+    second: Slime_Spiked_Full_5
   - first:
-      213: -63741107797923982
-    second: Slime_Spiked_Full_FX_6
+      213: -5946219798680489381
+    second: Slime_Spiked_Full_6
   - first:
-      213: 6333503054479963799
-    second: Slime_Spiked_Full_FX_7
+      213: -1899831863467539378
+    second: Slime_Spiked_Full_7
   - first:
-      213: -928037651645847080
-    second: Slime_Spiked_Full_FX_8
+      213: -3352209651924543621
+    second: Slime_Spiked_Full_8
   - first:
-      213: -3305764474643287063
-    second: Slime_Spiked_Full_FX_9
+      213: -4890900451471513074
+    second: Slime_Spiked_Full_9
   - first:
-      213: 1035738013988192756
-    second: Slime_Spiked_Full_FX_10
+      213: -6614312805308538352
+    second: Slime_Spiked_Full_10
   - first:
-      213: -3752843827815738110
-    second: Slime_Spiked_Full_FX_11
+      213: -1911161726305035259
+    second: Slime_Spiked_Full_11
   - first:
-      213: -6885121650265741297
-    second: Slime_Spiked_Full_FX_12
+      213: -341697491132603376
+    second: Slime_Spiked_Full_12
   - first:
-      213: -7050481491560794155
-    second: Slime_Spiked_Full_FX_13
+      213: 4186094331094652950
+    second: Slime_Spiked_Full_13
   - first:
-      213: -2244833074827219660
-    second: Slime_Spiked_Full_FX_14
+      213: 5727334454180586134
+    second: Slime_Spiked_Full_14
   - first:
-      213: 1159780812233639597
-    second: Slime_Spiked_Full_FX_15
+      213: -111831838134702157
+    second: Slime_Spiked_Full_15
   - first:
-      213: 8885671328724704889
-    second: Slime_Spiked_Full_FX_16
+      213: 2568858518284430493
+    second: Slime_Spiked_Full_16
   - first:
-      213: 8822991713895793589
-    second: Slime_Spiked_Full_FX_17
+      213: -6402521658054066949
+    second: Slime_Spiked_Full_17
   - first:
-      213: 2689063991323463929
-    second: Slime_Spiked_Full_FX_18
+      213: -4626281431166938970
+    second: Slime_Spiked_Full_18
   - first:
-      213: 880360449564569593
-    second: Slime_Spiked_Full_FX_19
+      213: -8239905495622697324
+    second: Slime_Spiked_Full_19
   - first:
-      213: -7967351678771783304
-    second: Slime_Spiked_Full_FX_20
+      213: 4773254477003170669
+    second: Slime_Spiked_Full_20
   - first:
-      213: 1880902759657471234
-    second: Slime_Spiked_Full_FX_21
+      213: -963872747887498076
+    second: Slime_Spiked_Full_21
   - first:
-      213: -5860893683983658977
-    second: Slime_Spiked_Full_FX_22
+      213: 3688925277104999775
+    second: Slime_Spiked_Full_22
   - first:
-      213: 146965219539534927
-    second: Slime_Spiked_Full_FX_23
+      213: -7957463213478331854
+    second: Slime_Spiked_Full_23
   - first:
-      213: 4167828407216863341
-    second: Slime_Spiked_Full_FX_24
+      213: -3472883477838824793
+    second: Slime_Spiked_Full_24
   - first:
-      213: 7851042613504554650
-    second: Slime_Spiked_Full_FX_25
+      213: 2624113828661962675
+    second: Slime_Spiked_Full_25
   - first:
-      213: -607210119400738135
-    second: Slime_Spiked_Full_FX_26
-  - first:
-      213: -7863005714820214987
-    second: Slime_Spiked_Full_FX_27
-  - first:
-      213: 9052840966598320989
-    second: Slime_Spiked_Full_FX_28
+      213: 1370103462913686679
+    second: Slime_Spiked_Full_26
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -135,7 +129,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -161,7 +155,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -174,7 +168,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -187,7 +181,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -200,7 +194,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -213,7 +207,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -226,7 +220,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -236,7 +230,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_0
+      name: Slime_Spiked_Full_0
       rect:
         serializedVersion: 2
         x: 0
@@ -250,14 +244,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77dec4302daf05c50800000000000000
-      internalID: 6652092429531671927
+      spriteID: c0c349fdcd20b7c00800000000000000
+      internalID: 899315698257640460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_1
+      name: Slime_Spiked_Full_1
       rect:
         serializedVersion: 2
         x: 64
@@ -271,14 +265,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21f06d53f270cec30800000000000000
-      internalID: 4389891636127469330
+      spriteID: 4cdd356511d13bc70800000000000000
+      internalID: 8985557641834257860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_2
+      name: Slime_Spiked_Full_2
       rect:
         serializedVersion: 2
         x: 128
@@ -292,14 +286,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7c7dbb8d82dbd0f0800000000000000
-      internalID: -1091046979330540422
+      spriteID: af84edf59826f0540800000000000000
+      internalID: 4976304455426132218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_3
+      name: Slime_Spiked_Full_3
       rect:
         serializedVersion: 2
         x: 192
@@ -313,14 +307,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a2049fd8fa86a8b0800000000000000
-      internalID: -5141269123089300827
+      spriteID: f2cae32c096fe7700800000000000000
+      internalID: 540140106925648943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_4
+      name: Slime_Spiked_Full_4
       rect:
         serializedVersion: 2
         x: 256
@@ -334,14 +328,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7babc3f260e646980800000000000000
-      internalID: -8546585220000990537
+      spriteID: 5dd8af95d27c6dcc0800000000000000
+      internalID: -3686540247359124011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_5
+      name: Slime_Spiked_Full_5
       rect:
         serializedVersion: 2
         x: 320
@@ -355,14 +349,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d28c659bcf4be80f0800000000000000
-      internalID: -1112753060379703251
+      spriteID: f46cb00a86659e790800000000000000
+      internalID: -7500368697047136689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_6
+      name: Slime_Spiked_Full_6
       rect:
         serializedVersion: 2
         x: 0
@@ -376,14 +370,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2776d18dccb8d1ff0800000000000000
-      internalID: -63741107797923982
+      spriteID: b523147f898ca7da0800000000000000
+      internalID: -5946219798680489381
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_7
+      name: Slime_Spiked_Full_7
       rect:
         serializedVersion: 2
         x: 64
@@ -397,14 +391,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7963122c87f15e750800000000000000
-      internalID: 6333503054479963799
+      spriteID: e448c056cf072a5e0800000000000000
+      internalID: -1899831863467539378
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_8
+      name: Slime_Spiked_Full_8
       rect:
         serializedVersion: 2
         x: 128
@@ -418,14 +412,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d9267b3ca2fe13f0800000000000000
-      internalID: -928037651645847080
+      spriteID: b77d664151f8a71d0800000000000000
+      internalID: -3352209651924543621
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_9
+      name: Slime_Spiked_Full_9
       rect:
         serializedVersion: 2
         x: 192
@@ -439,14 +433,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e3f7c999b09f12d0800000000000000
-      internalID: -3305764474643287063
+      spriteID: e0a2e36d3f7002cb0800000000000000
+      internalID: -4890900451471513074
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_10
+      name: Slime_Spiked_Full_10
       rect:
         serializedVersion: 2
         x: 256
@@ -460,14 +454,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f182247c3eaf5e00800000000000000
-      internalID: 1035738013988192756
+      spriteID: 01264463c8d3534a0800000000000000
+      internalID: -6614312805308538352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_11
+      name: Slime_Spiked_Full_11
       rect:
         serializedVersion: 2
         x: 320
@@ -481,14 +475,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20596890c683bebc0800000000000000
-      internalID: -3752843827815738110
+      spriteID: 50c144329803a75e0800000000000000
+      internalID: -1911161726305035259
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_12
+      name: Slime_Spiked_Full_12
       rect:
         serializedVersion: 2
         x: 0
@@ -502,14 +496,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f082f8886522370a0800000000000000
-      internalID: -6885121650265741297
+      spriteID: 014266431fb024bf0800000000000000
+      internalID: -341697491132603376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_13
+      name: Slime_Spiked_Full_13
       rect:
         serializedVersion: 2
         x: 64
@@ -523,14 +517,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d77d004078a72e90800000000000000
-      internalID: -7050481491560794155
+      spriteID: 6185c218d9ef71a30800000000000000
+      internalID: 4186094331094652950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_14
+      name: Slime_Spiked_Full_14
       rect:
         serializedVersion: 2
         x: 128
@@ -544,14 +538,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43d20ea4630c8d0e0800000000000000
-      internalID: -2244833074827219660
+      spriteID: 6922a4367549b7f40800000000000000
+      internalID: 5727334454180586134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_15
+      name: Slime_Spiked_Full_15
       rect:
         serializedVersion: 2
         x: 192
@@ -565,14 +559,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da60082018e581010800000000000000
-      internalID: 1159780812233639597
+      spriteID: 3bfe6652981b27ef0800000000000000
+      internalID: -111831838134702157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_16
+      name: Slime_Spiked_Full_16
       rect:
         serializedVersion: 2
         x: 256
@@ -586,14 +580,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97e5283cefe305b70800000000000000
-      internalID: 8885671328724704889
+      spriteID: d9c6494463b66a320800000000000000
+      internalID: 2568858518284430493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_17
+      name: Slime_Spiked_Full_17
       rect:
         serializedVersion: 2
         x: 320
@@ -607,14 +601,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b349f2b730917a70800000000000000
-      internalID: 8822991713895793589
+      spriteID: bfc31f8597ca527a0800000000000000
+      internalID: -6402521658054066949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_18
+      name: Slime_Spiked_Full_18
       rect:
         serializedVersion: 2
         x: 0
@@ -628,14 +622,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f0112de379715520800000000000000
-      internalID: 2689063991323463929
+      spriteID: 6a01f48ac852ccfb0800000000000000
+      internalID: -4626281431166938970
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_19
+      name: Slime_Spiked_Full_19
       rect:
         serializedVersion: 2
         x: 64
@@ -649,14 +643,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ff699e1a2ba73c00800000000000000
-      internalID: 880360449564569593
+      spriteID: 49ebe9ecb99f5ad80800000000000000
+      internalID: -8239905495622697324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_20
+      name: Slime_Spiked_Full_20
       rect:
         serializedVersion: 2
         x: 128
@@ -670,14 +664,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 879123a6cd74e6190800000000000000
-      internalID: -7967351678771783304
+      spriteID: d63215438a10e3240800000000000000
+      internalID: 4773254477003170669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_21
+      name: Slime_Spiked_Full_21
       rect:
         serializedVersion: 2
         x: 192
@@ -691,14 +685,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20d7f6e281f4a1a10800000000000000
-      internalID: 1880902759657471234
+      spriteID: 4ac6c75b7d2af92f0800000000000000
+      internalID: -963872747887498076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_22
+      name: Slime_Spiked_Full_22
       rect:
         serializedVersion: 2
         x: 256
@@ -712,14 +706,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f10d2db2f3ce9aea0800000000000000
-      internalID: -5860893683983658977
+      spriteID: f5d8dc8aef1b13330800000000000000
+      internalID: 3688925277104999775
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_23
+      name: Slime_Spiked_Full_23
       rect:
         serializedVersion: 2
         x: 320
@@ -733,14 +727,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f44cdf8a6102a0200800000000000000
-      internalID: 146965219539534927
+      spriteID: 23ab2672e59619190800000000000000
+      internalID: -7957463213478331854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_24
+      name: Slime_Spiked_Full_24
       rect:
         serializedVersion: 2
         x: 0
@@ -754,14 +748,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6871f0bad917d930800000000000000
-      internalID: 4167828407216863341
+      spriteID: 7aaf71580e6ddcfc0800000000000000
+      internalID: -3472883477838824793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_25
+      name: Slime_Spiked_Full_25
       rect:
         serializedVersion: 2
         x: 64
@@ -775,14 +769,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a96b46e09a184fc60800000000000000
-      internalID: 7851042613504554650
+      spriteID: 3b7269fbf99ba6420800000000000000
+      internalID: 2624113828661962675
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_26
+      name: Slime_Spiked_Full_26
       rect:
         serializedVersion: 2
         x: 128
@@ -796,50 +790,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a2b8111d91c297f0800000000000000
-      internalID: -607210119400738135
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_27
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 53f464d56fdf0e290800000000000000
-      internalID: -7863005714820214987
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Slime_Spiked_Full_FX_28
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d53623625e622ad70800000000000000
-      internalID: 9052840966598320989
+      spriteID: 79cb08427d5930310800000000000000
+      internalID: 1370103462913686679
       vertices: []
       indices: 
       edges: []
@@ -855,35 +807,33 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Slime_Spiked_Full_FX_0: 6652092429531671927
-      Slime_Spiked_Full_FX_1: 4389891636127469330
-      Slime_Spiked_Full_FX_10: 1035738013988192756
-      Slime_Spiked_Full_FX_11: -3752843827815738110
-      Slime_Spiked_Full_FX_12: -6885121650265741297
-      Slime_Spiked_Full_FX_13: -7050481491560794155
-      Slime_Spiked_Full_FX_14: -2244833074827219660
-      Slime_Spiked_Full_FX_15: 1159780812233639597
-      Slime_Spiked_Full_FX_16: 8885671328724704889
-      Slime_Spiked_Full_FX_17: 8822991713895793589
-      Slime_Spiked_Full_FX_18: 2689063991323463929
-      Slime_Spiked_Full_FX_19: 880360449564569593
-      Slime_Spiked_Full_FX_2: -1091046979330540422
-      Slime_Spiked_Full_FX_20: -7967351678771783304
-      Slime_Spiked_Full_FX_21: 1880902759657471234
-      Slime_Spiked_Full_FX_22: -5860893683983658977
-      Slime_Spiked_Full_FX_23: 146965219539534927
-      Slime_Spiked_Full_FX_24: 4167828407216863341
-      Slime_Spiked_Full_FX_25: 7851042613504554650
-      Slime_Spiked_Full_FX_26: -607210119400738135
-      Slime_Spiked_Full_FX_27: -7863005714820214987
-      Slime_Spiked_Full_FX_28: 9052840966598320989
-      Slime_Spiked_Full_FX_3: -5141269123089300827
-      Slime_Spiked_Full_FX_4: -8546585220000990537
-      Slime_Spiked_Full_FX_5: -1112753060379703251
-      Slime_Spiked_Full_FX_6: -63741107797923982
-      Slime_Spiked_Full_FX_7: 6333503054479963799
-      Slime_Spiked_Full_FX_8: -928037651645847080
-      Slime_Spiked_Full_FX_9: -3305764474643287063
+      Slime_Spiked_Full_0: 899315698257640460
+      Slime_Spiked_Full_1: 8985557641834257860
+      Slime_Spiked_Full_10: -6614312805308538352
+      Slime_Spiked_Full_11: -1911161726305035259
+      Slime_Spiked_Full_12: -341697491132603376
+      Slime_Spiked_Full_13: 4186094331094652950
+      Slime_Spiked_Full_14: 5727334454180586134
+      Slime_Spiked_Full_15: -111831838134702157
+      Slime_Spiked_Full_16: 2568858518284430493
+      Slime_Spiked_Full_17: -6402521658054066949
+      Slime_Spiked_Full_18: -4626281431166938970
+      Slime_Spiked_Full_19: -8239905495622697324
+      Slime_Spiked_Full_2: 4976304455426132218
+      Slime_Spiked_Full_20: 4773254477003170669
+      Slime_Spiked_Full_21: -963872747887498076
+      Slime_Spiked_Full_22: 3688925277104999775
+      Slime_Spiked_Full_23: -7957463213478331854
+      Slime_Spiked_Full_24: -3472883477838824793
+      Slime_Spiked_Full_25: 2624113828661962675
+      Slime_Spiked_Full_26: 1370103462913686679
+      Slime_Spiked_Full_3: 540140106925648943
+      Slime_Spiked_Full_4: -3686540247359124011
+      Slime_Spiked_Full_5: -7500368697047136689
+      Slime_Spiked_Full_6: -5946219798680489381
+      Slime_Spiked_Full_7: -1899831863467539378
+      Slime_Spiked_Full_8: -3352209651924543621
+      Slime_Spiked_Full_9: -4890900451471513074
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 36c306bbdf8331549ad33fdf28f674e7
+guid: 3cb946402d415fe43999271253e984e0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1165160126693205279
-    second: Slime_Spiked_Ability_0
+      213: -7403321913631695209
+    second: Slime_Spiked_Death_0
   - first:
-      213: 3650526319238169895
-    second: Slime_Spiked_Ability_1
+      213: -7094428357162499472
+    second: Slime_Spiked_Death_1
   - first:
-      213: -5917415401689620539
-    second: Slime_Spiked_Ability_2
+      213: -6865569292106185554
+    second: Slime_Spiked_Death_2
   - first:
-      213: 6876234687206134046
-    second: Slime_Spiked_Ability_3
+      213: -5301956442226094466
+    second: Slime_Spiked_Death_3
+  - first:
+      213: 1492179977762778702
+    second: Slime_Spiked_Death_4
+  - first:
+      213: 352125740349179034
+    second: Slime_Spiked_Death_5
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -60,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -161,7 +167,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slime_Spiked_Ability_0
+      name: Slime_Spiked_Death_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79e1e1ca1fd124990800000000000000
+      internalID: -7403321913631695209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Spiked_Death_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0720fde3ff68b8d90800000000000000
+      internalID: -7094428357162499472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Spiked_Death_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea44e2baa1998b0a0800000000000000
+      internalID: -6865569292106185554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Spiked_Death_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7e058ee4baab66b0800000000000000
+      internalID: -5301956442226094466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Spiked_Death_4
       rect:
         serializedVersion: 2
         x: 0
@@ -175,14 +265,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ea900eb90584dfe0800000000000000
-      internalID: -1165160126693205279
+      spriteID: e4e208ba8c945b410800000000000000
+      internalID: 1492179977762778702
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Ability_1
+      name: Slime_Spiked_Death_5
       rect:
         serializedVersion: 2
         x: 64
@@ -196,50 +286,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 725c765985649a230800000000000000
-      internalID: 3650526319238169895
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Slime_Spiked_Ability_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5cf5dd14b0e11eda0800000000000000
-      internalID: -5917415401689620539
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Slime_Spiked_Ability_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e111423240b4d6f50800000000000000
-      internalID: 6876234687206134046
+      spriteID: a94c8c5ce7003e400800000000000000
+      internalID: 352125740349179034
       vertices: []
       indices: 
       edges: []
@@ -255,10 +303,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Slime_Spiked_Ability_0: -1165160126693205279
-      Slime_Spiked_Ability_1: 3650526319238169895
-      Slime_Spiked_Ability_2: -5917415401689620539
-      Slime_Spiked_Ability_3: 6876234687206134046
+      Slime_Spiked_Death_0: -7403321913631695209
+      Slime_Spiked_Death_1: -7094428357162499472
+      Slime_Spiked_Death_2: -6865569292106185554
+      Slime_Spiked_Death_3: -5301956442226094466
+      Slime_Spiked_Death_4: 1492179977762778702
+      Slime_Spiked_Death_5: 352125740349179034
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

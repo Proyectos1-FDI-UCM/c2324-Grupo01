@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class ActionComponent : MonoBehaviour
@@ -64,11 +65,13 @@ public class ActionComponent : MonoBehaviour
         //Si hay algo en colision con el personaje esta en el suelo
         //Layer: Plataformas
         //Poner un ColisionTransform en los pies del personaje
+
         RaycastHit2D hit = Physics2D.Raycast(_myTransform.position, Vector2.down, groundCheckDistance, groundLayer);
         return hit.collider != null;
     }
     public void Jump()
     {
+        
         //JUMP 
         if (IsGrounded())
         {
@@ -146,7 +149,7 @@ public class ActionComponent : MonoBehaviour
         // TERMPORARIOOOOOOOO candash:
         if (IsGrounded() ) canDash = false;
 
-        //Despues de coger la moneda, dash elapsed time se actualiza y entrará al condicional
+        //Despues de coger la moneda, dash elapsed time se actualiza y entrar?al condicional
         if (_dashElapsedTime >= 0)
         {
             _dashElapsedTime -= Time.deltaTime;
@@ -156,6 +159,6 @@ public class ActionComponent : MonoBehaviour
         {
             canDash = false;
         }
-        Debug.Log("Dash time: "+_dashElapsedTime);
+        //Debug.Log("Dash time: "+_dashElapsedTime);
     }
 }

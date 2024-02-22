@@ -1,19 +1,31 @@
 fileFormatVersion: 2
-guid: 0a210a6ac82f1214a89ccd8911af22c7
+guid: 457baa5169ec3724cb71901b1cfce7f4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1576031485842391493
-    second: Slime_Spiked_Idle_0
+      213: 7524902037825835571
+    second: Slime_Spiked_Jump_FX_6
   - first:
-      213: 49299943660144575
-    second: Slime_Spiked_Idle_1
+      213: 5469817097825885410
+    second: Slime_Spiked_Jump_FX_7
   - first:
-      213: 8754206811601755578
-    second: Slime_Spiked_Idle_2
+      213: 8715150257315831493
+    second: Slime_Spiked_Jump_FX_5
   - first:
-      213: 8758403031542844042
-    second: Slime_Spiked_Idle_3
+      213: -6841430966232491922
+    second: Slime_Spiked_Jump_FX_6
+  - first:
+      213: 7307566540620107963
+    second: Slime_Spiked_Jump_FX_7
+  - first:
+      213: -1093409250314809533
+    second: Slime_Spiked_Jump_FX_8
+  - first:
+      213: 2314559302037213156
+    second: Slime_Spiked_Jump_FX_9
+  - first:
+      213: 5584578538990826843
+    second: Slime_Spiked_Jump_FX_10
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -60,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -161,7 +173,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slime_Spiked_Idle_0
+      name: Slime_Spiked_Jump_FX_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 332d836e882dd6860800000000000000
+      internalID: -6841430966232491922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Spiked_Jump_FX_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ec154e8ba1b8eb40800000000000000
+      internalID: 7307566540620107963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Spiked_Jump_FX_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ced673fbfe62f870800000000000000
+      internalID: 8715150257315831493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Spiked_Jump_FX_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e68da5e98ca5e01a0800000000000000
+      internalID: 7524902037825835571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Spiked_Jump_FX_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb011323d01b96560800000000000000
+      internalID: 5469817097825885410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Spiked_Jump_FX_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34f0cd8741e63d0f0800000000000000
+      internalID: -1093409250314809533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Spiked_Jump_FX_9
       rect:
         serializedVersion: 2
         x: 0
@@ -169,20 +307,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c1877449403fd510800000000000000
-      internalID: 1576031485842391493
+      spriteID: 4ef01811c67fe1020800000000000000
+      internalID: 2314559302037213156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Spiked_Idle_1
+      name: Slime_Spiked_Jump_FX_10
       rect:
         serializedVersion: 2
         x: 64
@@ -190,56 +328,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb74f4d99062fa000800000000000000
-      internalID: 49299943660144575
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Slime_Spiked_Idle_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: abdd3df96b03d7970800000000000000
-      internalID: 8754206811601755578
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Slime_Spiked_Idle_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8ac0d637291c8970800000000000000
-      internalID: 8758403031542844042
+      spriteID: b5571d4c798608d40800000000000000
+      internalID: 5584578538990826843
       vertices: []
       indices: 
       edges: []
@@ -255,10 +351,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Slime_Spiked_Idle_0: 1576031485842391493
-      Slime_Spiked_Idle_1: 49299943660144575
-      Slime_Spiked_Idle_2: 8754206811601755578
-      Slime_Spiked_Idle_3: 8758403031542844042
+      Slime_Spiked_Jump_FX_10: 5584578538990826843
+      Slime_Spiked_Jump_FX_3: -6841430966232491922
+      Slime_Spiked_Jump_FX_4: 7307566540620107963
+      Slime_Spiked_Jump_FX_5: 8715150257315831493
+      Slime_Spiked_Jump_FX_6: 7524902037825835571
+      Slime_Spiked_Jump_FX_7: 5469817097825885410
+      Slime_Spiked_Jump_FX_8: -1093409250314809533
+      Slime_Spiked_Jump_FX_9: 2314559302037213156
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

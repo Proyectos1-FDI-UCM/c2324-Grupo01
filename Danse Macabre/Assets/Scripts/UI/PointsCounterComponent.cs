@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static UnityEngine.ParticleSystem;
 
 public class PointsCounterComponent : MonoBehaviour
 {
@@ -12,6 +11,7 @@ public class PointsCounterComponent : MonoBehaviour
     #endregion
 
     #region references
+    [SerializeField]
     private TextMeshProUGUI _textPuntos;
     #endregion
 
@@ -23,8 +23,6 @@ public class PointsCounterComponent : MonoBehaviour
     #endregion
     void Start()
     {
-        _textPuntos = GetComponent<TextMeshProUGUI>();
-
     }
 
     // Update is called once per frame

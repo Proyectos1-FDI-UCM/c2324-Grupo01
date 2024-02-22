@@ -22,7 +22,7 @@ public class MenuPausa : MonoBehaviour
     public void Reiniciar() 
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);   //Reiniciar la escena que está
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);   //Reiniciar la escena que est?
     }
     public void Quit() 
     {
