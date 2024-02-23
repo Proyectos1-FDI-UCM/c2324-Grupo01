@@ -16,10 +16,12 @@ public class MovementComponent : MonoBehaviour
     #region references
     private Transform myTransform;
     private Rigidbody2D myRigidBody;
+    [SerializeField]
+    private TempoManager TempoManager;
     #endregion
 
     #region properties
-    [SerializeField]
+    //[SerializeField]
     float speed;
     public bool canMove = true;
     /*
@@ -32,6 +34,7 @@ public class MovementComponent : MonoBehaviour
     {
         myTransform = transform;
         myRigidBody = GetComponent<Rigidbody2D>();
+        speed = TempoManager.PlayerSpeed;
         Autoscroll();
         //lastYposition = transform.position.y;
     }
