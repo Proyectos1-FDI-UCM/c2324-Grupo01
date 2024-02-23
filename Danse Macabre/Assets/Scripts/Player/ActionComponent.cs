@@ -67,7 +67,7 @@ public class ActionComponent : MonoBehaviour
     #endregion
 
     #region methods
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         //Si hay algo en colision con el personaje esta en el suelo
         //Layer: Plataformas
@@ -82,6 +82,7 @@ public class ActionComponent : MonoBehaviour
         if (IsGrounded())
         {
             isStomping = false;
+            _isJumping = true;
             _myRB.velocity = new Vector2(_myRB.velocity.x, _jumpSpeed);
         }
     }
