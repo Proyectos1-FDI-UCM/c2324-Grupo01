@@ -83,8 +83,6 @@ public class ActionComponent : MonoBehaviour
         {
             isStomping = false;
             _myRB.velocity = new Vector2(_myRB.velocity.x, _jumpSpeed);
-            _isJumping = true;
-
         }
     }
 
@@ -171,16 +169,5 @@ public class ActionComponent : MonoBehaviour
             canDash = false;
         }
         //Debug.Log("Dash time: "+_dashElapsedTime);
-
-        if (_isJumping)
-        {
-            // Verificar si la altura alcanzada es mayor o igual a la altura máxima
-            if (_myTransform.position.y >= _maxHeight)
-            {
-                // Cambiar la dirección de la velocidad vertical para que el personaje comience a caer
-                _myRB.velocity = new Vector2(_myRB.velocity.x, -_jumpSpeed/2.75f);
-                _isJumping = false;
-            }
-        }
     }
 }
