@@ -693,8 +693,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d01431bb08bb449a6636310af997ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BPM: 30
-  TilesPerTick: 8
+  BPM: 120
+  TilesPerTick: 4
   SecondsPerTick: 0
   PlayerSpeed: 0
 --- !u!1001 &570600234

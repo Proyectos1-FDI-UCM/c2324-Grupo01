@@ -6,14 +6,14 @@ using UnityEngine;
 public class TempoManager : MonoBehaviour
 {
     [SerializeField]
-    int BPM = 190; // BPM de la canción del nivel. Serializado
+    int BPM = 60; // BPM de la canción del nivel. Serializado
     [SerializeField]
-    float TilesPerTick; // Cantidad de tiles que hay que recorrer en cada tick de la canción. Serializado
+    float TilesPerTick = 4; // Cantidad de tiles que hay que recorrer en cada tick de la canción. Serializado
 
     public float SecondsPerTick; // Cantidad de tiempo para completar un tick. Referenciable
     public float PlayerSpeed; // Velocidad del jugador calculada basado en BPM y TilesPerTick. Referenciable
 
-    void Start()
+    void Awake()
     {
 
         SecondsPerTick = 60f / BPM;
@@ -21,12 +21,6 @@ public class TempoManager : MonoBehaviour
         Debug.Log("SPT: " + SecondsPerTick + " / PlayerSpeed: " + PlayerSpeed);
 
         //StartCoroutine(Tempo());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     /*
