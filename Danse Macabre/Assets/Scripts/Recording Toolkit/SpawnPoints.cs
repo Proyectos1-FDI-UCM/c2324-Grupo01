@@ -31,7 +31,6 @@ public class SpawnPoints : MonoBehaviour
     {
         foreach (var recordedEvent in recordedData.recordedEvents)
         {
-            print(recordedEvent.positionX);
             Vector3 spawnPosition = new(startPointTransform.position.x + Math.Abs(recordedEvent.positionX - startPointTransform.position.x) * playerSpeed, -2.5f, 0f);
 
             Instantiate(circlePrefab, spawnPosition, Quaternion.identity);

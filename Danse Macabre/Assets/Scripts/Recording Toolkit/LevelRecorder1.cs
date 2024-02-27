@@ -44,7 +44,6 @@ public class LevelRecorder1 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("StartRecord"))
         {
-            print("Start");
             musicManagerComponent.PlayMusic();
             timeSinceLastCollision = 0;
         }
