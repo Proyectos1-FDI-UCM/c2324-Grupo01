@@ -25,7 +25,7 @@ public class InputManager : MonoBehaviour
         {
             _playerActionComponent.Stomp();
         }
-        else if (Input.GetKeyDown(KeyCode.Z)||Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.Z)||Input.GetKey(KeyCode.RightArrow))
         {
             _playerActionComponent.Slide();
         }

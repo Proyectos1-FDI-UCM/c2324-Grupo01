@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _destroyTime: 5
+  _enemyValue: 5
 --- !u!58 &8443297437727633843
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -154,9 +155,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0026605427, y: -0.1593768}
+  m_Offset: {x: -0.011806637, y: -0.11184162}
   serializedVersion: 2
-  m_Radius: 0.1339533
+  m_Radius: 0.2000896
 --- !u!114 &3025540913568864403
 MonoBehaviour:
   m_ObjectHideFlags: 0
