@@ -22,7 +22,7 @@ public class MovementComponent : MonoBehaviour
 
     #region properties
     //[SerializeField]
-    float speed;
+    public float speed;
     public bool canMove = true;
     /*
     public bool grounded;
@@ -34,8 +34,14 @@ public class MovementComponent : MonoBehaviour
     {
         myTransform = transform;
         myRigidBody = GetComponent<Rigidbody2D>();
-        speed = TempoManager.PlayerSpeed;
-        Debug.Log("Movement: Speed" +  speed);  
+        
+
+        {
+        //speed = 1;
+        //speed = TempoManager.PlayerSpeed;
+        //Debug.Log("Movement: Speed" +  speed); 
+        }
+         
         Autoscroll();
         //lastYposition = transform.position.y;
     }

@@ -4,9 +4,22 @@ using UnityEngine;
 
 public class LevelRecorder1 : MonoBehaviour
 {
+    #region references
     [SerializeField]
     private Recorder recordedData; // Assign this in the Unity Editor
-    private float timeSinceLastCollision = 1; // Indicates no collision has happened yet
+    [SerializeField]
+    private GameObject musicManager;
+    private MusicManager musicManagerComponent;
+    #endregion
+
+    #region properties
+    private float timeSinceLastCollision = -1; // Indicates no collision has happened yet
+    #endregion
+
+    private void Start()
+    {
+        musicManagerComponent = musicManager.GetComponent<MusicManager>();
+    }
 
     private void Update()
     {
@@ -31,7 +44,9 @@ public class LevelRecorder1 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("StartRecord"))
         {
-            timeSinceLastCollision = 0; // Reset the timer upon collision
+            print("Start");
+            musicManagerComponent.PlayMusic();
+            timeSinceLastCollision = 0;
         }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Recorder", menuName = "ScriptableObjects/Recorder", order = 1)]
+[CreateAssetMenu(fileName = "Recorder", menuName = "Scriptable Objects/Recorder", order = 1)]
 public class Recorder : ScriptableObject
 {
     [System.Serializable] // Make the struct visible in the Unity Editor.

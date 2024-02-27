@@ -15,7 +15,7 @@ public class ActionComponent : MonoBehaviour
     private float _maxHeight = 9.0f;
 
     [SerializeField]
-    private float groundCheckDistance = 0.55f; // Estaba pequeña
+    private float groundCheckDistance = 0.55f; // Estaba pequeï¿½a
     [SerializeField]
     private float impulseStomp = 20;
     [SerializeField]
@@ -153,7 +153,6 @@ public class ActionComponent : MonoBehaviour
 
     void Update()
     {
-        // TERMPORARIOOOOOOOO candash:
         if (IsGrounded())
         {
             canDash = false;

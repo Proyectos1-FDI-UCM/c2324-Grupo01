@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e0b0bfec973a646a2b3f2deb0d37d6, type: 3}
+  m_Name: Record
+  m_EditorClassIdentifier: 
+  recordedEvents:
+  - positionX: -2.5700037
+    timeSinceCollision: 1.517662
+  - positionX: -2.350004
+    timeSinceCollision: 1.7397499
+  - positionX: -2.1100042
+    timeSinceCollision: 1.9919851
+  - positionX: -2.0300043
+    timeSinceCollision: 2.0730412
+  - positionX: -1.1300051
+    timeSinceCollision: 2.9694514
+  - positionX: -0.93000525
+    timeSinceCollision: 3.1676385
+  - positionX: -0.53000563
+    timeSinceCollision: 3.5709603
+  - positionX: -0.39000577
+    timeSinceCollision: 3.7034001
+  - positionX: 0.46999383
+    timeSinceCollision: 4.566844
+  - positionX: 1.329993
+    timeSinceCollision: 5.4253173
+  - positionX: 2.2099922
+    timeSinceCollision: 6.302404
+  - positionX: 3.0499914
+    timeSinceCollision: 7.145002
+  - positionX: 3.449991
+    timeSinceCollision: 7.547109
+  - positionX: 3.8699906
+    timeSinceCollision: 7.9723663
+  - positionX: 4.1099906
+    timeSinceCollision: 8.208323
+  - positionX: 4.3299904
+    timeSinceCollision: 8.425973
+  - positionX: 4.64999
+    timeSinceCollision: 8.739941
+  - positionX: 4.78999
+    timeSinceCollision: 8.884939
+  - positionX: 5.869989
+    timeSinceCollision: 9.960206
+  - positionX: 6.0499887
+    timeSinceCollision: 10.150175
+  - positionX: 6.3899884
+    timeSinceCollision: 10.485686
+  - positionX: 6.5499883
+    timeSinceCollision: 10.653203
+  - positionX: 8.169991
+    timeSinceCollision: 12.275995
+  - positionX: 9.070011
+    timeSinceCollision: 13.175327
+  - positionX: 9.950031
+    timeSinceCollision: 14.053521
+  - positionX: 11.250061
+    timeSinceCollision: 15.354798
+  - positionX: 11.690071
+    timeSinceCollision: 15.788125
