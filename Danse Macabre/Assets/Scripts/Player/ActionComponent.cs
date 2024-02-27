@@ -82,9 +82,10 @@ public class ActionComponent : MonoBehaviour
         if (IsGrounded())
         {
             isStomping = false;
-            _isJumping = true;
+            //_isJumping = true;
             _myRB.velocity = new Vector2(_myRB.velocity.x, _jumpSpeed);
         }
+
     }
 
     public void Stomp()
