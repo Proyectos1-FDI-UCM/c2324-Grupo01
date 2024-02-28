@@ -17,9 +17,4 @@ public class MenuInicialLevels : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
-    public void Jugar_Kai_Muerte()   //Provisional
-    {
-        SceneManager.LoadScene(4);
-    }
-
 }
