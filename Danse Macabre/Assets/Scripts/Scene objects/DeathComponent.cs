@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class DeathComponent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    #region references
+    private GameManager _gameManager;
+    #endregion
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        MovementComponent _player = collision.gameObject.GetComponent<MovementComponent>();
+        if (_player != null)
+        {
+            _gameManager.Muerte(); //muere personaje
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        _gameManager = FindObjectOfType<GameManager>();
     }
 }
+
