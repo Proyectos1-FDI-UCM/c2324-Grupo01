@@ -36,11 +36,11 @@ public class MovementComponent : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         
 
-        {
+        
         //speed = 1;
-        //speed = TempoManager.PlayerSpeed;
+        speed = TempoManager.PlayerSpeed;
         //Debug.Log("Movement: Speed" +  speed); 
-        }
+        
          
         Autoscroll();
         //lastYposition = transform.position.y;
