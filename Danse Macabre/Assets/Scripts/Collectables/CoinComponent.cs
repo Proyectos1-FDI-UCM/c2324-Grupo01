@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class CoinComponent : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class CoinComponent : MonoBehaviour
 
     #region references
     private ScoreManager _points;
+    private SoundEffectPlayer _sound;
     #endregion
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,13 +25,21 @@ public class CoinComponent : MonoBehaviour
         {
             _points.AddCoinPoints(_coinValue);
             _points.CoinRegister();
-            Destroy(gameObject);
+            if (_sound != null)
+            {
+                _sound.PlaySound();
+                Debug.Log("PLayed");
+            }
+            
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
     void Start()
     {
         _points = FindObjectOfType<ScoreManager>();
+        _sound = GetComponent<SoundEffectPlayer>();
     }
 
 }
