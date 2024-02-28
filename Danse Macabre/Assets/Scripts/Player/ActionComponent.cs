@@ -154,6 +154,7 @@ public class ActionComponent : MonoBehaviour
         if (IsGrounded())
         {
             canDash = false;
+            isStomping = false;
         }
 
         //Despues de coger la moneda, dash elapsed time se actualiza y entrar?al condicional
