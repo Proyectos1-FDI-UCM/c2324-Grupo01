@@ -13,9 +13,9 @@ public class CoinComponent : MonoBehaviour
 
     #region references
     private ScoreManager _points;
-    private SoundEffectPlayer _sound;
     #endregion
 
+    #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Comprueba si esta colisionando con el personaje
@@ -25,21 +25,15 @@ public class CoinComponent : MonoBehaviour
         {
             _points.AddCoinPoints(_coinValue);
             _points.CoinRegister();
-            if (_sound != null)
-            {
-                _sound.PlaySound();
-                Debug.Log("PLayed");
-            }
-            
-            //Destroy(gameObject);
-            gameObject.SetActive(false);
+            MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.coinSound);
+            Destroy(gameObject);
         }
     }
+    #endregion
 
     void Start()
     {
         _points = FindObjectOfType<ScoreManager>();
-        _sound = GetComponent<SoundEffectPlayer>();
     }
 
 }
