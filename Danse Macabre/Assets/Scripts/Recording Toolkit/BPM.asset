@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e0b0bfec973a646a2b3f2deb0d37d6, type: 3}
+  m_Name: BPM
+  m_EditorClassIdentifier: 
+  recordedEvents:
+  - positionX: -2.62002
+    timeSinceCollision: 1.4890373
+  - positionX: -1.7800307
+    timeSinceCollision: 2.3205998
+  - positionX: -0.86004287
+    timeSinceCollision: 3.2395985
+  - positionX: -0.600047
+    timeSinceCollision: 3.5104876
+  - positionX: 0.059941355
+    timeSinceCollision: 4.1614375
+  - positionX: 0.97992224
+    timeSinceCollision: 5.0778575
+  - positionX: 2.7398787
+    timeSinceCollision: 6.8542438
+  - positionX: 3.1398687
+    timeSinceCollision: 7.253967
+  - positionX: 3.6598558
+    timeSinceCollision: 7.7731442
+  - positionX: 4.539834
+    timeSinceCollision: 8.642217
+  - positionX: 6.3597813
+    timeSinceCollision: 10.462946
+  - positionX: 6.6197686
+    timeSinceCollision: 10.732195
+  - positionX: 6.939753
+    timeSinceCollision: 11.042576
+  - positionX: 7.2397385
+    timeSinceCollision: 11.340514
+  - positionX: 8.139697
+    timeSinceCollision: 12.23972
+  - positionX: 9.979651
+    timeSinceCollision: 14.086463
+  - positionX: 10.859589
+    timeSinceCollision: 14.969388
+  - positionX: 11.519541
+    timeSinceCollision: 15.6168375
+  - positionX: 11.779522
+    timeSinceCollision: 15.880194
+  - positionX: 12.419476
+    timeSinceCollision: 16.521736
+  - positionX: 12.659458
+    timeSinceCollision: 16.76665
+  - positionX: 13.559393
+    timeSinceCollision: 17.661135
+  - positionX: 14.199347
+    timeSinceCollision: 18.305851
+  - positionX: 14.459328
+    timeSinceCollision: 18.568644
+  - positionX: 15.339264
+    timeSinceCollision: 19.452883
+  - positionX: 16.07921
+    timeSinceCollision: 20.18756
+  - positionX: 16.299194
+    timeSinceCollision: 20.40834
+  - positionX: 16.91915
+    timeSinceCollision: 21.033297
+  - positionX: 17.139133
+    timeSinceCollision: 21.255733
+  - positionX: 17.759089
+    timeSinceCollision: 21.86714
+  - positionX: 18.01907
+    timeSinceCollision: 22.121218
+  - positionX: 18.639025
+    timeSinceCollision: 22.739906
+  - positionX: 18.899006
+    timeSinceCollision: 23.013065
+  - positionX: 19.81894
+    timeSinceCollision: 23.935398
+  - positionX: 20.698875
+    timeSinceCollision: 24.802776
+  - positionX: 21.618809
+    timeSinceCollision: 25.720486
+  - positionX: 22.538742
+    timeSinceCollision: 26.643162
+  - positionX: 23.418678
+    timeSinceCollision: 27.53187
+  - positionX: 24.298615
+    timeSinceCollision: 28.399263
+  - positionX: 25.218548
+    timeSinceCollision: 29.317446
+  - positionX: 26.118483
+    timeSinceCollision: 30.226944
+  - positionX: 26.998419
+    timeSinceCollision: 31.10757
+  - positionX: 27.918352
+    timeSinceCollision: 32.021194
+  - positionX: 28.858284
+    timeSinceCollision: 32.968994
+  - positionX: 29.73822
+    timeSinceCollision: 33.85388

@@ -8,7 +8,7 @@ public class MakeObjectsPermanent : Editor
     [MenuItem("Tools/Recreate Spawned Objects")]
     private static void RecreateSpawnedObjects()
     {
-        Recorder data = AssetDatabase.LoadAssetAtPath<Recorder>("Assets/Scripts/Recording Toolkit/Record.asset");
+        Recorder data = AssetDatabase.LoadAssetAtPath<Recorder>("Assets/Scripts/Recording Toolkit/R_Agudos.asset");
 
         GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Scripts/Recording Toolkit/Point.prefab");
 

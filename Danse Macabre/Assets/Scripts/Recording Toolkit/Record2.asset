@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e0b0bfec973a646a2b3f2deb0d37d6, type: 3}
+  m_Name: Record2
+  m_EditorClassIdentifier: 
+  recordedEvents:
+  - positionX: -0.88004255
+    timeSinceCollision: 3.21197
+  - positionX: 0.059941355
+    timeSinceCollision: 4.1639414
+  - positionX: 0.97992224
+    timeSinceCollision: 5.0737476
+  - positionX: 2.7798777
+    timeSinceCollision: 6.8752346
+  - positionX: 3.6198568
+    timeSinceCollision: 7.720539
+  - positionX: 4.539834
+    timeSinceCollision: 8.629976
+  - positionX: 6.3997793
+    timeSinceCollision: 10.500691
+  - positionX: 7.2997355
+    timeSinceCollision: 11.395369
+  - positionX: 8.179696
+    timeSinceCollision: 12.269275
+  - positionX: 10.079645
+    timeSinceCollision: 14.169118

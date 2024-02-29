@@ -10,7 +10,9 @@ public class ActionComponent : MonoBehaviour
     //Saltos
     [SerializeField]
     private float _jumpSpeed;
-    
+    private float originalGravityScale;
+    [SerializeField]
+    private float gravityFactor = 0.90f;
     [SerializeField]
     private float groundCheckDistance = 0.55f; // Estaba peque�a
     [SerializeField]
@@ -82,7 +84,6 @@ public class ActionComponent : MonoBehaviour
             //_isJumping = true;
             _myRB.velocity = new Vector2(_myRB.velocity.x, _jumpSpeed);
         }
-
     }
 
     public void Stomp()
@@ -97,8 +98,7 @@ public class ActionComponent : MonoBehaviour
 
     public void Slide()
     {
-        // DASH
-        if (!IsGrounded() && canDash)
+        if (!IsGrounded() && canDash) //DASH
         {
             isDashing = true;
             canDash = false;
@@ -125,15 +125,17 @@ public class ActionComponent : MonoBehaviour
     private IEnumerator Dash()
     {
         float startTime = Time.time;
+
         dashEndTime = startTime + dashDuration;
+        _myRB.velocity = new Vector2(_myRB.velocity.x, 0);
+        _myRB.gravityScale = 0;
 
         while (Time.time < dashEndTime && isDashing)
         {
-            _myRB.velocity = new Vector2(_myRB.velocity.x, 0);
-            _myRB.AddForce(- Vector2.up * Physics.gravity, ForceMode2D.Force);
             yield return new WaitForFixedUpdate();
         }
 
+        _myRB.gravityScale = originalGravityScale;
         isDashing = false;
     }
     #endregion
@@ -147,6 +149,8 @@ public class ActionComponent : MonoBehaviour
         myCollider = this.gameObject.GetComponent<BoxCollider2D>();
         myCollider.offset = new Vector2(DefaultCollisionOffsetX, DefaultCollisionOffsetY);
         myCollider.size = new Vector2(DefaultCollisionSizeX, DefaultCollisionSizeY);
+
+        originalGravityScale = _myRB.gravityScale;
     }
 
     void Update()
@@ -167,5 +171,14 @@ public class ActionComponent : MonoBehaviour
             canDash = false;
         }
         //Debug.Log("Dash time: "+_dashElapsedTime);
+
+    }
+        private void FixedUpdate()
+    {
+        if (_myRB.velocity.y < -0.01f)
+        {
+            _myRB.gravityScale *= gravityFactor;
+        }
+        else if (IsGrounded()) _myRB.gravityScale = originalGravityScale;
     }
 }

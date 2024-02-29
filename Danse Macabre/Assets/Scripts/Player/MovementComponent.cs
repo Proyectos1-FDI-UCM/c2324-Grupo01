@@ -5,29 +5,26 @@ using UnityEngine;
 
 public class MovementComponent : MonoBehaviour
 {
-    /*
     #region parameters
-    [SerializeField]
-    float maxSpeed = -100f;
-    float verticalSpeed = 0;
     #endregion
-    */
-    [SerializeField]
+
     #region references
+    [SerializeField]
     private Transform myTransform;
     private Rigidbody2D myRigidBody;
     [SerializeField]
     private TempoManager TempoManager;
+
+
+    [SerializeField]
+    private GameObject MusicManager;
+    private AudioSource music;
     #endregion
 
     #region properties
-    //[SerializeField]
     public float speed;
     public bool canMove = true;
-    /*
-    public bool grounded;
-    private float lastYposition;
-    */
+    private bool canCallMethod = true;
     #endregion
 
     void Start()
@@ -35,66 +32,29 @@ public class MovementComponent : MonoBehaviour
         myTransform = transform;
         myRigidBody = GetComponent<Rigidbody2D>();
         
+        music = MusicManager.GetComponent<AudioSource>();
 
         {
         //speed = 1;
         //speed = TempoManager.PlayerSpeed;
         //Debug.Log("Movement: Speed" +  speed); 
+        //Autoscroll();        
         }
-         
-        Autoscroll();
-        //lastYposition = transform.position.y;
     }
     
     void Update()
     {
-        //Autoscroll();
-        //Debug.Log(lastYposition + " " + transform.position.y);
-
-        //CheckGrounded();
-        //Gravity();
-        //Move();
-        
+        if (canCallMethod && Time.time > 2)
+        {
+            Autoscroll();
+            canCallMethod = false; 
+        }
     }
-    
+
+    #region methods
     private void Autoscroll()
     {
         myRigidBody.velocity = Vector2.right * speed;
     }
-
-    /*
-    #region methods
-    private void Move()
-    {
-        if (canMove)
-        {
-            Vector3 distanceToMove = new Vector3 (speed, 0, 0) * Time.deltaTime;
-
-            myRigidBody.MovePosition(myTransform.position + distanceToMove);
-        }
-    }
-
-    private void Gravity()
-    {
-        // Debug.Log(verticalSpeed + Physics.gravity.y * 0.01f);
-        verticalSpeed = Mathf.Max(maxSpeed, verticalSpeed + Physics.gravity.y * 0.01f);
-        
-    }
-
-    private void CheckGrounded()
-    {
-        // checks if y has changed since last frame, and if the player is currently falling
-        // if they are falling but their y hasn't changed, it means they touched the ground
-        float positionDiff = (lastYposition - transform.position.y);
-        
-        grounded = ((positionDiff < 0.001f) && (verticalSpeed < -20));
-        if (grounded)
-        {
-            verticalSpeed = 0;
-        }
-        //Debug.Log(grounded + " " + positionDiff + " " + verticalSpeed);
-        lastYposition = transform.position.y;
-    }
     #endregion
-    */
 }

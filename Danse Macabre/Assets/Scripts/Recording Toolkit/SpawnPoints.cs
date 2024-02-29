@@ -32,8 +32,7 @@ public class SpawnPoints : MonoBehaviour
         foreach (var recordedEvent in recordedData.recordedEvents)
         {
             Vector3 spawnPosition = new(startPointTransform.position.x + Math.Abs(recordedEvent.positionX - startPointTransform.position.x) * playerSpeed, -2.5f, 0f);
-
-            Instantiate(circlePrefab, spawnPosition, Quaternion.identity);
+            GameObject prefab = Instantiate(circlePrefab, spawnPosition, Quaternion.identity);
         }
     }
     #endregion

@@ -23,12 +23,12 @@ public class LevelRecorder1 : MonoBehaviour
 
     private void Update()
     {
-        // If a collision has occurred
-        if (timeSinceLastCollision >= 0)
-        {
-            timeSinceLastCollision += Time.deltaTime;
+        // // If a collision has occurred
+        // if (timeSinceLastCollision >= 0)
+        // {
+        //     timeSinceLastCollision += Time.deltaTime;
 
-            // Record data when the X key is pressed
+        //     // Record data when the X key is pressed
             if (Input.GetKeyDown(KeyCode.X))
             {
                 recordedData.recordedEvents.Add(new Recorder.RecordedData
@@ -36,9 +36,9 @@ public class LevelRecorder1 : MonoBehaviour
                     positionX = transform.position.x,
                     timeSinceCollision = timeSinceLastCollision
                 });
-            }
-        }
-    }
+             }
+    //     }
+   }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
