@@ -34,6 +34,7 @@ public class EnemyInteractionComponent : MonoBehaviour
                 if (BouncyEnemy)
                 {
                     _playerActionComponent.Bounce();
+                    _playerActionComponent.isStomping = false;
                 }
             }
             else _gameManager.Muerte(); //muere personaje
