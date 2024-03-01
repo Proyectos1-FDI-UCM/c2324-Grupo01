@@ -23,10 +23,17 @@ public class ObjectInteractionComponent : MonoBehaviour
     #region methods
     private void OnTriggerEnter2D(Collider2D other) //cuando colisiona
     {
-        MovementComponent _player = other.GetComponent<MovementComponent>();
-        if (_player != null)
+        ActionComponent _playerActionComponent = other.GetComponent<ActionComponent>();
+        if (_playerActionComponent != null)
         {
-            _scoreManager.AddObjectPoints(_value);
+            if (_playerActionComponent.isDashing || _playerActionComponent.isStomping)
+            {
+                _scoreManager.AddObjectPoints(_value);
+            }
+            else
+            {
+                _scoreManager.AddObjectPoints(-_value);
+            }
             DestroyAnimation();
             Invoke("DestroyObject", _destroyTime);
         }

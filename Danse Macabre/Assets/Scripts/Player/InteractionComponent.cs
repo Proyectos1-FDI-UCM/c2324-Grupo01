@@ -27,15 +27,15 @@ public class InteractionComponent : MonoBehaviour
     {
         GameObject obj = collision.gameObject;
 
-        if (_myActionComponent.isStomping)
-        {
-            if (obj.CompareTag("Trampolin") || obj.CompareTag("Enemigo"))
-            {
-                _myRB.velocity = new Vector2(_myRB.velocity.x, 0);
-                _myRB.AddForce(impulseTrampolin * Vector2.up, ForceMode2D.Impulse);
-                _myActionComponent.isStomping = false;
-            }
-        }
+        // if (_myActionComponent.isStomping)
+        // {
+        //     if (obj.CompareTag("Trampolin") || obj.CompareTag("Enemigo"))
+        //     {
+        //         _myRB.velocity = new Vector2(_myRB.velocity.x, 0);
+        //         _myRB.AddForce(impulseTrampolin * Vector2.up, ForceMode2D.Impulse);
+        //         _myActionComponent.isStomping = false;
+        //     }
+        // }
 
         if (obj.CompareTag("Moneda dash"))
         {
