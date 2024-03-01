@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class CoinComponent : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class CoinComponent : MonoBehaviour
     private ScoreManager _points;
     #endregion
 
+    #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Comprueba si esta colisionando con el personaje
@@ -23,9 +25,11 @@ public class CoinComponent : MonoBehaviour
         {
             _points.AddCoinPoints(_coinValue);
             _points.CoinRegister();
+            MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.coinSound);
             Destroy(gameObject);
         }
     }
+    #endregion
 
     void Start()
     {

@@ -15,16 +15,16 @@ public class MovementComponent : MonoBehaviour
     [SerializeField]
     private TempoManager TempoManager;
 
-
-    [SerializeField]
-    private GameObject MusicManager;
-    private AudioSource music;
+    // DO NOT DELETE
+    // [SerializeField]
+    // private GameObject MusicManager;
+    // private AudioSource music;
     #endregion
 
     #region properties
     public float speed;
     public bool canMove = true;
-    private bool canCallMethod = true;
+    //private bool canCallMethod = true;
     #endregion
 
     void Start()
@@ -32,23 +32,26 @@ public class MovementComponent : MonoBehaviour
         myTransform = transform;
         myRigidBody = GetComponent<Rigidbody2D>();
         
-        music = MusicManager.GetComponent<AudioSource>();
+        //music = MusicManager.GetComponent<AudioSource>();
 
-        {
+        
         //speed = 1;
-        //speed = TempoManager.PlayerSpeed;
+        speed = TempoManager.PlayerSpeed;
         //Debug.Log("Movement: Speed" +  speed); 
-        //Autoscroll();        
-        }
+        
+         
+        Autoscroll();
+        //lastYposition = transform.position.y;
     }
     
     void Update()
     {
-        if (canCallMethod && Time.time > 2)
-        {
-            Autoscroll();
-            canCallMethod = false; 
-        }
+        // DO NOT DELETE!
+        // if (canCallMethod && Time.time > 2)
+        // {
+        //     Autoscroll();
+        //     canCallMethod = false; 
+        // }
     }
 
     #region methods

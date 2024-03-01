@@ -13,93 +13,325 @@ MonoBehaviour:
   m_Name: BPM
   m_EditorClassIdentifier: 
   recordedEvents:
-  - positionX: -2.62002
-    timeSinceCollision: 1.4890373
-  - positionX: -1.7800307
-    timeSinceCollision: 2.3205998
-  - positionX: -0.86004287
-    timeSinceCollision: 3.2395985
-  - positionX: -0.600047
-    timeSinceCollision: 3.5104876
-  - positionX: 0.059941355
-    timeSinceCollision: 4.1614375
-  - positionX: 0.97992224
-    timeSinceCollision: 5.0778575
-  - positionX: 2.7398787
-    timeSinceCollision: 6.8542438
-  - positionX: 3.1398687
-    timeSinceCollision: 7.253967
-  - positionX: 3.6598558
-    timeSinceCollision: 7.7731442
-  - positionX: 4.539834
-    timeSinceCollision: 8.642217
-  - positionX: 6.3597813
-    timeSinceCollision: 10.462946
-  - positionX: 6.6197686
-    timeSinceCollision: 10.732195
-  - positionX: 6.939753
-    timeSinceCollision: 11.042576
-  - positionX: 7.2397385
-    timeSinceCollision: 11.340514
-  - positionX: 8.139697
-    timeSinceCollision: 12.23972
-  - positionX: 9.979651
-    timeSinceCollision: 14.086463
-  - positionX: 10.859589
-    timeSinceCollision: 14.969388
-  - positionX: 11.519541
-    timeSinceCollision: 15.6168375
-  - positionX: 11.779522
-    timeSinceCollision: 15.880194
-  - positionX: 12.419476
-    timeSinceCollision: 16.521736
-  - positionX: 12.659458
-    timeSinceCollision: 16.76665
-  - positionX: 13.559393
-    timeSinceCollision: 17.661135
-  - positionX: 14.199347
-    timeSinceCollision: 18.305851
-  - positionX: 14.459328
-    timeSinceCollision: 18.568644
-  - positionX: 15.339264
-    timeSinceCollision: 19.452883
-  - positionX: 16.07921
-    timeSinceCollision: 20.18756
-  - positionX: 16.299194
-    timeSinceCollision: 20.40834
-  - positionX: 16.91915
-    timeSinceCollision: 21.033297
-  - positionX: 17.139133
-    timeSinceCollision: 21.255733
-  - positionX: 17.759089
-    timeSinceCollision: 21.86714
-  - positionX: 18.01907
-    timeSinceCollision: 22.121218
-  - positionX: 18.639025
-    timeSinceCollision: 22.739906
-  - positionX: 18.899006
-    timeSinceCollision: 23.013065
-  - positionX: 19.81894
-    timeSinceCollision: 23.935398
-  - positionX: 20.698875
-    timeSinceCollision: 24.802776
-  - positionX: 21.618809
-    timeSinceCollision: 25.720486
-  - positionX: 22.538742
-    timeSinceCollision: 26.643162
-  - positionX: 23.418678
-    timeSinceCollision: 27.53187
-  - positionX: 24.298615
-    timeSinceCollision: 28.399263
-  - positionX: 25.218548
-    timeSinceCollision: 29.317446
-  - positionX: 26.118483
-    timeSinceCollision: 30.226944
-  - positionX: 26.998419
-    timeSinceCollision: 31.10757
-  - positionX: 27.918352
-    timeSinceCollision: 32.021194
-  - positionX: 28.858284
-    timeSinceCollision: 32.968994
-  - positionX: 29.73822
-    timeSinceCollision: 33.85388
+  - positionX: -2.090016
+    timeSinceCollision: 0
+  - positionX: -1.7100208
+    timeSinceCollision: 0
+  - positionX: -1.2900262
+    timeSinceCollision: 0
+  - positionX: -0.87003154
+    timeSinceCollision: 0
+  - positionX: -0.43003777
+    timeSinceCollision: 0
+  - positionX: 0.009955248
+    timeSinceCollision: 0
+  - positionX: 0.42994812
+    timeSinceCollision: 0
+  - positionX: 0.84994036
+    timeSinceCollision: 0
+  - positionX: 1.3099318
+    timeSinceCollision: 0
+  - positionX: 1.7499235
+    timeSinceCollision: 0
+  - positionX: 2.1899128
+    timeSinceCollision: 0
+  - positionX: 2.5899029
+    timeSinceCollision: 0
+  - positionX: 3.0098925
+    timeSinceCollision: 0
+  - positionX: 3.429882
+    timeSinceCollision: 0
+  - positionX: 3.8698711
+    timeSinceCollision: 0
+  - positionX: 4.2898607
+    timeSinceCollision: 0
+  - positionX: 4.72985
+    timeSinceCollision: 0
+  - positionX: 5.1498394
+    timeSinceCollision: 0
+  - positionX: 5.5898285
+    timeSinceCollision: 0
+  - positionX: 6.049817
+    timeSinceCollision: 0
+  - positionX: 6.4698067
+    timeSinceCollision: 0
+  - positionX: 6.9097943
+    timeSinceCollision: 0
+  - positionX: 7.349773
+    timeSinceCollision: 0
+  - positionX: 7.7697525
+    timeSinceCollision: 0
+  - positionX: 8.189736
+    timeSinceCollision: 0
+  - positionX: 8.629725
+    timeSinceCollision: 0
+  - positionX: 9.029716
+    timeSinceCollision: 0
+  - positionX: 9.509704
+    timeSinceCollision: 0
+  - positionX: 9.969692
+    timeSinceCollision: 0
+  - positionX: 10.389682
+    timeSinceCollision: 0
+  - positionX: 10.82967
+    timeSinceCollision: 0
+  - positionX: 11.2496395
+    timeSinceCollision: 0
+  - positionX: 11.689608
+    timeSinceCollision: 0
+  - positionX: 12.089579
+    timeSinceCollision: 0
+  - positionX: 12.529547
+    timeSinceCollision: 0
+  - positionX: 12.949516
+    timeSinceCollision: 0
+  - positionX: 13.409483
+    timeSinceCollision: 0
+  - positionX: 13.809454
+    timeSinceCollision: 0
+  - positionX: 14.249422
+    timeSinceCollision: 0
+  - positionX: 14.68939
+    timeSinceCollision: 0
+  - positionX: 15.149357
+    timeSinceCollision: 0
+  - positionX: 15.549328
+    timeSinceCollision: 0
+  - positionX: 15.989296
+    timeSinceCollision: 0
+  - positionX: 16.409266
+    timeSinceCollision: 0
+  - positionX: 16.88923
+    timeSinceCollision: 0
+  - positionX: 17.229206
+    timeSinceCollision: 0
+  - positionX: 17.709171
+    timeSinceCollision: 0
+  - positionX: 18.12914
+    timeSinceCollision: 0
+  - positionX: 18.54911
+    timeSinceCollision: 0
+  - positionX: 19.009077
+    timeSinceCollision: 0
+  - positionX: 19.469044
+    timeSinceCollision: 0
+  - positionX: 19.92901
+    timeSinceCollision: 0
+  - positionX: 20.308983
+    timeSinceCollision: 0
+  - positionX: 20.728952
+    timeSinceCollision: 0
+  - positionX: 21.16892
+    timeSinceCollision: 0
+  - positionX: 21.58889
+    timeSinceCollision: 0
+  - positionX: 21.988861
+    timeSinceCollision: 0
+  - positionX: 22.42883
+    timeSinceCollision: 0
+  - positionX: 22.908794
+    timeSinceCollision: 0
+  - positionX: 23.328764
+    timeSinceCollision: 0
+  - positionX: 23.768732
+    timeSinceCollision: 0
+  - positionX: 24.2087
+    timeSinceCollision: 0
+  - positionX: 24.62867
+    timeSinceCollision: 0
+  - positionX: 25.068638
+    timeSinceCollision: 0
+  - positionX: 25.468609
+    timeSinceCollision: 0
+  - positionX: 25.908577
+    timeSinceCollision: 0
+  - positionX: 26.348545
+    timeSinceCollision: 0
+  - positionX: 26.768515
+    timeSinceCollision: 0
+  - positionX: 27.148487
+    timeSinceCollision: 0
+  - positionX: 27.608454
+    timeSinceCollision: 0
+  - positionX: 28.108418
+    timeSinceCollision: 0
+  - positionX: 28.528387
+    timeSinceCollision: 0
+  - positionX: 28.948357
+    timeSinceCollision: 0
+  - positionX: 29.368326
+    timeSinceCollision: 0
+  - positionX: 29.808294
+    timeSinceCollision: 0
+  - positionX: 30.268261
+    timeSinceCollision: 0
+  - positionX: 30.70823
+    timeSinceCollision: 0
+  - positionX: 31.128199
+    timeSinceCollision: 0
+  - positionX: 31.52817
+    timeSinceCollision: 0
+  - positionX: 31.968138
+    timeSinceCollision: 0
+  - positionX: 32.368073
+    timeSinceCollision: 0
+  - positionX: 32.788002
+    timeSinceCollision: 0
+  - positionX: 33.247925
+    timeSinceCollision: 0
+  - positionX: 33.667854
+    timeSinceCollision: 0
+  - positionX: 34.10778
+    timeSinceCollision: 0
+  - positionX: 34.567703
+    timeSinceCollision: 0
+  - positionX: 34.987633
+    timeSinceCollision: 0
+  - positionX: 35.407562
+    timeSinceCollision: 0
+  - positionX: 35.82749
+    timeSinceCollision: 0
+  - positionX: 36.267418
+    timeSinceCollision: 0
+  - positionX: 36.687347
+    timeSinceCollision: 0
+  - positionX: 37.127274
+    timeSinceCollision: 0
+  - positionX: 37.587196
+    timeSinceCollision: 0
+  - positionX: 37.98713
+    timeSinceCollision: 0
+  - positionX: 38.427055
+    timeSinceCollision: 0
+  - positionX: 38.86698
+    timeSinceCollision: 0
+  - positionX: 39.326904
+    timeSinceCollision: 0
+  - positionX: 39.746834
+    timeSinceCollision: 0
+  - positionX: 40.146767
+    timeSinceCollision: 0
+  - positionX: 40.60669
+    timeSinceCollision: 0
+  - positionX: 41.046616
+    timeSinceCollision: 0
+  - positionX: 41.466545
+    timeSinceCollision: 0
+  - positionX: 41.886475
+    timeSinceCollision: 0
+  - positionX: 42.3264
+    timeSinceCollision: 0
+  - positionX: 42.786324
+    timeSinceCollision: 0
+  - positionX: 43.22625
+    timeSinceCollision: 0
+  - positionX: 43.626183
+    timeSinceCollision: 0
+  - positionX: 44.06611
+    timeSinceCollision: 0
+  - positionX: 44.48604
+    timeSinceCollision: 0
+  - positionX: 44.88597
+    timeSinceCollision: 0
+  - positionX: 45.325897
+    timeSinceCollision: 0
+  - positionX: 45.745827
+    timeSinceCollision: 0
+  - positionX: 46.185753
+    timeSinceCollision: 0
+  - positionX: 46.62568
+    timeSinceCollision: 0
+  - positionX: 47.04561
+    timeSinceCollision: 0
+  - positionX: 47.465538
+    timeSinceCollision: 0
+  - positionX: 47.92546
+    timeSinceCollision: 0
+  - positionX: 48.365387
+    timeSinceCollision: 0
+  - positionX: 48.76532
+    timeSinceCollision: 0
+  - positionX: 49.225243
+    timeSinceCollision: 0
+  - positionX: 49.645172
+    timeSinceCollision: 0
+  - positionX: 50.0851
+    timeSinceCollision: 0
+  - positionX: 50.525024
+    timeSinceCollision: 0
+  - positionX: 50.96495
+    timeSinceCollision: 0
+  - positionX: 51.38488
+    timeSinceCollision: 0
+  - positionX: 51.80481
+    timeSinceCollision: 0
+  - positionX: 52.244736
+    timeSinceCollision: 0
+  - positionX: 52.68466
+    timeSinceCollision: 0
+  - positionX: 53.084595
+    timeSinceCollision: 0
+  - positionX: 53.52452
+    timeSinceCollision: 0
+  - positionX: 54.00444
+    timeSinceCollision: 0
+  - positionX: 54.42437
+    timeSinceCollision: 0
+  - positionX: 54.8443
+    timeSinceCollision: 0
+  - positionX: 55.284225
+    timeSinceCollision: 0
+  - positionX: 55.72415
+    timeSinceCollision: 0
+  - positionX: 56.14408
+    timeSinceCollision: 0
+  - positionX: 56.56401
+    timeSinceCollision: 0
+  - positionX: 57.003937
+    timeSinceCollision: 0
+  - positionX: 57.443863
+    timeSinceCollision: 0
+  - positionX: 57.863792
+    timeSinceCollision: 0
+  - positionX: 58.30372
+    timeSinceCollision: 0
+  - positionX: 58.723648
+    timeSinceCollision: 0
+  - positionX: 59.143578
+    timeSinceCollision: 0
+  - positionX: 59.563507
+    timeSinceCollision: 0
+  - positionX: 59.96344
+    timeSinceCollision: 0
+  - positionX: 60.44336
+    timeSinceCollision: 0
+  - positionX: 60.903282
+    timeSinceCollision: 0
+  - positionX: 61.303215
+    timeSinceCollision: 0
+  - positionX: 61.763138
+    timeSinceCollision: 0
+  - positionX: 62.183067
+    timeSinceCollision: 0
+  - positionX: 62.64299
+    timeSinceCollision: 0
+  - positionX: 63.042923
+    timeSinceCollision: 0
+  - positionX: 63.48285
+    timeSinceCollision: 0
+  - positionX: 63.922775
+    timeSinceCollision: 0
+  - positionX: 64.32271
+    timeSinceCollision: 0
+  - positionX: 64.762634
+    timeSinceCollision: 0
+  - positionX: 65.20256
+    timeSinceCollision: 0
+  - positionX: 65.62249
+    timeSinceCollision: 0
+  - positionX: 66.04242
+    timeSinceCollision: 0
+  - positionX: 66.482346
+    timeSinceCollision: 0
+  - positionX: 66.902275
+    timeSinceCollision: 0
