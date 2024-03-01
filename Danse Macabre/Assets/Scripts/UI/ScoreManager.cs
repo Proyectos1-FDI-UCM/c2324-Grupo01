@@ -36,6 +36,11 @@ public class ScoreManager : MonoBehaviour
         _destroyObjectPoint += points;
         _totalPoint += points;
     }
+    public void SubtractPoints(int points)
+    {
+        _destroyObjectPoint -= points;
+        _totalPoint -= points;
+    }
 
     public void CoinRegister()
     {
