@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7232079036041032012}
   - component: {fileID: 312577341530050121}
   - component: {fileID: 989813804322040607}
-  - component: {fileID: 6882169613033092167}
   - component: {fileID: 4622159443372251026}
   - component: {fileID: 5170355047315142679}
   m_Layer: 0
@@ -101,19 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coinValue: 1
---- !u!114 &6882169613033092167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8767549960833425522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 483c4caf94c4853488cfe9a39800bf93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _canDashTime: 0.5
 --- !u!58 &4622159443372251026
 CircleCollider2D:
   m_ObjectHideFlags: 0

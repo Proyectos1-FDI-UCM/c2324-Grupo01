@@ -9,11 +9,13 @@ public class MenuPausa : MonoBehaviour
     public void Pausa() 
     {
         Time.timeScale = 0f;   //Para detener el juego
+        MusicManager.Instance.StopPlayingSong();
         menuPausa.SetActive(true);
     }
     public void Reanudar() 
     { 
         Time.timeScale = 1f;    //Para arrancar el juego
+        MusicManager.Instance.ResumePlayingSong();
         menuPausa.SetActive(false);
     }
     public void Reiniciar() 

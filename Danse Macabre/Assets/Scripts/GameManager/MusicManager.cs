@@ -11,11 +11,14 @@ public class MusicManager : MonoBehaviour
     [SerializeField]
     private float soundCtr = 1;
     private float elapsedTime = 0f;
+    private float pauseTime =0f;
+
     #endregion
 
     #region references
     private AudioSource _myAudioSource;
     public AudioClip coinSound;
+    public AudioClip boxSound;
     #endregion
 
     // DO NOT DELETE
@@ -48,7 +51,7 @@ public class MusicManager : MonoBehaviour
     public void PlayMusic()
     {
         _myAudioSource.Play();
-        Debug.Log("Music is now playing");
+        //Debug.Log("Music is now playing");
     }
     public void PlaySoundEffect(AudioClip clip)
     {
@@ -68,6 +71,18 @@ public class MusicManager : MonoBehaviour
     //         canCallMethod = false;
     //     }
     // }
+    public void StopPlayingSong()
+    {
+        pauseTime = _myAudioSource.time;
+        _myAudioSource.Stop();
+    }
+
+    public void ResumePlayingSong()
+    {
+        _myAudioSource.time = pauseTime;
+        _myAudioSource.Play();
+        
+    }
     #endregion
 
     private void Awake()
