@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7232079036041032012}
   - component: {fileID: 312577341530050121}
-  - component: {fileID: 6324216441443837091}
   - component: {fileID: 989813804322040607}
   - component: {fileID: 6882169613033092167}
+  - component: {fileID: 4622159443372251026}
+  - component: {fileID: 5170355047315142679}
   m_Layer: 0
   m_Name: BigCoin
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.63, y: 1.6, z: 0}
-  m_LocalScale: {x: 0.6989, y: 0.7156, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.754717, g: 0.27340686, b: 0.27340686, a: 1}
+  m_Sprite: {fileID: 1611389812, guid: c272034c1c71df64fae764fab52c0215, type: 3}
+  m_Color: {r: 0.9433962, g: 0.7827073, b: 0.6176575, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,8 +88,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &6324216441443837091
-CapsuleCollider2D:
+--- !u!114 &989813804322040607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8767549960833425522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e69bd60182608498d8715a8eb356ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinValue: 1
+--- !u!114 &6882169613033092167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8767549960833425522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483c4caf94c4853488cfe9a39800bf93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canDashTime: 0.5
+--- !u!58 &4622159443372251026
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -120,31 +147,26 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1.9999999}
-  m_Direction: 0
---- !u!114 &989813804322040607
-MonoBehaviour:
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!95 &5170355047315142679
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8767549960833425522}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5e69bd60182608498d8715a8eb356ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _coinValue: 1
---- !u!114 &6882169613033092167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8767549960833425522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 483c4caf94c4853488cfe9a39800bf93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _canDashTime: 0.5
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2f4b7855533fb064498a80b3b1f5b1b1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

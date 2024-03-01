@@ -5,18 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MenuPausa : MonoBehaviour
 {
-    [SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject menuPausa;
     public void Pausa() 
     {
         Time.timeScale = 0f;   //Para detener el juego
-        botonPausa.SetActive(false);
         menuPausa.SetActive(true);
     }
     public void Reanudar() 
     { 
         Time.timeScale = 1f;    //Para arrancar el juego
-        botonPausa.SetActive(true);
         menuPausa.SetActive(false);
     }
     public void Reiniciar() 
