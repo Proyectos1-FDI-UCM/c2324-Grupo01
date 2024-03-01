@@ -36,11 +36,6 @@ public class ScoreManager : MonoBehaviour
         _destroyObjectPoint += points;
         _totalPoint += points;
     }
-    public void SubtractPoints(int points)
-    {
-        _destroyObjectPoint -= points;
-        _totalPoint -= points;
-    }
 
     public void CoinRegister()
     {
@@ -54,7 +49,6 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         _basicPoint += Time.deltaTime;
         _totalPoint += Time.deltaTime;
         _textPuntos.text = _totalPoint.ToString("0");
