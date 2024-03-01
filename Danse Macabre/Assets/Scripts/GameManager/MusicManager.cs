@@ -48,6 +48,7 @@ public class MusicManager : MonoBehaviour
     public void PlayMusic()
     {
         _myAudioSource.Play();
+        Debug.Log("Music is now playing");
     }
     public void PlaySoundEffect(AudioClip clip)
     {

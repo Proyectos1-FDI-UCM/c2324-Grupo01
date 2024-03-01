@@ -49,7 +49,6 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         _basicPoint += Time.deltaTime;
         _totalPoint += Time.deltaTime;
         _textPuntos.text = _totalPoint.ToString("0");

@@ -83,8 +83,13 @@ public class ActionComponent : MonoBehaviour
         {
             isStomping = false;
             //_isJumping = true;
-            _myRB.velocity = new Vector2(_myRB.velocity.x, _jumpSpeed);
+            Bounce();
         }
+    }
+    public void Bounce()
+    {
+        // Este método está separado para que se pueda llamar a la hora de rebotar encima de un enemigo determinado sin comprobar grounded
+        _myRB.velocity = new Vector2(_myRB.velocity.x, _jumpSpeed);
     }
 
     public void Stomp()
