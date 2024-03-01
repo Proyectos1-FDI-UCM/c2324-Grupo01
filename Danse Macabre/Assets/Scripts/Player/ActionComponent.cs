@@ -88,7 +88,7 @@ public class ActionComponent : MonoBehaviour
     }
     public void Bounce()
     {
-        // Este método está separado para que se pueda llamar a la hora de rebotar encima de un enemigo determinado sin comprobar grounded
+        // Este método est?separado para que se pueda llamar a la hora de rebotar encima de un enemigo determinado sin comprobar grounded
         _myRB.velocity = new Vector2(_myRB.velocity.x, _jumpSpeed);
     }
 
