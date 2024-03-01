@@ -22,14 +22,14 @@ public class InteractionComponent : MonoBehaviour
 
     #region methods
     // DONE
-    // Rebote del trampolín con collider isTrigger
+    // Rebote del trampolï¿½n con collider isTrigger
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject obj = collision.gameObject;
 
         if (_myActionComponent.isStomping)
         {
-            if (obj.CompareTag("Trampolin"))
+            if (obj.CompareTag("Trampolin") || obj.CompareTag("Enemigo"))
             {
                 _myRB.velocity = new Vector2(_myRB.velocity.x, 0);
                 _myRB.AddForce(impulseTrampolin * Vector2.up, ForceMode2D.Impulse);
@@ -52,13 +52,13 @@ public class InteractionComponent : MonoBehaviour
         {
            /* if (obj.CompareTag("Enemigo"))
             {
-                // Animación matando enemigo
+                // Animaciï¿½n matando enemigo
                Destroy(obj); // destroy enemigo
             }
            */
             if (obj.CompareTag("Caja"))
             {
-                /* Animación destruyendo caja */
+                /* Animaciï¿½n destruyendo caja */
                 Destroy(obj); // destroy caja
             }
         }

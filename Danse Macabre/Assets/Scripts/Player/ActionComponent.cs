@@ -14,7 +14,7 @@ public class ActionComponent : MonoBehaviour
     [SerializeField]
     private float gravityFactor = 0.90f;
     [SerializeField]
-    private float groundCheckDistance = 0.55f; // Estaba peque�a
+    private float groundCheckDistance = 0.55f;
     [SerializeField]
     private float impulseStomp = 20;
     [SerializeField]
@@ -63,6 +63,7 @@ public class ActionComponent : MonoBehaviour
     public bool isSliding = false;
     //for jumping
     public bool _isJumping = false;
+    private bool gravityChanged = false; // Bool to track if gravity scale is already updated to falling state
     #endregion
 
     #region methods
@@ -176,10 +177,14 @@ public class ActionComponent : MonoBehaviour
     }
         private void FixedUpdate()
     {
-        if (_myRB.velocity.y < -0.01f)
+        if (_myRB.velocity.y < -0.01f && !gravityChanged)
         {
             _myRB.gravityScale *= gravityFactor;
+            gravityChanged = true; // So it's called only once
         }
-        else if (IsGrounded()) _myRB.gravityScale = originalGravityScale;
+        else if (IsGrounded()) {
+            _myRB.gravityScale = originalGravityScale;
+            gravityChanged = false; // Reset when grounded
+        }
     }
 }
