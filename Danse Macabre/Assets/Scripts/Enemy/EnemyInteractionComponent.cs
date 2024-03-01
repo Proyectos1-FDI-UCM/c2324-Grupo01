@@ -18,18 +18,23 @@ public class EnemyInteractionComponent : MonoBehaviour
     private GameManager _gameManager;
     private EnemyAnimation _enemyAnimation;
     private ScoreManager _scoreManager;
+    [SerializeField]
+    private bool BouncyEnemy;
     #endregion
     private void OnTriggerEnter2D(Collider2D other)
     {
         MovementComponent _player = other.GetComponent<MovementComponent>();
         if (_player != null)
         {
-            Debug.Log(_playerActionComponent.isStomping + " " + _playerActionComponent.isDashing);
             if (_playerActionComponent.isStomping || _playerActionComponent.isDashing)
             {
                 _enemyAnimation.DeathAnimation(); //Muere enemigo
                 _scoreManager.AddEnemyPoints(_enemyValue);
                 Invoke("DestroyEnemy", _destroyTime);
+                if (BouncyEnemy)
+                {
+                    _playerActionComponent.Bounce();
+                }
             }
             else _gameManager.Muerte(); //muere personaje
         }
