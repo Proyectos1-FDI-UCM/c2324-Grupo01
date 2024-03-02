@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using TMPro.EditorUtilities;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
@@ -63,6 +64,8 @@ public class ActionComponent : MonoBehaviour
     public bool isSliding = false;
     //for jumping
     public bool _isJumping = false;
+    /*public enum ActionStateEnum { Dashing, Stomping, Jumping, sliding, None};
+    public ActionStateEnum actionState = ActionStateEnum.None;*/
     private bool gravityChanged = false; // Bool to track if gravity scale is already updated to falling state
     #endregion
 
@@ -112,6 +115,7 @@ public class ActionComponent : MonoBehaviour
         }
         else if (IsGrounded())
         {
+            isSliding = true;
             myCollider.offset = new Vector2(SlideCollisionOffsetX, SlideCollisionOffsetY);
             myCollider.size = new Vector2(SlideCollisionSizeX, SlideCollisionSizeY);
         }
@@ -120,6 +124,7 @@ public class ActionComponent : MonoBehaviour
     {
         myCollider.offset = new Vector2(DefaultCollisionOffsetX, DefaultCollisionOffsetY);
         myCollider.size = new Vector2(DefaultCollisionSizeX, DefaultCollisionSizeY);
+        isSliding = false;
     }
     public void DashCountDown(float _time)
     {
@@ -161,6 +166,7 @@ public class ActionComponent : MonoBehaviour
 
     void Update()
     {
+        //if (IsGrounded() && (actionState == ActionComponent.ActionStateEnum.Stomping)) + state = none
         if (IsGrounded())
         {
             canDash = false;

@@ -845,7 +845,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: red hood_Jump Start_2
+      name: red hood_Jump Mid_1
       rect:
         serializedVersion: 2
         x: 1248
@@ -866,7 +866,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: red hood_Jump Mid_1
+      name: red hood_Jump Mid_2
       rect:
         serializedVersion: 2
         x: 16
@@ -887,7 +887,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: red hood_Jump End_1
+      name: red hood_Jump Mid_3
       rect:
         serializedVersion: 2
         x: 128
@@ -2866,10 +2866,10 @@ TextureImporter:
       red hood_Falling_2: 2110633893
       red hood_Falling_3: 660905208
       red hood_Falling_4: 26662920
-      red hood_Jump End_1: -1527470357
-      red hood_Jump Mid_1: -1013160162
+      red hood_Jump Mid_1: -1861768623
+      red hood_Jump Mid_2: -1013160162
+      red hood_Jump Mid_3: -1527470357
       red hood_Jump Start_1: 1115597387
-      red hood_Jump Start_2: -1861768623
       red hood_Run_1: -2049964242
       red hood_Run_10: -1917495429
       red hood_Run_11: 1470218304

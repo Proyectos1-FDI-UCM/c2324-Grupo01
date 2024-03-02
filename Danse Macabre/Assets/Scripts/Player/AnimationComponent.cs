@@ -25,7 +25,7 @@ public class AnimationComponent : MonoBehaviour
             if (_actionComponent.isSliding == true)
             {
                 Debug.Log("Sliding");
-                _myAnimator.SetInteger("State", 2);
+                _myAnimator.SetInteger("State", 3);
             }
             else
             {
@@ -37,12 +37,13 @@ public class AnimationComponent : MonoBehaviour
         }
         else 
         {
-            if (_actionComponent.isDashing == true)
+            /*if (_actionComponent.isDashing == true)
             {
                 Debug.Log("Dashing");
                 _myAnimator.SetInteger("State", 3); //esto seria dash en el futuro
             }
-            else if (_actionComponent.isStomping == true)
+            else *///if (_actionComponent.actionState == ActionComponent.ActionStateEnum)
+            if (_actionComponent.isStomping == true)
             {
                 Debug.Log("stomping");
                 _myAnimator.SetInteger("State", 2);
@@ -66,9 +67,6 @@ public class AnimationComponent : MonoBehaviour
                 }
             }
             
-            if (_actionComponent.isDashing == true) _myAnimator.SetInteger("State", 1);  //slide in air
-            if (_actionComponent.isStomping == true) _myAnimator.SetInteger("State", 1); //Stomp
-            
             /* 
             0 = run
             1 = Jump
@@ -78,6 +76,6 @@ public class AnimationComponent : MonoBehaviour
             5 = Falling
             */
         }
-        if (_actionComponent._isJumping == true) _myAnimator.SetInteger("State", 1);
+        
     }
 }
