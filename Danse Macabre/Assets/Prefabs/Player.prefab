@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 7167278231102041047}
   - component: {fileID: 8693597587511461896}
   - component: {fileID: 3743249431654715070}
-  - component: {fileID: 40586507772366426}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -131,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpSpeed: 5
-  _maxHeight: 9
+  gravityFactor: 0.9
   groundCheckDistance: 0.55
   impulseStomp: 35
   dashDuration: 2
@@ -177,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTransform: {fileID: 2946605283369907019}
+  TempoManager: {fileID: 0}
   speed: 1
   canMove: 1
 --- !u!61 &8693597587511461896
@@ -245,19 +245,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &40586507772366426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3996297822920346081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06922a802905d084cb4a78d05675424d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  impulseTrampolin: 12
-  _platformLayer:
-    serializedVersion: 2
-    m_Bits: 64
