@@ -24,7 +24,7 @@ public class MovementComponent : MonoBehaviour
     #region properties
     public float speed;
     public bool canMove = true;
-    //private bool canCallMethod = true;
+    private bool canCallMethod = true;
     #endregion
 
     void Start()

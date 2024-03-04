@@ -40,7 +40,10 @@ public class TimestampPositionCalculator : MonoBehaviour
         // For main beats calculations:
         float bps = bpm/60;
         float period = 1/bps;
-        float musicDuration = 100;
+
+        // duration p1 = 28.705
+        // duration p2 = 
+        float musicDuration = 29;
         float totalBeats = (139*musicDuration)/60;
 
 

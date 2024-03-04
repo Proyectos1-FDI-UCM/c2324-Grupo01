@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e0b0bfec973a646a2b3f2deb0d37d6, type: 3}
+  m_Name: Parte5
+  m_EditorClassIdentifier: 
+  timestamps:
+  - positionX: 0
+    time: 65.611
+  - positionX: 0
+    time: 66.474
+  - positionX: 0
+    time: 67.338
+  - positionX: 0
+    time: 68.201
+  - positionX: 0
+    time: 68.633
+  - positionX: 0
+    time: 69.064
+  - positionX: 0
+    time: 70.791
+  - positionX: 0
+    time: 71.223
+  - positionX: 0
+    time: 71.654
+  - positionX: 0
+    time: 72.086
+  - positionX: 0
+    time: 72.517
+  - positionX: 0
+    time: 72.949
+  - positionX: 0
+    time: 73.381
+  - positionX: 0
+    time: 73.812
+  - positionX: 0
+    time: 74.244
+  - positionX: 0
+    time: 74.676
+  - positionX: 0
+    time: 75.107
+  - positionX: 0
+    time: 75.539
+  - positionX: 0
+    time: 75.971
+  - positionX: 0
+    time: 76.402
+  - positionX: 0
+    time: 76.834
+  - positionX: 0
+    time: 77.266
+  - positionX: 0
+    time: 77.697
+  - positionX: 0
+    time: 78.129
+  - positionX: 0
+    time: 78.561
+  - positionX: 0
+    time: 78.992
+  - positionX: 0
+    time: 79.424
+  - positionX: 0
+    time: 79.856
+  - positionX: 0
+    time: 80.287
+  - positionX: 0
+    time: 80.719
+  - positionX: 0
+    time: 81.151
+  - positionX: 0
+    time: 81.582
+  - positionX: 0
+    time: 82.014
+  - positionX: 0
+    time: 82.446
+  - positionX: 0
+    time: 82.877
+  - positionX: 0
+    time: 83.309
+  - positionX: 0
+    time: 83.741
+  - positionX: 0
+    time: 84.172
+  - positionX: 0
+    time: 84.604
+  - positionX: 0
+    time: 85.035
+  - positionX: 0
+    time: 85.467
+  - positionX: 0
+    time: 85.899
+  - positionX: 0
+    time: 86.330
+  - positionX: 0
+    time: 86.762
+  - positionX: 0
+    time: 87.194
+  - positionX: 0
+    time: 87.625
+  - positionX: 0
+    time: 88.057
+  - positionX: 0
+    time: 88.273
+  - positionX: 0
+    time: 88.381
+  - positionX: 0
+    time: 88.489
+  - positionX: 0
+    time: 88.705
+  - positionX: 0
+    time: 88.920
+  - positionX: 0
+    time: 89.136
+  - positionX: 0
+    time: 89.352
+  - positionX: 0
+    time: 89.568
+  - positionX: 0
+    time: 89.784
+  - positionX: 0
+    time: 89.999
+  - positionX: 0
+    time: 90.215
+  - positionX: 0
+    time: 90.431
+  - positionX: 0
+    time: 90.647
+  - positionX: 0
+    time: 90.863
+  - positionX: 0
+    time: 91.079
+  - positionX: 0
+    time: 91.294
+  - positionX: 0
+    time: 91.510
+
