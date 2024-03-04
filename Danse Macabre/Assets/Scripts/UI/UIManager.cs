@@ -9,6 +9,12 @@ public class UIManager : MonoBehaviour
     private GameObject _bigArrowText;
     [SerializeField]
     private GameObject _smallArrowText;
+
+    public  GameObject _coinText;
+    public GameObject _boxText;
+    public GameObject _enemyText;
+    public GameObject _pinchosText;
+    public GameObject _specialCoinText;
     #endregion
     #region parameter
     [SerializeField]
@@ -18,16 +24,25 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         _bigArrowText.SetActive(true);
-        _smallArrowText.SetActive(false);
     }
-    public void DeactivateExplication()
+
+    public void Deactivate()
     {
         _bigArrowText.SetActive(false);
         _smallArrowText.SetActive(true);
     }
+    public void Desactivar()
+    {
+        _coinText.SetActive(false);
+        _boxText.SetActive(false);
+        _enemyText.SetActive(false);
+        _pinchosText.SetActive(false);
+        _specialCoinText.SetActive(false);
+    }
     // Update is called once per frame
     void Update()
     {
-        Invoke("DeactivateExplication", _deactivateTime);
+        Invoke("Deactivate", _deactivateTime);
+        Invoke("Desactivar", _deactivateTime);
     }
 }
