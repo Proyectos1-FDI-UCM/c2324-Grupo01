@@ -169,4 +169,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483c4caf94c4853488cfe9a39800bf93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canDashTime: 0.5
+  _canDashTime: 1

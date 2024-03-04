@@ -8,8 +8,7 @@ TagManager:
   - Moneda dash
   - Enemigo
   - Caja
-  - StartRecord
-  - SpawnedPoint
+  - Start Music
   layers:
   - Default
   - TransparentFX

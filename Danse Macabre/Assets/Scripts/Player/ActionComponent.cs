@@ -91,7 +91,7 @@ public class ActionComponent : MonoBehaviour
     }
     public void Bounce()
     {
-        // Este método est?separado para que se pueda llamar a la hora de rebotar encima de un enemigo determinado sin comprobar grounded
+        // Este mï¿½todo est?separado para que se pueda llamar a la hora de rebotar encima de un enemigo determinado sin comprobar grounded
         _myRB.velocity = new Vector2(_myRB.velocity.x, _jumpSpeed);
     }
 
@@ -169,7 +169,7 @@ public class ActionComponent : MonoBehaviour
         //if (IsGrounded() && (actionState == ActionComponent.ActionStateEnum.Stomping)) + state = none
         if (IsGrounded())
         {
-            canDash = false;
+            //canDash = false;
             isStomping = false;
         }
 

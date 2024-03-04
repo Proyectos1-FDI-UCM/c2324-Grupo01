@@ -26,6 +26,8 @@ public class CoinComponent : MonoBehaviour
             _points.AddCoinPoints(_coinValue);
             _points.CoinRegister();
             MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.coinSound);
+            //MusicManager2.Instance.PlaySoundEffect(MusicManager2.Instance.coinSound);
+
             Destroy(gameObject);
         }
     }

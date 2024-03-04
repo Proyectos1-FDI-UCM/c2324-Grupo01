@@ -34,19 +34,19 @@ public class MovementComponent : MonoBehaviour
         
         //music = MusicManager.GetComponent<AudioSource>();
 
-        
+        if (TempoManager != null) speed = TempoManager.PlayerSpeed;
         //speed = 1;
-        speed = TempoManager.PlayerSpeed;
+        //speed = TempoManager.PlayerSpeed;
         //Debug.Log("Movement: Speed" +  speed); 
         
          
-        Autoscroll();
+        Autoscroll(); // VOLVER
         //lastYposition = transform.position.y;
     }
     
     void Update()
     {
-        // DO NOT DELETE!
+        // NO QUITAR: SIRVE PARA LEVEL BUILDING
         // if (canCallMethod && Time.time > 2)
         // {
         //     Autoscroll();

@@ -5,8 +5,8 @@ using UnityEngine;
 public class InteractionComponent : MonoBehaviour
 {
     #region parameters
-    [SerializeField]
-    private float impulseTrampolin = 12;
+    // [SerializeField]
+    // private float impulseTrampolin = 12;
     #endregion
 
     #region references
