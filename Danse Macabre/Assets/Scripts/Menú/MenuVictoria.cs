@@ -1,19 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuVictoria : MonoBehaviour
 {
-    public void Victoria() 
+    #region properties
+    //public bool _isVictory = false;
+    #endregion
+    #region references
+    [SerializeField]
+    private TextMeshProUGUI _textPuntuacionFinal;
+
+    private ScoreManager scoreManager;
+    #endregion
+    public void Victoria()
     {
         SceneManager.LoadScene(0);
     }
-    public void OnTriggerEnter2D(Collider2D collision)
+    void Start()
     {
-        if (collision.GetComponent<MovementComponent>()) 
+        // Verifica si la puntuación final está disponible en PlayerPrefs
+        if (PlayerPrefs.HasKey("FinalScore"))
         {
-            SceneManager.LoadScene(4);
+            // Carga la puntuación guardada desde PlayerPrefs y la muestra
+            float finalScore = PlayerPrefs.GetFloat("FinalScore", 0f);
+            _textPuntuacionFinal.text = finalScore.ToString("0");
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class ScoreManager : MonoBehaviour
     #region references
     [SerializeField]
     private TextMeshProUGUI _textPuntos;
+    private MenuVictoria _victoria;
     #endregion
 
     #region methods
@@ -41,12 +43,17 @@ public class ScoreManager : MonoBehaviour
     {
         _nCoins++;
     }
-    #endregion
-    void Start()
+    public void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.GetComponent<MovementComponent>())
+        {
+            // Guarda la puntuación en PlayerPrefs antes de cambiar de escena
+            PlayerPrefs.SetFloat("FinalScore", (float)_totalPoint);
+            //Cambiar escena de Victoria
+            SceneManager.LoadScene(4);
+        }
     }
-
-    // Update is called once per frame
+    #endregion
     void Update()
     {
         _basicPoint += Time.deltaTime;

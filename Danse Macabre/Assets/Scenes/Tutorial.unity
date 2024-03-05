@@ -26762,6 +26762,7 @@ GameObject:
   - component: {fileID: 497725392}
   - component: {fileID: 497725391}
   - component: {fileID: 497725390}
+  - component: {fileID: 497725393}
   m_Layer: 0
   m_Name: Fin
   m_TagString: Untagged
@@ -26781,6 +26782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a12efdf4361a4648b71765c4ecb97b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _textPuntuacionFinal: {fileID: 592855249}
 --- !u!68 &497725391
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -26840,6 +26842,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &497725393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497725389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8dca5684b158a45a890e65a266d3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textPuntos: {fileID: 592855249}
 --- !u!4 &513002816 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2572578895612424585, guid: ef573a1243e50804d9b07039c0ab4b55, type: 3}
