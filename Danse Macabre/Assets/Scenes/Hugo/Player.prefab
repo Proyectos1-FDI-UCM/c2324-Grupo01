@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 3242477547606074893}
   - component: {fileID: 2278004020322313961}
   - component: {fileID: 1248063900255722994}
+  - component: {fileID: 6892849220042937764}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -279,3 +280,15 @@ MonoBehaviour:
   beatsData: {fileID: 11400000, guid: b19b07121124f764286a843981c65f92, type: 2}
   musicManager: {fileID: 0}
   startMusicPoint: {fileID: 0}
+--- !u!114 &6892849220042937764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2916250163534012754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d95e481aabdffb4b86ab9eb6588a111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -9,7 +9,7 @@ public class TimestampObjectsCreator : Editor
     private static void CreateTimestampObjects()
     {
         // Cambiar esto "Assets/Scripts/Timestamp Toolkit/CAMBIAR.asset":
-        TimestampContainer data = AssetDatabase.LoadAssetAtPath<TimestampContainer>("Assets/Scripts/Timestamp Toolkit/Parte5.asset");
+        TimestampContainer data = AssetDatabase.LoadAssetAtPath<TimestampContainer>("Assets/Scripts/Timestamp Toolkit/Parte3.asset");
 
         GameObject stamp = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Scripts/Timestamp Toolkit/Stamp.prefab");
 
