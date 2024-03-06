@@ -63,6 +63,7 @@ public class ScoreManager : MonoBehaviour
     {
         _basicPoint += Time.deltaTime;
         _totalPoint += Time.deltaTime;
+        Debug.Log("Puntos" + _totalPoint);
         _textPuntos.text = _totalPoint.ToString("0");
     }
 }

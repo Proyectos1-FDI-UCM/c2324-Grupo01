@@ -20,9 +20,9 @@ public class CoinComponent : MonoBehaviour
     {
         //Comprueba si esta colisionando con el personaje
         ActionComponent _player = collision.gameObject.GetComponent<ActionComponent>();
-        
         if (_player)
         {
+
             _points.AddCoinPoints(_coinValue);
             _points.CoinRegister();
             MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.coinSound);

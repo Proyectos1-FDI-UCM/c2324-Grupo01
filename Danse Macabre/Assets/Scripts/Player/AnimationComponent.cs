@@ -24,12 +24,12 @@ public class AnimationComponent : MonoBehaviour
         {
             if (_actionComponent.isSliding == true)
             {
-                Debug.Log("Sliding");
+                //Debug.Log("Sliding");
                 _myAnimator.SetInteger("State", 3);
             }
             else
             {
-                Debug.Log("running");
+                //Debug.Log("running");
                 _myAnimator.SetInteger("State", 0);
             }
 
@@ -37,32 +37,32 @@ public class AnimationComponent : MonoBehaviour
         }
         else 
         {
-            /*if (_actionComponent.isDashing == true)
+            if (_actionComponent.isDashing == true)
             {
                 Debug.Log("Dashing");
                 _myAnimator.SetInteger("State", 3); //esto seria dash en el futuro
             }
-            else *///if (_actionComponent.actionState == ActionComponent.ActionStateEnum)
+            else //if (_actionComponent.actionState == ActionComponent.ActionStateEnum)
             if (_actionComponent.isStomping == true)
             {
-                Debug.Log("stomping");
+               // Debug.Log("stomping");
                 _myAnimator.SetInteger("State", 2);
             }
             else
             {
-                if (verticalVelocity > 0)
+               /* if (verticalVelocity > 0)
                 {
-                    Debug.Log("jumping");
+                   // Debug.Log("jumping");
                     _myAnimator.SetInteger("State", 1);
                 }
-                else if (verticalVelocity < 0)
+                else */ if (verticalVelocity < 0)
                 {
-                    Debug.Log("falling");
+                   // Debug.Log("falling");
                     _myAnimator.SetInteger("State", 5);
                 }
                 else
                 {
-                    Debug.Log("Air static");
+                   // Debug.Log("Air static");
                     _myAnimator.SetInteger("State", 4);
                 }
             }
