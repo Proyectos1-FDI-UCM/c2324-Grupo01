@@ -26,7 +26,7 @@ public class EnemyInteractionComponent : MonoBehaviour
         MovementComponent _player = other.GetComponent<MovementComponent>();
         if (_player != null)
         {
-            if (_playerActionComponent.isStomping || _playerActionComponent.isDashing)
+            if (_playerActionComponent.isStomping || _playerActionComponent.isDashing || _playerActionComponent.isSliding)
             {
                 _enemyAnimation.DeathAnimation(); //Muere enemigo
                 _scoreManager.AddEnemyPoints(_enemyValue);
