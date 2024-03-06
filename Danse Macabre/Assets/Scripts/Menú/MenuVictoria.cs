@@ -12,8 +12,6 @@ public class MenuVictoria : MonoBehaviour
     #region references
     [SerializeField]
     private TextMeshProUGUI _textPuntuacionFinal;
-
-    private ScoreManager scoreManager;
     #endregion
     public void Victoria()
     {

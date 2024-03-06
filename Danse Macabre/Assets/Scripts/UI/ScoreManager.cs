@@ -47,11 +47,16 @@ public class ScoreManager : MonoBehaviour
     {
         if (collision.GetComponent<MovementComponent>())
         {
-            // Guarda la puntuación en PlayerPrefs antes de cambiar de escena
-            PlayerPrefs.SetFloat("FinalScore", (float)_totalPoint);
+            Debug.Log("Trigger");
+            SaveFinalScore();
             //Cambiar escena de Victoria
             SceneManager.LoadScene(4);
         }
+    }
+    public void SaveFinalScore() 
+    {
+        // Guarda la puntuación en PlayerPrefs antes de cambiar de escena
+        PlayerPrefs.SetFloat("FinalScore", (float)_totalPoint);
     }
     #endregion
     void Update()
