@@ -104,8 +104,8 @@ Transform:
   m_GameObject: {fileID: 3404358380482697587}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.03, z: 0}
-  m_LocalScale: {x: 0.9645508, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 2.53, z: 0}
+  m_LocalScale: {x: 0.9645508, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2572578895612424585}
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3189787dfca66e645b788f14198f1262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _underPlatformComponent: {fileID: 4639074126602428015}
   above: 0
 --- !u!61 &9154255979162359383
 BoxCollider2D:
@@ -195,8 +196,8 @@ Transform:
   m_GameObject: {fileID: 5822507765274697472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.98, z: 0}
-  m_LocalScale: {x: 0.95624995, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -2.51, z: 0}
+  m_LocalScale: {x: 0.95624995, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2572578895612424585}
@@ -213,6 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0250eda3c52faa449a707f448e840c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _abovePlatformComponent: {fileID: 6381186930119322815}
   under: 0
 --- !u!61 &881647711680523148
 BoxCollider2D:
