@@ -26,7 +26,7 @@ public class ObjectInteractionComponent : MonoBehaviour
         ActionComponent _playerActionComponent = other.GetComponent<ActionComponent>();
         if (_playerActionComponent != null)
         {
-            if (_playerActionComponent.isDashing || _playerActionComponent.isStomping)
+            if (_playerActionComponent.isSliding || _playerActionComponent.isStomping || _playerActionComponent.isDashing)
             {
                 _scoreManager.AddObjectPoints(_value);
             }

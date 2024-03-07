@@ -43,7 +43,7 @@ public class ScoreManager : MonoBehaviour
     {
         _nCoins++;
     }
-    public void OnTriggerEnter2D(Collider2D collision)
+    /*public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<MovementComponent>())
         {
@@ -57,7 +57,7 @@ public class ScoreManager : MonoBehaviour
     {
         // Guarda la puntuación en PlayerPrefs antes de cambiar de escena
         PlayerPrefs.SetFloat("FinalScore", (float)_totalPoint);
-    }
+    }*/
     #endregion
     void Update()
     {
