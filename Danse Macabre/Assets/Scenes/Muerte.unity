@@ -717,7 +717,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1819546190}
         m_TargetAssemblyTypeName: MenuMuerte, Assembly-CSharp
-        m_MethodName: RestaurarMenuMuerte
+        m_MethodName: Muerte
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
