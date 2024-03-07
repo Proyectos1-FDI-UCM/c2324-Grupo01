@@ -52,7 +52,7 @@ public class Platform : MonoBehaviour
 
     private void Update()
     {
-        if (!insidePlatform && !_underPlatformComponent.under && _abovePlatformComponent.above)
+        if (!insidePlatform && (_underPlatformComponent.under || _abovePlatformComponent.above))
         {
             _collider.enabled = true;
         }

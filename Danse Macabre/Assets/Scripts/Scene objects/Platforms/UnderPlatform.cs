@@ -6,8 +6,6 @@ public class UnderPlatform : MonoBehaviour
 {
     #region references
     private BoxCollider2D _myCollider;
-    [SerializeField]
-    private AbovePlatform _abovePlatformComponent;
     #endregion
 
     #region properties
@@ -21,14 +19,7 @@ public class UnderPlatform : MonoBehaviour
         if (player != null)
         {
             under = true;
-            _abovePlatformComponent.Under();
-            Debug.Log("Below platform");
         }
-    }
-
-    public void Above()
-    {
-        under = false;
     }
 
     void Start()

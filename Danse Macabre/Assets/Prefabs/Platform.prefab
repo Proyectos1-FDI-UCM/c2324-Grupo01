@@ -122,7 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3189787dfca66e645b788f14198f1262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _underPlatformComponent: {fileID: 4639074126602428015}
   above: 0
 --- !u!61 &9154255979162359383
 BoxCollider2D:
@@ -214,7 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0250eda3c52faa449a707f448e840c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _abovePlatformComponent: {fileID: 6381186930119322815}
   under: 0
 --- !u!61 &881647711680523148
 BoxCollider2D:
