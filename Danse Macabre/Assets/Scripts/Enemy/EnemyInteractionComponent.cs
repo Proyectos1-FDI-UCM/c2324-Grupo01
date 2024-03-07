@@ -37,7 +37,12 @@ public class EnemyInteractionComponent : MonoBehaviour
                     _playerActionComponent.isStomping = false;
                 }
             }
-            else _gameManager.Muerte(); //muere personaje
+            else 
+            {
+                _scoreManager.SaveFinalScore();
+                //Cambiar escena de Muerte
+                SceneManager.LoadScene(6);
+            }
         }
     }
     private void DestroyEnemy()
