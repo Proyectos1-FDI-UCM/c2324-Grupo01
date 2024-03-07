@@ -6,13 +6,11 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour
 {
     #region parameters
-    [SerializeField]
-    private float delay = 0.5f;
+    // [SerializeField]
+    // private float delay = 0.5f;
     [SerializeField]
     private float soundCtr = 1;
-    private float elapsedTime = 0f;
-    private float pauseTime =0f;
-
+    // private float elapsedTime = 0f;
     #endregion
 
     #region references
@@ -21,22 +19,24 @@ public class MusicManager : MonoBehaviour
     public AudioClip boxSound;
     #endregion
 
-    // DO NOT DELETE
+    // For potential checkpoint
     // [SerializeField]
     // private GameObject Player;
     // private MovementComponent movementComponent;
     // private ActionComponent actionComponent;
     // private Rigidbody2D playerRigidbody;
     // [SerializeField]
-    // private GameObject StartRecordCollider; 
-    // #endregion
-    // #region properties
-    // private bool canCallMethod = true; // Temporary
-    // float playerPosX; // Temporary
-    // float starColliderPosX; // Temporary
-    //#endregion
+    // private GameObject StartRecordCollider;
 
     #region properties
+    // For potential checkpoint
+    // private bool canCallMethod = true;
+    // float playerPosX;
+    // float starColliderPosX;
+    #endregion
+
+    #region properties
+    private float pauseTime = 0f;
     //Singleton controlador del sonido
     //(habia problemas cuando el objeto se elimina muy rapido y no se reproducia el sonido, asi que todo el audio se va a reproducir aqui)
     private static MusicManager instance;
@@ -44,33 +44,20 @@ public class MusicManager : MonoBehaviour
     {
         get { return instance; }
     }
-    private bool isPlaying = false;
+    //private bool isPlaying = false;
     #endregion
 
     #region methods
     public void PlayMusic()
     {
         _myAudioSource.Play();
-        //Debug.Log("Music is now playing");
     }
+
     public void PlaySoundEffect(AudioClip clip)
     {
         _myAudioSource.PlayOneShot(clip,soundCtr);
     }
-    // private void Sync() // Temporary
-    // {        
-    //     float playerSpeed = movementComponent.speed;
-    //     float playerVel = playerRigidbody.velocity.x;
 
-    //     float time = (playerPosX - starColliderPosX)/playerSpeed;
-
-    //     if (playerVel > 0.01f && Time.time > 2)
-    //     {
-    //         _myAudioSource.time = time;
-    //         PlayMusic();
-    //         canCallMethod = false;
-    //     }
-    // }
     public void StopPlayingSong()
     {
         pauseTime = _myAudioSource.time;
@@ -81,8 +68,22 @@ public class MusicManager : MonoBehaviour
     {
         _myAudioSource.time = pauseTime;
         _myAudioSource.Play();
-        
     }
+
+    //private void Sync() // For potential checkpoint
+    //{
+        // float playerSpeed = movementComponent.speed;
+        // float playerVel = playerRigidbody.velocity.x;
+
+        // float time = (playerPosX - starColliderPosX)/playerSpeed;
+
+        // if (playerVel > 0.01f && Time.time > 1)
+        // {
+        //     _myAudioSource.time = time;
+        //     PlayMusic();
+        //     canCallMethod = false;
+        // }
+    //}
     #endregion
 
     private void Awake()
@@ -96,10 +97,12 @@ public class MusicManager : MonoBehaviour
             Destroy(instance);
         }
     }
+
     void Start()
     {
         _myAudioSource = GetComponent<AudioSource>();
 
+        // For potential checkpoint
         // actionComponent = Player.GetComponent<ActionComponent>();
         // movementComponent = Player.GetComponent<MovementComponent>();
         // playerRigidbody = Player.GetComponent<Rigidbody2D>();
@@ -107,25 +110,28 @@ public class MusicManager : MonoBehaviour
         // playerPosX = Player.transform.position.x;
         // starColliderPosX = StartRecordCollider.transform.position.x;
 
-        // if (playerPosX < starColliderPosX) 
+        // if (playerPosX < starColliderPosX)
         // {
         //     canCallMethod = false;
         // }
     }
-    void Update()
-    {
+
+    //void Update()
+    //{
         //Calculos para el momento inicial de reproducir el BGM
-        elapsedTime += Time.deltaTime;
-        if (elapsedTime >= delay && !isPlaying)
-        {
-            isPlaying = true;
-            PlayMusic();
-        }
-        
+        // elapsedTime += Time.deltaTime;
+        // if (elapsedTime >= delay && !isPlaying)
+        // {
+        //     isPlaying = true;
+        //     print("player pos:" + Player.transform.position.x);
+        //     PlayMusic();
+        // }
+
+        // For potential checkpoint
         // if (canCallMethod)
         // {
         //     Sync();
         // }
-    }
+    //}
 
 }

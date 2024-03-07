@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2819047251244503546}
   - component: {fileID: 428024841610218943}
+  - component: {fileID: 8902695819421178831}
   m_Layer: 0
   m_Name: Start Music Point
   m_TagString: Start Music
@@ -74,6 +75,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &8902695819421178831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010128753722549716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d25d469b34d9c48a01a86adbb9fac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicManager: {fileID: 0}
 --- !u!1 &5319270643027816926
 GameObject:
   m_ObjectHideFlags: 0

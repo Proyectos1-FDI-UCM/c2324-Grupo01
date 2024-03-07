@@ -19,7 +19,7 @@ public class TimestampPositionCalculator : MonoBehaviour
     private TimestampContainer beatsData; // Assign this in the Unity Editor
     [SerializeField]
     private GameObject musicManager;
-    private MusicManager2 musicManagerComponent;
+    private MusicManager musicManagerComponent;
     [SerializeField]
     private GameObject startMusicPoint;
     private Transform startPointTransform;
@@ -34,7 +34,7 @@ public class TimestampPositionCalculator : MonoBehaviour
         playerMovement = GetComponent<MovementComponent>();
         playerSpeed = playerMovement.speed;
 
-        musicManagerComponent = musicManager.GetComponent<MusicManager2>();
+        musicManagerComponent = musicManager.GetComponent<MusicManager>();
         startPointTransform = startMusicPoint.transform;
 
         // For main beats calculations:
@@ -73,6 +73,7 @@ public class TimestampPositionCalculator : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Start Music"))
         {
+            print("time: " + Time.time);
             musicManagerComponent.PlayMusic();
             //timeSinceLastCollision = 0;
         }

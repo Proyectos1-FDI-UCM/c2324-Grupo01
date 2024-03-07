@@ -45,7 +45,7 @@ public class ScoreManager : MonoBehaviour
     }
     public void SaveFinalScore() 
     {
-        // Guarda la puntuación en PlayerPrefs antes de cambiar de escena
+        // Guarda la puntuaciï¿½n en PlayerPrefs antes de cambiar de escena
         PlayerPrefs.SetFloat("FinalScore", (float)_totalPoint);
     }
     #endregion
@@ -53,7 +53,7 @@ public class ScoreManager : MonoBehaviour
     {
         _basicPoint += Time.deltaTime;
         _totalPoint += Time.deltaTime;
-        Debug.Log("Puntos" + _totalPoint);
+        //Debug.Log("Puntos" + _totalPoint);
         _textPuntos.text = _totalPoint.ToString("0");
     }
 }

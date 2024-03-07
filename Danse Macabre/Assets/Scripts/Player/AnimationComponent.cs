@@ -40,7 +40,7 @@ public class AnimationComponent : MonoBehaviour
             if (_actionComponent.isDashing == true)
             {
                 Debug.Log("Dashing");
-                _myAnimator.SetInteger("State", 3); //esto seria dash en el futuro
+                _myAnimator.SetInteger("State", 4); //esto seria dash en el futuro
             }
             else //if (_actionComponent.actionState == ActionComponent.ActionStateEnum)
             if (_actionComponent.isStomping == true)
@@ -50,12 +50,12 @@ public class AnimationComponent : MonoBehaviour
             }
             else
             {
-               /* if (verticalVelocity > 0)
+               if (verticalVelocity > 0)
                 {
                    // Debug.Log("jumping");
                     _myAnimator.SetInteger("State", 1);
                 }
-                else */ if (verticalVelocity < 0)
+                else if (verticalVelocity < 0)
                 {
                    // Debug.Log("falling");
                     _myAnimator.SetInteger("State", 5);

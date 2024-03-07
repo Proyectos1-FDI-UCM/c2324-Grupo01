@@ -22,10 +22,10 @@ public class CoinComponent : MonoBehaviour
         ActionComponent _player = collision.gameObject.GetComponent<ActionComponent>();
         if (_player)
         {
+            print("collision");
             _points.AddCoinPoints(_coinValue);
             _points.CoinRegister();
             MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.coinSound);
-            //MusicManager2.Instance.PlaySoundEffect(MusicManager2.Instance.coinSound);
 
             Destroy(gameObject);
         }
