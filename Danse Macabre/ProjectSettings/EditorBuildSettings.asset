@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Victoria.unity
     guid: 3e2e92a85e9f48f4baa5b36c7b6303d1
+  - enabled: 1
+    path: Assets/Scenes/Hugo/Nivel_Hugo.unity
+    guid: 60e090520b776c9479a8798494a6fc1a
   m_configObjects: {}
