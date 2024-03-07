@@ -32148,6 +32148,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Muerte
       objectReference: {fileID: 0}
+    - target: {fileID: 4380119545089066583, guid: ff75b329048725d418c9923b8fd9e90a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5395842659651816120, guid: ff75b329048725d418c9923b8fd9e90a, type: 3}
       propertyPath: m_IsActive
       value: 1
