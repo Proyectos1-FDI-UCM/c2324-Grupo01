@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class SaveScoreWin : MonoBehaviour
+{
+    #region references
+    private ScoreManager _scoreManager;
+    #endregion
+    #region methods
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        MovementComponent _player = collision.GetComponent<MovementComponent>();
+        if (_player != null)
+        {
+            Debug.Log("Trigger");
+            _scoreManager.SaveFinalScore();
+            //Cambiar escena de Victoria
+            SceneManager.LoadScene(4);
+        }
+    }
+    #endregion
+    void Start()
+    {
+        _scoreManager = FindObjectOfType<ScoreManager>();
+    }
+    void Update()
+    {
+        
+    }
+}
