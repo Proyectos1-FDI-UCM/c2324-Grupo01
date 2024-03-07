@@ -8,7 +8,7 @@ public class CoinComponent : MonoBehaviour
 {
     #region parameters
     [SerializeField]
-    private int _coinValue = 1;
+    private int _coinValue = 10;
     #endregion
 
     #region references
@@ -22,7 +22,6 @@ public class CoinComponent : MonoBehaviour
         ActionComponent _player = collision.gameObject.GetComponent<ActionComponent>();
         if (_player)
         {
-
             _points.AddCoinPoints(_coinValue);
             _points.CoinRegister();
             MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.coinSound);
