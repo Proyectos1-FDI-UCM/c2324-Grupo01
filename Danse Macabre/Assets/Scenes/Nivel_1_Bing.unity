@@ -24789,6 +24789,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 762071548}
+  - component: {fileID: 762071554}
   - component: {fileID: 762071552}
   - component: {fileID: 762071551}
   - component: {fileID: 762071550}
@@ -24867,7 +24868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c319c3a712b1b4abfe83d5b3cd3a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuMuerte: {fileID: 0}
+  _scoreManager: {fileID: 762071550}
 --- !u!114 &762071553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24884,6 +24885,19 @@ MonoBehaviour:
   TilesPerTick: 4
   SecondsPerTick: 1
   PlayerSpeed: 1
+--- !u!114 &762071554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762071546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66425e9ffabaaa04886ceaa80dc03db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetFPS: 50
 --- !u!1001 &764803343
 PrefabInstance:
   m_ObjectHideFlags: 0

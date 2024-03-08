@@ -46,6 +46,12 @@ public class MovementComponent : MonoBehaviour
     
     void Update()
     {
+
+        if (myRigidBody.velocity.x < speed - 0.01f){
+
+            GameManager.Instance.Muerte();
+        }
+
         // NO QUITAR: SIRVE PARA LEVEL BUILDING
         // if (canCallMethod && Time.time > 2)
         // {
