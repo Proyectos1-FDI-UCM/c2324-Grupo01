@@ -60,7 +60,9 @@ public class MusicManager : MonoBehaviour
 
     public void StopPlayingSong()
     {
+        
         pauseTime = _myAudioSource.time;
+        print(pauseTime);
         _myAudioSource.Stop();
     }
 

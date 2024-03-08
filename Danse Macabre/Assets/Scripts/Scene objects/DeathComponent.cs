@@ -16,7 +16,7 @@ public class DeathComponent : MonoBehaviour
         {
             _scoreManager.SaveFinalScore();
             //Cambiar escena de muerte
-            SceneManager.LoadScene(6);
+            SceneManager.LoadScene(4);
         }
     }
 

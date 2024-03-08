@@ -41,7 +41,7 @@ public class EnemyInteractionComponent : MonoBehaviour
             {
                 _scoreManager.SaveFinalScore();
                 //Cambiar escena de Muerte
-                SceneManager.LoadScene(6);
+                SceneManager.LoadScene(4);
             }
         }
     }

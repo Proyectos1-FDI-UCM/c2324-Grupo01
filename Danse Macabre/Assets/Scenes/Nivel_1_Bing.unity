@@ -1750,11 +1750,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86600a7235407a49a9ca24d35a6a02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.5
   soundCtr: 0.65
   coinSound: {fileID: 8300000, guid: 4f0aa471d47fb0f41a55e6a0ca014702, type: 3}
   boxSound: {fileID: 8300000, guid: 97feaae48244b1e4c85ad4c69b180901, type: 3}
-  Player: {fileID: 1392815544}
 --- !u!82 &202553713
 AudioSource:
   m_ObjectHideFlags: 0
@@ -25004,6 +25002,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 8902695819421178831, guid: 7c39bddae2f7b164db4c8315580a83d5, type: 3}
+      propertyPath: musicManager
+      value: 
+      objectReference: {fileID: 202553710}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25468,7 +25470,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 959711535566899561, guid: 39da1f0844fe2cd43a41a86dec3fd06f, type: 3}
   m_PrefabInstance: {fileID: 2008107283}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1392815544}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c093d324dbb83f04ab29144eec625412, type: 3}
@@ -27246,11 +27248,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef573a1243e50804d9b07039c0ab4b55, type: 3}
---- !u!1 &1392815544 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3996297822920346081, guid: 39da1f0844fe2cd43a41a86dec3fd06f, type: 3}
-  m_PrefabInstance: {fileID: 2008107283}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1399065197
 PrefabInstance:
   m_ObjectHideFlags: 0

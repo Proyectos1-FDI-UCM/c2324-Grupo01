@@ -15,19 +15,14 @@ public class SaveScoreWin : MonoBehaviour
         MovementComponent _player = collision.GetComponent<MovementComponent>();
         if (_player != null)
         {
-            Debug.Log("Trigger");
             _scoreManager.SaveFinalScore();
             //Cambiar escena de Victoria
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(5);
         }
     }
     #endregion
     void Start()
     {
         _scoreManager = FindObjectOfType<ScoreManager>();
-    }
-    void Update()
-    {
-        
     }
 }
