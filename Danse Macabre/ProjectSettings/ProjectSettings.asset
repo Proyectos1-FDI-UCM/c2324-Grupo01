@@ -904,7 +904,13 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -924,11 +930,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: bd74ec65-679d-45b7-a45c-785dfa86d6e9
+  cloudProjectId: af5d1151-a82e-4118-bee0-e3813b791de0
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Danse Macabre (2)
-  organizationId: gamemaker2422
+  projectName: Danse Macabre
+  organizationId: hugodbr1
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
