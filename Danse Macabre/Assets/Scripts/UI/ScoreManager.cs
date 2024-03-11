@@ -7,19 +7,25 @@ using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour
 {
     #region parameters
-    private double _totalPoint = 0f;
-    private double _basicPoint = 0f;
-    private int _coinPoint = 0;
-    private int _enemyPoint = 0;
-    private int _destroyObjectPoint=0;
-
-    private int _nCoins = 0;
-    #endregion
+    private int perfectTimingValue = 10;
+    private int goodTimingValue = 5;
+    private int badTimingValue = 1;
+    #endregion 
 
     #region references
     [SerializeField]
     private TextMeshProUGUI _textPuntos;
     private MenuVictoria _victoria;
+    #endregion
+
+    #region properties
+    private double _totalPoint = 0f;
+    private double _basicPoint = 0f;
+    private int _coinPoint = 0;
+    private int _enemyPoint = 0;
+    private int _destroyObjectPoint = 0;
+    private int _nCoins = 0;
+    private int _timingPoints = 0;
     #endregion
 
     #region methods
@@ -38,6 +44,23 @@ public class ScoreManager : MonoBehaviour
         _destroyObjectPoint += points;
         _totalPoint += points;
     }
+    public void AddTimingPoints(string timing)
+    {
+        if (timing == "PERFECT") {
+            _timingPoints += perfectTimingValue;
+            _totalPoint += perfectTimingValue;
+        }
+        else if (timing == "GOOD") {
+            _timingPoints += goodTimingValue;
+            _totalPoint += goodTimingValue;
+        }
+        else if (timing == "BAD") {
+            _timingPoints += badTimingValue;
+            _totalPoint += badTimingValue;
+        }
+        else if (timing == "WRONG") { /*lo dejo por si acaso*/ }
+        else if (timing == "MISSED") { /*lo dejo por si acaso*/ }
+    }
 
     public void CoinRegister()
     {
@@ -49,6 +72,7 @@ public class ScoreManager : MonoBehaviour
         PlayerPrefs.SetFloat("FinalScore", (float)_totalPoint);
     }
     #endregion
+
     void Update()
     {
         _basicPoint += Time.deltaTime;

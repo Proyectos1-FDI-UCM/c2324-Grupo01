@@ -26,6 +26,15 @@ public class UIManager : MonoBehaviour
         _bigArrowText.SetActive(true);
     }
 
+    public void DisplayTiming(string timing)
+    {
+        if (timing == "PERFECT") {}
+        else if (timing == "GOOD") {}
+        else if (timing == "BAD") {}
+        else if (timing == "WRONG") {}
+        else if (timing == "MISSED") {}
+    }
+
     public void Deactivate()
     {
         _bigArrowText.SetActive(false);

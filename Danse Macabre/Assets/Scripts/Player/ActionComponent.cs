@@ -85,7 +85,7 @@ public class ActionComponent : MonoBehaviour
         if (IsGrounded())
         {
             isStomping = false;
-            //_isJumping = true;
+            _isJumping = true;
             Bounce();
         }
     }
@@ -171,6 +171,7 @@ public class ActionComponent : MonoBehaviour
         {
             //canDash = false;
             isStomping = false;
+            _isJumping = false;
         }
 
         //Despues de coger la moneda, dash elapsed time se actualiza y entrar?al condicional
