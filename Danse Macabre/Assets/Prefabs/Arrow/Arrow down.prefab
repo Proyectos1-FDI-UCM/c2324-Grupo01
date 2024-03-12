@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229b23dee483e75428018e54fd9429f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  graySprite: {fileID: -1659387424, guid: eaf0ea0c6dca27341adda000bf690826, type: 3}
 --- !u!58 &7001547186716217985
 CircleCollider2D:
   m_ObjectHideFlags: 0

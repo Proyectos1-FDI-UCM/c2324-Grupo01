@@ -155,3 +155,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229b23dee483e75428018e54fd9429f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  graySprite: {fileID: -821296225, guid: 6fe9a43aa0daab444b192c2fd588ca87, type: 3}

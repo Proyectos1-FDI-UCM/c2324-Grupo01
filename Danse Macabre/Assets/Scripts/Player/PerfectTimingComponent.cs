@@ -45,6 +45,11 @@ public class PerfectTimingComponent : MonoBehaviour
             float distance = Vector2.Distance(_myTransform.position, hitCollider.transform.position);
 
             if (hitCollider.CompareTag(targetTag)) {
+
+                // mejor que sea en un UI o GM pero...
+                hitCollider.gameObject.GetComponent<ArrowComponent>().Deactivate();
+            
+
                 if (distance <= perfectRadius)
                 {
                     // Calls game manager, that calls UI and ScoreI

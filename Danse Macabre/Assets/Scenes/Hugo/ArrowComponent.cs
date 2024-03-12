@@ -10,6 +10,30 @@ public class ArrowComponent : MonoBehaviour
     private float badRadius = 0.5f;
     #endregion
 
+    #region refrences
+    // [SerializeField]
+    // private Material grayShader;
+    private Animator _myAnimator;
+    private SpriteRenderer _myRenderer;
+    [SerializeField]
+    private Sprite graySprite;
+    #endregion
+
+    private void Start()
+    {
+        _myAnimator = GetComponent<Animator>();
+        _myRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    #region methods
+    public void Deactivate()
+    {
+        _myAnimator.enabled = false;
+        _myRenderer.sprite = graySprite;
+        //_myRenderer.material = grayShader;
+    }
+    #endregion
+
     void OnDrawGizmos()
     {
         CircleCollider2D collider = GetComponent<CircleCollider2D>();
