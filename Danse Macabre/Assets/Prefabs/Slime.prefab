@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 874141767067252139}
   - component: {fileID: 8443297437727633843}
   - component: {fileID: 3025540913568864403}
+  - component: {fileID: 5049551643764425434}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -123,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _destroyTime: 5
   _enemyValue: 5
+  BouncyEnemy: 0
 --- !u!58 &8443297437727633843
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -170,3 +172,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5fe95783b56bdc4bbb47b1c615d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5049551643764425434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8678692297607600715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454981a2302112f44981bbee1683f018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AudioClip: {fileID: 8300000, guid: 0b7baf37b31ccb84d8b4686b969f1c67, type: 3}

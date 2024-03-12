@@ -25,7 +25,7 @@ public class CoinComponent : MonoBehaviour
             //print("collision");
             _points.AddCoinPoints(_coinValue);
             _points.CoinRegister();
-            MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.coinSound);
+            //MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.coinSound);
 
             Destroy(gameObject);
         }

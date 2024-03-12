@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4622159443372251026}
   - component: {fileID: 5170355047315142679}
   - component: {fileID: 7932574036790866145}
+  - component: {fileID: -7367361167486476003}
   m_Layer: 0
   m_Name: BigCoin
   m_TagString: Untagged
@@ -170,3 +171,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canDashTime: 1
+--- !u!114 &-7367361167486476003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8767549960833425522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454981a2302112f44981bbee1683f018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AudioClip: {fileID: 8300000, guid: 2b51319aff9bba64fb69449b875471f2, type: 3}

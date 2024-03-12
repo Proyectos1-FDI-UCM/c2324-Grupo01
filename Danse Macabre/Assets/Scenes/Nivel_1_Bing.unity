@@ -1750,9 +1750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86600a7235407a49a9ca24d35a6a02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundCtr: 0.65
-  coinSound: {fileID: 8300000, guid: 4f0aa471d47fb0f41a55e6a0ca014702, type: 3}
-  boxSound: {fileID: 8300000, guid: 97feaae48244b1e4c85ad4c69b180901, type: 3}
+  soundCtr: 0.5
 --- !u!82 &202553713
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1765,7 +1763,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 542508e36ebaf7c4798ad9e41de2eb9d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.35
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -24856,6 +24854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerActionComponent: {fileID: 978764998}
+  _timing: {fileID: 0}
 --- !u!114 &762071552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24869,6 +24868,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreManager: {fileID: 762071550}
+  _UIManager: {fileID: 0}
+  _ScoreManager: {fileID: 0}
 --- !u!114 &762071553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27493,6 +27494,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 978765001}
   cameraOffset: 5
+  targetVerticalOffset: 2.445
+  cameraHeight: 10
+  defaultLerpSpeed: 0.5
 --- !u!1 &1454000560
 GameObject:
   m_ObjectHideFlags: 0

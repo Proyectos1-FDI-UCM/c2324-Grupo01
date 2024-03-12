@@ -15,8 +15,6 @@ public class MusicManager : MonoBehaviour
 
     #region references
     private AudioSource _myAudioSource;
-    public AudioClip coinSound;
-    public AudioClip boxSound;
     #endregion
 
     // For potential checkpoint
@@ -56,8 +54,8 @@ public class MusicManager : MonoBehaviour
     public void PlaySoundEffect(AudioClip clip)
     {
         _myAudioSource.PlayOneShot(clip,soundCtr);
+        
     }
-
     public void StopPlayingSong()
     {
         

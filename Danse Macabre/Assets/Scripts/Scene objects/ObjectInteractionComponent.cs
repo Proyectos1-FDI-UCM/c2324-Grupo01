@@ -34,7 +34,7 @@ public class ObjectInteractionComponent : MonoBehaviour
             {
                 _scoreManager.AddObjectPoints(-_value);
             }
-            MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.boxSound);
+            //MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.boxSound);
             DestroyAnimation();
             Invoke("DestroyObject", _destroyTime);
         }
