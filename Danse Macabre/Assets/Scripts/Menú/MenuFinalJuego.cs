@@ -9,6 +9,12 @@ public class MenuFinalJuego : MonoBehaviour
     #region references
     [SerializeField]
     private TextMeshProUGUI _textPuntuacionFinal;
+    [SerializeField]
+    private TextMeshProUGUI _textPuntuacionMoneda;
+    [SerializeField]
+    private TextMeshProUGUI _textPuntuacionEnemigo;
+    [SerializeField]
+    private TextMeshProUGUI _textPuntuacionObjecto;
     #endregion
     public void QuitMenuFinal()
     {
@@ -28,7 +34,13 @@ public class MenuFinalJuego : MonoBehaviour
         {
             // Carga la puntuación guardada desde PlayerPrefs y la muestra
             float finalScore = PlayerPrefs.GetFloat("FinalScore", 0f);
+            float coinScore = PlayerPrefs.GetFloat("CoinScore", 0f);
+            float enemyScore = PlayerPrefs.GetFloat("EnemyScore", 0f);
+            float objectScore = PlayerPrefs.GetFloat("ObjectScore", 0f);
             _textPuntuacionFinal.text = finalScore.ToString("0");
+            _textPuntuacionMoneda.text = coinScore.ToString("0");
+            _textPuntuacionEnemigo.text = enemyScore.ToString("0");
+            _textPuntuacionObjecto.text = objectScore.ToString("0");
         }
     }
 }

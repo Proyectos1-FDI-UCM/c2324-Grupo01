@@ -69,6 +69,9 @@ public class ScoreManager : MonoBehaviour
     {
         // Guarda la puntuaci�n en PlayerPrefs antes de cambiar de escena
         PlayerPrefs.SetFloat("FinalScore", (float)_totalPoint);
+        PlayerPrefs.SetFloat("CoinScore", (float)_coinPoint);
+        PlayerPrefs.SetFloat("EnemyScore", (float)_enemyPoint);
+        PlayerPrefs.SetFloat("ObjectScore", (float)_destroyObjectPoint);
     }
     #endregion
 
