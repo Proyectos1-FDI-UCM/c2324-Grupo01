@@ -1,8 +1,11 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class CameraController : MonoBehaviour
 {
@@ -25,8 +28,16 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private bool allowVerticalFollow = true; // Permite el seguimiento vertical del jugador. Desactivar y activar con ChangeVerticalFollow()
 
-    private bool goingUp = false;
-    private bool goingDown = true;
+    private bool goingUp = false; // Variable de control del seguimiento vertical
+    private bool goingDown = false; // Variable de control del seguimiento vertical
+    private bool end = false; // Indica que se ha llegado al final del nivel
+
+    private float endTargetPosition; // Variable de control del lerp del final del nivel
+    private float currentLerpTime = 0f; // Variable de control del lerp del final del nivel
+    [SerializeField]
+    private float finalLerpDuration = 2f; // Duración del lerp final del nivel
+    [SerializeField]
+    private float finalLerpDistance = 5f; // Distancia que recorre el lerp final del nivel
 
     void Start()
     {
@@ -36,17 +47,32 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
-        if (allowFollow)
+        if (end)
         {
-            double distance = _playerTransform.position.y - _cameraTransform.position.y; TrackPlayer(distance);
-            TrackPlayer(distance);
+            currentLerpTime += Time.deltaTime; // Incrementar temporizador de lerp
+            if (currentLerpTime > finalLerpDuration) // Prevenir exceso por encima de la duración del lerp final
+            {
+                currentLerpTime = finalLerpDuration;
+            }
+
+            // Cálculo del Lerp
+            float lerpPercent = currentLerpTime / finalLerpDuration;
+            // lerpPercent = Mathf.Sin(lerpPercent * Mathf.PI * 0.5f); // Curva de easing #1: EaseOut
+            lerpPercent = lerpPercent * lerpPercent * ((3 * lerpPercent) - (2f * lerpPercent)); // Curva de easing #2: Smoothstep
+
+            // Lerp
+            _cameraTransform.position = new Vector3(Mathf.Lerp(_cameraTransform.position.x, endTargetPosition, lerpPercent), _cameraTransform.position.y, -20);
+        }
+        else if (allowFollow)
+        {
+            TrackPlayer(_playerTransform.position.y - _cameraTransform.position.y);
             FollowPlayer();
         }
     }
 
     private void TrackPlayer(double distance)
     {
-        Debug.Log(distance + " " + cameraHeight + " " + -(cameraHeight));
+        //Debug.Log(distance + " " + cameraHeight + " " + -(cameraHeight));
 
         if (distance < -verticalCameraOffset - 0.05)
         {
@@ -89,5 +115,24 @@ public class CameraController : MonoBehaviour
         }
 
         _cameraTransform.position = new Vector3(_playerTransform.position.x + horizontalCameraOffset, targetY, -20);
+    }
+
+    public void ChangeFollow()
+    {
+        allowFollow = !allowFollow;
+        Debug.Log("Seguimiento general ahora es " + allowFollow);
+    }
+
+    public void ChangeVerticalFollow()
+    {
+        allowVerticalFollow = !allowVerticalFollow;
+        Debug.Log("Seguimiento vertical ahora es " + allowVerticalFollow);
+    }
+    public void EndOfLevelCamera()
+    {
+        allowFollow = false;
+        end = true;
+        endTargetPosition = Mathf.Round(_cameraTransform.position.x + finalLerpDistance);
+        Debug.Log("FINAL DE NIVEL; parando cámara en X = " + endTargetPosition);
     }
 }
