@@ -10,13 +10,20 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private Transform _playerTransform;
     [SerializeField]
-    private float cameraOffset = 7f; // Distancia horizontal entre jugador y centro de la cámara
+    private float horizontalCameraOffset = 7f; // Distancia horizontal constante entre jugador y centro de la cámara
     [SerializeField]
-    private float targetVerticalOffset = 2.445f; // Distancia vertical entre jugador y centro de la cámara
+    private float verticalCameraOffset = 2.445f; // Distancia vertical ideal (para el seguimiento vertical) entre jugador y centro de la cámara
     [SerializeField]
     private float cameraHeight = 10; // Altura total de la cámara
     [SerializeField]
-    private float defaultLerpSpeed = 0.5f; // Velocidad a la que la cámara se ajusta verticalmente (0-1) por defecto
+    private float defaultLerpSpeed = 1f; // Velocidad a la que la cámara se ajusta verticalmente (0-1) por defecto
+    [SerializeField]
+    private float topMargin = 3; // Distancia desde el borde superior de la cámara a la que comenzar a subirla durante el seguimiento vertical
+
+    [SerializeField]
+    private bool allowFollow = true; // Permite el seguimiento del jugador en general. Desactivar y activar con ChangeFollow()
+    [SerializeField]
+    private bool allowVerticalFollow = true; // Permite el seguimiento vertical del jugador. Desactivar y activar con ChangeVerticalFollow()
 
     private bool goingUp = false;
     private bool goingDown = true;
@@ -24,27 +31,30 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         _cameraTransform = transform;
-        cameraHeight = cameraHeight / 2;
+        cameraHeight = cameraHeight / 2; // Para convertirlo en distancia desde el centro hasta el borde superior o inferior
     }
 
     void LateUpdate()
     {
-        double distance = _playerTransform.position.y - _cameraTransform.position.y;TrackPlayer(distance);
-        TrackPlayer(distance);
-        FollowPlayer();
+        if (allowFollow)
+        {
+            double distance = _playerTransform.position.y - _cameraTransform.position.y; TrackPlayer(distance);
+            TrackPlayer(distance);
+            FollowPlayer();
+        }
     }
 
     private void TrackPlayer(double distance)
     {
         Debug.Log(distance + " " + cameraHeight + " " + -(cameraHeight));
 
-        if (distance < -targetVerticalOffset - 0.05)
+        if (distance < -verticalCameraOffset - 0.05)
         {
             goingDown = true;
             goingUp = false;
             // bajando
         }
-        else if (distance > cameraHeight - 2)
+        else if (distance > cameraHeight - topMargin)
         {
             goingDown = false;
             goingUp = true;
@@ -60,25 +70,24 @@ public class CameraController : MonoBehaviour
 
     private void FollowPlayer()
     {
-        
         float targetY;
 
-        if (goingDown && !goingUp) // Bajando
+        if (goingDown && !goingUp && allowVerticalFollow) // Bajando
         {
             Debug.Log("Bajando");
-            targetY = _playerTransform.position.y + targetVerticalOffset;
+            targetY = _playerTransform.position.y + verticalCameraOffset;
         }
-        else if (!goingDown && goingUp)  // Subiendo
+        else if (!goingDown && goingUp && allowVerticalFollow)  // Subiendo
         {
             Debug.Log("Subiendo");
-            targetY = Mathf.Lerp(_cameraTransform.position.y, Mathf.Round(_playerTransform.position.y + targetVerticalOffset), 1f * Time.deltaTime);
+            targetY = Mathf.Lerp(_cameraTransform.position.y, Mathf.Round(_playerTransform.position.y + verticalCameraOffset), defaultLerpSpeed * Time.deltaTime);
         }
         else // En medio quieta
         {
             Debug.Log("En medio");
             targetY = _cameraTransform.position.y;
         }
-        
-        _cameraTransform.position = new Vector3(_playerTransform.position.x + cameraOffset, targetY, -20f); //-20 porque la camara se movia al z = 0 si V2
+
+        _cameraTransform.position = new Vector3(_playerTransform.position.x + horizontalCameraOffset, targetY, -20);
     }
 }
