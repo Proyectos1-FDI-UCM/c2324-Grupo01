@@ -8,8 +8,7 @@ public class MusicManager : MonoBehaviour
     #region parameters
     // [SerializeField]
     // private float delay = 0.5f;
-    [SerializeField]
-    private float soundCtr = 1;
+    public float soundCtr = 1;
     // private float elapsedTime = 0f;
     #endregion
 
@@ -55,6 +54,11 @@ public class MusicManager : MonoBehaviour
     {
         _myAudioSource.PlayOneShot(clip,soundCtr);
         
+    }
+    public void PlayLoopEffect(AudioClip clip)
+    {
+        _myAudioSource.PlayOneShot(clip, soundCtr);
+
     }
     public void StopPlayingSong()
     {

@@ -25,6 +25,11 @@ public class ActionComponent : MonoBehaviour
     //rango de tiempo que puedes hacer dash (cuando coges la moneda especial)
     [SerializeField]
     private float _dashElapsedTime = 0.0f;
+
+    [SerializeField]
+    private float _originalPitch = 1.57f;
+    [SerializeField]
+    private float slideDashCTR = 0.15f;
     #endregion
 
     #region references
@@ -33,6 +38,18 @@ public class ActionComponent : MonoBehaviour
     private BoxCollider2D _myCollider;
     [SerializeField]
     private LayerMask groundLayer; // Capa que representa el suelo
+
+
+    //sfx
+    private AudioSource _myAudioSource;
+    [SerializeField] 
+    private AudioClip _jumpSound;
+    [SerializeField]
+    private AudioClip _stompSound;
+    [SerializeField]
+    private AudioClip _slideSound;
+    [SerializeField]
+    private AudioClip _dashSound;
 
     //collider references
     [SerializeField]
@@ -86,6 +103,7 @@ public class ActionComponent : MonoBehaviour
         {
             isStomping = false;
             _isJumping = true;
+            if (!_myAudioSource.isPlaying) _myAudioSource.Play();
             Bounce();
         }
     }
@@ -102,6 +120,8 @@ public class ActionComponent : MonoBehaviour
             isDashing = false;
             isStomping = true;
             _myRB.AddForce(impulseStomp * Vector2.down, ForceMode2D.Impulse);
+            _myAudioSource.PlayOneShot(_stompSound);
+            
         }
     }
 
@@ -111,6 +131,11 @@ public class ActionComponent : MonoBehaviour
         {
             isDashing = true;
             canDash = false;
+            if (!_myAudioSource.isPlaying)
+            {
+                _myAudioSource.pitch = 1;
+                _myAudioSource.PlayOneShot(_dashSound,slideDashCTR);
+            }
             StartCoroutine(Dash());
         }
         else if (IsGrounded())
@@ -118,6 +143,11 @@ public class ActionComponent : MonoBehaviour
             isSliding = true;
             myCollider.offset = new Vector2(SlideCollisionOffsetX, SlideCollisionOffsetY);
             myCollider.size = new Vector2(SlideCollisionSizeX, SlideCollisionSizeY);
+            if (!_myAudioSource.isPlaying)
+            {
+                _myAudioSource.pitch = 1;
+                _myAudioSource.PlayOneShot(_slideSound,slideDashCTR);
+            }
         }
     }
     public void SlideStop()
@@ -125,6 +155,8 @@ public class ActionComponent : MonoBehaviour
         myCollider.offset = new Vector2(DefaultCollisionOffsetX, DefaultCollisionOffsetY);
         myCollider.size = new Vector2(DefaultCollisionSizeX, DefaultCollisionSizeY);
         isSliding = false;
+        _myAudioSource.Stop();
+        _myAudioSource.pitch = _originalPitch;
     }
     public void DashCountDown(float _time)
     {
@@ -148,6 +180,8 @@ public class ActionComponent : MonoBehaviour
 
         _myRB.gravityScale = originalGravityScale;
         isDashing = false;
+        _myAudioSource.Stop();
+        _myAudioSource.pitch = _originalPitch;
     }
     #endregion
 
@@ -156,7 +190,8 @@ public class ActionComponent : MonoBehaviour
         _myTransform = transform;
         _myRB = GetComponent<Rigidbody2D>();
         _myCollider = GetComponent<BoxCollider2D>();
-
+        _myAudioSource = GetComponent<AudioSource>();
+        
         myCollider = this.gameObject.GetComponent<BoxCollider2D>();
         myCollider.offset = new Vector2(DefaultCollisionOffsetX, DefaultCollisionOffsetY);
         myCollider.size = new Vector2(DefaultCollisionSizeX, DefaultCollisionSizeY);

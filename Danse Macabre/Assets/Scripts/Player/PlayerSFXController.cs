@@ -6,13 +6,15 @@ using UnityEngine;
 public class PlayerSFXController : MonoBehaviour
 {
     #region references
-    ActionComponent _myAction;
+    private ActionComponent _myAction;
+    private AudioSource _audioSource;
     [SerializeField]
     private AudioClip[] audioClips = new AudioClip[4]; 
     #endregion
     void Start()
     {
         _myAction = GetComponent<ActionComponent>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,10 +23,16 @@ public class PlayerSFXController : MonoBehaviour
         if ( _myAction != null )
         {
             
-            if (_myAction._isJumping) MusicManager.Instance.PlaySoundEffect(audioClips[0]); //jump
-            else if (_myAction.isStomping) MusicManager.Instance.PlaySoundEffect(audioClips[1]); //stomp
-            else if (_myAction.isSliding) MusicManager.Instance.PlaySoundEffect(audioClips[2]); //slide
-            else if (_myAction.isDashing) MusicManager.Instance.PlaySoundEffect(audioClips[3]); //dash
+            if (_myAction._isJumping)
+            {
+                Debug.Log("Entrado");
+                _audioSource.PlayOneShot(audioClips[0]);
+            }
+            else if (_myAction.isStomping)
+            {
+                _audioSource.PlayOneShot(audioClips[1]);
+                Debug.Log("Entrando 2");
+            }
         }
     }
 }
