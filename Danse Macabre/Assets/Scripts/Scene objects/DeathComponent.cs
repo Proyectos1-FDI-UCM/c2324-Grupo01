@@ -15,6 +15,8 @@ public class DeathComponent : MonoBehaviour
         if (_player != null)
         {
             _scoreManager.SaveFinalScore();
+            //Guardar el nombre de la escena anterior para el botón restart
+            PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
             //Cambiar escena de muerte
             SceneManager.LoadScene(4);
         }

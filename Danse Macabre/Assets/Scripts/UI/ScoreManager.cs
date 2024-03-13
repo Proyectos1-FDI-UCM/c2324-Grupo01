@@ -15,7 +15,6 @@ public class ScoreManager : MonoBehaviour
     #region references
     [SerializeField]
     private TextMeshProUGUI _textPuntos;
-    private MenuVictoria _victoria;
     #endregion
 
     #region properties

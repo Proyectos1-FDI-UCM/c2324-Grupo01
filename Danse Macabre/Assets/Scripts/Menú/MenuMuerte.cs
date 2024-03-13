@@ -16,8 +16,10 @@ public class MenuMuerte : MonoBehaviour
     }
     public void RestaurarMenuMuerte()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //Obtiene el nombre de la escena anterior
+        string sceneName = PlayerPrefs.GetString("PreviousScene", "DefaultSceneName");
+        //Carga la escena anterior
+        SceneManager.LoadScene(sceneName);
     }
     void Start()
     {
