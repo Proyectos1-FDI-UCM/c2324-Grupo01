@@ -1722,7 +1722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &202553711
 Transform:
   m_ObjectHideFlags: 0
@@ -1751,8 +1751,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundCtr: 0.65
-  coinSound: {fileID: 8300000, guid: 4f0aa471d47fb0f41a55e6a0ca014702, type: 3}
-  boxSound: {fileID: 8300000, guid: 97feaae48244b1e4c85ad4c69b180901, type: 3}
 --- !u!82 &202553713
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4262,7 +4260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!156049354 &631064123
 Grid:
   m_ObjectHideFlags: 0
@@ -27561,6 +27559,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 738264204}
   cameraOffset: 5
+  targetVerticalOffset: 2.445
+  cameraHeight: 10
+  defaultLerpSpeed: 0.5
 --- !u!1 &1454000560
 GameObject:
   m_ObjectHideFlags: 0
@@ -27964,6 +27965,14 @@ PrefabInstance:
     - target: {fileID: 1323140397853336026, guid: 08cd4ad49d678c447a53637af0f8ef4f, type: 3}
       propertyPath: gravityFactor
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323140397853336026, guid: 08cd4ad49d678c447a53637af0f8ef4f, type: 3}
+      propertyPath: SlideCollisionSizeY
+      value: 0.4826775
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323140397853336026, guid: 08cd4ad49d678c447a53637af0f8ef4f, type: 3}
+      propertyPath: SlideCollisionOffsetY
+      value: -0.2373648
       objectReference: {fileID: 0}
     - target: {fileID: 2916250163534012754, guid: 08cd4ad49d678c447a53637af0f8ef4f, type: 3}
       propertyPath: m_Name
