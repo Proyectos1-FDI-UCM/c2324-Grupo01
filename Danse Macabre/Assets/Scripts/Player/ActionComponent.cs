@@ -26,10 +26,15 @@ public class ActionComponent : MonoBehaviour
     [SerializeField]
     private float _dashElapsedTime = 0.0f;
 
+    private float _originalPitch = 1f;
     [SerializeField]
-    private float _originalPitch = 1.57f;
+    private float slideCTR = 0.15f;
     [SerializeField]
-    private float slideDashCTR = 0.15f;
+    private float dashCTR = 0.2f;
+    [SerializeField]
+    private float jumpCTR = 0.2f;
+    [SerializeField]
+    private float stompCTR = 0.1f;
     #endregion
 
     #region references
@@ -40,7 +45,7 @@ public class ActionComponent : MonoBehaviour
     private LayerMask groundLayer; // Capa que representa el suelo
 
 
-    //sfx
+    // sfx
     private AudioSource _myAudioSource;
     [SerializeField] 
     private AudioClip _jumpSound;
@@ -50,7 +55,7 @@ public class ActionComponent : MonoBehaviour
     private AudioClip _slideSound;
     [SerializeField]
     private AudioClip _dashSound;
-
+    
     //collider references
     [SerializeField]
     private float DefaultCollisionSizeX;
@@ -103,7 +108,7 @@ public class ActionComponent : MonoBehaviour
         {
             isStomping = false;
             _isJumping = true;
-            if (!_myAudioSource.isPlaying) _myAudioSource.Play();
+            _myAudioSource.PlayOneShot(_jumpSound, jumpCTR);
             Bounce();
         }
     }
@@ -120,7 +125,8 @@ public class ActionComponent : MonoBehaviour
             isDashing = false;
             isStomping = true;
             _myRB.AddForce(impulseStomp * Vector2.down, ForceMode2D.Impulse);
-            _myAudioSource.PlayOneShot(_stompSound);
+            
+            if (!isDashing) _myAudioSource.PlayOneShot(_stompSound, stompCTR);
             
         }
     }
@@ -134,7 +140,7 @@ public class ActionComponent : MonoBehaviour
             if (!_myAudioSource.isPlaying)
             {
                 _myAudioSource.pitch = 1;
-                _myAudioSource.PlayOneShot(_dashSound,slideDashCTR);
+                _myAudioSource.PlayOneShot(_dashSound, dashCTR);
             }
             StartCoroutine(Dash());
         }
@@ -146,7 +152,8 @@ public class ActionComponent : MonoBehaviour
             if (!_myAudioSource.isPlaying)
             {
                 _myAudioSource.pitch = 1;
-                _myAudioSource.PlayOneShot(_slideSound,slideDashCTR);
+                _myAudioSource.PlayOneShot(_slideSound,slideCTR);
+                _myAudioSource.loop = true;
             }
         }
     }
@@ -156,6 +163,7 @@ public class ActionComponent : MonoBehaviour
         myCollider.size = new Vector2(DefaultCollisionSizeX, DefaultCollisionSizeY);
         isSliding = false;
         _myAudioSource.Stop();
+        _myAudioSource.loop = false;
         _myAudioSource.pitch = _originalPitch;
     }
     public void DashCountDown(float _time)
@@ -191,6 +199,7 @@ public class ActionComponent : MonoBehaviour
         _myRB = GetComponent<Rigidbody2D>();
         _myCollider = GetComponent<BoxCollider2D>();
         _myAudioSource = GetComponent<AudioSource>();
+        _originalPitch = _myAudioSource.pitch;
         
         myCollider = this.gameObject.GetComponent<BoxCollider2D>();
         myCollider.offset = new Vector2(DefaultCollisionOffsetX, DefaultCollisionOffsetY);

@@ -1722,7 +1722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &202553711
 Transform:
   m_ObjectHideFlags: 0
@@ -27558,10 +27558,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 738264204}
-  cameraOffset: 5
-  targetVerticalOffset: 2.445
+  horizontalCameraOffset: 7
+  verticalCameraOffset: 2.445
   cameraHeight: 10
   defaultLerpSpeed: 0.5
+  topMargin: 3
+  allowFollow: 1
+  allowVerticalFollow: 1
+  finalLerpDuration: 2
+  finalLerpDistance: 5
 --- !u!1 &1454000560
 GameObject:
   m_ObjectHideFlags: 0

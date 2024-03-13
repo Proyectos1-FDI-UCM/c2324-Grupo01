@@ -1751,8 +1751,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundCtr: 0.65
-  coinSound: {fileID: 8300000, guid: 4f0aa471d47fb0f41a55e6a0ca014702, type: 3}
-  boxSound: {fileID: 8300000, guid: 97feaae48244b1e4c85ad4c69b180901, type: 3}
 --- !u!82 &202553713
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27540,7 +27538,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 978765001}
-  cameraOffset: 5
+  horizontalCameraOffset: 7
+  verticalCameraOffset: 2.445
+  cameraHeight: 10
+  defaultLerpSpeed: 1
+  topMargin: 3
+  allowFollow: 1
+  allowVerticalFollow: 1
+  finalLerpDuration: 2
+  finalLerpDistance: 5
 --- !u!1 &1454000560
 GameObject:
   m_ObjectHideFlags: 0
@@ -32332,6 +32338,10 @@ PrefabInstance:
     - target: {fileID: 3996297822920346081, guid: 39da1f0844fe2cd43a41a86dec3fd06f, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948349624696677552, guid: 39da1f0844fe2cd43a41a86dec3fd06f, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167278231102041047, guid: 39da1f0844fe2cd43a41a86dec3fd06f, type: 3}
       propertyPath: speed

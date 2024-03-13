@@ -8,8 +8,10 @@ public class SFXPlayerComponent : MonoBehaviour
     //solo para objetos
     [SerializeField]
     private AudioClip m_AudioClip;
+    [SerializeField]
+    private float volume;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        MusicManager.Instance.PlaySoundEffect(m_AudioClip);
+        MusicManager.Instance.PlaySoundEffect(m_AudioClip, volume);
     }
 }

@@ -185,3 +185,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AudioClip: {fileID: 8300000, guid: af84ac6734716524dbf772d34147b25f, type: 3}
+  volume: 0.7
