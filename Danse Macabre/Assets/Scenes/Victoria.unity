@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 416455560}
   - component: {fileID: 416455562}
   - component: {fileID: 416455559}
-  - component: {fileID: 416455561}
+  - component: {fileID: 416455563}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -330,19 +330,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &416455561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416455558}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e8dca5684b158a45a890e65a266d3b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _textPuntos: {fileID: 1995545254}
 --- !u!114 &416455562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,6 +343,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetFPS: 50
+--- !u!114 &416455563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416455558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0eec7d2509bd44eb51c1592471a75d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textPuntuacionFinal: {fileID: 1995545254}
 --- !u!1 &936416805
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,9 +651,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 416455559}
-        m_TargetAssemblyTypeName: MenuVictoria, Assembly-CSharp
-        m_MethodName: Victoria
+      - m_Target: {fileID: 416455563}
+        m_TargetAssemblyTypeName: MenuFinalJuego, Assembly-CSharp
+        m_MethodName: QuitMenuFinal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

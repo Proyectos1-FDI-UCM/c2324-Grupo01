@@ -4,18 +4,22 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuVictoria : MonoBehaviour
+public class MenuFinalJuego : MonoBehaviour
 {
-    #region properties
-    //public bool _isVictory = false;
-    #endregion
     #region references
     [SerializeField]
     private TextMeshProUGUI _textPuntuacionFinal;
     #endregion
-    public void Victoria()
+    public void QuitMenuFinal()
     {
         SceneManager.LoadScene(0);
+    }
+    public void Restart()
+    {
+        //Obtiene el nombre de la escena anterior
+        string sceneName = PlayerPrefs.GetString("PreviousScene", "DefaultSceneName");
+        //Carga la escena anterior
+        SceneManager.LoadScene(sceneName);
     }
     void Start()
     {
