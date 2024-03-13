@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovementComponent : MonoBehaviour
 {
@@ -47,8 +48,10 @@ public class MovementComponent : MonoBehaviour
     void Update()
     {
 
-        if (myRigidBody.velocity.x < speed - 0.01f){
-
+        if (myRigidBody.velocity.x < speed - 0.01f)
+        {
+            //Guardar el nombre de la escena anterior para el botón restart
+            PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
             GameManager.Instance.Muerte();
         }
 
