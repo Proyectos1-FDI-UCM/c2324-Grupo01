@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _destroyTime: 5
-  _enemyValue: 5
+  _enemyValue: 10
   BouncyEnemy: 0
 --- !u!95 &7136414799280994542
 Animator:

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -13,8 +14,8 @@ public class ScoreManager : MonoBehaviour
     #endregion 
 
     #region references
-    [SerializeField]
-    private TextMeshProUGUI _textPuntos;
+    [SerializeField] private TextMeshProUGUI _textPuntos;
+    [SerializeField] private TextMeshProUGUI _textPuntosAñadidos;
     #endregion
 
     #region properties
@@ -25,23 +26,53 @@ public class ScoreManager : MonoBehaviour
     private int _destroyObjectPoint = 0;
     private int _nCoins = 0;
     private int _timingPoints = 0;
+
+    private int _addPoints = 0;
+    private float _lastPickupTime;
+    [SerializeField] private float _resetTime = 0.5f;
     #endregion
 
     #region methods
+    private void ResetText()
+    {
+        _textPuntosAñadidos.text = " ";
+    }
+    void UpdateText()
+    {
+        _textPuntosAñadidos.text = "+" + _addPoints.ToString();
+    }
     public void AddCoinPoints(int points)
     {
         _coinPoint+= points;
         _totalPoint+= points;
+        _addPoints+= points;
+        _lastPickupTime=Time.time;
+        UpdateText();
     }
     public void AddEnemyPoints(int points)
     {
         _enemyPoint += points;
         _totalPoint += points;
+        _addPoints+= points;
+        _lastPickupTime = Time.time;
+        UpdateText();
     }
     public void AddObjectPoints(int points)
     {
         _destroyObjectPoint += points;
         _totalPoint += points;
+        if (points < 0)
+        {
+            ResetText();
+            _addPoints = 0;
+            _textPuntosAñadidos.text = points.ToString();
+        }
+        else
+        {
+            _addPoints += points;
+            UpdateText();
+        }
+        _lastPickupTime = Time.time;
     }
     public void AddTimingPoints(string timing)
     {
@@ -74,12 +105,21 @@ public class ScoreManager : MonoBehaviour
         PlayerPrefs.SetFloat("ObjectScore", (float)_destroyObjectPoint);
     }
     #endregion
-
+    void Start()
+    {
+        _lastPickupTime = Time.time;
+    }
     void Update()
     {
         _basicPoint += Time.deltaTime;
         _totalPoint += Time.deltaTime;
         //Debug.Log("Puntos" + _totalPoint);
         _textPuntos.text = _totalPoint.ToString("0");
+
+        if(Time.time - _lastPickupTime >= _resetTime)
+        {
+            _addPoints = 0;
+            ResetText();
+        }
     }
 }
