@@ -16,6 +16,7 @@ public class PerfectTimingComponent : MonoBehaviour
     [SerializeField]
     private LayerMask interactiveObjectLayer;
     private ActionComponent _playerAction;
+    private ArrowComponent arrowComponent;
     #endregion
 
     #region properties
@@ -26,6 +27,7 @@ public class PerfectTimingComponent : MonoBehaviour
     {
         _myTransform = transform;
         _playerAction = GetComponent<ActionComponent>();
+        //arrowComponent = gameObject
     }
 
     #region methods

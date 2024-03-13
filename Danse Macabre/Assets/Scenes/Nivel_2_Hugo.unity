@@ -5981,7 +5981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BPM: 139
-  TilesPerTick: 1
+  TilesPerTick: 3
   SecondsPerTick: 0
   PlayerSpeed: 0
 --- !u!1001 &399510449
@@ -8666,6 +8666,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 724070718}
   cameraOffset: 4.5
+  targetVerticalOffset: 2.445
+  cameraHeight: 10
+  defaultLerpSpeed: 0.5
 --- !u!1 &573820985
 GameObject:
   m_ObjectHideFlags: 0
@@ -14712,8 +14715,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundCtr: 1
-  coinSound: {fileID: 8300000, guid: 4f0aa471d47fb0f41a55e6a0ca014702, type: 3}
-  boxSound: {fileID: 8300000, guid: 6d991c4072a4f3540876227c5899276c, type: 3}
 --- !u!1 &950603377
 GameObject:
   m_ObjectHideFlags: 0
