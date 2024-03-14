@@ -19,6 +19,8 @@ public class ActionComponent : MonoBehaviour
     [SerializeField]
     private float impulseStomp = 20;
     [SerializeField]
+    private float impulseTrampolin = 12;
+    [SerializeField]
     private float dashDuration = 2.0f;
     private float dashEndTime = 0;
 
@@ -42,7 +44,9 @@ public class ActionComponent : MonoBehaviour
     private Rigidbody2D _myRB;
     private BoxCollider2D _myCollider;
     [SerializeField]
-    private LayerMask groundLayer; // Capa que representa el suelo
+    private LayerMask groundLayer; // Capa que representa el suelo / Añadir trampoline!
+    [SerializeField]
+    private LayerMask trampolineLayer;
 
 
     // sfx
@@ -101,6 +105,12 @@ public class ActionComponent : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(_myTransform.position, Vector2.down, groundCheckDistance, groundLayer);
         return hit.collider != null;
     }
+    private bool IsTrampolin()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(_myTransform.position, Vector2.down, groundCheckDistance, trampolineLayer);
+        return hit.collider != null;
+    }
+
     public void Jump()
     {
         //JUMP 
@@ -191,6 +201,7 @@ public class ActionComponent : MonoBehaviour
         _myAudioSource.Stop();
         _myAudioSource.pitch = _originalPitch;
     }
+
     #endregion
 
     void Start()
@@ -211,6 +222,11 @@ public class ActionComponent : MonoBehaviour
     void Update()
     {
         //if (IsGrounded() && (actionState == ActionComponent.ActionStateEnum.Stomping)) + state = none
+        if (isStomping && IsTrampolin()) {
+            print("sdfsdfsfsdfs");
+            _myRB.AddForce(impulseTrampolin * Vector2.up, ForceMode2D.Impulse);
+            isStomping = false;
+        }
         if (IsGrounded())
         {
             //canDash = false;
@@ -231,7 +247,8 @@ public class ActionComponent : MonoBehaviour
         //Debug.Log("Dash time: "+_dashElapsedTime);
 
     }
-        private void FixedUpdate()
+
+    private void FixedUpdate()
     {
         if (_myRB.velocity.y < -0.01f && !gravityChanged)
         {

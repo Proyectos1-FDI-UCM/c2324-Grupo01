@@ -40,8 +40,8 @@ public class PerfectTimingComponent : MonoBehaviour
             print("MISSED!");
         }
         else {
-            if (_playerAction._isJumping) targetTag = "Jump";
-            else if (_playerAction.isStomping) targetTag = "Stomp";
+            if (_playerAction.isStomping) targetTag = "Stomp";   
+            else if (_playerAction._isJumping) targetTag = "Jump";
             else if (_playerAction.isDashing || _playerAction.isSliding) targetTag = "DashSlide";
 
             float distance = Vector2.Distance(_myTransform.position, hitCollider.transform.position);

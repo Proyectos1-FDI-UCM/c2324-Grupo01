@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8693597587511461896}
   - component: {fileID: 3743249431654715070}
   - component: {fileID: 695927272644594675}
+  - component: {fileID: 4896818492767952883}
   - component: {fileID: 5948349624696677552}
   m_Layer: 0
   m_Name: Player
@@ -135,15 +136,19 @@ MonoBehaviour:
   gravityFactor: 0.9
   groundCheckDistance: 0.55
   impulseStomp: 35
+  impulseTrampolin: 15
   dashDuration: 2
   _dashElapsedTime: 0
-  _originalPitch: 1.57
   slideCTR: 0.15
   dashCTR: 0.2
-  jumpStompCTR: 0.2
+  jumpCTR: 0.2
+  stompCTR: 0.1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  trampolineLayer:
+    serializedVersion: 2
+    m_Bits: 512
   _jumpSound: {fileID: 8300000, guid: 1c17c8e7f86464e42a180c14eb66471d, type: 3}
   _stompSound: {fileID: 8300000, guid: a1d98f6cd9f4ea8418bc2a0b8fdb2e4f, type: 3}
   _slideSound: {fileID: 8300000, guid: 2da96b5372e968a4b99a7db9065f2cf4, type: 3}
@@ -267,6 +272,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d95e481aabdffb4b86ab9eb6588a111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4896818492767952883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3996297822920346081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b47302629587471408beb313212056b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactiveObjectLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!82 &5948349624696677552
 AudioSource:
   m_ObjectHideFlags: 0
