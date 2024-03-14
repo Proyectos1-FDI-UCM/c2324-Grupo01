@@ -28,6 +28,7 @@ public class ScoreManager : MonoBehaviour
     private int _timingPoints = 0;
 
     private int _addPoints = 0; //los puntos que se van sumando
+    private int _sudPoints= 0;
     private float _lastPickupTime; 
     [SerializeField] private float _resetTime = 0.5f; 
     #endregion
@@ -63,9 +64,9 @@ public class ScoreManager : MonoBehaviour
         _totalPoint += points;
         if (points < 0) // si es negativo
         {
-            ResetText();
             _addPoints = 0;
-            _textPuntosAñadidos.text = points.ToString();
+            _sudPoints += points;
+            _textPuntosAñadidos.text = _sudPoints.ToString();
         }
         else
         {
@@ -121,6 +122,7 @@ public class ScoreManager : MonoBehaviour
         if (Time.time - _lastPickupTime >= _resetTime) 
         {
             _addPoints = 0;
+            _sudPoints = 0;
             ResetText();
         }
     }
