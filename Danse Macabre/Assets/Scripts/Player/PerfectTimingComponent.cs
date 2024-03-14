@@ -14,9 +14,8 @@ public class PerfectTimingComponent : MonoBehaviour
     #region references
     private Transform _myTransform;
     [SerializeField]
-    private LayerMask interactiveObjectLayer;
+    private LayerMask arrowLayer;
     private ActionComponent _playerAction;
-    private ArrowComponent arrowComponent;
     #endregion
 
     #region properties
@@ -27,17 +26,15 @@ public class PerfectTimingComponent : MonoBehaviour
     {
         _myTransform = transform;
         _playerAction = GetComponent<ActionComponent>();
-        //arrowComponent = gameObject
     }
 
     #region methods
     public void CheckNearbyArrow()
     {
-        Collider2D hitCollider = Physics2D.OverlapCircle(_myTransform.position, badRadius, interactiveObjectLayer);
+        Collider2D hitCollider = Physics2D.OverlapCircle(_myTransform.position, badRadius, arrowLayer);
 
         if (hitCollider == null) {
             GameManager.Instance.ArrowTiming("MISSED");
-            print("MISSED!");
         }
         else {
             if (_playerAction.isStomping) targetTag = "Stomp";   
@@ -56,22 +53,18 @@ public class PerfectTimingComponent : MonoBehaviour
                 {
                     // Calls game manager, that calls UI and ScoreI
                     GameManager.Instance.ArrowTiming("PERFECT");
-                    print("Perfect!!!");
                 }
                 else if (distance <= goodRadius)
                 {
                     GameManager.Instance.ArrowTiming("GOOD");
-                    print("Good!");
                 }
                 else
                 {
                     GameManager.Instance.ArrowTiming("BAD");
-                    print("Bad...");
                 }
             }
             else {
                 GameManager.Instance.ArrowTiming("WRONG");
-                print("WRONG MOVE!!!");
             }
         }
     }

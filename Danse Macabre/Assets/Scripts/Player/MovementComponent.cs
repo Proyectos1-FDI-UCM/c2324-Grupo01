@@ -50,7 +50,7 @@ public class MovementComponent : MonoBehaviour
 
         if (myRigidBody.velocity.x < speed - 0.01f)
         {
-            //Guardar el nombre de la escena anterior para el botón restart
+            //Guardar el nombre de la escena anterior para el botï¿½n restart
             PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
             GameManager.Instance.Muerte();
         }

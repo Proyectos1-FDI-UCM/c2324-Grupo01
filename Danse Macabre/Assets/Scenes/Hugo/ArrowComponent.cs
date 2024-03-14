@@ -11,8 +11,6 @@ public class ArrowComponent : MonoBehaviour
     #endregion
 
     #region refrences
-    // [SerializeField]
-    // private Material grayShader;
     private Animator _myAnimator;
     private SpriteRenderer _myRenderer;
     [SerializeField]
@@ -30,7 +28,6 @@ public class ArrowComponent : MonoBehaviour
     {
         _myAnimator.enabled = false;
         _myRenderer.sprite = graySprite;
-        //_myRenderer.material = grayShader;
     }
     #endregion
 

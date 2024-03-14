@@ -16,6 +16,7 @@ public class ActionComponent : MonoBehaviour
     private float gravityFactor = 0.90f;
     [SerializeField]
     private float groundCheckDistance = 0.55f;
+    private float trampolinCheckDistance = 0.60f;
     [SerializeField]
     private float impulseStomp = 20;
     [SerializeField]
@@ -107,7 +108,7 @@ public class ActionComponent : MonoBehaviour
     }
     private bool IsTrampolin()
     {
-        RaycastHit2D hit = Physics2D.Raycast(_myTransform.position, Vector2.down, groundCheckDistance, trampolineLayer);
+        RaycastHit2D hit = Physics2D.Raycast(_myTransform.position, Vector2.down, trampolinCheckDistance, trampolineLayer);
         return hit.collider != null;
     }
 
@@ -227,7 +228,7 @@ public class ActionComponent : MonoBehaviour
             _myRB.AddForce(impulseTrampolin * Vector2.up, ForceMode2D.Impulse);
             isStomping = false;
         }
-        if (IsGrounded())
+        else if (IsGrounded())
         {
             //canDash = false;
             isStomping = false;

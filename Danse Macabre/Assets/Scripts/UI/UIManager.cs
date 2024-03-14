@@ -6,11 +6,11 @@ public class UIManager : MonoBehaviour
 {
     public void DisplayTiming(string timing)
     {
-        if (timing == "PERFECT") {}
-        else if (timing == "GOOD") {}
-        else if (timing == "BAD") {}
-        else if (timing == "WRONG") {}
-        else if (timing == "MISSED") {}
+        if (timing == "PERFECT") {print("Perfect!!!");}
+        else if (timing == "GOOD") {print("Good!");}
+        else if (timing == "BAD") {print("Bad...");}
+        else if (timing == "WRONG") {print("WRONG MOVE!!!");}
+        else if (timing == "MISSED") {print("MISSED!");}
     }
 
 }
