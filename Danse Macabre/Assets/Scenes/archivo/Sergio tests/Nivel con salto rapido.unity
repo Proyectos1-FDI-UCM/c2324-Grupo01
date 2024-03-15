@@ -1750,7 +1750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86600a7235407a49a9ca24d35a6a02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundCtr: 0.65
 --- !u!82 &202553713
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24775,9 +24774,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47302629587471408beb313212056b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactiveObjectLayer:
+  arrowLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
 --- !u!114 &738264201 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1323140397853336026, guid: 08cd4ad49d678c447a53637af0f8ef4f, type: 3}
@@ -24922,6 +24921,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textPuntos: {fileID: 1326837622}
+  "_textPuntosA\xF1adidos": {fileID: 0}
+  _resetTime: 0.5
 --- !u!114 &762071551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27956,9 +27957,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1323140397853336026, guid: 08cd4ad49d678c447a53637af0f8ef4f, type: 3}
+      propertyPath: _dashSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1197a64a8a3399a4ca35b94c199bb827, type: 3}
+    - target: {fileID: 1323140397853336026, guid: 08cd4ad49d678c447a53637af0f8ef4f, type: 3}
+      propertyPath: _jumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1c17c8e7f86464e42a180c14eb66471d, type: 3}
+    - target: {fileID: 1323140397853336026, guid: 08cd4ad49d678c447a53637af0f8ef4f, type: 3}
       propertyPath: _jumpSpeed
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 1323140397853336026, guid: 08cd4ad49d678c447a53637af0f8ef4f, type: 3}
+      propertyPath: _slideSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2da96b5372e968a4b99a7db9065f2cf4, type: 3}
+    - target: {fileID: 1323140397853336026, guid: 08cd4ad49d678c447a53637af0f8ef4f, type: 3}
+      propertyPath: _stompSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a1d98f6cd9f4ea8418bc2a0b8fdb2e4f, type: 3}
     - target: {fileID: 1323140397853336026, guid: 08cd4ad49d678c447a53637af0f8ef4f, type: 3}
       propertyPath: dashDuration
       value: 0.2
@@ -27978,6 +27995,10 @@ PrefabInstance:
     - target: {fileID: 1323140397853336026, guid: 08cd4ad49d678c447a53637af0f8ef4f, type: 3}
       propertyPath: SlideCollisionOffsetY
       value: -0.2373648
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323140397853336026, guid: 08cd4ad49d678c447a53637af0f8ef4f, type: 3}
+      propertyPath: trampolineLayer.m_Bits
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 2916250163534012754, guid: 08cd4ad49d678c447a53637af0f8ef4f, type: 3}
       propertyPath: m_Name

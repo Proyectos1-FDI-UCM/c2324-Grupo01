@@ -132,20 +132,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c093d324dbb83f04ab29144eec625412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpSpeed: 9.5
+  _jumpSpeed: 10.8
   gravityFactor: 0.9
   groundCheckDistance: 0.55
-  impulseStomp: 35
+  impulseStomp: 20
   impulseTrampolin: 15
-  dashDuration: 2
-  _dashElapsedTime: 0
+  dashDuration: 0.5
+  _dashElapsedTime: 1
   slideCTR: 0.15
-  dashCTR: 0.2
-  jumpCTR: 0.2
-  stompCTR: 0.1
+  dashCTR: 0.4
+  jumpCTR: 0.3
+  stompCTR: 0.2
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 72
   trampolineLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -158,9 +158,9 @@ MonoBehaviour:
   DefaultCollisionOffsetX: -0.02383977
   DefaultCollisionOffsetY: -0.01020205
   SlideCollisionSizeX: 0.3534185
-  SlideCollisionSizeY: 0.4
+  SlideCollisionSizeY: 0.4826775
   SlideCollisionOffsetX: -0.02383977
-  SlideCollisionOffsetY: -0.01020205
+  SlideCollisionOffsetY: -0.2373648
   isStomping: 0
   isDashing: 0
   canDash: 0
@@ -247,7 +247,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3996297822920346081}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 631190ac252b2c24fa10cca80ca13c98, type: 2}
   m_CullingMode: 0
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47302629587471408beb313212056b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactiveObjectLayer:
+  arrowLayer:
     serializedVersion: 2
     m_Bits: 256
 --- !u!82 &5948349624696677552
