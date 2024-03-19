@@ -28,11 +28,12 @@ public class ObjectInteractionComponent : MonoBehaviour
         {
             if (_playerActionComponent.isSliding || _playerActionComponent.isStomping || _playerActionComponent.isDashing)
             {
-                _scoreManager.AddObjectPoints(_value);
+                _scoreManager.AddPoints(_value,2 );
+                //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
             }
             else
             {
-                _scoreManager.AddObjectPoints(-_value);
+                _scoreManager.AddPoints(-_value, 2);
             }
             //MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.boxSound);
             DestroyAnimation();

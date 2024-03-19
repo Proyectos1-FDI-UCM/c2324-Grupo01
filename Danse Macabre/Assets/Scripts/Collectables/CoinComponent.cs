@@ -23,7 +23,8 @@ public class CoinComponent : MonoBehaviour
         if (_player)
         {
             //print("collision");
-            _points.AddCoinPoints(_coinValue);
+            _points.AddPoints(_coinValue, 0);
+            //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
             _points.CoinRegister();
             //MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.coinSound);
 
