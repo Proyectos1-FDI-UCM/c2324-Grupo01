@@ -16,6 +16,7 @@ public class ScoreManager : MonoBehaviour
     #region references
     [SerializeField] private TextMeshProUGUI _textPuntos;
     [SerializeField] private TextMeshProUGUI _textPuntosAñadidos;
+    [SerializeField] private TextMeshProUGUI _textoArriba;
     #endregion
 
     #region properties
@@ -42,7 +43,6 @@ public class ScoreManager : MonoBehaviour
         else if (type==1) _enemyPoint += points;
         else if(type==2) _destroyObjectPoint += points;
 
-        _totalPoint += points;
         if (points < 0) // si es negativo
         {
             _addPoints = 0;
@@ -59,6 +59,30 @@ public class ScoreManager : MonoBehaviour
     private void ResetText()
     {
         _textPuntosAñadidos.text = " "; //quitar el texto
+        AddToTotalPoint();
+    }
+    void AddToTotalPoint()
+    {
+        int points;
+        if (_addPoints > 0) //poner el texto arriba cuando lleva un tiempo sin coger nada
+        {
+            points = _addPoints;          
+            _totalPoint += _addPoints;
+            _textoArriba.text ="+"+ points.ToString();
+            Debug.Log("positivo");
+        }
+        else
+        {
+            points = _sudPoints;
+            _totalPoint += _sudPoints;
+            _textoArriba.text = points.ToString();
+            Debug.Log("positivo");
+        }
+        Invoke("ResetUpText", 0.5f);
+    }
+    private void ResetUpText()
+    {
+        _textoArriba.text = "   ";
     }
     void UpdateText()
     {
@@ -99,6 +123,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         _lastPickupTime = Time.time;
+        _textoArriba.enabled = false;
     }
     void Update()
     {
@@ -111,9 +136,10 @@ public class ScoreManager : MonoBehaviour
         // cuando lleva un tiempo sin coger objeto se resetea
         if (Time.time - _lastPickupTime >= _resetTime) 
         {
+            _textoArriba.enabled = true;
+            if(_addPoints>0||_sudPoints<0)ResetText();
             _addPoints = 0;
             _sudPoints = 0;
-            ResetText();
         }
     }
 }
