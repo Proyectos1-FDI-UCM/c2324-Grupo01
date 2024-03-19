@@ -30,37 +30,18 @@ public class ScoreManager : MonoBehaviour
     private int _addPoints = 0; //los puntos que se van sumando
     private int _sudPoints= 0;
     private float _lastPickupTime; 
-    [SerializeField] private float _resetTime = 0.5f; 
+    [SerializeField] private float _resetTime = 0.5f;
+
     #endregion
 
     #region methods
-    private void ResetText()
+    public void AddPoints(int points, int type)
     {
-        _textPuntosAñadidos.text = " "; //quitar el texto
-    }
-    void UpdateText()
-    {
-        _textPuntosAñadidos.text = "+" + _addPoints.ToString(); //poner +numero
-    }
-    public void AddCoinPoints(int points)
-    {
-        _coinPoint+= points;
-        _totalPoint+= points;
-        _addPoints+= points;
-        _lastPickupTime=Time.time;
-        UpdateText();
-    }
-    public void AddEnemyPoints(int points)
-    {
-        _enemyPoint += points;
-        _totalPoint += points;
-        _addPoints+= points;
-        _lastPickupTime = Time.time;
-        UpdateText();
-    }
-    public void AddObjectPoints(int points)
-    {
-        _destroyObjectPoint += points;
+        //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
+        if (type==0) _coinPoint += points;
+        else if (type==1) _enemyPoint += points;
+        else if(type==2) _destroyObjectPoint += points;
+
         _totalPoint += points;
         if (points < 0) // si es negativo
         {
@@ -75,6 +56,15 @@ public class ScoreManager : MonoBehaviour
         }
         _lastPickupTime = Time.time;
     }
+    private void ResetText()
+    {
+        _textPuntosAñadidos.text = " "; //quitar el texto
+    }
+    void UpdateText()
+    {
+        _textPuntosAñadidos.text = "+" + _addPoints.ToString(); //poner +numero
+    }
+    
     public void AddTimingPoints(string timing)
     {
         if (timing == "PERFECT") {
