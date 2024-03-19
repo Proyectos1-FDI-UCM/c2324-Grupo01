@@ -52,7 +52,7 @@ public class ScoreManager : MonoBehaviour
         else
         {
             _addPoints += points;
-            UpdateText();
+            _textPuntosAñadidos.text = "+" + _addPoints.ToString(); //poner +numero
         }
         _lastPickupTime = Time.time;
     }
@@ -69,14 +69,12 @@ public class ScoreManager : MonoBehaviour
             points = _addPoints;          
             _totalPoint += _addPoints;
             _textoArriba.text ="+"+ points.ToString();
-            Debug.Log("positivo");
         }
         else
         {
             points = _sudPoints;
             _totalPoint += _sudPoints;
             _textoArriba.text = points.ToString();
-            Debug.Log("positivo");
         }
         Invoke("ResetUpText", 0.5f);
     }
@@ -84,11 +82,6 @@ public class ScoreManager : MonoBehaviour
     {
         _textoArriba.text = "   ";
     }
-    void UpdateText()
-    {
-        _textPuntosAñadidos.text = "+" + _addPoints.ToString(); //poner +numero
-    }
-    
     public void AddTimingPoints(string timing)
     {
         if (timing == "PERFECT") {
