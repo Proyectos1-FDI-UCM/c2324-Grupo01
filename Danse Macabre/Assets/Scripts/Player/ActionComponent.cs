@@ -119,7 +119,7 @@ public class ActionComponent : MonoBehaviour
         {
             isStomping = false;
             _isJumping = true;
-            _myAudioSource.PlayOneShot(_jumpSound, jumpCTR);
+            MusicManager.Instance.PlaySoundEffect(_jumpSound, jumpCTR);
             Bounce();
         }
     }
@@ -137,7 +137,7 @@ public class ActionComponent : MonoBehaviour
             isStomping = true;
             _myRB.AddForce(impulseStomp * Vector2.down, ForceMode2D.Impulse);
             
-            if (!isDashing) _myAudioSource.PlayOneShot(_stompSound, stompCTR);
+            if (!isDashing) MusicManager.Instance.PlaySoundEffect(_stompSound, stompCTR);
             
         }
     }
@@ -148,11 +148,7 @@ public class ActionComponent : MonoBehaviour
         {
             isDashing = true;
             canDash = false;
-            if (!_myAudioSource.isPlaying)
-            {
-                _myAudioSource.pitch = 1;
-                _myAudioSource.PlayOneShot(_dashSound, dashCTR);
-            }
+            MusicManager.Instance.PlayLoop(_dashSound, dashCTR);
             StartCoroutine(Dash());
         }
         else if (IsGrounded())
@@ -160,12 +156,7 @@ public class ActionComponent : MonoBehaviour
             isSliding = true;
             myCollider.offset = new Vector2(SlideCollisionOffsetX, SlideCollisionOffsetY);
             myCollider.size = new Vector2(SlideCollisionSizeX, SlideCollisionSizeY);
-            if (!_myAudioSource.isPlaying)
-            {
-                _myAudioSource.pitch = 1;
-                _myAudioSource.PlayOneShot(_slideSound,slideCTR);
-                _myAudioSource.loop = true;
-            }
+            MusicManager.Instance.PlayLoop(_slideSound, slideCTR);
         }
     }
     public void SlideStop()
@@ -173,9 +164,7 @@ public class ActionComponent : MonoBehaviour
         myCollider.offset = new Vector2(DefaultCollisionOffsetX, DefaultCollisionOffsetY);
         myCollider.size = new Vector2(DefaultCollisionSizeX, DefaultCollisionSizeY);
         isSliding = false;
-        _myAudioSource.Stop();
-        _myAudioSource.loop = false;
-        _myAudioSource.pitch = _originalPitch;
+        MusicManager.Instance.StopPlayingSong();
     }
     public void DashCountDown(float _time)
     {
@@ -211,7 +200,6 @@ public class ActionComponent : MonoBehaviour
         _myRB = GetComponent<Rigidbody2D>();
         _myCollider = GetComponent<BoxCollider2D>();
         _myAudioSource = GetComponent<AudioSource>();
-        _originalPitch = _myAudioSource.pitch;
         
         myCollider = this.gameObject.GetComponent<BoxCollider2D>();
         myCollider.offset = new Vector2(DefaultCollisionOffsetX, DefaultCollisionOffsetY);
