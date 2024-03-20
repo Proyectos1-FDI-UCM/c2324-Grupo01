@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2335763481079588905}
   - component: {fileID: 4226241305321965267}
   - component: {fileID: 1549744496353168120}
-  - component: {fileID: 2072909627485595049}
   - component: {fileID: 6214214276177603136}
+  - component: {fileID: 5670258295646334344}
   m_Layer: 0
   m_Name: Jeff
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4024040575593507935}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.08, y: -2.05, z: 0}
+  m_LocalPosition: {x: -9.08, y: 1.4, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -153,18 +153,6 @@ CircleCollider2D:
   m_Offset: {x: -0.05, y: 0}
   serializedVersion: 2
   m_Radius: 0.054534227
---- !u!114 &2072909627485595049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4024040575593507935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 910188523d0c6454bbd9b04966390f70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &6214214276177603136
 Animator:
   serializedVersion: 5
@@ -186,3 +174,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5670258295646334344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4024040575593507935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5fe95783b56bdc4bbb47b1c615d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

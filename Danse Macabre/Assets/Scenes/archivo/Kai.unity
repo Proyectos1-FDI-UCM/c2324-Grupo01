@@ -1078,6 +1078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textPuntos: {fileID: 1388758111}
   "_textPuntosA\xF1adidos": {fileID: 0}
+  _textoArriba: {fileID: 0}
   _resetTime: 0.5
 --- !u!1 &904243202
 GameObject:
@@ -1811,6 +1812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textPuntos: {fileID: 1388758111}
   "_textPuntosA\xF1adidos": {fileID: 0}
+  _textoArriba: {fileID: 0}
   _resetTime: 0.5
 --- !u!114 &1293961740
 MonoBehaviour:
