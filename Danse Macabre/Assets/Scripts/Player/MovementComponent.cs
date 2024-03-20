@@ -52,7 +52,6 @@ public class MovementComponent : MonoBehaviour
         {
             //Guardar el nombre de la escena anterior para el bot�n restart
             PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
-            GameManager.Instance.Muerte();
         }
 
         // NO QUITAR: SIRVE PARA LEVEL BUILDING
