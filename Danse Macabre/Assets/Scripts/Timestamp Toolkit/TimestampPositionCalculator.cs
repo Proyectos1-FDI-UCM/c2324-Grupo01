@@ -9,20 +9,33 @@ public class TimestampPositionCalculator : MonoBehaviour
     private float bpm = 139;
     #endregion
 
-
     #region references
-    private MovementComponent playerMovement;
-    private float playerSpeed;
+    // Game Manager
     [SerializeField]
-    private TimestampContainer spaceTimeData; // Assign this in the Unity Editor
-    [SerializeField]
-    private TimestampContainer beatsData; // Assign this in the Unity Editor
+    private GameObject manager;
+    private TempoManager tempo;
+
+    // Music Manager
     [SerializeField]
     private GameObject musicManager;
     private MusicManager musicManagerComponent;
+
+    // Player
+    [SerializeField]
+    private GameObject player;
+    private MovementComponent playerMovement;
+    private float playerSpeed;
+
+    // Start Music Reference Point
     [SerializeField]
     private GameObject startMusicPoint;
     private Transform startPointTransform;
+
+    // Data
+    [SerializeField]
+    private TimestampContainer spaceTimeData;
+    [SerializeField]
+    private TimestampContainer beatsData;
     #endregion
 
     #region properties
@@ -37,9 +50,11 @@ public class TimestampPositionCalculator : MonoBehaviour
         musicManagerComponent = musicManager.GetComponent<MusicManager>();
         startPointTransform = startMusicPoint.transform;
 
+        tempo = manager.GetComponent<TempoManager>();
+
         // For main beats calculations:
-        float bps = bpm/60;
-        float period = 1/bps;
+        //float bps = tempo.bpm/60;
+        //float period = 1/bps;
 
         // duration p1 = 28.705
         // duration p2 = 
