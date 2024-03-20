@@ -227,6 +227,7 @@ public class ActionComponent : MonoBehaviour
         //if (IsGrounded() && (actionState == ActionComponent.ActionStateEnum.Stomping)) + state = none
         if (isStomping && IsTrampolin()) {
             print("sdfsdfsfsdfs");
+            _myRB.velocity = new Vector3(_myRB.velocity.x, 0);
             _myRB.AddForce(impulseTrampolin * Vector2.up, ForceMode2D.Impulse);
             isStomping = false;
         }
