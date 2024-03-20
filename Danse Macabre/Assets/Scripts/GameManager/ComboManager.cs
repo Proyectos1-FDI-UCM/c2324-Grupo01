@@ -7,6 +7,8 @@ public class ComboManager : MonoBehaviour
 {
     private float combo = 0;
     public float multiplier = 0;
+    [SerializeField]
+    public float comboPenaltyMultiplier = 5f; // Multiplicador para aumentar la cantidad de puntos restados al combo en caso de fallo (cuando se añaden puntos negativos)
 
     [SerializeField]
     private float threshold1 = 100; // Threshold de multiplicador
