@@ -100,17 +100,17 @@ public class CameraController : MonoBehaviour
 
         if (goingDown && !goingUp && allowVerticalFollow) // Bajando
         {
-            Debug.Log("Bajando");
+            //Debug.Log("Bajando");
             targetY = _playerTransform.position.y + verticalCameraOffset;
         }
         else if (!goingDown && goingUp && allowVerticalFollow)  // Subiendo
         {
-            Debug.Log("Subiendo");
+            //Debug.Log("Subiendo");
             targetY = Mathf.Lerp(_cameraTransform.position.y, Mathf.Round(_playerTransform.position.y + verticalCameraOffset), defaultLerpSpeed * Time.deltaTime);
         }
         else // En medio quieta
         {
-            Debug.Log("En medio");
+            //Debug.Log("En medio");
             targetY = _cameraTransform.position.y;
         }
 
@@ -120,13 +120,13 @@ public class CameraController : MonoBehaviour
     public void ChangeFollow()
     {
         allowFollow = !allowFollow;
-        Debug.Log("Seguimiento general ahora es " + allowFollow);
+        //Debug.Log("Seguimiento general ahora es " + allowFollow);
     }
 
     public void ChangeVerticalFollow()
     {
         allowVerticalFollow = !allowVerticalFollow;
-        Debug.Log("Seguimiento vertical ahora es " + allowVerticalFollow);
+        //Debug.Log("Seguimiento vertical ahora es " + allowVerticalFollow);
     }
     public void EndOfLevelCamera()
     {
