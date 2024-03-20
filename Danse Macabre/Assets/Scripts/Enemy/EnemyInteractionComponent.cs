@@ -29,7 +29,8 @@ public class EnemyInteractionComponent : MonoBehaviour
             if (_playerActionComponent.isStomping || _playerActionComponent.isDashing || _playerActionComponent.isSliding)
             {
                 _enemyAnimation.DeathAnimation(); //Muere enemigo
-                _scoreManager.AddEnemyPoints(_enemyValue);
+                _scoreManager.AddPoints(_enemyValue, 1);
+                //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
                 Invoke("DestroyEnemy", _destroyTime);
                 if (BouncyEnemy)
                 {

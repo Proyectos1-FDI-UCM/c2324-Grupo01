@@ -16,6 +16,7 @@ public class ScoreManager : MonoBehaviour
     #region references
     [SerializeField] private TextMeshProUGUI _textPuntos;
     [SerializeField] private TextMeshProUGUI _textPuntosAñadidos;
+    [SerializeField] private TextMeshProUGUI _textoArriba;
     #endregion
 
     #region properties
@@ -30,38 +31,18 @@ public class ScoreManager : MonoBehaviour
     private int _addPoints = 0; //los puntos que se van sumando
     private int _sudPoints= 0;
     private float _lastPickupTime; 
-    [SerializeField] private float _resetTime = 0.5f; 
+    [SerializeField] private float _resetTime = 0.3f;
+
     #endregion
 
     #region methods
-    private void ResetText()
+    public void AddPoints(int points, int type)
     {
-        _textPuntosAñadidos.text = " "; //quitar el texto
-    }
-    void UpdateText()
-    {
-        _textPuntosAñadidos.text = "+" + _addPoints.ToString(); //poner +numero
-    }
-    public void AddCoinPoints(int points)
-    {
-        _coinPoint+= points;
-        _totalPoint+= points;
-        _addPoints+= points;
-        _lastPickupTime=Time.time;
-        UpdateText();
-    }
-    public void AddEnemyPoints(int points)
-    {
-        _enemyPoint += points;
-        _totalPoint += points;
-        _addPoints+= points;
-        _lastPickupTime = Time.time;
-        UpdateText();
-    }
-    public void AddObjectPoints(int points)
-    {
-        _destroyObjectPoint += points;
-        _totalPoint += points;
+        //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
+        if (type==0) _coinPoint += points;
+        else if (type==1) _enemyPoint += points;
+        else if(type==2) _destroyObjectPoint += points;
+
         if (points < 0) // si es negativo
         {
             _addPoints = 0;
@@ -71,9 +52,35 @@ public class ScoreManager : MonoBehaviour
         else
         {
             _addPoints += points;
-            UpdateText();
+            _textPuntosAñadidos.text = "+" + _addPoints.ToString(); //poner +numero
         }
         _lastPickupTime = Time.time;
+    }
+    private void ResetText()
+    {
+        _textPuntosAñadidos.text = " "; //quitar el texto
+        AddToTotalPoint();
+    }
+    void AddToTotalPoint()
+    {
+        int points;
+        if (_addPoints > 0) //poner el texto arriba cuando lleva un tiempo sin coger nada
+        {
+            points = _addPoints;          
+            _totalPoint += _addPoints;
+            _textoArriba.text ="+"+ points.ToString();
+        }
+        else
+        {
+            points = _sudPoints;
+            _totalPoint += _sudPoints;
+            _textoArriba.text = points.ToString();
+        }
+        Invoke("ResetUpText", 0.4f);
+    }
+    private void ResetUpText()
+    {
+        _textoArriba.text = "   ";
     }
     public void AddTimingPoints(string timing)
     {
@@ -109,6 +116,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         _lastPickupTime = Time.time;
+        _textoArriba.enabled = false;
     }
     void Update()
     {
@@ -121,9 +129,10 @@ public class ScoreManager : MonoBehaviour
         // cuando lleva un tiempo sin coger objeto se resetea
         if (Time.time - _lastPickupTime >= _resetTime) 
         {
+            _textoArriba.enabled = true;
+            if(_addPoints>0||_sudPoints<0)ResetText();
             _addPoints = 0;
             _sudPoints = 0;
-            ResetText();
         }
     }
 }

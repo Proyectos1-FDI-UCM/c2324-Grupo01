@@ -52,6 +52,7 @@ public class MusicManager : MonoBehaviour
     public void PlaySoundEffect(AudioClip clip, float volume)
     {
         _myAudioSource.PlayOneShot(clip,volume);
+        _myAudioSource.loop = false;
         
     }
     public void StopPlayingSong()
@@ -60,6 +61,11 @@ public class MusicManager : MonoBehaviour
         pauseTime = _myAudioSource.time;
         print(pauseTime);
         _myAudioSource.Stop();
+    }
+    public void PlayLoop(AudioClip clip, float volume)
+    {
+        _myAudioSource.PlayOneShot(clip,volume);
+        _myAudioSource.loop = true;
     }
 
     public void ResumePlayingSong()

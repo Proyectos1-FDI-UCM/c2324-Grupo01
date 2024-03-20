@@ -430,6 +430,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1454000561}
     m_Modifications:
+    - target: {fileID: 2567501221166393166, guid: 446d8163b7996d04d9ed7d296be25576, type: 3}
+      propertyPath: m_AudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f3d44120865dbb646aaa7ca7ecc366e2, type: 3}
     - target: {fileID: 4125015373479785328, guid: 446d8163b7996d04d9ed7d296be25576, type: 3}
       propertyPath: m_Name
       value: caja (2)
@@ -1750,7 +1754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86600a7235407a49a9ca24d35a6a02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundCtr: 0.65
 --- !u!82 &202553713
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24886,6 +24889,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textPuntos: {fileID: 1326837622}
+  "_textPuntosA\xF1adidos": {fileID: 0}
+  _resetTime: 0.5
 --- !u!114 &762071551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24914,7 +24919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scoreManager: {fileID: 762071550}
   _UIManager: {fileID: 0}
-  _ScoreManager: {fileID: 0}
+  _ScoreManager: {fileID: 762071550}
 --- !u!114 &762071553
 MonoBehaviour:
   m_ObjectHideFlags: 0
