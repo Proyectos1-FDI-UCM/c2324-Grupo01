@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class MovementComponent : MonoBehaviour
 {
-    #region parameters
-    #endregion
-
     #region references
     [SerializeField]
     private Transform myTransform;
