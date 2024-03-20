@@ -28344,7 +28344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66425e9ffabaaa04886ceaa80dc03db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetFPS: 50
+  targetFPS: 60
 --- !u!114 &762071555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28566,10 +28566,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2010128753722549716, guid: 7c39bddae2f7b164db4c8315580a83d5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1949294647}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c39bddae2f7b164db4c8315580a83d5, type: 3}
 --- !u!1001 &787067836
 PrefabInstance:
@@ -85665,24 +85662,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e873ed76eb3856d41b4f189397d0d7b0, type: 3}
---- !u!1 &1949294644 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2010128753722549716, guid: 7c39bddae2f7b164db4c8315580a83d5, type: 3}
-  m_PrefabInstance: {fileID: 783278363}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1949294647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1949294644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0d25d469b34d9c48a01a86adbb9fac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicManager: {fileID: 202553710}
 --- !u!1001 &1953410958
 PrefabInstance:
   m_ObjectHideFlags: 0
