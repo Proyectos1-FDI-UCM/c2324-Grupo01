@@ -5,8 +5,8 @@ using UnityEngine;
 public class TimestampPositionCalculator : MonoBehaviour
 {
     #region parameters
-    [SerializeField]
-    private float bpm = 139;
+    //[SerializeField]
+    //private float bpm = 139;
     #endregion
 
     #region references

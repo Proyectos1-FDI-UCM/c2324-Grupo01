@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
     }
 
     #region methods
+    public void PlayerHasDied() {
+        //_ScoreManager.SaveFinalScore();
+    }
+
+
     public void ArrowTiming(string timing)
     {
         _UIManager.DisplayTiming(timing);
