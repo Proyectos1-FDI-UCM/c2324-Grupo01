@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,39 +9,41 @@ public class DeathComponent : MonoBehaviour
     #region references
     [SerializeField]
     private LayerMask deathLayers;
+    private MovementComponent _movementComponent;
+    private Rigidbody2D _RB;
     #endregion
 
+    private void Start()
+    {
+        _movementComponent = GetComponent<MovementComponent>();
+        _RB = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        CheckVelocityChange();
+    }
+
+    #region methods
+    /// <summary>
+    /// Death conditions: change in velocity.x OR collision with Enemies or Traps layers.
+    /// </summary>
+    private void Death()
+    {
+        GameManager.Instance.PlayerHasDied();
+    } 
+    private void CheckVelocityChange()
+    {
+        if (_RB.velocity.x < _movementComponent.speed - 0.1f)
+            Death();
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         // Check if the collided object's layer is in the deathLayers LayerMask (INSPECTOR)
         if ((deathLayers.value & (1 << collision.gameObject.layer)) != 0)
-        {
-            GameManager.Instance.PlayerHasDied();
-        }
-        else
-        {
-            // The collision occurred with an object in another layer
-            Debug.Log("Collision with a non-death layer.");
-        }
-    
+            Death();
 
-
-        // MovementComponent _player = collision.gameObject.GetComponent<MovementComponent>();
-        // if (_player != null)
-        // {
-        //     _scoreManager.SaveFinalScore();
-        //     //Guardar el nombre de la escena anterior para el bot�n restart
-        //     PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
-        //     //Cambiar escena de muerte
-        //     SceneManager.LoadScene(4);
-        // }
     }
-
-    void Start()
-    {
-        // _gameManager = FindObjectOfType<GameManager>();
-        // _scoreManager = FindObjectOfType<ScoreManager>();
-    }
+    #endregion
 }
 

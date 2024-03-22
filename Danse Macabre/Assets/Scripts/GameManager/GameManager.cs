@@ -6,10 +6,9 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
     private UIManager _UIManager;
-    [SerializeField]
     private ScoreManager _ScoreManager;
+    
     private static GameManager instance;
     public static GameManager Instance
     {
@@ -38,8 +37,18 @@ public class GameManager : MonoBehaviour
 
     #region methods
     public void PlayerHasDied() {
-        //_ScoreManager.SaveFinalScore();
+        _ScoreManager.SaveFinalScore();
+        LoadScene();
     }
+
+    private void LoadScene(){
+        //Guardar el nombre de la escena anterior para el bot�n restart
+        PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
+        //Cambiar escena de muerte
+        SceneManager.LoadScene(4);
+    }
+
+
 
 
     public void ArrowTiming(string timing)
