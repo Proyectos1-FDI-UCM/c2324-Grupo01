@@ -8,51 +8,54 @@ using UnityEngine.SocialPlatforms.Impl;
 public class ScoreManager : MonoBehaviour
 {
     #region parameters
-    private int perfectTimingValue = 10;
-    private int goodTimingValue = 5;
-    private int badTimingValue = 1;
+    private float perfectTimingValue = 10;
+    private float goodTimingValue = 5;
+    private float badTimingValue = 1;
     #endregion 
 
     #region references
     [SerializeField] private TextMeshProUGUI _textPuntos;
     [SerializeField] private TextMeshProUGUI _textPuntosAñadidos;
     [SerializeField] private TextMeshProUGUI _textoArriba;
+    private ComboManager _combo;
     #endregion
 
     #region properties
     private double _totalPoint = 0f;
     private double _basicPoint = 0f;
-    private int _coinPoint = 0;
-    private int _enemyPoint = 0;
-    private int _destroyObjectPoint = 0;
+    private float _coinPoint = 0;
+    private float _enemyPoint = 0;
+    private float _destroyObjectPoint = 0;
     private int _nCoins = 0;
-    private int _timingPoints = 0;
+    private float _timingPoints = 0;
 
-    private int _addPoints = 0; //los puntos que se van sumando
-    private int _sudPoints= 0;
+    private float _addPoints = 0; //los puntos que se van sumando
+    private float _sudPoints= 0;
     private float _lastPickupTime; 
     [SerializeField] private float _resetTime = 0.3f;
 
     #endregion
 
     #region methods
-    public void AddPoints(int points, int type)
+    public void AddPoints(float points, int type)
     {
         //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
-        if (type==0) _coinPoint += points;
-        else if (type==1) _enemyPoint += points;
-        else if(type==2) _destroyObjectPoint += points;
+        if (type==0) _coinPoint += (points * _combo.multiplier);
+        else if (type==1) _enemyPoint += (points * _combo.multiplier);
+        else if(type==2) _destroyObjectPoint += (points * _combo.multiplier);
 
         if (points < 0) // si es negativo
         {
             _addPoints = 0;
             _sudPoints += points;
             _textPuntosAñadidos.text = _sudPoints.ToString();
+            _combo.addCombo(points * _combo.comboPenaltyMultiplier);
         }
         else
         {
-            _addPoints += points;
+            _addPoints += (points * _combo.multiplier);
             _textPuntosAñadidos.text = "+" + _addPoints.ToString(); //poner +numero
+            _combo.addCombo(points);
         }
         _lastPickupTime = Time.time;
     }
@@ -63,7 +66,7 @@ public class ScoreManager : MonoBehaviour
     }
     void AddToTotalPoint()
     {
-        int points;
+        float points;
         if (_addPoints > 0) //poner el texto arriba cuando lleva un tiempo sin coger nada
         {
             points = _addPoints;          
@@ -85,16 +88,19 @@ public class ScoreManager : MonoBehaviour
     public void AddTimingPoints(string timing)
     {
         if (timing == "PERFECT") {
-            _timingPoints += perfectTimingValue;
-            _totalPoint += perfectTimingValue;
+            _timingPoints += (perfectTimingValue * _combo.multiplier);
+            _totalPoint += (perfectTimingValue * _combo.multiplier);
+            _combo.addCombo(perfectTimingValue);
         }
         else if (timing == "GOOD") {
-            _timingPoints += goodTimingValue;
-            _totalPoint += goodTimingValue;
+            _timingPoints += (goodTimingValue * _combo.multiplier);
+            _totalPoint += (goodTimingValue * _combo.multiplier);
+            _combo.addCombo(goodTimingValue);
         }
         else if (timing == "BAD") {
-            _timingPoints += badTimingValue;
-            _totalPoint += badTimingValue;
+            _timingPoints += (badTimingValue * _combo.multiplier);
+            _totalPoint += (badTimingValue * _combo.multiplier);
+            _combo.addCombo(badTimingValue);
         }
         else if (timing == "WRONG") { /*lo dejo por si acaso*/ }
         else if (timing == "MISSED") { /*lo dejo por si acaso*/ }
@@ -117,6 +123,7 @@ public class ScoreManager : MonoBehaviour
     {
         _lastPickupTime = Time.time;
         _textoArriba.enabled = false;
+        _combo = FindObjectOfType<ComboManager>();
     }
     void Update()
     {
