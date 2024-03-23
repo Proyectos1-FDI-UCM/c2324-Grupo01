@@ -20,4 +20,9 @@ public class MenuInicialLevels : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(3);
     }
+
+    public void Salir()
+    {
+        Application.Quit();
+    }
 }
