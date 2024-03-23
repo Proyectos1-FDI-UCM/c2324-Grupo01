@@ -5892,6 +5892,7 @@ GameObject:
   - component: {fileID: 395327102}
   - component: {fileID: 395327100}
   - component: {fileID: 395327101}
+  - component: {fileID: 395327104}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5925,9 +5926,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c319c3a712b1b4abfe83d5b3cd3a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoreManager: {fileID: 395327100}
-  _UIManager: {fileID: 395327102}
-  _ScoreManager: {fileID: 395327100}
 --- !u!4 &395327098
 Transform:
   m_ObjectHideFlags: 0
@@ -6014,6 +6012,26 @@ MonoBehaviour:
   TilesPerTick: 3
   SecondsPerTick: 1
   PlayerSpeed: 1
+--- !u!114 &395327104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395327094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db722a8395874c44882d668ecacc746e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 0
+  comboPenaltyMultiplier: 5
+  threshold1: 100
+  threshold1mul: 1.1
+  threshold2: 200
+  threshold2mul: 1.2
+  threshold3: 300
+  threshold3mul: 1.3
 --- !u!1001 &399510449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35804,11 +35822,10 @@ GameObject:
   - component: {fileID: 1844864577}
   - component: {fileID: 1844864579}
   - component: {fileID: 1844864578}
-  - component: {fileID: 1844864580}
   - component: {fileID: 1844864583}
   - component: {fileID: 1844864582}
   - component: {fileID: 1844864581}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DeathTouch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36995,18 +37012,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1844864580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1844864576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5ec40bcb618dfd40849cf74a23620e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!66 &1844864581
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -58009,6 +58014,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 40319704020148416, guid: 39da1f0844fe2cd43a41a86dec3fd06f, type: 3}
+      propertyPath: deathLayers.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 2084211724469973391, guid: 39da1f0844fe2cd43a41a86dec3fd06f, type: 3}
       propertyPath: m_GravityScale
       value: 2.25
