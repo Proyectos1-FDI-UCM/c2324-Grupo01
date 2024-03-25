@@ -23,6 +23,7 @@ TagManager:
   - Player
   - Arrows
   - Trampoline
+  - Wall
   - Traps
   - Enemies
   - 
