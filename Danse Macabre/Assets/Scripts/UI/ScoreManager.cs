@@ -110,6 +110,23 @@ public class ScoreManager : MonoBehaviour
     {
         _nCoins++;
     }
+
+    public void SaveCheckpointScore()
+    {
+        PlayerPrefs.SetFloat("CheckpointScore", (float)_totalPoint);
+        PlayerPrefs.SetFloat("CheckpointCoinScore", (float)_coinPoint);
+        PlayerPrefs.SetFloat("CheckpointEnemyScore", (float)_enemyPoint);
+        PlayerPrefs.SetFloat("CheckpointObjectScore", (float)_destroyObjectPoint);
+    }
+
+    public void LoadCheckpointScore()
+    {
+        _totalPoint = PlayerPrefs.GetFloat("CheckpointScore");
+        _coinPoint = PlayerPrefs.GetFloat("CheckpointCoinScore");
+        _enemyPoint = PlayerPrefs.GetFloat("CheckpointEnemyScore");
+        _destroyObjectPoint = PlayerPrefs.GetFloat("CheckpointObjectScore");
+    }
+
     public void SaveFinalScore() 
     {
         // Guarda la puntuaci�n en PlayerPrefs antes de cambiar de escena

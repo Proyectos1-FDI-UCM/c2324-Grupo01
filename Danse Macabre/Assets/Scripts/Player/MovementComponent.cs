@@ -38,18 +38,12 @@ public class MovementComponent : MonoBehaviour
         //Debug.Log("Movement: Speed" +  speed); 
         
          
-        Autoscroll(); // VOLVER
+        Autoscroll();
         //lastYposition = transform.position.y;
     }
     
     void Update()
     {
-
-        if (myRigidBody.velocity.x < speed - 0.01f)
-        {
-            //Guardar el nombre de la escena anterior para el bot�n restart
-            PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
-        }
 
         // NO QUITAR: SIRVE PARA LEVEL BUILDING
         // if (canCallMethod && Time.time > 2)

@@ -39,11 +39,11 @@ public class EnemyInteractionComponent : MonoBehaviour
             }
             else 
             {
-                _scoreManager.SaveFinalScore();
-                //Guardar el nombre de la escena anterior para el botón restart
-                PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
-                //Cambiar escena de Muerte
-                SceneManager.LoadScene(4);
+                // _scoreManager.SaveFinalScore();
+                // //Guardar el nombre de la escena anterior para el botï¿½n restart
+                // PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
+                // //Cambiar escena de Muerte
+                // SceneManager.LoadScene(4);
             }
         }
     }

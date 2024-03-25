@@ -37,12 +37,22 @@ public class DeathComponent : MonoBehaviour
         if (_RB.velocity.x < _movementComponent.speed - 0.1f)
             Death();
     }
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if the collided object's layer is in the deathLayers LayerMask (INSPECTOR)
-        if ((deathLayers.value & (1 << collision.gameObject.layer)) != 0)
+        if ((deathLayers.value & (1 << collision.gameObject.layer)) != 0) {
             Death();
 
+        }
+
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if ((deathLayers.value & (1 << collision.gameObject.layer)) != 0) {
+            Death();
+
+        }
     }
     #endregion
 }
