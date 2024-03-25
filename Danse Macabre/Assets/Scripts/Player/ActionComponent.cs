@@ -241,7 +241,10 @@ public class ActionComponent : MonoBehaviour
         if (_dashElapsedTime >= 0)
         {
             _dashElapsedTime -= Time.deltaTime;
-            canDash = true;
+            if (!isDashing && !isStomping)
+            {
+                canDash = true;
+            }            
         }
         else
         {
