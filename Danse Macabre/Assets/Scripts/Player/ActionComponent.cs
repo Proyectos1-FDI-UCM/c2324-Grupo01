@@ -135,6 +135,7 @@ public class ActionComponent : MonoBehaviour
         {
             isDashing = false;
             isStomping = true;
+            _myRB.velocity = new Vector3(_myRB.velocity.x, 0);
             _myRB.AddForce(impulseStomp * Vector2.down, ForceMode2D.Impulse);
             
             if (!isDashing) myAudioSource.PlayOneShot(_stompSound, stompCTR);

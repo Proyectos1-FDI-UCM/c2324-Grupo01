@@ -32,16 +32,16 @@ public class GameManager : MonoBehaviour
         if (_UIManager == null) Debug.LogError("UIManager missing in GameManager!");
 
         _ScoreManager = GetComponent<ScoreManager>();
-        if (_UIManager == null) Debug.LogError("ScoreManager in GameManager!");
+        if (_UIManager == null) Debug.LogError("ScoreManager missing in GameManager!");
     }
 
     #region methods
     public void PlayerHasDied() {
         _ScoreManager.SaveFinalScore();
-        LoadScene();
+        LoadDeathScene();
     }
 
-    private void LoadScene(){
+    private void LoadDeathScene(){
         //Guardar el nombre de la escena anterior para el bot�n restart
         PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
         //Cambiar escena de muerte
