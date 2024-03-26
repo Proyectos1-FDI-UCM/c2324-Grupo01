@@ -14,6 +14,10 @@ public class DeathComponent : MonoBehaviour
     private Rigidbody2D _RB;
     #endregion
 
+    int layerValueEnemy = LayerMask.NameToLayer("Enemies");
+    int layerValueTraps = LayerMask.NameToLayer("Traps");
+
+
     private void Start()
     {
         _movementComponent = GetComponent<MovementComponent>();
@@ -42,8 +46,11 @@ public class DeathComponent : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check if the collided object's layer is in the deathLayers LayerMask (INSPECTOR)
-        if ((deathLayers.value & (1 << collision.gameObject.layer)) != 0 && !(_action.isStomping || _action.isSliding || _action.isDashing))
+        if (deathLayers.value == layerValueTraps)
+        {
+            Death();
+        }
+        if (deathLayers.value == layerValueEnemy && !(_action.isStomping || _action.isSliding || _action.isDashing))
         {
             Death();
         }
@@ -51,9 +58,13 @@ public class DeathComponent : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((deathLayers.value & (1 << collision.gameObject.layer)) != 0) {
+        if (deathLayers.value == layerValueTraps)
+        {
             Death();
-
+        }
+        if (deathLayers.value == layerValueEnemy && !(_action.isStomping || _action.isSliding || _action.isDashing))
+        {
+            Death();
         }
     }
     #endregion
