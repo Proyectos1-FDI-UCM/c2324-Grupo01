@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(instance);
         }
+
+        //DontDestroyOnLoad(this);
     }
 
     private void Start() // with defensive programming
@@ -95,6 +97,8 @@ public class GameManager : MonoBehaviour
 
     public void LoadCheckpoint()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
         _ScoreManager.LoadCheckpointScore();
         _playerTransform.position = checkpointPosition;
 

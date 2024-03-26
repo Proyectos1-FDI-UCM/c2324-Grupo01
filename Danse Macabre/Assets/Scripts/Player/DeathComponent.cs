@@ -7,15 +7,15 @@ using UnityEngine.SceneManagement;
 public class DeathComponent : MonoBehaviour
 {
     #region references
-    [SerializeField]
-    private LayerMask deathLayers;
+    // [SerializeField]
+    // private LayerMask deathLayers;
     private MovementComponent _movementComponent;
     private ActionComponent _action;
     private Rigidbody2D _RB;
     #endregion
 
-    int layerValueEnemy = LayerMask.NameToLayer("Enemies");
-    int layerValueTraps = LayerMask.NameToLayer("Traps");
+    int layerValueEnemy;
+    int layerValueTraps;
 
 
     private void Start()
@@ -23,6 +23,9 @@ public class DeathComponent : MonoBehaviour
         _movementComponent = GetComponent<MovementComponent>();
         _action = GetComponent<ActionComponent>();
         _RB = GetComponent<Rigidbody2D>();
+
+        layerValueEnemy = LayerMask.NameToLayer("Enemies");
+        layerValueTraps = LayerMask.NameToLayer("Traps");
     }
 
     private void Update()
@@ -46,11 +49,11 @@ public class DeathComponent : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (deathLayers.value == layerValueTraps)
+        if (collision.gameObject.layer == layerValueTraps)
         {
             Death();
         }
-        if (deathLayers.value == layerValueEnemy && !(_action.isStomping || _action.isSliding || _action.isDashing))
+        if (collision.gameObject.layer == layerValueEnemy && !(_action.isStomping || _action.isSliding || _action.isDashing))
         {
             Death();
         }
@@ -58,11 +61,11 @@ public class DeathComponent : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (deathLayers.value == layerValueTraps)
+        if (collision.gameObject.layer == layerValueTraps)
         {
             Death();
         }
-        if (deathLayers.value == layerValueEnemy && !(_action.isStomping || _action.isSliding || _action.isDashing))
+        if (collision.gameObject.layer == layerValueEnemy && !(_action.isStomping || _action.isSliding || _action.isDashing))
         {
             Death();
         }

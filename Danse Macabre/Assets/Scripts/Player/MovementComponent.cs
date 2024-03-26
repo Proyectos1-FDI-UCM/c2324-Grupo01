@@ -55,7 +55,7 @@ public class MovementComponent : MonoBehaviour
     }
 
     #region methods
-    private void Autoscroll()
+    public void Autoscroll()
     {
         myRigidBody.velocity = Vector2.right * speed;
     }
