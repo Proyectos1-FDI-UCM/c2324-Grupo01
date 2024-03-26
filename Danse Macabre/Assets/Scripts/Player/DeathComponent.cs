@@ -10,12 +10,14 @@ public class DeathComponent : MonoBehaviour
     [SerializeField]
     private LayerMask deathLayers;
     private MovementComponent _movementComponent;
+    private ActionComponent _action;
     private Rigidbody2D _RB;
     #endregion
 
     private void Start()
     {
         _movementComponent = GetComponent<MovementComponent>();
+        _action = GetComponent<ActionComponent>();
         _RB = GetComponent<Rigidbody2D>();
     }
 
@@ -41,9 +43,9 @@ public class DeathComponent : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if the collided object's layer is in the deathLayers LayerMask (INSPECTOR)
-        if ((deathLayers.value & (1 << collision.gameObject.layer)) != 0) {
+        if ((deathLayers.value & (1 << collision.gameObject.layer)) != 0 && !(_action.isStomping || _action.isSliding || _action.isDashing))
+        {
             Death();
-
         }
 
     }
