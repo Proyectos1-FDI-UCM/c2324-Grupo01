@@ -5,25 +5,26 @@ using UnityEngine;
 public class TimestampPositionCalculator : MonoBehaviour
 {
     #region parameters
-    //[SerializeField]
-    //private float bpm = 139;
+    [SerializeField]
+    private float BPM = 139;
     #endregion
 
     #region references
     // Game Manager
-    [SerializeField]
-    private GameObject manager;
-    private TempoManager tempo;
+    // [SerializeField]
+    // private GameObject manager;
+    // private TempoManager tempo;
 
     // Music Manager
-    [SerializeField]
-    private GameObject musicManager;
-    private MusicManager musicManagerComponent;
+    // [SerializeField]
+    // private GameObject musicManager;
+    // private MusicManager musicManagerComponent;
 
     // Player
+    // [SerializeField]
+    // private GameObject player;
+    // private MovementComponent playerMovement;
     [SerializeField]
-    private GameObject player;
-    private MovementComponent playerMovement;
     private float playerSpeed;
 
     // Start Music Reference Point
@@ -32,8 +33,8 @@ public class TimestampPositionCalculator : MonoBehaviour
     private Transform startPointTransform;
 
     // Data
-    [SerializeField]
-    private TimestampContainer spaceTimeData;
+    //[SerializeField]
+    //private TimestampContainer spaceTimeData;
     [SerializeField]
     private TimestampContainer beatsData;
     #endregion
@@ -44,22 +45,22 @@ public class TimestampPositionCalculator : MonoBehaviour
 
     private void Start()
     {
-        playerMovement = GetComponent<MovementComponent>();
-        playerSpeed = playerMovement.speed;
+        // playerMovement = player.GetComponent<MovementComponent>();
+        // playerSpeed = playerMovement.speed;
 
-        musicManagerComponent = musicManager.GetComponent<MusicManager>();
+        //musicManagerComponent = musicManager.GetComponent<MusicManager>();
         startPointTransform = startMusicPoint.transform;
 
-        tempo = manager.GetComponent<TempoManager>();
+        //tempo = manager.GetComponent<TempoManager>();
 
         // For main beats calculations:
-        //float bps = tempo.bpm/60;
-        //float period = 1/bps;
+        float bps = BPM/60;
+        float period = 1/bps;
 
         // duration p1 = 28.705
         // duration p2 = 
-        float musicDuration = 29;
-        float totalBeats = (139*musicDuration)/60;
+        float musicDuration = 95;
+        float totalBeats = bps*musicDuration;
 
 
         // For marking beats:
@@ -84,13 +85,13 @@ public class TimestampPositionCalculator : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Start Music"))
-        {
-            print("time: " + Time.time);
-            musicManagerComponent.PlayMusic();
-            //timeSinceLastCollision = 0;
-        }
-    }
+    // private void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     if (collision.gameObject.CompareTag("Start Music"))
+    //     {
+    //         print("time: " + Time.time);
+    //         musicManagerComponent.PlayMusic();
+    //         //timeSinceLastCollision = 0;
+    //     }
+    // }
 }

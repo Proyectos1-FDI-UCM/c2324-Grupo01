@@ -32,7 +32,7 @@ public class TrampolinePath : MonoBehaviour
 
 
         // horizontalVelocity = _movementComponent.speed; // speed de autoscroll
-        horizontalVelocity = 4.367f;
+        horizontalVelocity = _movementComponent.speed;
         jumpSpeed = _actionComponent.trampolineJumpSpeed;
         gravityUpwards = Physics2D.gravity.y * _actionComponent.originalGravityScale; // for vel.y > 0
         gravityDownwards = gravityUpwards * _actionComponent.gravityFactor; // for vel.y < 0

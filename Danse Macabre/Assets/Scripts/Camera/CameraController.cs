@@ -12,15 +12,15 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private Transform _playerTransform;
     [SerializeField]
-    private float horizontalCameraOffset = 7f; // Distancia horizontal constante entre jugador y centro de la cámara
+    private float horizontalCameraOffset = 7f; // Distancia horizontal constante entre jugador y centro de la cï¿½mara
     [SerializeField]
-    private float verticalCameraOffset = 2.445f; // Distancia vertical ideal (para el seguimiento vertical) entre jugador y centro de la cámara
+    private float verticalCameraOffset = 2.445f; // Distancia vertical ideal (para el seguimiento vertical) entre jugador y centro de la cï¿½mara
     [SerializeField]
-    private float cameraHeight = 10; // Altura total de la cámara
+    private float cameraHeight = 10; // Altura total de la cï¿½mara
     [SerializeField]
-    private float defaultLerpSpeed = 1f; // Velocidad a la que la cámara se ajusta verticalmente (0-1) por defecto
+    private float defaultLerpSpeed = 1f; // Velocidad a la que la cï¿½mara se ajusta verticalmente (0-1) por defecto
     [SerializeField]
-    private float topMargin = 3; // Distancia desde el borde superior de la cámara a la que comenzar a subirla durante el seguimiento vertical
+    private float topMargin = 3; // Distancia desde el borde superior de la cï¿½mara a la que comenzar a subirla durante el seguimiento vertical
 
     [SerializeField]
     private bool allowFollow = true; // Permite el seguimiento del jugador en general. Desactivar y activar con ChangeFollow()
@@ -34,7 +34,7 @@ public class CameraController : MonoBehaviour
     private float endTargetPosition; // Variable de control del lerp del final del nivel
     private float currentLerpTime = 0f; // Variable de control del lerp del final del nivel
     [SerializeField]
-    private float finalLerpDuration = 2f; // Duración del lerp final del nivel
+    private float finalLerpDuration = 2f; // Duraciï¿½n del lerp final del nivel
     [SerializeField]
     private float finalLerpDistance = 5f; // Distancia que recorre el lerp final del nivel
 
@@ -42,6 +42,12 @@ public class CameraController : MonoBehaviour
     {
         _cameraTransform = transform;
         cameraHeight = cameraHeight / 2; // Para convertirlo en distancia desde el centro hasta el borde superior o inferior
+
+        // To match initial offset of the character with the cameras
+        allowVerticalFollow = true;
+        TrackPlayer(_playerTransform.position.y - _cameraTransform.position.y);
+        FollowPlayer();
+        allowVerticalFollow = false;
     }
 
     void LateUpdate()
@@ -49,12 +55,12 @@ public class CameraController : MonoBehaviour
         if (end)
         {
             currentLerpTime += Time.deltaTime; // Incrementar temporizador de lerp
-            if (currentLerpTime > finalLerpDuration) // Prevenir exceso por encima de la duración del lerp final
+            if (currentLerpTime > finalLerpDuration) // Prevenir exceso por encima de la duraciï¿½n del lerp final
             {
                 currentLerpTime = finalLerpDuration;
             }
 
-            // Cálculo del Lerp
+            // Cï¿½lculo del Lerp
             float lerpPercent = currentLerpTime / finalLerpDuration;
             // lerpPercent = Mathf.Sin(lerpPercent * Mathf.PI * 0.5f); // Curva de easing #1: EaseOut
             lerpPercent = lerpPercent * lerpPercent * ((3 * lerpPercent) - (2f * lerpPercent)); // Curva de easing #2: Smoothstep
@@ -132,6 +138,6 @@ public class CameraController : MonoBehaviour
         allowFollow = false;
         end = true;
         endTargetPosition = Mathf.Round(_cameraTransform.position.x + finalLerpDistance);
-        Debug.Log("FINAL DE NIVEL; parando cámara en X = " + endTargetPosition);
+        Debug.Log("FINAL DE NIVEL; parando cï¿½mara en X = " + endTargetPosition);
     }
 }

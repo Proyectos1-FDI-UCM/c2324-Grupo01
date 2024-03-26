@@ -20,6 +20,7 @@ public class MovementComponent : MonoBehaviour
     #endregion
 
     #region properties
+    [SerializeField]
     public float speed;
     public bool canMove = true;
     //private bool canCallMethod = true;

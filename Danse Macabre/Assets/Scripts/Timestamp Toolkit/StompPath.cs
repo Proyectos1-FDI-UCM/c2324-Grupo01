@@ -28,7 +28,7 @@ public class StompPath : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
 
         // horizontalVelocity = _movementComponent.speed; // speed de autoscroll
-        horizontalVelocity = 4.367f;
+        horizontalVelocity = _movementComponent.speed;
         downwardSpeed = - _actionComponent.stompDownwardSpeed;
         gravityDownwards = Physics2D.gravity.y * _actionComponent.originalGravityScale * _actionComponent.gravityFactor;
         
