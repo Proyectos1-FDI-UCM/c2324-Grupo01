@@ -17,6 +17,6 @@ public class TempoManager : MonoBehaviour
     {
         SecondsPerTick = 60f / BPM;
         PlayerSpeed = TilesPerTick / SecondsPerTick;
-        //Debug.Log("SPT: " + SecondsPerTick + " / PlayerSpeed: " + PlayerSpeed);
+        Debug.Log("SPT: " + SecondsPerTick + " / PlayerSpeed: " + PlayerSpeed);
     }
 }

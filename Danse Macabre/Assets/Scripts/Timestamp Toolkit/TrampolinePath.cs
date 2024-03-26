@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using UnityEngine;
 
-public class JumpPath : MonoBehaviour
+public class TrampolinePath : MonoBehaviour
 {
-    // [SerializeField]
+   // [SerializeField]
     // private GameObject Player;
     private Rigidbody2D _rb;
     private ActionComponent _actionComponent;
@@ -16,9 +15,10 @@ public class JumpPath : MonoBehaviour
     public float gravityUpwards;
     public float gravityDownwards;
     private float gravity;
-    public int numPoints = 250;
+    public int numPointsUp = 350;
     public int numPointsDown = 150;
-    public float timeBetweenPoints = 0.1f;
+    public float timeBetweenPointsUp = 0.01f;
+    public float timeBetweenPointsDown = 0.05f;
 
     void OnDrawGizmos()
     {
@@ -30,9 +30,10 @@ public class JumpPath : MonoBehaviour
         _movementComponent = GetComponent<MovementComponent>();
         _rb = GetComponent<Rigidbody2D>();
 
+
         // horizontalVelocity = _movementComponent.speed; // speed de autoscroll
         horizontalVelocity = 4.367f;
-        jumpSpeed = _actionComponent._jumpSpeed;
+        jumpSpeed = _actionComponent.trampolineJumpSpeed;
         gravityUpwards = Physics2D.gravity.y * _actionComponent.originalGravityScale; // for vel.y > 0
         gravityDownwards = gravityUpwards * _actionComponent.gravityFactor; // for vel.y < 0
         
@@ -40,21 +41,22 @@ public class JumpPath : MonoBehaviour
         Vector3 startPosition = transform.position;
         Vector3 previousPoint = startPosition;
         float totalTime = 0f;
-        float timeBetweenPoints = 0.05f;
         gravity = gravityUpwards;
 
+
         bool goingUp = true;
-        for (int i = 0; i < numPoints && goingUp; i++)
+        for (int i = 0; i < numPointsUp && goingUp; i++)
         {
-            totalTime += timeBetweenPoints;
+            totalTime += timeBetweenPointsUp;
             float dx = horizontalVelocity * totalTime;
             float dy = (jumpSpeed * totalTime) + (0.5f * gravity * Mathf.Pow(totalTime, 2));
             Vector3 nextPoint = startPosition + new Vector3(dx, dy, 0);
 
             if (nextPoint.y < previousPoint.y) goingUp = false;
-            //if (nextPoint.y < previousPoint.y) gravity = gravityDownwards;
-            // Draw the line between the previous point and the next point
+
+            Gizmos.color = Color.cyan;
             Gizmos.DrawLine(previousPoint, nextPoint);
+
             previousPoint = nextPoint;
         }
 
@@ -64,25 +66,25 @@ public class JumpPath : MonoBehaviour
 
         for (int i = 0; i < numPointsDown; i++)
         {
-            totalTime += timeBetweenPoints;
+            totalTime += timeBetweenPointsDown;
             float dx = horizontalVelocity * totalTime;
             float dy = 0.5f * gravity * Mathf.Pow(totalTime, 2);
-            //print("dy: " + dy);
+
             Vector3 nextPoint = startPosition + new Vector3(dx, dy, 0);
 
-            // Draw the line between the previous point and the next point
+            Gizmos.color = Color.magenta;
             Gizmos.DrawLine(previousPoint, nextPoint);
+
             previousPoint = nextPoint;
         }
+    
     }
 
     void Start()
     {
-
     }
 
     void Update()
     {
-        
     }
 }

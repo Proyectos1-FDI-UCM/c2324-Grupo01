@@ -10,17 +10,15 @@ public class ActionComponent : MonoBehaviour
     #region parameters
     //Saltos
     [SerializeField]
-    private float _jumpSpeed;
-    private float originalGravityScale;
+    public float _jumpSpeed;
+    public float originalGravityScale = 2;
     [SerializeField]
-    private float gravityFactor = 0.90f;
+    public float gravityFactor = 0.90f;
     [SerializeField]
     private float groundCheckDistance = 0.55f;
     private float trampolinCheckDistance = 0.60f;
-    [SerializeField]
-    private float impulseStomp = 20;
-    [SerializeField]
-    private float impulseTrampolin = 12;
+    public float stompDownwardSpeed = 20;
+    public float trampolineJumpSpeed = 15;
     [SerializeField]
     private float dashDuration = 2.0f;
     private float dashEndTime = 0;
@@ -111,6 +109,10 @@ public class ActionComponent : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(_myTransform.position, Vector2.down, trampolinCheckDistance, trampolineLayer);
         return hit.collider != null;
     }
+    private void TrampolineBounce()
+    {
+        _myRB.velocity = new Vector3(_myRB.velocity.x, trampolineJumpSpeed);
+    }
 
     public void Jump()
     {
@@ -135,8 +137,7 @@ public class ActionComponent : MonoBehaviour
         {
             isDashing = false;
             isStomping = true;
-            _myRB.velocity = new Vector3(_myRB.velocity.x, 0);
-            _myRB.AddForce(impulseStomp * Vector2.down, ForceMode2D.Impulse);
+            _myRB.velocity = new Vector3(_myRB.velocity.x, - stompDownwardSpeed);
             
             if (!isDashing) myAudioSource.PlayOneShot(_stompSound, stompCTR);
             
@@ -225,10 +226,8 @@ public class ActionComponent : MonoBehaviour
 
     void Update()
     {
-        //if (IsGrounded() && (actionState == ActionComponent.ActionStateEnum.Stomping)) + state = none
         if (isStomping && IsTrampolin()) {
-            _myRB.velocity = new Vector3(_myRB.velocity.x, 0);
-            _myRB.AddForce(impulseTrampolin * Vector2.up, ForceMode2D.Impulse);
+            TrampolineBounce();
             isStomping = false;
         }
         else if (IsGrounded())
