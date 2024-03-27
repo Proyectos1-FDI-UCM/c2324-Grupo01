@@ -43,7 +43,7 @@ public class ComboManager : MonoBehaviour
             multiplier = threshold1mul;
         }
 
-        Debug.Log("Combo: " + Math.Round(combo) + " | Multiplier: " + multiplier);
+        //Debug.Log("Combo: " + Math.Round(combo) + " | Multiplier: " + multiplier);
     }
     public void addCombo(float n)
     {
