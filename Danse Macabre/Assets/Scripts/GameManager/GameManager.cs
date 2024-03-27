@@ -1,34 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
+    #region references
     private UIManager _UIManager;
     private ScoreManager _ScoreManager;
-    [SerializeField]
-    private GameObject MusicManager;
-    private AudioSource _audioSource;
-    private MusicManager _musicManager;
     [SerializeField]
     private GameObject Player;
     private MovementComponent _playerMovement;
     private Transform _playerTransform;
+    private Rigidbody2D _playerRB;
     [SerializeField]
     private GameObject StartCollider;
     private Transform _startColliderTransform;
-
-    
+    #endregion
+  
+    #region properties
     private static GameManager instance;
     public static GameManager Instance
     {
         get { return instance; }
     }
 
-    Vector3 checkpointPosition;
-
+    private static Vector3 checkpointPosition;
+    private static float playerSpeed;
+    public float PlayerSpeed
+    {
+        get { return playerSpeed; }
+        set { playerSpeed = value; }
+    }
+    #endregion
 
    private void Awake()
     {
@@ -40,49 +46,27 @@ public class GameManager : MonoBehaviour
         {
             Destroy(instance);
         }
-
-        //DontDestroyOnLoad(this);
     }
-
-    private void Start() // with defensive programming
+    private void Start()
     {
-        _UIManager = GetComponent<UIManager>();
-        if (_UIManager == null) Debug.LogError("UIManager missing in GameManager!");
-
-        _ScoreManager = GetComponent<ScoreManager>();
-        if (_UIManager == null) Debug.LogError("ScoreManager missing in GameManager!");
-
-        _audioSource = MusicManager.GetComponent<AudioSource>();
-        if (_audioSource == null) Debug.LogError("MusicManager's AudioSource missing in GameManager!");
-
-        _musicManager = MusicManager.GetComponent<MusicManager>();
-        if (_musicManager == null) Debug.LogError("MusicManager's MusicManager missing in GameManager!");
-
-        _startColliderTransform = StartCollider.GetComponent<Transform>();
-        if (_startColliderTransform == null) Debug.LogError("StartCollider's Transform missing in GameManager!");
-
-        _playerMovement = Player.GetComponent<MovementComponent>();
-        if (_playerMovement == null) Debug.LogError("Player's MovementComponent missing in GameManager!");
-
-        _playerTransform = Player.GetComponent<Transform>();
-        if (_playerTransform == null) Debug.LogError("Player's Transform missing in GameManager!");
-
+        LoadAllReferences();
     }
 
     #region methods
     public void PlayerHasDied()
     {
-        if (checkpointPosition != new Vector3(0, 0, 0)){ // if a checkpoint exists
-            LoadCheckpoint();
+        if (checkpointPosition != Vector3.zero)
+        { // if a checkpoint exists
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else{
             _ScoreManager.SaveFinalScore();
             LoadDeathScene();
         }
-
     }
 
-    private void LoadDeathScene(){
+    private void LoadDeathScene()
+    {
         //Guardar el nombre de la escena anterior para el bot�n restart
         PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
         //Cambiar escena de muerte
@@ -97,21 +81,39 @@ public class GameManager : MonoBehaviour
 
     public void LoadCheckpoint()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        
         _ScoreManager.LoadCheckpointScore();
-        _playerTransform.position = checkpointPosition;
 
-        float playerSpeed = _playerMovement.speed;
-        float playerPosX = _playerTransform.position.x;
+        _playerMovement.InitialPosition(checkpointPosition);
+
         float startColliderPosX = _startColliderTransform.position.x;
+        float time = math.abs(checkpointPosition.x - startColliderPosX)/PlayerSpeed;
 
-        float time = (playerPosX - startColliderPosX)/playerSpeed;
-
-        _audioSource.time = time;
-        _musicManager.PlayMusic();
+        MusicManager.Instance.ChangeTime(time);
+        MusicManager.Instance.PlayMusic();
     }
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("Scene loaded: " + scene.name);
+
+        GameManager.Instance.LoadAllReferences();
+        MusicManager.Instance.LoadAllReferences();
+
+        if (checkpointPosition != Vector3.zero)
+        {
+            LoadCheckpoint();
+        }
+    }
 
     public void ArrowTiming(string timing)
     {
@@ -119,5 +121,25 @@ public class GameManager : MonoBehaviour
         _ScoreManager.AddTimingPoints(timing);
     }
 
+    private void LoadAllReferences()
+    {
+        _UIManager = GetComponent<UIManager>();
+        if (_UIManager == null) Debug.LogError("UIManager missing in GameManager!");
+
+        _ScoreManager = GetComponent<ScoreManager>();
+        if (_ScoreManager == null) Debug.LogError("ScoreManager missing in GameManager!");
+
+        _startColliderTransform = StartCollider.GetComponent<Transform>();
+        if (_startColliderTransform == null) Debug.LogError("StartCollider's Transform missing in GameManager!");
+
+        _playerMovement = Player.GetComponent<MovementComponent>();
+        if (_playerMovement == null) Debug.LogError("Player's MovementComponent missing in GameManager!");
+
+        _playerRB = Player.GetComponent<Rigidbody2D>();
+        if (_playerRB == null) Debug.LogError("Player's RigidBody missing in GameManager!");
+
+        _playerTransform = Player.GetComponent<Transform>();
+        if (_playerTransform == null) Debug.LogError("Player's Transform missing in GameManager!");
+    }
     #endregion
 }

@@ -20,7 +20,6 @@ public class MovementComponent : MonoBehaviour
     #endregion
 
     #region properties
-    [SerializeField]
     public float speed;
     public bool canMove = true;
     //private bool canCallMethod = true;
@@ -31,16 +30,11 @@ public class MovementComponent : MonoBehaviour
         myTransform = transform;
         myRigidBody = GetComponent<Rigidbody2D>();
         
-        //music = MusicManager.GetComponent<AudioSource>();
-
-        if (TempoManager != null) speed = TempoManager.PlayerSpeed;
-        //speed = 1;
-        //speed = TempoManager.PlayerSpeed;
+        speed = TempoManager.PlayerSpeed;
+        GameManager.Instance.PlayerSpeed = speed;
         //Debug.Log("Movement: Speed" +  speed); 
         
-         
         Autoscroll();
-        //lastYposition = transform.position.y;
     }
     
     void Update()
@@ -58,6 +52,10 @@ public class MovementComponent : MonoBehaviour
     public void Autoscroll()
     {
         myRigidBody.velocity = Vector2.right * speed;
+    }
+    public void InitialPosition(Vector3 position)
+    {
+        myTransform.position = position;
     }
     #endregion
 }

@@ -25,6 +25,7 @@ public class MusicManager : MonoBehaviour
     // private GameObject StartRecordCollider;
 
     #region properties
+    public float time;
     // For potential checkpoint
     // private bool canCallMethod = true;
     // float playerPosX;
@@ -48,7 +49,6 @@ public class MusicManager : MonoBehaviour
     {
         _myAudioSource.Play();
     }
-
     public void PlaySoundEffect(AudioClip clip, float volume)
     {
         _myAudioSource.PlayOneShot(clip,volume);
@@ -57,7 +57,6 @@ public class MusicManager : MonoBehaviour
     }
     public void StopPlayingSong()
     {
-        
         pauseTime = _myAudioSource.time;
         print(pauseTime);
         _myAudioSource.Stop();
@@ -72,6 +71,10 @@ public class MusicManager : MonoBehaviour
     {
         _myAudioSource.time = pauseTime;
         _myAudioSource.Play();
+    }
+    public void ChangeTime(float time)
+    {
+        _myAudioSource.time = time;
     }
 
     //private void Sync() // For potential checkpoint
@@ -88,6 +91,11 @@ public class MusicManager : MonoBehaviour
         //     canCallMethod = false;
         // }
     //}
+
+    public void LoadAllReferences()
+    {
+        _myAudioSource = GetComponent<AudioSource>();
+    }
     #endregion
 
     private void Awake()
@@ -102,9 +110,9 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
-        _myAudioSource = GetComponent<AudioSource>();
+        LoadAllReferences();
 
         // For potential checkpoint
         // actionComponent = Player.GetComponent<ActionComponent>();
