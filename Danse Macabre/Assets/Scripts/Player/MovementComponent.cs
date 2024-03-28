@@ -32,7 +32,7 @@ public class MovementComponent : MonoBehaviour
         
         speed = TempoManager.PlayerSpeed;
         GameManager.Instance.PlayerSpeed = speed;
-        //Debug.Log("Movement: Speed" +  speed); 
+        //Debug.Log("Movement: Speed = " +  speed); 
         
         Autoscroll();
     }
