@@ -144,18 +144,19 @@ public class ActionComponent : MonoBehaviour
         }
     }
 
-    public void Slide()
+    public void SlideDash()
     {
-        if (!IsGrounded() && canDash) //DASH
+        if (!IsGrounded() && canDash && !isDashing)
         {
             isDashing = true;
             canDash = false;
+            StartCoroutine(Dash());
+
             if (!myAudioSource.isPlaying)
             {
                 myAudioSource.pitch = 1;
                 myAudioSource.PlayOneShot(_dashSound, dashCTR);
             }
-            StartCoroutine(Dash());
         }
         else if (IsGrounded())
         {
@@ -221,7 +222,6 @@ public class ActionComponent : MonoBehaviour
         originalGravityScale = _myRB.gravityScale;
         myAudioSource = GetComponent<AudioSource>();
         _originalPitch = myAudioSource.pitch;
-
     }
 
     void Update()

@@ -77,21 +77,6 @@ public class MusicManager : MonoBehaviour
         _myAudioSource.time = time;
     }
 
-    //private void Sync() // For potential checkpoint
-    //{
-        // float playerSpeed = movementComponent.speed;
-        // float playerVel = playerRigidbody.velocity.x;
-
-        // float time = (playerPosX - starColliderPosX)/playerSpeed;
-
-        // if (playerVel > 0.01f && Time.time > 1)
-        // {
-        //     _myAudioSource.time = time;
-        //     PlayMusic();
-        //     canCallMethod = false;
-        // }
-    //}
-
     public void LoadAllReferences()
     {
         _myAudioSource = GetComponent<AudioSource>();
@@ -114,36 +99,6 @@ public class MusicManager : MonoBehaviour
     {
         LoadAllReferences();
 
-        // For potential checkpoint
-        // actionComponent = Player.GetComponent<ActionComponent>();
-        // movementComponent = Player.GetComponent<MovementComponent>();
-        // playerRigidbody = Player.GetComponent<Rigidbody2D>();
-
-        // playerPosX = Player.transform.position.x;
-        // starColliderPosX = StartRecordCollider.transform.position.x;
-
-        // if (playerPosX < starColliderPosX)
-        // {
-        //     canCallMethod = false;
-        // }
     }
-
-    //void Update()
-    //{
-        //Calculos para el momento inicial de reproducir el BGM
-        // elapsedTime += Time.deltaTime;
-        // if (elapsedTime >= delay && !isPlaying)
-        // {
-        //     isPlaying = true;
-        //     print("player pos:" + Player.transform.position.x);
-        //     PlayMusic();
-        // }
-
-        // For potential checkpoint
-        // if (canCallMethod)
-        // {
-        //     Sync();
-        // }
-    //}
 
 }

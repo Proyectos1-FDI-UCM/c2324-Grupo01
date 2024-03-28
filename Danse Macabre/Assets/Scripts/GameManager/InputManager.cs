@@ -32,7 +32,7 @@ public class InputManager : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.Z)||Input.GetKey(KeyCode.RightArrow))
         {
-            _playerActionComponent.Slide();
+            _playerActionComponent.SlideDash();
         }
         
         if (Input.GetKeyDown(KeyCode.Z)||Input.GetKeyDown(KeyCode.RightArrow)){
