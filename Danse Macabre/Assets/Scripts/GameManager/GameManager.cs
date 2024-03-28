@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Scene loaded: " + scene.name);
+        //Debug.Log("Scene loaded: " + scene.name);
 
         GameManager.Instance.LoadAllReferences();
         MusicManager.Instance.LoadAllReferences();
