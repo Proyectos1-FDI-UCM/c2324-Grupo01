@@ -3816,6 +3816,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &136784083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 136784084}
+  - component: {fileID: 136784085}
+  m_Layer: 0
+  m_Name: Calculator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &136784084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136784083}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1998585594}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &136784085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136784083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e3ba4d141c5984dab4f582dea4992c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpeed: 9.26667
+  BPM: 139
+  musicDurationSeconds: 30
+  startMusicPointObject: {fileID: 7536334975584215096}
+  BPMTimestampPrefab: {fileID: 6847700846416479051, guid: 8988cab442cbf23458339fef6327e72d, type: 3}
+  CustomBeatsTimestampPrefab: {fileID: 0}
+  baseBPMData: {fileID: 11400000, guid: 4020f249d8ed53848b47ee9a31c410c2, type: 2}
+  customBeatsData: {fileID: 0}
 --- !u!1 &138536691
 GameObject:
   m_ObjectHideFlags: 0
@@ -44111,7 +44163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &910162934
 Transform:
   m_ObjectHideFlags: 0
@@ -96279,7 +96331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1998585594
 Transform:
   m_ObjectHideFlags: 0
@@ -96293,7 +96345,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1999169368}
+  - {fileID: 136784084}
   - {fileID: 718508527}
   - {fileID: 910162934}
   - {fileID: 259724454}
@@ -96315,54 +96367,6 @@ MonoBehaviour:
   playerSpeed: 0
   startMusicPoint: {fileID: 7536334975584215096}
   beatsData: {fileID: 0}
---- !u!1 &1999169367
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1999169368}
-  - component: {fileID: 1999169369}
-  m_Layer: 0
-  m_Name: Beat Tracker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1999169368
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999169367}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1998585594}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1999169369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999169367}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3db89a7dd367147ad85e2ce547325d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BPM: 139
-  playerSpeed: 9.2667
-  startMusicPoint: {fileID: 7536334975584215096}
-  beatsData: {fileID: 11400000, guid: b19b07121124f764286a843981c65f92, type: 2}
 --- !u!1 &1999711309
 GameObject:
   m_ObjectHideFlags: 0

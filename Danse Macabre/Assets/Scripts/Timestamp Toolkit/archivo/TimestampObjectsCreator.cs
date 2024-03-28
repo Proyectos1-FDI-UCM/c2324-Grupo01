@@ -18,8 +18,8 @@ public class TimestampObjectsCreator : Editor
         // MovementComponent movementComponent = FindAnyObjectByType<MovementComponent>();
         // float playerSpeed = movementComponent.speed;
 
-        GameObject startRecordCollider = GameObject.FindWithTag("Start Music");
-        float posX = startRecordCollider.transform.position.x;
+        // GameObject startRecordCollider = GameObject.FindWithTag("Start Music");
+        // float posX = startRecordCollider.transform.position.x;
 
 
         foreach (var timestamp in data.timestamps)
