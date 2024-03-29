@@ -133,11 +133,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c093d324dbb83f04ab29144eec625412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpSpeed: 10.8
+  _jumpSpeed: 11
+  originalGravityScale: 2
   gravityFactor: 0.9
   groundCheckDistance: 0.55
-  impulseStomp: 20
-  impulseTrampolin: 15
+  stompDownwardSpeed: 20
+  trampolineJumpSpeed: 15
   dashDuration: 0.5
   _dashElapsedTime: 1
   slideCTR: 0.15
@@ -207,9 +208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ec40bcb618dfd40849cf74a23620e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathLayers:
-    serializedVersion: 2
-    m_Bits: 3072
 --- !u!61 &8693597587511461896
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -47579,9 +47579,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProgressSlider
       objectReference: {fileID: 0}
+    - target: {fileID: 1415323782810320711, guid: ef16734dbe6d84244b9d4e91c25c22c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2430218806205252408, guid: ef16734dbe6d84244b9d4e91c25c22c0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6461091722522436958, guid: ef16734dbe6d84244b9d4e91c25c22c0, type: 3}
       propertyPath: _playerTransform
@@ -47629,7 +47633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7545781122367793323, guid: ef16734dbe6d84244b9d4e91c25c22c0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
