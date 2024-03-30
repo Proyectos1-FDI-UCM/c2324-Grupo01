@@ -17,17 +17,25 @@ public class TextFollow : MonoBehaviour
     {
         _textTransform = transform;
     }
+     void Update()
+    {
+        Debug.Log("Player:" + _playerTransform.position.y);
+    }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        Vector2 targetPosition = new Vector3(0, _verticalOffSet);
-        if (_playerTransform.position.y > 1.0f)
+        //Vector2 targetPosition = new Vector3(0, _verticalOffSet);
+        /*if (_playerTransform.position.y < 1.0f)
         {
-            targetPosition.y += _playerTransform.position.y * 60;
+            targetPosition.y += _playerTransform.position.y * 100;
 
         }
-        else targetPosition.y +=_playerTransform.position.y * 100;
+        else if (_playerTransform.position.y>1.0f && _playerTransform.position.y<3.0f)
+        {
+            targetPosition.y += _playerTransform.position.y * 60;
+        }*/
+        Vector2 targetPosition = new Vector3(0, _playerTransform.position.y + _verticalOffSet);
 
         float y = Mathf.Lerp(_textTransform.position.y,targetPosition.y,_followFactor );
         float x = _textTransform.position.x;
