@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject StartCollider;
     private Transform _startColliderTransform;
+    private LevelDataLoader _levelDataLoader;
     #endregion
   
     #region properties
@@ -53,6 +54,27 @@ public class GameManager : MonoBehaviour
     }
 
     #region methods
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        GameManager.Instance.LoadAllReferences();
+        GameManager.Instance.LoadLevelData();
+        MusicManager.Instance.LoadAllReferences();
+
+        if (checkpointPosition != Vector3.zero)
+        {
+            LoadCheckpoint();
+        }
+    }
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+
     public void PlayerHasDied()
     {
         if (checkpointPosition != Vector3.zero)
@@ -64,7 +86,6 @@ public class GameManager : MonoBehaviour
             LoadDeathScene();
         }
     }
-
     private void LoadDeathScene()
     {
         //Guardar el nombre de la escena anterior para el bot�n restart
@@ -73,12 +94,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(4);
     }
 
+
     public void CheckpointReached(Vector3 position)
-    { // called by checkpoints
+    {
         checkpointPosition = position;
         _ScoreManager.SaveCheckpointScore();
     }
-
     public void LoadCheckpoint()
     {
         _ScoreManager.LoadCheckpointScore();
@@ -92,33 +113,10 @@ public class GameManager : MonoBehaviour
         MusicManager.Instance.PlayMusic();
     }
 
-    void OnEnable()
+    public void LoadLevelData()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        //Debug.Log("Scene loaded: " + scene.name);
-
-        GameManager.Instance.LoadAllReferences();
-        MusicManager.Instance.LoadAllReferences();
-
-        if (checkpointPosition != Vector3.zero)
-        {
-            LoadCheckpoint();
-        }
-    }
-
-    public void ArrowTiming(string timing)
-    {
-        _UIManager.DisplayTiming(timing);
-        _ScoreManager.AddTimingPoints(timing);
+        PlayerSpeed = _levelDataLoader.GetCurrentScenePlayerSpeed();
+        //_levelDataLoader.LoadPlayerSpeed();
     }
 
     private void LoadAllReferences()
@@ -140,6 +138,15 @@ public class GameManager : MonoBehaviour
 
         _playerTransform = Player.GetComponent<Transform>();
         if (_playerTransform == null) Debug.LogError("Player's Transform missing in GameManager!");
+
+        _levelDataLoader = GetComponent<LevelDataLoader>();
+        if (_levelDataLoader == null) Debug.LogError("Level data missing in GameManager!");
+    }
+
+    public void ArrowTiming(string timing)
+    {
+        _UIManager.DisplayTiming(timing);
+        _ScoreManager.AddTimingPoints(timing);
     }
     #endregion
 }

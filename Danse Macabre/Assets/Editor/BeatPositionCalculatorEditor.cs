@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEditor;
-using System.Drawing.Printing;
-using Unity.VisualScripting;
 
 [CustomEditor(typeof(BeatPositionCalculator))]
 public class BeatPositionCalculatorEditor : Editor

@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4758445377376982616}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.954168, y: 117.62684, z: 2.7545455}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86600a7235407a49a9ca24d35a6a02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: 0
 --- !u!82 &8636319935235330763
 AudioSource:
   m_ObjectHideFlags: 0
@@ -55,7 +56,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: eee0ea1934c114c41b36ff50992410ca, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 542508e36ebaf7c4798ad9e41de2eb9d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -151,6 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6942482430142985160}
   - component: {fileID: 7829702452926143094}
+  - component: {fileID: 1875889047494938672}
   - component: {fileID: 4015332677876156370}
   - component: {fileID: 4258397217952088009}
   - component: {fileID: 9047768679712127410}
@@ -195,6 +197,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetFPS: 60
+--- !u!114 &1875889047494938672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041198692989015503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09cb844c667369479611ac72c7de858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelData: {fileID: 11400000, guid: 38aff07aa9be9304aaffe1b3ca98fac7, type: 2}
 --- !u!114 &4015332677876156370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c319c3a712b1b4abfe83d5b3cd3a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  StartCollider: {fileID: 0}
 --- !u!114 &4258397217952088009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,10 +275,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d01431bb08bb449a6636310af997ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BPM: 131
-  TilesPerTick: 2
-  SecondsPerTick: 1
-  PlayerSpeed: 4
+  _levelDataLoader: {fileID: 1875889047494938672}
+  BPM: 139
+  TilesPerTick: 4
+  SecondsPerTick: 0.43165466
+  PlayerSpeed: 9.266667
 --- !u!114 &191873576779403506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +323,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6041198692989015503}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29ab6fe29faa32e44bcd12c3db23eac1, type: 3}
   m_Name: 

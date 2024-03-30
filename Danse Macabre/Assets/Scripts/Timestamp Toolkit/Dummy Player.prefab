@@ -9,13 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6829835388484494859}
+  - component: {fileID: 2513071616546162425}
+  - component: {fileID: 8792642780009494377}
   - component: {fileID: 2034930393021407579}
-  - component: {fileID: 2503507547029878137}
-  - component: {fileID: 7323276081028722910}
-  - component: {fileID: 5566127506464759789}
   - component: {fileID: 7228781584108892126}
   - component: {fileID: 8961126591396576294}
-  - component: {fileID: 4440371074586619714}
   - component: {fileID: 3503182467523279665}
   m_Layer: 0
   m_Name: Dummy Player
@@ -39,6 +37,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2513071616546162425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7148340301470944795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b70f45bced386449a2c0e3e4d0a9e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelDataLoader: {fileID: 8792642780009494377}
+  jumpSpeed: 0
+  horizontalVelocity: 0
+  activateJumpPath: 1
+  activateStompPath: 1
+  activateTrampolinePath: 1
+  useCustomHorizontalVelocity: 0
+  useCustomJumpSpeed: 0
+--- !u!114 &8792642780009494377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7148340301470944795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09cb844c667369479611ac72c7de858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelData: {fileID: 11400000, guid: 38aff07aa9be9304aaffe1b3ca98fac7, type: 2}
 --- !u!212 &2034930393021407579
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -91,62 +122,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2503507547029878137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7148340301470944795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e197073dd31f34ebd509d3364f535b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpSpeed: 11
-  horizontalVelocity: 9.26667
-  gravityUpwards: -19.62
-  gravityDownwards: -17.658
-  numPoints: 250
-  numPointsDown: 150
-  timeBetweenPoints: 0.1
---- !u!114 &7323276081028722910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7148340301470944795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63b1e09fb2c548e4a8de3a106d8798ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  downwardSpeed: -20
-  horizontalVelocity: 9.26667
-  gravityDownwards: -17.658
-  numPoints: 15
-  timeBetweenPoints: 0.1
---- !u!114 &5566127506464759789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7148340301470944795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84b9bc6d525219947be14b0ae177e5b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpSpeed: 15
-  horizontalVelocity: 9.26667
-  gravityUpwards: -19.62
-  gravityDownwards: -17.658
-  numPointsUp: 350
-  numPointsDown: 150
-  timeBetweenPointsUp: 0.01
-  timeBetweenPointsDown: 0.05
 --- !u!50 &7228781584108892126
 Rigidbody2D:
   serializedVersion: 4
@@ -186,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c093d324dbb83f04ab29144eec625412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpSpeed: 11
+  jumpSpeed: 11
   originalGravityScale: 2
   gravityFactor: 0.9
   groundCheckDistance: 0.55
@@ -221,22 +196,6 @@ MonoBehaviour:
   canDash: 0
   isSliding: 0
   _isJumping: 0
---- !u!114 &4440371074586619714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7148340301470944795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4958371993e8718409ff0dde61fae748, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myTransform: {fileID: 6829835388484494859}
-  TempoManager: {fileID: 0}
-  speed: 9.26667
-  canMove: 1
 --- !u!61 &3503182467523279665
 BoxCollider2D:
   m_ObjectHideFlags: 0

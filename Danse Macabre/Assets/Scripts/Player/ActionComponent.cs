@@ -10,7 +10,7 @@ public class ActionComponent : MonoBehaviour
     #region parameters
     //Saltos
     [SerializeField]
-    public float _jumpSpeed;
+    public float jumpSpeed = 11;
     public float originalGravityScale = 2;
     [SerializeField]
     public float gravityFactor = 0.90f;
@@ -20,7 +20,7 @@ public class ActionComponent : MonoBehaviour
     public float stompDownwardSpeed = 20;
     public float trampolineJumpSpeed = 15;
     [SerializeField]
-    private float dashDuration = 2.0f;
+    private float dashDuration = 0.7f;
     private float dashEndTime = 0;
 
     //rango de tiempo que puedes hacer dash (cuando coges la moneda especial)
@@ -116,7 +116,6 @@ public class ActionComponent : MonoBehaviour
 
     public void Jump()
     {
-        //JUMP 
         if (IsGrounded())
         {
             isStomping = false;
@@ -128,7 +127,7 @@ public class ActionComponent : MonoBehaviour
     public void Bounce()
     {
         // Este m�todo est?separado para que se pueda llamar a la hora de rebotar encima de un enemigo determinado sin comprobar grounded
-        _myRB.velocity = new Vector2(_myRB.velocity.x, _jumpSpeed);
+        _myRB.velocity = new Vector2(_myRB.velocity.x, jumpSpeed);
     }
 
     public void Stomp()
