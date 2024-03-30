@@ -55,6 +55,6 @@ public class SliderController : MonoBehaviour
     private void Update()
     {
         SetProgress();
-        Debug.Log("progress: "+ _mySlider.value);
+        //Debug.Log("progress: "+ _mySlider.value);
     }
 }

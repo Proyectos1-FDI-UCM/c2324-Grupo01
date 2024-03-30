@@ -27,7 +27,6 @@ public class ActionComponent : MonoBehaviour
     [SerializeField]
     private float _dashElapsedTime = 0.0f;
 
-    private float _originalPitch = 1f;
     [SerializeField]
     private float slideCTR = 0.15f;
     [SerializeField]
@@ -153,7 +152,6 @@ public class ActionComponent : MonoBehaviour
 
             if (!myAudioSource.isPlaying)
             {
-                myAudioSource.pitch = 1;
                 myAudioSource.PlayOneShot(_dashSound, dashCTR);
             }
         }
@@ -164,7 +162,6 @@ public class ActionComponent : MonoBehaviour
             myCollider.size = new Vector2(SlideCollisionSizeX, SlideCollisionSizeY);
             if (!myAudioSource.isPlaying)
             {
-                myAudioSource.pitch = 1;
                 myAudioSource.PlayOneShot(_slideSound, slideCTR);
                 myAudioSource.loop = true;
             }
@@ -177,7 +174,6 @@ public class ActionComponent : MonoBehaviour
         isSliding = false;
         myAudioSource.Stop();
         myAudioSource.loop = false;
-        myAudioSource.pitch = _originalPitch;
         
     }
     public void DashCountDown(float _time)
@@ -203,7 +199,6 @@ public class ActionComponent : MonoBehaviour
         _myRB.gravityScale = originalGravityScale;
         isDashing = false;
         myAudioSource.Stop();
-        myAudioSource.pitch = _originalPitch;
     }
 
     #endregion
@@ -220,7 +215,7 @@ public class ActionComponent : MonoBehaviour
 
         originalGravityScale = _myRB.gravityScale;
         myAudioSource = GetComponent<AudioSource>();
-        _originalPitch = myAudioSource.pitch;
+
     }
 
     void Update()
