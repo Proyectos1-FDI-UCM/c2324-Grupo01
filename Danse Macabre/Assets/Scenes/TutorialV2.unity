@@ -56897,6 +56897,7 @@ GameObject:
   - component: {fileID: 803355458}
   - component: {fileID: 803355457}
   - component: {fileID: 803355456}
+  - component: {fileID: 803355465}
   - component: {fileID: 803355460}
   - component: {fileID: 803355461}
   - component: {fileID: 803355463}
@@ -56948,10 +56949,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d01431bb08bb449a6636310af997ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelDataLoader: {fileID: 803355465}
   BPM: 131
   TilesPerTick: 2
-  SecondsPerTick: 1
-  PlayerSpeed: 4
+  SecondsPerTick: 0.45801526
+  PlayerSpeed: 4.366667
 --- !u!114 &803355457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57057,6 +57059,19 @@ MonoBehaviour:
   threshold2mul: 1.2
   threshold3: 300
   threshold3mul: 1.3
+--- !u!114 &803355465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803355451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09cb844c667369479611ac72c7de858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelData: {fileID: 11400000, guid: 38aff07aa9be9304aaffe1b3ca98fac7, type: 2}
 --- !u!4 &807890069 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 767025087459199183, guid: c773ae312f4a93a42915abf666f213e6, type: 3}
