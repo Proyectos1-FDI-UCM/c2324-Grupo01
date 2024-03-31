@@ -73,7 +73,7 @@ public class MovementPathDrawer : MonoBehaviour
                 Vector3 nextPoint = startPosition + new Vector3(dx, dy, 0);
 
                 // Draw the line between the previous point and the next point
-                Gizmos.color = Color.red;
+                Gizmos.color = Color.yellow;
                 Gizmos.DrawLine(previousPoint, nextPoint);
                 previousPoint = nextPoint;
             }
@@ -142,7 +142,7 @@ public class MovementPathDrawer : MonoBehaviour
 
                 Vector3 nextPoint = startPosition + new Vector3(dx, dy, 0);
 
-                Gizmos.color = Color.magenta;
+                Gizmos.color = Color.cyan;
                 Gizmos.DrawLine(previousPoint, nextPoint);
 
                 previousPoint = nextPoint;

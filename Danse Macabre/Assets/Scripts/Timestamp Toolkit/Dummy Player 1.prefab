@@ -10,14 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 767025087459199183}
   - component: {fileID: 2733933372993689225}
-  - component: {fileID: 847911698580432731}
-  - component: {fileID: 6909858227240342306}
-  - component: {fileID: 7152107137260018928}
+  - component: {fileID: 2340174978290216119}
+  - component: {fileID: 6831572105048433795}
   - component: {fileID: 7624533122695260518}
   - component: {fileID: 6757956123415417004}
-  - component: {fileID: 9121559137571415238}
   - component: {fileID: 5839167384949892327}
-  - component: {fileID: 3977299356407911272}
   m_Layer: 0
   m_Name: Dummy Player 1
   m_TagString: Untagged
@@ -92,7 +89,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &847911698580432731
+--- !u!114 &2340174978290216119
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,17 +98,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2246454157922639467}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e197073dd31f34ebd509d3364f535b, type: 3}
+  m_Script: {fileID: 11500000, guid: f3b70f45bced386449a2c0e3e4d0a9e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 11
-  horizontalVelocity: 9.26667
-  gravityUpwards: -19.62
-  gravityDownwards: -17.658
-  numPoints: 250
-  numPointsDown: 150
-  timeBetweenPoints: 0.1
---- !u!114 &6909858227240342306
+  _levelDataLoader: {fileID: 6831572105048433795}
+  jumpSpeed: 9.2
+  trampolineJumpSpeed: 15
+  horizontalVelocity: 4.366667
+  activateJumpPath: 1
+  activateStompPath: 1
+  activateTrampolinePath: 1
+  useCustomHorizontalVelocity: 0
+  useCustomJumpSpeed: 1
+--- !u!114 &6831572105048433795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,34 +119,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2246454157922639467}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63b1e09fb2c548e4a8de3a106d8798ab, type: 3}
+  m_Script: {fileID: 11500000, guid: e09cb844c667369479611ac72c7de858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  downwardSpeed: -20
-  horizontalVelocity: 9.26667
-  gravityDownwards: -17.658
-  numPoints: 15
-  timeBetweenPoints: 0.1
---- !u!114 &7152107137260018928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2246454157922639467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84b9bc6d525219947be14b0ae177e5b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpSpeed: 15
-  horizontalVelocity: 9.26667
-  gravityUpwards: -19.62
-  gravityDownwards: -17.658
-  numPointsUp: 350
-  numPointsDown: 150
-  timeBetweenPointsUp: 0.01
-  timeBetweenPointsDown: 0.05
+  levelData: {fileID: 11400000, guid: 38aff07aa9be9304aaffe1b3ca98fac7, type: 2}
 --- !u!50 &7624533122695260518
 Rigidbody2D:
   serializedVersion: 4
@@ -187,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c093d324dbb83f04ab29144eec625412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpSpeed: 11
+  jumpSpeed: 11
   originalGravityScale: 2
   gravityFactor: 0.9
   groundCheckDistance: 0.55
@@ -222,22 +197,6 @@ MonoBehaviour:
   canDash: 0
   isSliding: 0
   _isJumping: 0
---- !u!114 &9121559137571415238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2246454157922639467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4958371993e8718409ff0dde61fae748, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myTransform: {fileID: 767025087459199183}
-  TempoManager: {fileID: 0}
-  speed: 9.26667
-  canMove: 1
 --- !u!61 &5839167384949892327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -283,99 +242,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35341847, y: 0.9795959}
   m_EdgeRadius: 0
---- !u!82 &3977299356407911272
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2246454157922639467}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4

@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: LevelData
   m_EditorClassIdentifier: 
   Levels:
-  - sceneName: Tutorial
-    playerSpeed: 0
-  - sceneName: Nivel 1
-    playerSpeed: 0
-  - sceneName: Nivel 2
-    playerSpeed: 0
+  - sceneName: TutorialV2
+    playerSpeed: 4.366667
+  - sceneName: Nivel_1_Bing
+    playerSpeed: 9.266667
   - sceneName: Template_Nivel
     playerSpeed: 9.266667
