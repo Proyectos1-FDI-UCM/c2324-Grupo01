@@ -58,7 +58,9 @@ public class DeathComponent : MonoBehaviour
             Death();
         }
 
+        _action.isStomping = false;
     }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == layerValueTraps)
@@ -69,6 +71,8 @@ public class DeathComponent : MonoBehaviour
         {
             Death();
         }
+        
+        _action.isStomping = false;
     }
     #endregion
 }
