@@ -727,7 +727,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 458, y: 187}
+  m_AnchoredPosition: {x: 458, y: 194}
   m_SizeDelta: {x: 68.09, y: 68.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &273316083
@@ -2130,7 +2130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.35824135, g: 0.37745446, b: 0.5471698, a: 1}
+  m_Color: {r: 0.29427496, g: 0.26785332, b: 0.41509432, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4002,8 +4002,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 53eacc6a88266af4d9b9f405ac078377, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.524
-  m_Pitch: 1
+  m_Volume: 0.5
+  m_Pitch: 0.9
   Loop: 1
   Mute: 0
   Spatialize: 0

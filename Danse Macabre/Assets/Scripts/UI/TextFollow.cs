@@ -35,10 +35,10 @@ public class TextFollow : MonoBehaviour
         {
             targetPosition.y += _playerTransform.position.y * 60;
         }*/
-        Vector2 targetPosition = new Vector3(0, _playerTransform.position.y + _verticalOffSet);
+        //Vector2 targetPosition = new Vector3(0, _playerTransform.position.y + _verticalOffSet);
 
-        float y = Mathf.Lerp(_textTransform.position.y,targetPosition.y,_followFactor );
-        float x = _textTransform.position.x;
-        _textTransform.position = new Vector3(x,y,0);
+       // float y = Mathf.Lerp(_textTransform.position.y,targetPosition.y,_followFactor );
+        //float x = _textTransform.position.x;
+        //_textTransform.position = new Vector3(x,y,0);
     }
 }
