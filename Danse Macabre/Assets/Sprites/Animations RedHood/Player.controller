@@ -491,7 +491,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Red Hood Run
-  m_Speed: 1.3
+  m_Speed: 1.4
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -709,9 +709,9 @@ AnimatorStateMachine:
   - {fileID: 2810969398688505320}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -6805843866516718297}
-    second: []
   - first: {fileID: -3884370601085909987}
+    second: []
+  - first: {fileID: -6805843866516718297}
     second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}

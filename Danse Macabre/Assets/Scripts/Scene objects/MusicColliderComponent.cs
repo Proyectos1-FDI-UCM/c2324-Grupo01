@@ -19,7 +19,6 @@ public class MusicColliderComponent : MonoBehaviour
 
         if (player)
         {
-            //print("time: " + Time.time);
             musicManagerComponent.PlayMusic();
         }
     }

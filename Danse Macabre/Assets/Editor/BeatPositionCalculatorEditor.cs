@@ -38,6 +38,7 @@ public class BeatPositionCalculatorEditor : Editor
     private void InstatantiateBPMTimestamps(BeatPositionCalculator calculator)
     {
         GameObject newObj = new("BPM Timestamps");
+        int i = 0;
 
         foreach (var timestamp in calculator.baseBPMData.timestamps)
         {
@@ -45,6 +46,11 @@ public class BeatPositionCalculatorEditor : Editor
             newPrefab.name = $"BPM Stamp: {timestamp.time}s / x={timestamp.positionX}";
             newPrefab.transform.parent = newObj.transform;
             newPrefab.transform.position = new(timestamp.positionX, -3.0f, 0f);
+            if (i % 4 == 0)
+            {
+                newPrefab.GetComponent<SpriteRenderer>().color = Color.blue;
+            }
+            i++;      
         }
 
         Debug.Log("BPM timestamps created!");

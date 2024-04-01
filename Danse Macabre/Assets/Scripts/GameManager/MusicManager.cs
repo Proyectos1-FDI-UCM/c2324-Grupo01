@@ -6,30 +6,14 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour
 {
     #region parameters
-    // [SerializeField]
-    // private float delay = 0.5f;
-    // private float elapsedTime = 0f;
     #endregion
 
     #region references
     private AudioSource _myAudioSource;
     #endregion
 
-    // For potential checkpoint
-    // [SerializeField]
-    // private GameObject Player;
-    // private MovementComponent movementComponent;
-    // private ActionComponent actionComponent;
-    // private Rigidbody2D playerRigidbody;
-    // [SerializeField]
-    // private GameObject StartRecordCollider;
-
     #region properties
     public float time;
-    // For potential checkpoint
-    // private bool canCallMethod = true;
-    // float playerPosX;
-    // float starColliderPosX;
     #endregion
 
     #region properties
@@ -41,7 +25,6 @@ public class MusicManager : MonoBehaviour
     {
         get { return instance; }
     }
-    //private bool isPlaying = false;
     #endregion
 
     #region methods

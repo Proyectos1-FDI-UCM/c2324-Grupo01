@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelDataLoader: {fileID: 8792642780009494377}
   jumpSpeed: 0
+  trampolineJumpSpeed: 0
   horizontalVelocity: 0
   activateJumpPath: 1
   activateStompPath: 1

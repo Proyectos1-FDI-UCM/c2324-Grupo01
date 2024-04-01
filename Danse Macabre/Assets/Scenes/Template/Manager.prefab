@@ -277,7 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelDataLoader: {fileID: 1875889047494938672}
   BPM: 139
-  TilesPerTick: 4
+  TilesPerTick: 1
   SecondsPerTick: 0.43165466
   PlayerSpeed: 9.266667
 --- !u!114 &191873576779403506
@@ -328,6 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ab6fe29faa32e44bcd12c3db23eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bigArrowText: {fileID: 0}
-  _smallArrowText: {fileID: 0}
+  _Text1: {fileID: 0}
+  _startPoint: {fileID: 0}
+  _playerTransform: {fileID: 0}
   _deactivateTime: 4

@@ -10,22 +10,24 @@ public class DeathComponent : MonoBehaviour
     // [SerializeField]
     // private LayerMask deathLayers;
     private MovementComponent _movementComponent;
-    private ActionComponent _action;
+    private ActionComponent _actionComponent;
     private Rigidbody2D _RB;
     #endregion
 
     int layerValueEnemy;
     int layerValueTraps;
+    int layerValueTrampoline;
 
 
     private void Start()
     {
         _movementComponent = GetComponent<MovementComponent>();
-        _action = GetComponent<ActionComponent>();
+        _actionComponent = GetComponent<ActionComponent>();
         _RB = GetComponent<Rigidbody2D>();
 
         layerValueEnemy = LayerMask.NameToLayer("Enemies");
         layerValueTraps = LayerMask.NameToLayer("Traps");
+        layerValueTrampoline = LayerMask.NameToLayer("Trampoline");
     }
 
     private void Update()
@@ -49,16 +51,28 @@ public class DeathComponent : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.gameObject.layer == layerValueTraps)
         {
             Death();
         }
-        if (collision.gameObject.layer == layerValueEnemy && !(_action.isStomping || _action.isSliding || _action.isDashing))
+
+        if (collision.gameObject.layer == layerValueEnemy && (_actionComponent.isStomping || _actionComponent.isSliding || _actionComponent.isDashing))
+        {
+            GameObject enemy = collision.gameObject;
+            enemy.GetComponent<EnemyAnimation>().DeathAnimation();
+            Invoke("DestroyEnemy", 0.1f);
+            if (enemy.GetComponent<EnemyInteractionComponent>().BouncyEnemy)
+            {
+                _actionComponent.Bounce();
+            }
+            _actionComponent.isStomping = false;
+        }
+        else if (collision.gameObject.layer == layerValueEnemy && !(_actionComponent.isStomping || _actionComponent.isSliding || _actionComponent.isDashing))
         {
             Death();
         }
 
-        _action.isStomping = false;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -67,12 +81,21 @@ public class DeathComponent : MonoBehaviour
         {
             Death();
         }
-        if (collision.gameObject.layer == layerValueEnemy && !(_action.isStomping || _action.isSliding || _action.isDashing))
+        if (collision.gameObject.layer == layerValueEnemy && (_actionComponent.isStomping || _actionComponent.isSliding || _actionComponent.isDashing))
+        {
+            GameObject enemy = collision.gameObject;
+            enemy.GetComponent<EnemyAnimation>().DeathAnimation();
+            Invoke("DestroyEnemy", 0.1f);
+            if (enemy.GetComponent<EnemyInteractionComponent>().BouncyEnemy)
+            {
+                _actionComponent.Bounce();
+            }
+            _actionComponent.isStomping = false;
+        }
+        else if (collision.gameObject.layer == layerValueEnemy && !(_actionComponent.isStomping || _actionComponent.isSliding || _actionComponent.isDashing))
         {
             Death();
         }
-        
-        _action.isStomping = false;
     }
     #endregion
 }
