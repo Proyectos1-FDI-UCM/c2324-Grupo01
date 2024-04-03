@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
         get { return playerSpeed; }
         set { playerSpeed = value; }
     }
+
+    private string previousScene;
     #endregion
 
    private void Awake()
@@ -59,6 +61,13 @@ public class GameManager : MonoBehaviour
         GameManager.Instance.LoadAllReferences();
         GameManager.Instance.LoadLevelData();
         MusicManager.Instance.LoadAllReferences();
+
+        if (previousScene == SceneManager.GetActiveScene().name)
+        {
+            checkpointPosition = Vector3.zero;
+        }
+
+        previousScene = SceneManager.GetActiveScene().name;
 
         if (checkpointPosition != Vector3.zero)
         {
