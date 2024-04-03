@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         GameManager.Instance.LoadLevelData();
         MusicManager.Instance.LoadAllReferences();
 
-        if (previousScene == SceneManager.GetActiveScene().name)
+        if (previousScene != SceneManager.GetActiveScene().name)
         {
             checkpointPosition = Vector3.zero;
         }
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         checkpointPosition = position;
         _ScoreManager.SaveCheckpointScore();
     }
-    public void LoadCheckpoint()
+    private void LoadCheckpoint()
     {
         _ScoreManager.LoadCheckpointScore();
 
