@@ -29,7 +29,7 @@ public class InitialTextController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_startPoint.position.x-_playerTransform.position.x<0.1)
+        if (_playerTransform.position.x-_startPoint.position.x<0.1)
         {
             _Text1.SetActive(true);
         }
