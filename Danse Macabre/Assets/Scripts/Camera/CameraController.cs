@@ -44,10 +44,10 @@ public class CameraController : MonoBehaviour
         cameraHeight = cameraHeight / 2; // Para convertirlo en distancia desde el centro hasta el borde superior o inferior
 
         // To match initial offset of the character with the cameras
-        allowVerticalFollow = true;
-        TrackPlayer(_playerTransform.position.y - _cameraTransform.position.y);
-        FollowPlayer();
-        allowVerticalFollow = false;
+        // allowVerticalFollow = true;
+        // TrackPlayer(_playerTransform.position.y - _cameraTransform.position.y);
+        // FollowPlayer();
+        // allowVerticalFollow = false;
     }
 
     void LateUpdate()
