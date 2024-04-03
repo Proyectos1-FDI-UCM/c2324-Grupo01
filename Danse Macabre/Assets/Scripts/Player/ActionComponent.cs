@@ -143,7 +143,7 @@ public class ActionComponent : MonoBehaviour
 
     public void SlideDash()
     {
-        if (!IsGrounded() && canDash && !isDashing)
+        if (!IsGrounded() && canDash && !isDashing && !isStomping)
         {
             isDashing = true;
             canDash = false;
@@ -237,7 +237,7 @@ public class ActionComponent : MonoBehaviour
             if (!isDashing && !isStomping)
             {
                 canDash = true;
-            }            
+            }
         }
         else
         {
