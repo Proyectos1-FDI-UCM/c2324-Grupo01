@@ -14,13 +14,12 @@ public class ActionComponent : MonoBehaviour
     public float originalGravityScale = 2;
     [SerializeField]
     public float gravityFactor = 0.90f;
-    [SerializeField]
     private float groundCheckDistance = 0.55f;
     private float trampolinCheckDistance = 0.60f;
     public float stompDownwardSpeed = 20;
     public float trampolineJumpSpeed = 15;
     [SerializeField]
-    private float dashDuration = 0.7f;
+    public float dashDuration = 0.7f;
     private float dashEndTime = 0;
 
     //rango de tiempo que puedes hacer dash (cuando coges la moneda especial)

@@ -11,6 +11,7 @@ public class MovementPathDrawer : MonoBehaviour
 
     public float jumpSpeed;
     public float trampolineJumpSpeed;
+    public float dashDuration;
     public float horizontalVelocity;
     private float gravityUpwards;
     private float gravityDownwards;
@@ -19,24 +20,27 @@ public class MovementPathDrawer : MonoBehaviour
     private int numPointsDown = 150;
     private float timeBetweenPoints = 0.1f;
 
-    public bool activateJumpPath = true;
-    public bool activateStompPath = true;
-    public bool activateTrampolinePath = true;
-    public bool useCustomHorizontalVelocity = false;
-    public bool useCustomJumpSpeed = false;
+    public bool JumpPath = true;
+    public bool StompPath = true;
+    public bool TrampolinePath = true;
+    public bool DashPath = true;
+    public bool setCustomHorizontalVelocity = false;
+    public bool setCustomJumpSpeed = false;
+    public bool setCustomDashDuration = false;
 
     void OnDrawGizmos()
     {
         _actionComponent = GetComponent<ActionComponent>();
         _rb = GetComponent<Rigidbody2D>();
 
-        if (!useCustomHorizontalVelocity) horizontalVelocity = _levelDataLoader.GetCurrentScenePlayerSpeed();
-        if (!useCustomJumpSpeed) jumpSpeed = _actionComponent.jumpSpeed;
+        if (!setCustomHorizontalVelocity) horizontalVelocity = _levelDataLoader.GetCurrentScenePlayerSpeed();
+        if (!setCustomJumpSpeed) jumpSpeed = _actionComponent.jumpSpeed;
+        if(!setCustomDashDuration) dashDuration = _actionComponent.dashDuration;
 
         gravityUpwards = Physics2D.gravity.y * _actionComponent.originalGravityScale; // for vel.y > 0
         gravityDownwards = gravityUpwards * _actionComponent.gravityFactor; // for vel.y < 0
         
-        if (activateJumpPath)
+        if (JumpPath)
         {
             Vector3 startPosition = transform.position;
             Vector3 previousPoint = startPosition;
@@ -79,7 +83,7 @@ public class MovementPathDrawer : MonoBehaviour
             }
         }
 
-        if (activateStompPath)
+        if (StompPath)
         {
             Vector3 startPosition = transform.position;
             Vector3 previousPoint = startPosition;
@@ -101,7 +105,7 @@ public class MovementPathDrawer : MonoBehaviour
             }
         }
 
-        if (activateTrampolinePath)
+        if (TrampolinePath)
         {
             int numPointsUp = 350;
             int numPointsDown = 150;
@@ -147,6 +151,17 @@ public class MovementPathDrawer : MonoBehaviour
 
                 previousPoint = nextPoint;
             }
+        }
+
+        if (DashPath)
+        {
+            Vector3 startPosition = transform.position;
+
+            float dx = horizontalVelocity * dashDuration;
+            Vector3 endPosition = startPosition + new Vector3(dx, 0, 0);
+
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawLine(startPosition, endPosition);
         }
     }
 }
