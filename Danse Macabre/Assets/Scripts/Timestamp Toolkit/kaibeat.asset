@@ -1,0 +1,1405 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e0b0bfec973a646a2b3f2deb0d37d6, type: 3}
+  m_Name: kaibeat
+  m_EditorClassIdentifier: 
+  timestamps:
+  - positionX: -3.541335
+    time: 0
+  - positionX: 0.4586666
+    time: 0.4316547
+  - positionX: 4.458668
+    time: 0.8633094
+  - positionX: 8.45867
+    time: 1.2949641
+  - positionX: 12.458672
+    time: 1.7266188
+  - positionX: 16.458673
+    time: 2.1582735
+  - positionX: 20.458675
+    time: 2.5899282
+  - positionX: 24.458677
+    time: 3.0215828
+  - positionX: 28.45868
+    time: 3.4532375
+  - positionX: 32.45868
+    time: 3.8848922
+  - positionX: 36.458683
+    time: 4.316547
+  - positionX: 40.458683
+    time: 4.7482014
+  - positionX: 44.458687
+    time: 5.1798563
+  - positionX: 48.458687
+    time: 5.611511
+  - positionX: 52.458687
+    time: 6.0431657
+  - positionX: 56.45869
+    time: 6.47482
+  - positionX: 60.45869
+    time: 6.906475
+  - positionX: 64.458694
+    time: 7.33813
+  - positionX: 68.458694
+    time: 7.7697845
+  - positionX: 72.458694
+    time: 8.201439
+  - positionX: 76.4587
+    time: 8.633094
+  - positionX: 80.4587
+    time: 9.064749
+  - positionX: 84.4587
+    time: 9.496403
+  - positionX: 88.4587
+    time: 9.928058
+  - positionX: 92.4587
+    time: 10.359713
+  - positionX: 96.45871
+    time: 10.791368
+  - positionX: 100.45871
+    time: 11.223022
+  - positionX: 104.45871
+    time: 11.654676
+  - positionX: 108.45871
+    time: 12.086331
+  - positionX: 112.45872
+    time: 12.517986
+  - positionX: 116.45872
+    time: 12.94964
+  - positionX: 120.45872
+    time: 13.381295
+  - positionX: 124.45872
+    time: 13.81295
+  - positionX: 128.45872
+    time: 14.244605
+  - positionX: 132.45872
+    time: 14.67626
+  - positionX: 136.45872
+    time: 15.107914
+  - positionX: 140.45872
+    time: 15.539569
+  - positionX: 144.45872
+    time: 15.971224
+  - positionX: 148.45872
+    time: 16.402878
+  - positionX: 152.45872
+    time: 16.834534
+  - positionX: 156.45872
+    time: 17.266188
+  - positionX: 160.45874
+    time: 17.697842
+  - positionX: 164.45874
+    time: 18.129498
+  - positionX: 168.45874
+    time: 18.561152
+  - positionX: 172.45874
+    time: 18.992805
+  - positionX: 176.45874
+    time: 19.424461
+  - positionX: 180.45874
+    time: 19.856115
+  - positionX: 184.45874
+    time: 20.287771
+  - positionX: 188.45874
+    time: 20.719425
+  - positionX: 192.45874
+    time: 21.15108
+  - positionX: 196.45876
+    time: 21.582735
+  - positionX: 200.45876
+    time: 22.014389
+  - positionX: 204.45876
+    time: 22.446045
+  - positionX: 208.45876
+    time: 22.877699
+  - positionX: 212.45876
+    time: 23.309353
+  - positionX: 216.45876
+    time: 23.741009
+  - positionX: 220.45876
+    time: 24.172663
+  - positionX: 224.45876
+    time: 24.604317
+  - positionX: 228.45876
+    time: 25.035973
+  - positionX: 232.45877
+    time: 25.467627
+  - positionX: 236.45877
+    time: 25.89928
+  - positionX: 240.45877
+    time: 26.330936
+  - positionX: 244.45877
+    time: 26.76259
+  - positionX: 248.45877
+    time: 27.194246
+  - positionX: 252.45877
+    time: 27.6259
+  - positionX: 256.45877
+    time: 28.057554
+  - positionX: 260.45877
+    time: 28.48921
+  - positionX: 264.45877
+    time: 28.920864
+  - positionX: 268.45877
+    time: 29.35252
+  - positionX: 272.45877
+    time: 29.784174
+  - positionX: 276.45877
+    time: 30.215828
+  - positionX: 280.45877
+    time: 30.647484
+  - positionX: 284.45877
+    time: 31.079138
+  - positionX: 288.4588
+    time: 31.510792
+  - positionX: 292.4588
+    time: 31.942448
+  - positionX: 296.4588
+    time: 32.374104
+  - positionX: 300.4588
+    time: 32.805756
+  - positionX: 304.4588
+    time: 33.23741
+  - positionX: 308.4588
+    time: 33.669067
+  - positionX: 312.4588
+    time: 34.10072
+  - positionX: 316.4588
+    time: 34.532375
+  - positionX: 320.4588
+    time: 34.96403
+  - positionX: 324.4588
+    time: 35.395683
+  - positionX: 328.4588
+    time: 35.82734
+  - positionX: 332.4588
+    time: 36.258995
+  - positionX: 336.4588
+    time: 36.690647
+  - positionX: 340.4588
+    time: 37.122303
+  - positionX: 344.4588
+    time: 37.55396
+  - positionX: 348.4588
+    time: 37.98561
+  - positionX: 352.4588
+    time: 38.417267
+  - positionX: 356.4588
+    time: 38.848923
+  - positionX: 360.45883
+    time: 39.28058
+  - positionX: 364.45883
+    time: 39.71223
+  - positionX: 368.45883
+    time: 40.143887
+  - positionX: 372.45883
+    time: 40.575542
+  - positionX: 376.45883
+    time: 41.007195
+  - positionX: 380.45883
+    time: 41.43885
+  - positionX: 384.45883
+    time: 41.870506
+  - positionX: 388.45883
+    time: 42.30216
+  - positionX: 392.45883
+    time: 42.733814
+  - positionX: 396.45883
+    time: 43.16547
+  - positionX: 400.45883
+    time: 43.597122
+  - positionX: 404.45883
+    time: 44.028778
+  - positionX: 408.45883
+    time: 44.460434
+  - positionX: 412.45883
+    time: 44.89209
+  - positionX: 416.45883
+    time: 45.323742
+  - positionX: 420.45883
+    time: 45.755398
+  - positionX: 424.45883
+    time: 46.187054
+  - positionX: 428.45883
+    time: 46.618706
+  - positionX: 432.45886
+    time: 47.05036
+  - positionX: 436.45886
+    time: 47.482018
+  - positionX: 440.45886
+    time: 47.91367
+  - positionX: 444.45886
+    time: 48.345325
+  - positionX: 448.45886
+    time: 48.77698
+  - positionX: 452.45886
+    time: 49.208633
+  - positionX: 456.45886
+    time: 49.64029
+  - positionX: 460.45886
+    time: 50.071945
+  - positionX: 464.45886
+    time: 50.503597
+  - positionX: 468.45886
+    time: 50.935253
+  - positionX: 472.45886
+    time: 51.36691
+  - positionX: 476.45886
+    time: 51.79856
+  - positionX: 480.45886
+    time: 52.230217
+  - positionX: 484.45886
+    time: 52.661873
+  - positionX: 488.45886
+    time: 53.09353
+  - positionX: 492.45886
+    time: 53.52518
+  - positionX: 496.45886
+    time: 53.956837
+  - positionX: 500.45886
+    time: 54.388493
+  - positionX: 504.4589
+    time: 54.820145
+  - positionX: 508.4589
+    time: 55.2518
+  - positionX: 512.45886
+    time: 55.683456
+  - positionX: 516.45886
+    time: 56.11511
+  - positionX: 520.45886
+    time: 56.546764
+  - positionX: 524.45886
+    time: 56.97842
+  - positionX: 528.45886
+    time: 57.410072
+  - positionX: 532.45886
+    time: 57.84173
+  - positionX: 536.45886
+    time: 58.273384
+  - positionX: 540.4589
+    time: 58.70504
+  - positionX: 544.4589
+    time: 59.136692
+  - positionX: 548.4589
+    time: 59.568348
+  - positionX: 552.4589
+    time: 60.000004
+  - positionX: 556.4589
+    time: 60.431656
+  - positionX: 560.4589
+    time: 60.86331
+  - positionX: 564.4589
+    time: 61.294968
+  - positionX: 568.4589
+    time: 61.72662
+  - positionX: 572.4589
+    time: 62.158276
+  - positionX: 576.4589
+    time: 62.58993
+  - positionX: 580.4589
+    time: 63.021584
+  - positionX: 584.4589
+    time: 63.45324
+  - positionX: 588.4589
+    time: 63.884895
+  - positionX: 592.4589
+    time: 64.31655
+  - positionX: 596.4589
+    time: 64.74821
+  - positionX: 600.4589
+    time: 65.179855
+  - positionX: 604.4589
+    time: 65.61151
+  - positionX: 608.4589
+    time: 66.04317
+  - positionX: 612.4589
+    time: 66.47482
+  - positionX: 616.4589
+    time: 66.90648
+  - positionX: 620.4589
+    time: 67.338135
+  - positionX: 624.4589
+    time: 67.76978
+  - positionX: 628.4589
+    time: 68.20144
+  - positionX: 632.4589
+    time: 68.633095
+  - positionX: 636.4589
+    time: 69.06475
+  - positionX: 640.4589
+    time: 69.49641
+  - positionX: 644.4589
+    time: 69.92806
+  - positionX: 648.4589
+    time: 70.35972
+  - positionX: 652.4589
+    time: 70.79137
+  - positionX: 656.4589
+    time: 71.22302
+  - positionX: 660.4589
+    time: 71.65468
+  - positionX: 664.4589
+    time: 72.086334
+  - positionX: 668.4589
+    time: 72.51799
+  - positionX: 672.4589
+    time: 72.949646
+  - positionX: 676.4589
+    time: 73.381294
+  - positionX: 680.4589
+    time: 73.81295
+  - positionX: 684.4589
+    time: 74.244606
+  - positionX: 688.459
+    time: 74.67626
+  - positionX: 692.459
+    time: 75.10792
+  - positionX: 696.459
+    time: 75.53957
+  - positionX: 700.459
+    time: 75.97122
+  - positionX: 704.459
+    time: 76.40288
+  - positionX: 708.459
+    time: 76.83453
+  - positionX: 712.459
+    time: 77.26619
+  - positionX: 716.459
+    time: 77.697845
+  - positionX: 720.459
+    time: 78.1295
+  - positionX: 724.459
+    time: 78.56116
+  - positionX: 728.459
+    time: 78.992805
+  - positionX: 732.459
+    time: 79.42446
+  - positionX: 736.459
+    time: 79.85612
+  - positionX: 740.459
+    time: 80.28777
+  - positionX: 744.459
+    time: 80.71943
+  - positionX: 748.459
+    time: 81.151085
+  - positionX: 752.459
+    time: 81.58273
+  - positionX: 756.459
+    time: 82.01439
+  - positionX: 760.459
+    time: 82.446045
+  - positionX: 764.459
+    time: 82.8777
+  - positionX: 768.459
+    time: 83.30936
+  - positionX: 772.459
+    time: 83.74101
+  - positionX: 776.459
+    time: 84.17267
+  - positionX: 780.459
+    time: 84.60432
+  - positionX: 784.459
+    time: 85.03597
+  - positionX: 788.459
+    time: 85.46763
+  - positionX: 792.459
+    time: 85.899284
+  - positionX: 796.459
+    time: 86.33094
+  - positionX: 800.459
+    time: 86.762596
+  - positionX: 804.459
+    time: 87.194244
+  - positionX: 808.459
+    time: 87.6259
+  - positionX: 812.459
+    time: 88.057556
+  - positionX: 816.459
+    time: 88.48921
+  - positionX: 820.459
+    time: 88.92087
+  - positionX: 824.459
+    time: 89.35252
+  - positionX: 828.459
+    time: 89.78418
+  - positionX: 832.45905
+    time: 90.21583
+  - positionX: 836.45905
+    time: 90.647484
+  - positionX: 840.45905
+    time: 91.07914
+  - positionX: 844.45905
+    time: 91.510796
+  - positionX: 848.45905
+    time: 91.94245
+  - positionX: 852.45905
+    time: 92.37411
+  - positionX: 856.45905
+    time: 92.805756
+  - positionX: 860.45905
+    time: 93.23741
+  - positionX: 864.45905
+    time: 93.66907
+  - positionX: 868.45905
+    time: 94.10072
+  - positionX: 872.45905
+    time: 94.53238
+  - positionX: 876.45905
+    time: 94.964035
+  - positionX: 880.45905
+    time: 95.39568
+  - positionX: 884.45905
+    time: 95.82734
+  - positionX: 888.45905
+    time: 96.258995
+  - positionX: 892.45905
+    time: 96.69065
+  - positionX: 896.45905
+    time: 97.12231
+  - positionX: 900.45905
+    time: 97.55396
+  - positionX: 904.45905
+    time: 97.98562
+  - positionX: 908.45905
+    time: 98.41727
+  - positionX: 912.45905
+    time: 98.84892
+  - positionX: 916.45905
+    time: 99.28058
+  - positionX: 920.45905
+    time: 99.712234
+  - positionX: 924.45905
+    time: 100.14389
+  - positionX: 928.45905
+    time: 100.57555
+  - positionX: 932.45905
+    time: 101.007195
+  - positionX: 936.45905
+    time: 101.43885
+  - positionX: 940.45905
+    time: 101.87051
+  - positionX: 944.45905
+    time: 102.30216
+  - positionX: 948.45905
+    time: 102.73382
+  - positionX: 952.45905
+    time: 103.165474
+  - positionX: 956.45905
+    time: 103.59712
+  - positionX: 960.45905
+    time: 104.02878
+  - positionX: 964.45905
+    time: 104.460434
+  - positionX: 968.45905
+    time: 104.89209
+  - positionX: 972.45905
+    time: 105.323746
+  - positionX: 976.4591
+    time: 105.7554
+  - positionX: 980.4591
+    time: 106.18706
+  - positionX: 984.4591
+    time: 106.618706
+  - positionX: 988.4591
+    time: 107.05036
+  - positionX: 992.4591
+    time: 107.48202
+  - positionX: 996.4591
+    time: 107.91367
+  - positionX: 1000.4591
+    time: 108.34533
+  - positionX: 1004.4591
+    time: 108.776985
+  - positionX: 1008.4591
+    time: 109.20863
+  - positionX: 1012.4591
+    time: 109.64029
+  - positionX: 1016.4591
+    time: 110.071945
+  - positionX: 1020.4591
+    time: 110.5036
+  - positionX: 1024.4591
+    time: 110.93526
+  - positionX: 1028.4591
+    time: 111.36691
+  - positionX: 1032.4591
+    time: 111.79857
+  - positionX: 1036.4591
+    time: 112.23022
+  - positionX: 1040.4591
+    time: 112.66187
+  - positionX: 1044.4591
+    time: 113.09353
+  - positionX: 1048.4591
+    time: 113.525185
+  - positionX: 1052.4591
+    time: 113.95684
+  - positionX: 1056.4591
+    time: 114.3885
+  - positionX: 1060.4591
+    time: 114.820145
+  - positionX: 1064.4591
+    time: 115.2518
+  - positionX: 1068.4591
+    time: 115.68346
+  - positionX: 1072.4591
+    time: 116.11511
+  - positionX: 1076.4591
+    time: 116.54677
+  - positionX: 1080.4591
+    time: 116.978424
+  - positionX: 1084.4591
+    time: 117.41008
+  - positionX: 1088.4591
+    time: 117.84173
+  - positionX: 1092.4591
+    time: 118.273384
+  - positionX: 1096.4591
+    time: 118.70504
+  - positionX: 1100.4591
+    time: 119.136696
+  - positionX: 1104.4591
+    time: 119.56835
+  - positionX: 1108.4591
+    time: 120.00001
+  - positionX: 1112.4591
+    time: 120.431656
+  - positionX: 1116.4591
+    time: 120.86331
+  - positionX: 1120.4591
+    time: 121.29497
+  - positionX: 1124.4591
+    time: 121.72662
+  - positionX: 1128.4591
+    time: 122.15828
+  - positionX: 1132.4591
+    time: 122.589935
+  - positionX: 1136.4591
+    time: 123.02158
+  - positionX: 1140.4591
+    time: 123.45324
+  - positionX: 1144.4591
+    time: 123.884895
+  - positionX: 1148.4591
+    time: 124.31655
+  - positionX: 1152.4591
+    time: 124.74821
+  - positionX: 1156.4591
+    time: 125.17986
+  - positionX: 1160.4591
+    time: 125.61152
+  - positionX: 1164.4591
+    time: 126.04317
+  - positionX: 1168.4591
+    time: 126.47482
+  - positionX: 1172.4591
+    time: 126.90648
+  - positionX: 1176.4591
+    time: 127.338135
+  - positionX: 1180.4591
+    time: 127.76979
+  - positionX: 1184.4591
+    time: 128.20145
+  - positionX: 1188.4591
+    time: 128.6331
+  - positionX: 1192.4591
+    time: 129.06476
+  - positionX: 1196.4592
+    time: 129.49641
+  - positionX: 1200.4592
+    time: 129.92805
+  - positionX: 1204.4592
+    time: 130.35971
+  - positionX: 1208.4592
+    time: 130.79137
+  - positionX: 1212.4592
+    time: 131.22302
+  - positionX: 1216.4592
+    time: 131.65468
+  - positionX: 1220.4592
+    time: 132.08633
+  - positionX: 1224.4592
+    time: 132.51799
+  - positionX: 1228.4592
+    time: 132.94965
+  - positionX: 1232.4592
+    time: 133.3813
+  - positionX: 1236.4592
+    time: 133.81296
+  - positionX: 1240.4592
+    time: 134.24461
+  - positionX: 1244.4592
+    time: 134.67627
+  - positionX: 1248.4592
+    time: 135.10793
+  - positionX: 1252.4592
+    time: 135.53957
+  - positionX: 1256.4592
+    time: 135.97122
+  - positionX: 1260.4592
+    time: 136.40288
+  - positionX: 1264.4592
+    time: 136.83453
+  - positionX: 1268.4592
+    time: 137.26619
+  - positionX: 1272.4592
+    time: 137.69785
+  - positionX: 1276.4592
+    time: 138.1295
+  - positionX: 1280.4592
+    time: 138.56116
+  - positionX: 1284.4592
+    time: 138.99281
+  - positionX: 1288.4592
+    time: 139.42447
+  - positionX: 1292.4592
+    time: 139.85612
+  - positionX: 1296.4592
+    time: 140.28778
+  - positionX: 1300.4592
+    time: 140.71944
+  - positionX: 1304.4592
+    time: 141.15108
+  - positionX: 1308.4592
+    time: 141.58273
+  - positionX: 1312.4592
+    time: 142.01439
+  - positionX: 1316.4592
+    time: 142.44604
+  - positionX: 1320.4592
+    time: 142.8777
+  - positionX: 1324.4592
+    time: 143.30936
+  - positionX: 1328.4592
+    time: 143.74101
+  - positionX: 1332.4592
+    time: 144.17267
+  - positionX: 1336.4592
+    time: 144.60432
+  - positionX: 1340.4592
+    time: 145.03598
+  - positionX: 1344.4592
+    time: 145.46764
+  - positionX: 1348.4592
+    time: 145.89929
+  - positionX: 1352.4592
+    time: 146.33095
+  - positionX: 1356.4592
+    time: 146.76259
+  - positionX: 1360.4592
+    time: 147.19424
+  - positionX: 1364.4592
+    time: 147.6259
+  - positionX: 1368.4592
+    time: 148.05756
+  - positionX: 1372.4592
+    time: 148.48921
+  - positionX: 1376.4592
+    time: 148.92087
+  - positionX: 1380.4592
+    time: 149.35252
+  - positionX: 1384.4592
+    time: 149.78418
+  - positionX: 1388.4592
+    time: 150.21584
+  - positionX: 1392.4592
+    time: 150.64749
+  - positionX: 1396.4592
+    time: 151.07915
+  - positionX: 1400.4592
+    time: 151.5108
+  - positionX: 1404.4592
+    time: 151.94244
+  - positionX: 1408.4592
+    time: 152.3741
+  - positionX: 1412.4592
+    time: 152.80576
+  - positionX: 1416.4592
+    time: 153.23741
+  - positionX: 1420.4592
+    time: 153.66907
+  - positionX: 1424.4592
+    time: 154.10072
+  - positionX: 1428.4592
+    time: 154.53238
+  - positionX: 1432.4592
+    time: 154.96404
+  - positionX: 1436.4592
+    time: 155.39569
+  - positionX: 1440.4592
+    time: 155.82735
+  - positionX: 1444.4592
+    time: 156.259
+  - positionX: 1448.4592
+    time: 156.69066
+  - positionX: 1452.4592
+    time: 157.12231
+  - positionX: 1456.4592
+    time: 157.55396
+  - positionX: 1460.4592
+    time: 157.98561
+  - positionX: 1464.4592
+    time: 158.41727
+  - positionX: 1468.4592
+    time: 158.84892
+  - positionX: 1472.4592
+    time: 159.28058
+  - positionX: 1476.4592
+    time: 159.71223
+  - positionX: 1480.4592
+    time: 160.14389
+  - positionX: 1484.4594
+    time: 160.57555
+  - positionX: 1488.4594
+    time: 161.0072
+  - positionX: 1492.4594
+    time: 161.43886
+  - positionX: 1496.4594
+    time: 161.87051
+  - positionX: 1500.4594
+    time: 162.30217
+  - positionX: 1504.4594
+    time: 162.73383
+  - positionX: 1508.4594
+    time: 163.16547
+  - positionX: 1512.4594
+    time: 163.59712
+  - positionX: 1516.4594
+    time: 164.02878
+  - positionX: 1520.4594
+    time: 164.46043
+  - positionX: 1524.4594
+    time: 164.89209
+  - positionX: 1528.4594
+    time: 165.32375
+  - positionX: 1532.4594
+    time: 165.7554
+  - positionX: 1536.4594
+    time: 166.18706
+  - positionX: 1540.4594
+    time: 166.61871
+  - positionX: 1544.4594
+    time: 167.05037
+  - positionX: 1548.4594
+    time: 167.48203
+  - positionX: 1552.4594
+    time: 167.91368
+  - positionX: 1556.4594
+    time: 168.34534
+  - positionX: 1560.4594
+    time: 168.77698
+  - positionX: 1564.4594
+    time: 169.20863
+  - positionX: 1568.4594
+    time: 169.64029
+  - positionX: 1572.4594
+    time: 170.07195
+  - positionX: 1576.4594
+    time: 170.5036
+  - positionX: 1580.4594
+    time: 170.93526
+  - positionX: 1584.4594
+    time: 171.36691
+  - positionX: 1588.4594
+    time: 171.79857
+  - positionX: 1592.4594
+    time: 172.23022
+  - positionX: 1596.4594
+    time: 172.66188
+  - positionX: 1600.4594
+    time: 173.09354
+  - positionX: 1604.4594
+    time: 173.52519
+  - positionX: 1608.4594
+    time: 173.95685
+  - positionX: 1612.4594
+    time: 174.38849
+  - positionX: 1616.4594
+    time: 174.82014
+  - positionX: 1620.4594
+    time: 175.2518
+  - positionX: 1624.4594
+    time: 175.68346
+  - positionX: 1628.4594
+    time: 176.11511
+  - positionX: 1632.4594
+    time: 176.54677
+  - positionX: 1636.4594
+    time: 176.97842
+  - positionX: 1640.4594
+    time: 177.41008
+  - positionX: 1644.4594
+    time: 177.84174
+  - positionX: 1648.4594
+    time: 178.27339
+  - positionX: 1652.4594
+    time: 178.70505
+  - positionX: 1656.4594
+    time: 179.1367
+  - positionX: 1660.4594
+    time: 179.56836
+  - positionX: 1664.4594
+    time: 180
+  - positionX: 1668.4594
+    time: 180.43166
+  - positionX: 1672.4594
+    time: 180.86331
+  - positionX: 1676.4594
+    time: 181.29497
+  - positionX: 1680.4594
+    time: 181.72662
+  - positionX: 1684.4594
+    time: 182.15828
+  - positionX: 1688.4594
+    time: 182.58994
+  - positionX: 1692.4594
+    time: 183.02159
+  - positionX: 1696.4594
+    time: 183.45325
+  - positionX: 1700.4594
+    time: 183.8849
+  - positionX: 1704.4594
+    time: 184.31656
+  - positionX: 1708.4594
+    time: 184.74821
+  - positionX: 1712.4594
+    time: 185.17986
+  - positionX: 1716.4594
+    time: 185.61151
+  - positionX: 1720.4594
+    time: 186.04317
+  - positionX: 1724.4594
+    time: 186.47482
+  - positionX: 1728.4594
+    time: 186.90648
+  - positionX: 1732.4594
+    time: 187.33813
+  - positionX: 1736.4594
+    time: 187.76979
+  - positionX: 1740.4594
+    time: 188.20145
+  - positionX: 1744.4594
+    time: 188.6331
+  - positionX: 1748.4594
+    time: 189.06476
+  - positionX: 1752.4594
+    time: 189.49641
+  - positionX: 1756.4594
+    time: 189.92807
+  - positionX: 1760.4594
+    time: 190.35973
+  - positionX: 1764.4594
+    time: 190.79137
+  - positionX: 1768.4594
+    time: 191.22302
+  - positionX: 1772.4594
+    time: 191.65468
+  - positionX: 1776.4595
+    time: 192.08633
+  - positionX: 1780.4595
+    time: 192.51799
+  - positionX: 1784.4595
+    time: 192.94965
+  - positionX: 1788.4595
+    time: 193.3813
+  - positionX: 1792.4595
+    time: 193.81296
+  - positionX: 1796.4595
+    time: 194.24461
+  - positionX: 1800.4595
+    time: 194.67627
+  - positionX: 1804.4595
+    time: 195.10793
+  - positionX: 1808.4595
+    time: 195.53958
+  - positionX: 1812.4595
+    time: 195.97124
+  - positionX: 1816.4595
+    time: 196.40288
+  - positionX: 1820.4595
+    time: 196.83453
+  - positionX: 1824.4595
+    time: 197.26619
+  - positionX: 1828.4595
+    time: 197.69785
+  - positionX: 1832.4595
+    time: 198.1295
+  - positionX: 1836.4595
+    time: 198.56116
+  - positionX: 1840.4595
+    time: 198.99281
+  - positionX: 1844.4595
+    time: 199.42447
+  - positionX: 1848.4595
+    time: 199.85612
+  - positionX: 1852.4595
+    time: 200.28778
+  - positionX: 1856.4595
+    time: 200.71944
+  - positionX: 1860.4595
+    time: 201.1511
+  - positionX: 1864.4595
+    time: 201.58275
+  - positionX: 1868.4595
+    time: 202.01439
+  - positionX: 1872.4595
+    time: 202.44604
+  - positionX: 1876.4595
+    time: 202.8777
+  - positionX: 1880.4595
+    time: 203.30936
+  - positionX: 1884.4595
+    time: 203.74101
+  - positionX: 1888.4595
+    time: 204.17267
+  - positionX: 1892.4595
+    time: 204.60432
+  - positionX: 1896.4595
+    time: 205.03598
+  - positionX: 1900.4595
+    time: 205.46764
+  - positionX: 1904.4595
+    time: 205.89929
+  - positionX: 1908.4595
+    time: 206.33095
+  - positionX: 1912.4595
+    time: 206.7626
+  - positionX: 1916.4595
+    time: 207.19424
+  - positionX: 1920.4595
+    time: 207.6259
+  - positionX: 1924.4595
+    time: 208.05756
+  - positionX: 1928.4595
+    time: 208.48921
+  - positionX: 1932.4595
+    time: 208.92087
+  - positionX: 1936.4595
+    time: 209.35252
+  - positionX: 1940.4595
+    time: 209.78418
+  - positionX: 1944.4595
+    time: 210.21584
+  - positionX: 1948.4595
+    time: 210.64749
+  - positionX: 1952.4595
+    time: 211.07915
+  - positionX: 1956.4595
+    time: 211.5108
+  - positionX: 1960.4595
+    time: 211.94246
+  - positionX: 1964.4595
+    time: 212.37411
+  - positionX: 1968.4595
+    time: 212.80576
+  - positionX: 1972.4595
+    time: 213.23741
+  - positionX: 1976.4595
+    time: 213.66907
+  - positionX: 1980.4595
+    time: 214.10072
+  - positionX: 1984.4595
+    time: 214.53238
+  - positionX: 1988.4595
+    time: 214.96404
+  - positionX: 1992.4595
+    time: 215.39569
+  - positionX: 1996.4595
+    time: 215.82735
+  - positionX: 2000.4595
+    time: 216.259
+  - positionX: 2004.4595
+    time: 216.69066
+  - positionX: 2008.4595
+    time: 217.12231
+  - positionX: 2012.4595
+    time: 217.55397
+  - positionX: 2016.4595
+    time: 217.98563
+  - positionX: 2020.4595
+    time: 218.41727
+  - positionX: 2024.4595
+    time: 218.84892
+  - positionX: 2028.4595
+    time: 219.28058
+  - positionX: 2032.4595
+    time: 219.71223
+  - positionX: 2036.4595
+    time: 220.14389
+  - positionX: 2040.4595
+    time: 220.57555
+  - positionX: 2044.4595
+    time: 221.0072
+  - positionX: 2048.4595
+    time: 221.43886
+  - positionX: 2052.4595
+    time: 221.87051
+  - positionX: 2056.4595
+    time: 222.30217
+  - positionX: 2060.4595
+    time: 222.73383
+  - positionX: 2064.4595
+    time: 223.16548
+  - positionX: 2068.4595
+    time: 223.59714
+  - positionX: 2072.4595
+    time: 224.02878
+  - positionX: 2076.4595
+    time: 224.46043
+  - positionX: 2080.4595
+    time: 224.89209
+  - positionX: 2084.4595
+    time: 225.32375
+  - positionX: 2088.4595
+    time: 225.7554
+  - positionX: 2092.4595
+    time: 226.18706
+  - positionX: 2096.4595
+    time: 226.61871
+  - positionX: 2100.4595
+    time: 227.05037
+  - positionX: 2104.4595
+    time: 227.48203
+  - positionX: 2108.4595
+    time: 227.91368
+  - positionX: 2112.4595
+    time: 228.34534
+  - positionX: 2116.4595
+    time: 228.777
+  - positionX: 2120.4595
+    time: 229.20865
+  - positionX: 2124.4595
+    time: 229.64029
+  - positionX: 2128.4595
+    time: 230.07195
+  - positionX: 2132.4595
+    time: 230.5036
+  - positionX: 2136.4595
+    time: 230.93526
+  - positionX: 2140.4595
+    time: 231.36691
+  - positionX: 2144.4595
+    time: 231.79857
+  - positionX: 2148.4595
+    time: 232.23022
+  - positionX: 2152.4595
+    time: 232.66188
+  - positionX: 2156.4595
+    time: 233.09354
+  - positionX: 2160.4595
+    time: 233.52519
+  - positionX: 2164.4595
+    time: 233.95685
+  - positionX: 2168.4595
+    time: 234.3885
+  - positionX: 2172.4595
+    time: 234.82016
+  - positionX: 2176.4595
+    time: 235.2518
+  - positionX: 2180.4595
+    time: 235.68346
+  - positionX: 2184.4595
+    time: 236.11511
+  - positionX: 2188.4595
+    time: 236.54677
+  - positionX: 2192.4595
+    time: 236.97842
+  - positionX: 2196.4595
+    time: 237.41008
+  - positionX: 2200.4595
+    time: 237.84174
+  - positionX: 2204.4595
+    time: 238.27339
+  - positionX: 2208.4595
+    time: 238.70505
+  - positionX: 2212.4597
+    time: 239.1367
+  - positionX: 2216.4597
+    time: 239.56836
+  - positionX: 2220.4597
+    time: 240.00002
+  - positionX: 2224.4597
+    time: 240.43166
+  - positionX: 2228.4597
+    time: 240.86331
+  - positionX: 2232.4597
+    time: 241.29497
+  - positionX: 2236.4597
+    time: 241.72662
+  - positionX: 2240.4597
+    time: 242.15828
+  - positionX: 2244.4597
+    time: 242.58994
+  - positionX: 2248.4597
+    time: 243.02159
+  - positionX: 2252.4597
+    time: 243.45325
+  - positionX: 2256.4597
+    time: 243.8849
+  - positionX: 2260.4597
+    time: 244.31656
+  - positionX: 2264.4597
+    time: 244.74821
+  - positionX: 2268.4597
+    time: 245.17987
+  - positionX: 2272.4597
+    time: 245.61153
+  - positionX: 2276.4597
+    time: 246.04317
+  - positionX: 2280.4597
+    time: 246.47482
+  - positionX: 2284.4597
+    time: 246.90648
+  - positionX: 2288.4597
+    time: 247.33813
+  - positionX: 2292.4597
+    time: 247.76979
+  - positionX: 2296.4597
+    time: 248.20145
+  - positionX: 2300.4597
+    time: 248.6331
+  - positionX: 2304.4597
+    time: 249.06476
+  - positionX: 2308.4597
+    time: 249.49641
+  - positionX: 2312.4597
+    time: 249.92807
+  - positionX: 2316.4597
+    time: 250.35973
+  - positionX: 2320.4597
+    time: 250.79138
+  - positionX: 2324.4597
+    time: 251.22304
+  - positionX: 2328.4597
+    time: 251.65468
+  - positionX: 2332.4597
+    time: 252.08633
+  - positionX: 2336.4597
+    time: 252.51799
+  - positionX: 2340.4597
+    time: 252.94965
+  - positionX: 2344.4597
+    time: 253.3813
+  - positionX: 2348.4597
+    time: 253.81296
+  - positionX: 2352.4597
+    time: 254.24461
+  - positionX: 2356.4597
+    time: 254.67627
+  - positionX: 2360.4597
+    time: 255.10793
+  - positionX: 2364.4597
+    time: 255.53958
+  - positionX: 2368.4597
+    time: 255.97124
+  - positionX: 2372.4597
+    time: 256.4029
+  - positionX: 2376.4597
+    time: 256.83453
+  - positionX: 2380.4597
+    time: 257.2662
+  - positionX: 2384.4597
+    time: 257.69785
+  - positionX: 2388.4597
+    time: 258.12952
+  - positionX: 2392.4597
+    time: 258.56116
+  - positionX: 2396.4597
+    time: 258.99283
+  - positionX: 2400.4597
+    time: 259.42447
+  - positionX: 2404.4597
+    time: 259.8561
+  - positionX: 2408.4597
+    time: 260.28778
+  - positionX: 2412.4597
+    time: 260.71942
+  - positionX: 2416.4597
+    time: 261.1511
+  - positionX: 2420.4597
+    time: 261.58273
+  - positionX: 2424.4597
+    time: 262.0144
+  - positionX: 2428.4597
+    time: 262.44604
+  - positionX: 2432.4597
+    time: 262.87772
+  - positionX: 2436.4597
+    time: 263.30936
+  - positionX: 2440.4597
+    time: 263.74103
+  - positionX: 2444.4597
+    time: 264.17267
+  - positionX: 2448.4597
+    time: 264.60434
+  - positionX: 2452.4597
+    time: 265.03598
+  - positionX: 2456.4597
+    time: 265.46762
+  - positionX: 2460.4597
+    time: 265.8993
+  - positionX: 2464.4597
+    time: 266.33093
+  - positionX: 2468.4597
+    time: 266.7626
+  - positionX: 2472.4597
+    time: 267.19424
+  - positionX: 2476.4597
+    time: 267.62592
+  - positionX: 2480.4597
+    time: 268.05756
+  - positionX: 2484.4597
+    time: 268.48923
+  - positionX: 2488.4597
+    time: 268.92087
+  - positionX: 2492.4597
+    time: 269.35254
+  - positionX: 2496.4597
+    time: 269.78418
+  - positionX: 2500.4597
+    time: 270.21585
+  - positionX: 2504.4597
+    time: 270.6475
+  - positionX: 2508.4597
+    time: 271.07913
+  - positionX: 2512.4597
+    time: 271.5108
+  - positionX: 2516.4597
+    time: 271.94244
+  - positionX: 2520.4597
+    time: 272.3741
+  - positionX: 2524.4597
+    time: 272.80576
+  - positionX: 2528.4597
+    time: 273.23743
+  - positionX: 2532.4597
+    time: 273.66907
+  - positionX: 2536.4597
+    time: 274.10074
+  - positionX: 2540.4597
+    time: 274.53238
+  - positionX: 2544.4597
+    time: 274.96405
+  - positionX: 2548.4597
+    time: 275.3957
+  - positionX: 2552.4597
+    time: 275.82736
+  - positionX: 2556.4597
+    time: 276.259
+  - positionX: 2560.4597
+    time: 276.69064
+  - positionX: 2564.4597
+    time: 277.1223
+  - positionX: 2568.4597
+    time: 277.55396
+  - positionX: 2572.4597
+    time: 277.98563
+  - positionX: 2576.4597
+    time: 278.41727
+  - positionX: 2580.4597
+    time: 278.84894
+  - positionX: 2584.4597
+    time: 279.28058
+  - positionX: 2588.4597
+    time: 279.71225
+  - positionX: 2592.4597
+    time: 280.1439
+  - positionX: 2596.4597
+    time: 280.57556
+  - positionX: 2600.4597
+    time: 281.0072
+  - positionX: 2604.4597
+    time: 281.43887
+  - positionX: 2608.4597
+    time: 281.8705
+  - positionX: 2612.4597
+    time: 282.30215
+  - positionX: 2616.4597
+    time: 282.73383
+  - positionX: 2620.4597
+    time: 283.16547
+  - positionX: 2624.4597
+    time: 283.59714
+  - positionX: 2628.4597
+    time: 284.02878
+  - positionX: 2632.4597
+    time: 284.46045
+  - positionX: 2636.4597
+    time: 284.8921
+  - positionX: 2640.4597
+    time: 285.32376
+  - positionX: 2644.4597
+    time: 285.7554
+  - positionX: 2648.4597
+    time: 286.18707
+  - positionX: 2652.4597
+    time: 286.6187
+  - positionX: 2656.4597
+    time: 287.05038
+  - positionX: 2660.4597
+    time: 287.48203
+  - positionX: 2664.4597
+    time: 287.91367
+  - positionX: 2668.4597
+    time: 288.34534
+  - positionX: 2672.4597
+    time: 288.77698
+  - positionX: 2676.4597
+    time: 289.20865
+  - positionX: 2680.4597
+    time: 289.6403
+  - positionX: 2684.4597
+    time: 290.07196
+  - positionX: 2688.4597
+    time: 290.5036
+  - positionX: 2692.4597
+    time: 290.93527
+  - positionX: 2696.4597
+    time: 291.3669
+  - positionX: 2700.4597
+    time: 291.79858
+  - positionX: 2704.4597
+    time: 292.23022
+  - positionX: 2708.4597
+    time: 292.6619
+  - positionX: 2712.4597
+    time: 293.09354
+  - positionX: 2716.4597
+    time: 293.52518
+  - positionX: 2720.4597
+    time: 293.95685
+  - positionX: 2724.4597
+    time: 294.3885
+  - positionX: 2728.4597
+    time: 294.82016
+  - positionX: 2732.4597
+    time: 295.2518
+  - positionX: 2736.4597
+    time: 295.68347
+  - positionX: 2740.4597
+    time: 296.1151
+  - positionX: 2744.4597
+    time: 296.54678
+  - positionX: 2748.4597
+    time: 296.97842
+  - positionX: 2752.4597
+    time: 297.4101
+  - positionX: 2756.4597
+    time: 297.84174
+  - positionX: 2760.4597
+    time: 298.2734
+  - positionX: 2764.4597
+    time: 298.70505
+  - positionX: 2768.4597
+    time: 299.1367
+  - positionX: 2772.4597
+    time: 299.56836

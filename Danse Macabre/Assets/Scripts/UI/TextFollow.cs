@@ -19,7 +19,7 @@ public class TextFollow : MonoBehaviour
     }
      void Update()
     {
-        Debug.Log("Player:" + _playerTransform.position.y);
+        //Debug.Log("Player:" + _playerTransform.position.y);
     }
 
     // Update is called once per frame

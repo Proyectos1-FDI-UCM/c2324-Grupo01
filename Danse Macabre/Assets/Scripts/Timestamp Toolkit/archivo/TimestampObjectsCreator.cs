@@ -1,34 +1,34 @@
-#if UNITY_EDITOR
-using System;
-using UnityEditor;
-using UnityEngine;
+// #if UNITY_EDITOR
+// using System;
+// using UnityEditor;
+// using UnityEngine;
 
-public class TimestampObjectsCreator : Editor
-{
-    [MenuItem("Tools/Create Timestamp Objects")]
-    private static void CreateTimestampObjects()
-    {
-        // Cambiar esto "Assets/Scripts/Timestamp Toolkit/CAMBIAR.asset":
-        TimestampContainer data = AssetDatabase.LoadAssetAtPath<TimestampContainer>("Assets/Scripts/Timestamp Toolkit/BeatsM1.asset");
+// public class TimestampObjectsCreator : Editor
+// {
+//     [MenuItem("Tools/Create Timestamp Objects")]
+//     private static void CreateTimestampObjects()
+//     {
+//         // Cambiar esto "Assets/Scripts/Timestamp Toolkit/CAMBIAR.asset":
+//         TimestampContainer data = AssetDatabase.LoadAssetAtPath<TimestampContainer>("Assets/Scripts/Timestamp Toolkit/BeatsM1.asset");
 
-        //GameObject stamp = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Scripts/Timestamp Toolkit/Stamp.prefab");
-        GameObject stamp = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/coin 1.prefab");
-
-
-        // MovementComponent movementComponent = FindAnyObjectByType<MovementComponent>();
-        // float playerSpeed = movementComponent.speed;
-
-        // GameObject startRecordCollider = GameObject.FindWithTag("Start Music");
-        // float posX = startRecordCollider.transform.position.x;
+//         //GameObject stamp = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Scripts/Timestamp Toolkit/Stamp.prefab");
+//         GameObject stamp = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/coin 1.prefab");
 
 
-        foreach (var timestamp in data.timestamps)
-        {
-            //Vector3 position = new(timestamp.positionX, 0f, 0f);
-            Vector3 position = new(timestamp.positionX, -3.0f, 0f);
-            Instantiate(stamp, position, Quaternion.identity);
+//         // MovementComponent movementComponent = FindAnyObjectByType<MovementComponent>();
+//         // float playerSpeed = movementComponent.speed;
 
-        }
-    }
-}
-#endif
+//         // GameObject startRecordCollider = GameObject.FindWithTag("Start Music");
+//         // float posX = startRecordCollider.transform.position.x;
+
+
+//         foreach (var timestamp in data.timestamps)
+//         {
+//             //Vector3 position = new(timestamp.positionX, 0f, 0f);
+//             Vector3 position = new(timestamp.positionX, -3.0f, 0f);
+//             Instantiate(stamp, position, Quaternion.identity);
+
+//         }
+//     }
+// }
+// #endif

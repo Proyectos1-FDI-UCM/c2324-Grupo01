@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraChangerComponent : MonoBehaviour
@@ -12,7 +10,7 @@ public class CameraChangerComponent : MonoBehaviour
     [SerializeField]
     bool ChangeVerticalFollow = false; // Para activar/desactivar el seguimiento vertical
     [SerializeField]
-    bool EndOfLevel = false; // Si es para parar la cámara al final del nivel
+    bool EndOfLevel = false; // Si es para parar la cï¿½mara al final del nivel
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
