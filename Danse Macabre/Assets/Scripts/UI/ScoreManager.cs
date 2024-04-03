@@ -15,7 +15,7 @@ public class ScoreManager : MonoBehaviour
 
     #region references
     [SerializeField] private TextMeshProUGUI _textPuntos;
-    [SerializeField] private TextMeshProUGUI _textPuntosAñadidos;
+    [SerializeField] private TextMeshPro _textPuntosAñadidos;
     [SerializeField] private TextMeshProUGUI _textoArriba;
     private ComboManager _combo;
     #endregion
