@@ -45,7 +45,7 @@ public class DeathComponent : MonoBehaviour
     } 
     private void CheckVelocityChange()
     {
-        if (_RB.velocity.x < _movementComponent.speed - 0.1f && _RB.velocity.y<0.1f)
+        if (_RB.velocity.x < _movementComponent.speed - 0.1f)
             Death();
     }
     

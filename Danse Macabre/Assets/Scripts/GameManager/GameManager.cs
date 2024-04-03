@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
         GameManager.Instance.LoadAllReferences();
         GameManager.Instance.LoadLevelData();
         MusicManager.Instance.LoadAllReferences();
+        checkpointPosition = Vector3.up;
 
         if (checkpointPosition != Vector3.zero)
         {
