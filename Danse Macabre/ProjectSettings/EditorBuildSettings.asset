@@ -10,10 +10,7 @@ EditorBuildSettings:
     guid: 21c1fc291484cc84b89da951e427d967
   - enabled: 1
     path: Assets/Scenes/TutorialV2.unity
-    guid: cbaeb373ff00b1145953104b0ec8dc9d
-  - enabled: 0
-    path: Assets/Scenes/archivo/Tutorial.unity
-    guid: 4bd6c220339ce4340bcecd64de5b09ac
+    guid: 8aec2ab4bdb464143b6764797f7011ce
   - enabled: 1
     path: Assets/Scenes/Nivel_1_Bing.unity
     guid: 90a89693417684948ab04633868316f2

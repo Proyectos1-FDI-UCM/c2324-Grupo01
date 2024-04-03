@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2246454157922639467}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 43.53, y: -3.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -102,14 +102,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelDataLoader: {fileID: 6831572105048433795}
-  jumpSpeed: 9.2
+  jumpSpeed: 11
   trampolineJumpSpeed: 15
-  horizontalVelocity: 4.366667
-  activateJumpPath: 1
-  activateStompPath: 1
-  activateTrampolinePath: 1
-  useCustomHorizontalVelocity: 0
-  useCustomJumpSpeed: 1
+  dashDuration: 0.8
+  horizontalVelocity: 7.266666
+  JumpPath: 1
+  StompPath: 0
+  TrampolinePath: 0
+  DashPath: 0
+  setCustomHorizontalVelocity: 0
+  setCustomJumpSpeed: 0
+  setCustomDashDuration: 0
 --- !u!114 &6831572105048433795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,12 +166,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpSpeed: 11
-  originalGravityScale: 2
+  originalGravityScale: 2.25
   gravityFactor: 0.9
-  groundCheckDistance: 0.55
   stompDownwardSpeed: 20
   trampolineJumpSpeed: 15
-  dashDuration: 0.5
+  dashDuration: 0.8
   _dashElapsedTime: 1
   slideCTR: 0.15
   dashCTR: 0.2
