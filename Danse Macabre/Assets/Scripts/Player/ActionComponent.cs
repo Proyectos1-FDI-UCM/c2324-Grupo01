@@ -1,8 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using TMPro.EditorUtilities;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class ActionComponent : MonoBehaviour
