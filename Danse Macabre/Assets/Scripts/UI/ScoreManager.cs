@@ -17,11 +17,14 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textPuntos;
     [SerializeField] private TextMeshPro _textPuntosAñadidos;
     [SerializeField] private TextMeshProUGUI _textoArriba;
+
+    private ComboSliderComponent comboSliderComponent;
     private ComboManager _combo;
     #endregion
 
     #region properties
-    private double _totalPoint = 0f;
+    //para el slider del combo
+    public double _totalPoint = 0f;
     private double _basicPoint = 0f;
     private float _coinPoint = 0;
     private float _enemyPoint = 0;
@@ -141,11 +144,15 @@ public class ScoreManager : MonoBehaviour
         _lastPickupTime = Time.time;
         _textoArriba.enabled = false;
         _combo = FindObjectOfType<ComboManager>();
+        comboSliderComponent =FindObjectOfType<ComboSliderComponent>();
     }
     void Update()
     {
         _basicPoint += Time.deltaTime;
         _totalPoint += Time.deltaTime;
+
+        //para el slider del combo
+        comboSliderComponent.SetPoint(_totalPoint);
         //Debug.Log("Puntos" + _totalPoint);
         _textPuntos.text = _totalPoint.ToString("0");
 

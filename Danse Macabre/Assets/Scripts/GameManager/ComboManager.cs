@@ -10,19 +10,27 @@ public class ComboManager : MonoBehaviour
     [SerializeField]
     public float comboPenaltyMultiplier = 5f; // Multiplicador para aumentar la cantidad de puntos restados al combo en caso de fallo (cuando se añaden puntos negativos)
 
-    [SerializeField]
-    private float threshold1 = 100; // Threshold de multiplicador
+   
+    public float threshold1 = 100; // Threshold de multiplicador
     [SerializeField]
     private float threshold1mul = 1.1f; // Multiplicador correspondiente al threshold anterior
-    [SerializeField]
-    private float threshold2 = 200; // Threshold de multiplicador
+    
+    public float threshold2 = 200; // Threshold de multiplicador
     [SerializeField]
     private float threshold2mul = 1.2f; // Multiplicador correspondiente al threshold anterior
-    [SerializeField]
-    private float threshold3 = 300; // Threshold de multiplicador
+    
+    public float threshold3 = 300; // Threshold de multiplicador
     [SerializeField]
     private float threshold3mul = 1.3f; // Multiplicador correspondiente al threshold anterior
 
+    //modificado por Bing 
+    #region references
+    private ComboSliderComponent comboSliderComponent;
+    #endregion
+    private void Start()
+    {
+        comboSliderComponent = FindObjectOfType<ComboSliderComponent>();
+    }
     void Update()
     {
         // Procesar multiplicador
@@ -42,11 +50,12 @@ public class ComboManager : MonoBehaviour
         {
             multiplier = threshold1mul;
         }
-
+        comboSliderComponent.ChangeColor(multiplier);
         //Debug.Log("Combo: " + Math.Round(combo) + " | Multiplier: " + multiplier);
     }
     public void addCombo(float n)
     {
         combo = combo + n;
     }
+    
 }
