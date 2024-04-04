@@ -23,3 +23,5 @@ MonoBehaviour:
     playerSpeed: 9.266667
   - sceneName: TutorialV2
     playerSpeed: 4.3666
+  - sceneName: BingCombo
+    playerSpeed: 9.266667
