@@ -29,14 +29,14 @@ public class PerfectTimingComponent : MonoBehaviour
     }
 
     #region methods
-    public void CheckNearbyArrow()
+    public void CheckNearbyArrow() // Called everytime there's an input
     {
         Collider2D hitCollider = Physics2D.OverlapCircle(_myTransform.position, badRadius, arrowLayer);
 
-        if (hitCollider == null) {
-            GameManager.Instance.ArrowTiming("MISSED");
-        }
-        else {
+        if (hitCollider != null)
+        {
+            hitCollider.gameObject.GetComponent<ArrowComponent>().ActionDone();
+
             if (_playerAction.isStomping) targetTag = "Stomp";   
             else if (_playerAction._isJumping) targetTag = "Jump";
             else if (_playerAction.isDashing || _playerAction.isSliding) targetTag = "DashSlide";
@@ -45,10 +45,8 @@ public class PerfectTimingComponent : MonoBehaviour
 
             if (hitCollider.CompareTag(targetTag)) {
 
-                // mejor que sea en un UI o GM pero...
-                hitCollider.gameObject.GetComponent<ArrowComponent>().Deactivate();
+                hitCollider.gameObject.GetComponent<ArrowComponent>().Deactivate(); // Deactivate arrow if the move is correct for that arrow
             
-
                 if (distance <= perfectRadius)
                 {
                     // Calls game manager, that calls UI and ScoreI
@@ -64,9 +62,9 @@ public class PerfectTimingComponent : MonoBehaviour
                 }
             }
             else {
-                GameManager.Instance.ArrowTiming("WRONG");
+                GameManager.Instance.ArrowTiming("WRONG"); // if the movement is not correct
             }
-        }
+        }    
     }
     #endregion
 

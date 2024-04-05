@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     }
 
     private static Vector3 checkpointPosition;
+    private bool hasCheckpoint = false; 
     private static float playerSpeed;
     public float PlayerSpeed
     {
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
         set { playerSpeed = value; }
     }
 
-    private string previousScene;
+    private string previousScene = "";
     #endregion
 
    private void Awake()
@@ -57,19 +58,21 @@ public class GameManager : MonoBehaviour
 
     #region methods
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
+    { // Runs whenever a scene is loaded
         GameManager.Instance.LoadAllReferences();
         GameManager.Instance.LoadLevelData();
         MusicManager.Instance.LoadAllReferences();
 
+        print("scene: " + SceneManager.GetActiveScene().name );
+
         if (previousScene != SceneManager.GetActiveScene().name)
         {
-            checkpointPosition = Vector3.zero;
+            hasCheckpoint = false;
+            previousScene = SceneManager.GetActiveScene().name;
         }
+        else hasCheckpoint = true;
 
-        previousScene = SceneManager.GetActiveScene().name;
-
-        if (checkpointPosition != Vector3.zero)
+        if (hasCheckpoint)
         {
             LoadCheckpoint();
         }
@@ -86,11 +89,12 @@ public class GameManager : MonoBehaviour
 
     public void PlayerHasDied()
     {
-        if (checkpointPosition != Vector3.zero)
+        if (hasCheckpoint)
         { // if a checkpoint exists
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        else{
+        else
+        { // if there's no checkpoint
             _ScoreManager.SaveFinalScore();
             LoadDeathScene();
         }
@@ -106,6 +110,7 @@ public class GameManager : MonoBehaviour
 
     public void CheckpointReached(Vector3 position)
     {
+        hasCheckpoint = true;
         checkpointPosition = position;
         _ScoreManager.SaveCheckpointScore();
     }
@@ -125,7 +130,6 @@ public class GameManager : MonoBehaviour
     public void LoadLevelData()
     {
         PlayerSpeed = _levelDataLoader.GetCurrentScenePlayerSpeed();
-        //_levelDataLoader.LoadPlayerSpeed();
     }
 
     private void LoadAllReferences()

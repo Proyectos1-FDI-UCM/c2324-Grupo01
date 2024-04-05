@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+ using UnityEngine;
 
 public class ArrowComponent : MonoBehaviour
 {
@@ -17,6 +15,10 @@ public class ArrowComponent : MonoBehaviour
     private Sprite graySprite;
     #endregion
 
+    #region properties
+    private bool actionDone = false;
+    #endregion
+
     private void Start()
     {
         _myAnimator = GetComponent<Animator>();
@@ -24,6 +26,18 @@ public class ArrowComponent : MonoBehaviour
     }
 
     #region methods
+    public void ActionDone()
+    {
+        actionDone = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(!actionDone)
+        {
+            GameManager.Instance.ArrowTiming("MISSED");
+        }
+    }
     public void Deactivate()
     {
         _myAnimator.enabled = false;
