@@ -9,16 +9,16 @@ public class ComboManager : MonoBehaviour
     public float multiplier = 0;
    
     public float threshold1 = 100; // Threshold de multiplicador
-    [SerializeField]
-    private float threshold1mul = 1.1f; // Multiplicador correspondiente al threshold anterior
+    
+    public float threshold1mul = 1.1f; // Multiplicador correspondiente al threshold anterior
     
     public float threshold2 = 200; // Threshold de multiplicador
-    [SerializeField]
-    private float threshold2mul = 1.2f; // Multiplicador correspondiente al threshold anterior
+    
+    public float threshold2mul = 1.2f; // Multiplicador correspondiente al threshold anterior
     
     public float threshold3 = 300; // Threshold de multiplicador
-    [SerializeField]
-    private float threshold3mul = 1.3f; // Multiplicador correspondiente al threshold anterior
+
+    public float threshold3mul = 1.3f; // Multiplicador correspondiente al threshold anterior
 
     //modificado por Bing 
     #region references
@@ -36,19 +36,21 @@ public class ComboManager : MonoBehaviour
         {
             multiplier = 1;
         }
-        else if (combo >= threshold3 && multiplier != threshold3mul)
+        else if (combo >= threshold3 )
         {
-            multiplier = threshold3mul;
+            if (multiplier != threshold3mul) multiplier = threshold3mul;
         }
-        else if (combo >= threshold2 && multiplier != threshold3mul)
+        else if (combo >= threshold2)
         {
-            multiplier = threshold2mul;
+            if (multiplier != threshold2mul) multiplier = threshold2mul;
         }
-        else if (combo >= threshold1 && multiplier != threshold1mul)
+        else if (combo >= threshold1)
         {
-            multiplier = threshold1mul;
+            if (multiplier != threshold1mul) multiplier = threshold1mul;
         }
         comboSliderComponent.ChangeColor(multiplier);
+        //para el slider del combo
+        comboSliderComponent.SetPoint(combo);
         Debug.Log("Combo: " + Math.Round(combo) + " | Multiplier: " + multiplier);
     }
     public void addCombo(float n)
