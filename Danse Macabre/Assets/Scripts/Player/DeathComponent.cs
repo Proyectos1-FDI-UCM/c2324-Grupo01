@@ -88,7 +88,6 @@ public class DeathComponent : MonoBehaviour
             enemy.GetComponent<EnemyAnimation>().DeathAnimation();
             enemy.GetComponent<EnemyInteractionComponent>().DestroyEnemy();
 
-            //Invoke("DestroyEnemy", 0.1f);
             if (enemy.GetComponent<EnemyInteractionComponent>().BouncyEnemy)
             {
                 _actionComponent.Bounce();

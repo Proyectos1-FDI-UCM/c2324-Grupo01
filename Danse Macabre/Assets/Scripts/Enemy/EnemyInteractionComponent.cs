@@ -49,15 +49,13 @@ public class EnemyInteractionComponent : MonoBehaviour
 
     public void DestroyEnemy()
     {
-        print("destroyenemy");
+        //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
         _scoreManager.AddPoints(_enemyValue, 1);
-        Invoke("DestroingEnemy", 5f);
+        Invoke("DestroyGameObject", 0.5f);
 
     }
-    public void DestroingEnemy()
+    public void DestroyGameObject()
     {
-        print("destroy");
-        //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
         Destroy(gameObject);
     }
     void Start()
