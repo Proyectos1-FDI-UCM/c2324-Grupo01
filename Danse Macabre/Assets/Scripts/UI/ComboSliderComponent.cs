@@ -40,22 +40,22 @@ public class ComboSliderComponent : MonoBehaviour
         {
             previousMul = mul;
             ResetCursor();
-            //x1.1
-            if (mul-1.1f < 0.1f)
+            //x1.5
+            if (mul-1.5f < 0.1f)
             {
                 backgroundRender.color = bgColors[1];
                 fillRender.color = fillColors[1];
                 slider.maxValue = comboManager.threshold2;
             }
-            //x1.2
-            else if (mul - 1.2f < 0.1f)
+            //x2
+            else if (mul - 2f < 0.1f)
             {
                 backgroundRender.color = bgColors[2];
                 fillRender.color = fillColors[2];
                 slider.maxValue = comboManager.threshold3;
             }
-            //x1.3
-            else if (mul - 1.3f < 0.1f)
+            //x3
+            else if (mul - 3f < 0.1f)
             {
                 backgroundRender.color = bgColors[3];
                 fillRender.color = fillColors[3];

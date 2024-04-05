@@ -153,6 +153,7 @@ public class ScoreManager : MonoBehaviour
 
         //para el slider del combo
         comboSliderComponent.SetPoint(_totalPoint);
+
         //Debug.Log("Puntos" + _totalPoint);
         _textPuntos.text = _totalPoint.ToString("0");
 
