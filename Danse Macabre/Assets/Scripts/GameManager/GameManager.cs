@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     }
 
     private static Vector3 checkpointPosition;
-    private bool hasCheckpoint = false; 
+    private static bool hasCheckpoint = false; 
     private static float playerSpeed;
     public float PlayerSpeed
     {
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         set { playerSpeed = value; }
     }
 
-    private string previousScene = "";
+    private static string previousScene = "";
     #endregion
 
    private void Awake()
@@ -59,18 +59,23 @@ public class GameManager : MonoBehaviour
     #region methods
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     { // Runs whenever a scene is loaded
+        //print("ONLOAD Scene: " + SceneManager.GetActiveScene().name );
+
         GameManager.Instance.LoadAllReferences();
         GameManager.Instance.LoadLevelData();
         MusicManager.Instance.LoadAllReferences();
+        
+        //print("ONLOAD Scene: " + SceneManager.GetActiveScene().name );
 
-        print("scene: " + SceneManager.GetActiveScene().name );
+        //print("Previous scene before: " + previousScene);
 
-        if (previousScene != SceneManager.GetActiveScene().name)
+        if (SceneHasChanged())
         {
             hasCheckpoint = false;
             previousScene = SceneManager.GetActiveScene().name;
         }
-        else hasCheckpoint = true;
+
+        //print("Previous scene update: " + previousScene);
 
         if (hasCheckpoint)
         {
@@ -85,13 +90,27 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+    private bool SceneHasChanged()
+    {
+        return previousScene != SceneManager.GetActiveScene().name;
+    }
+    public void ResetCheckpoint()
+    {
+        hasCheckpoint = false;
+    }
 
 
     public void PlayerHasDied()
     {
+        //print("PlayerHasDied");
+        //print("hasCheckpoint" + hasCheckpoint);
+        
+
         if (hasCheckpoint)
         { // if a checkpoint exists
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //print("if hasCheckpoint load scene previous scene");
+
+            SceneManager.LoadScene(previousScene);
         }
         else
         { // if there's no checkpoint
@@ -113,9 +132,13 @@ public class GameManager : MonoBehaviour
         hasCheckpoint = true;
         checkpointPosition = position;
         _ScoreManager.SaveCheckpointScore();
+
+        //print("OK CheckpointReached, position = " + checkpointPosition);
     }
     private void LoadCheckpoint()
     {
+        //print("LoadCheckpoint");
+
         _ScoreManager.LoadCheckpointScore();
 
         _playerMovement.InitialPosition(checkpointPosition);

@@ -111,7 +111,7 @@ public class ScoreManager : MonoBehaviour
         }
         else if (timing == "MISSED")
         {
-            //_combo.resetCombo();
+            _combo.resetCombo();
         }
     }
 

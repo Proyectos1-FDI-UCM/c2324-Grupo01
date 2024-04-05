@@ -7,7 +7,7 @@ public class EnemyInteractionComponent : MonoBehaviour
 {
     #region parameters
     [SerializeField]
-    private float _destroyTime = 5f;
+    private float _destroyTime = 0.5f;
 
     [SerializeField]
     private int _enemyValue = 5;
@@ -51,7 +51,7 @@ public class EnemyInteractionComponent : MonoBehaviour
     {
         //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
         _scoreManager.AddPoints(_enemyValue, 1);
-        Invoke("DestroyGameObject", 0.5f);
+        Invoke("DestroyGameObject", _destroyTime);
 
     }
     public void DestroyGameObject()

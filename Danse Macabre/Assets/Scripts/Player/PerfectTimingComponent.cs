@@ -8,9 +8,6 @@ public class PerfectTimingComponent : MonoBehaviour
     private float perfectRadius = 0.2f;
     private float goodRadius = 0.35f;
     private float badRadius = 0.5f;
-
-    private bool actionDone = false;
-
     #endregion
 
     #region references
@@ -53,17 +50,14 @@ public class PerfectTimingComponent : MonoBehaviour
                 {
                     // Calls game manager, that calls UI and ScoreI
                     GameManager.Instance.ArrowTiming("PERFECT");
-                    actionDone = true;
                 }
                 else if (distance <= goodRadius)
                 {
                     GameManager.Instance.ArrowTiming("GREAT");
-                    actionDone = true;
                 }
                 else
                 {
                     GameManager.Instance.ArrowTiming("GOOD");
-                    actionDone = true;
                 }
             }
             else {
