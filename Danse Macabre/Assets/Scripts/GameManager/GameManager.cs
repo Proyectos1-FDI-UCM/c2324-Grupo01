@@ -1,5 +1,7 @@
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -37,6 +39,8 @@ public class GameManager : MonoBehaviour
     }
 
     private static string previousScene = "";
+    public bool playerCanBeKilled = false;
+    public bool playerCanRun = false;
     #endregion
 
    private void Awake()
@@ -58,15 +62,12 @@ public class GameManager : MonoBehaviour
     #region methods
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     { // Runs whenever a scene is loaded
-        //print("ONLOAD Scene: " + SceneManager.GetActiveScene().name );
 
         GameManager.Instance.LoadAllReferences();
         GameManager.Instance.LoadLevelData();
         MusicManager.Instance.LoadAllReferences();
-        
-        //print("ONLOAD Scene: " + SceneManager.GetActiveScene().name );
 
-        //print("Previous scene before: " + previousScene);
+        playerCanBeKilled = false;
 
         if (SceneHasChanged())
         {
@@ -74,11 +75,13 @@ public class GameManager : MonoBehaviour
             previousScene = SceneManager.GetActiveScene().name;
         }
 
-        //print("Previous scene update: " + previousScene);
-
         if (hasCheckpoint)
         {
-            LoadCheckpoint();
+            StartCoroutine(LoadCheckpoint());
+        }
+        else // if starting a level for the first time
+        {
+            _playerMovement.Autoscroll();
         }
     }
     void OnEnable()
@@ -93,15 +96,9 @@ public class GameManager : MonoBehaviour
     {
         return previousScene != SceneManager.GetActiveScene().name;
     }
-    public void ResetCheckpoint()
-    {
-        hasCheckpoint = false;
-    }
-    public bool CheckpointExists()
-    {
-        return hasCheckpoint;
-    }
 
+
+    // CAMERA
     public void SaveCameraState(bool p_cameraFollow, bool p_cameraVerticalFollow) // Save current state to be loaded after checkpoint
     {
         cameraFollow = p_cameraFollow;
@@ -113,23 +110,20 @@ public class GameManager : MonoBehaviour
     }
 
 
-
+    // DEATH
     public void PlayerHasDied()
     {
-        //print("PlayerHasDied");
-        //print("hasCheckpoint" + hasCheckpoint);
-        
-
-        if (hasCheckpoint)
-        { // if a checkpoint exists
-            //print("if hasCheckpoint load scene previous scene");
-
-            SceneManager.LoadScene(previousScene);
-        }
-        else
-        { // if there's no checkpoint
-            _ScoreManager.SaveFinalScore();
-            LoadDeathScene();
+        if (playerCanBeKilled)
+        {
+            if (hasCheckpoint)
+            { // if a checkpoint exists
+                SceneManager.LoadScene(previousScene);
+            }
+            else
+            { // if there's no checkpoint
+                _ScoreManager.SaveFinalScore();
+                LoadDeathScene();
+            }
         }
     }
     private void LoadDeathScene()
@@ -141,28 +135,43 @@ public class GameManager : MonoBehaviour
     }
 
 
+    // CHECKPOINT
+    public void ResetCheckpoint()
+    {
+        hasCheckpoint = false;
+    }
+    public bool CheckpointExists()
+    {
+        return hasCheckpoint;
+    }
     public void CheckpointReached(Vector3 position)
     {
         hasCheckpoint = true;
         checkpointPosition = position;
         _ScoreManager.SaveCheckpointScore();
-
-        //print("OK CheckpointReached, position = " + checkpointPosition);
     }
-    private void LoadCheckpoint()
+    private IEnumerator LoadCheckpoint()
     {
-        //print("LoadCheckpoint");
+        float startTime = Time.time;
+        float durationTime = 2f;
+        float endTime = startTime + durationTime;
 
         _ScoreManager.LoadCheckpointScore();
-
         _playerMovement.InitialPosition(checkpointPosition);
-
         float startColliderPosX = _startColliderTransform.position.x;
-        float time = math.abs(checkpointPosition.x - startColliderPosX)/PlayerSpeed;
 
+        while (Time.time < endTime)
+        {
+            yield return null;
+        }
+
+        float time = math.abs(checkpointPosition.x - startColliderPosX)/PlayerSpeed;
+        _playerMovement.Autoscroll();
         MusicManager.Instance.ChangeTime(time);
         MusicManager.Instance.PlayMusic();
+
     }
+
 
     public void LoadLevelData()
     {
