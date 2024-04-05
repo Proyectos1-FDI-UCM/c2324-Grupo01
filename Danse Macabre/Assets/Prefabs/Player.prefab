@@ -139,12 +139,12 @@ MonoBehaviour:
   gravityFactor: 0.9
   stompDownwardSpeed: 20
   trampolineJumpSpeed: 15
-  dashDuration: 0.8
+  dashDuration: 0.5
   _dashElapsedTime: 1
   slideCTR: 0.15
-  dashCTR: 0.2
-  jumpCTR: 0.15
-  stompCTR: 0.15
+  dashCTR: 0.15
+  jumpCTR: 0.25
+  stompCTR: 0.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 72
@@ -160,9 +160,9 @@ MonoBehaviour:
   DefaultCollisionOffsetX: -0.02383977
   DefaultCollisionOffsetY: -0.01020205
   SlideCollisionSizeX: 0.86
-  SlideCollisionSizeY: 0.4
+  SlideCollisionSizeY: 0.4826775
   SlideCollisionOffsetX: -0.0088
-  SlideCollisionOffsetY: -0.2945
+  SlideCollisionOffsetY: -0.2373648
   isStomping: 0
   isDashing: 0
   canDash: 0
@@ -240,7 +240,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.023839772, y: 0.004364729}
+  m_Offset: {x: -0.023839772, y: -0.0119767785}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.29}
@@ -251,7 +251,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.35341847, y: 0.95046234}
+  m_Size: {x: 0.35341847, y: 0.97604644}
   m_EdgeRadius: 0
 --- !u!95 &3743249431654715070
 Animator:
@@ -313,8 +313,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.459
-  m_Pitch: 1.69
+  m_Volume: 0.65
+  m_Pitch: 1.44
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -408,7 +408,8 @@ GameObject:
   - component: {fileID: 8130827267188865967}
   - component: {fileID: 3601732020389042171}
   - component: {fileID: 6296175041775718359}
-  m_Layer: 0
+  - component: {fileID: 5774454598704040691}
+  m_Layer: 5
   m_Name: "PuntosA\xF1adidos"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,3 +569,15 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 3601732020389042171}
   m_maskType: 0
+--- !u!210 &5774454598704040691
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7663623039309485152}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_SortAtRoot: 0
