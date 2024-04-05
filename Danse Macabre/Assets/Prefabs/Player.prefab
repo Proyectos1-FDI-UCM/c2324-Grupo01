@@ -110,7 +110,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 2
+  m_GravityScale: 2.25
   m_Material: {fileID: 6200000, guid: 0f0d83d8767c4594e9ac73be42341f22, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c093d324dbb83f04ab29144eec625412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 9.2
-  originalGravityScale: 2
+  jumpSpeed: 11
+  originalGravityScale: 2.25
   gravityFactor: 0.9
   stompDownwardSpeed: 20
   trampolineJumpSpeed: 15
@@ -505,8 +505,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4287822069
+  m_fontColor: {r: 0.9623243, g: 0.9716981, b: 0.5720185, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
