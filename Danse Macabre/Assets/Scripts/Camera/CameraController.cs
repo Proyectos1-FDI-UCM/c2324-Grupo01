@@ -37,11 +37,7 @@ public class CameraController : MonoBehaviour
         _cameraTransform = transform;
         cameraHeight = cameraHeight / 2; // Para convertirlo en distancia desde el centro hasta el borde superior o inferior
 
-        // To match initial offset of the character with the cameras
-        // allowVerticalFollow = true;
-        // TrackPlayer(_playerTransform.position.y - _cameraTransform.position.y);
-        // FollowPlayer();
-        // allowVerticalFollow = false;
+        SetFollowState(); // Load camera follow parameters if checkpoint exists
     }
 
     void LateUpdate()
@@ -133,5 +129,18 @@ public class CameraController : MonoBehaviour
         end = true;
         endTargetPosition = Mathf.Round(_cameraTransform.position.x + finalLerpDistance);
         Debug.Log("FINAL DE NIVEL; parando c�mara en X = " + endTargetPosition);
+    }
+
+    public void SetFollowState() // Called here at start() and if exists a checkpoint past follow parameters are loaded to ajust camera
+    {
+        if (GameManager.Instance.CheckpointExists())
+        {
+            (allowFollow, allowVerticalFollow) = GameManager.Instance.LoadCameraState();
+        }
+    }
+
+    public void SaveCurrentFollowState() // Called when collides with camera changer to save current camera state for scene checkpoint reload after death
+    {
+        GameManager.Instance.SaveCameraState(allowFollow, allowVerticalFollow);
     }
 }

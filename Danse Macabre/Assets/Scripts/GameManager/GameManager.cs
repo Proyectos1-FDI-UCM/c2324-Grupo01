@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     private static Vector3 checkpointPosition;
     private static bool hasCheckpoint = false; 
+    private static bool cameraFollow;
+    private static bool cameraVerticalFollow;
     private static float playerSpeed;
     public float PlayerSpeed
     {
@@ -98,6 +97,21 @@ public class GameManager : MonoBehaviour
     {
         hasCheckpoint = false;
     }
+    public bool CheckpointExists()
+    {
+        return hasCheckpoint;
+    }
+
+    public void SaveCameraState(bool p_cameraFollow, bool p_cameraVerticalFollow) // Save current state to be loaded after checkpoint
+    {
+        cameraFollow = p_cameraFollow;
+        cameraVerticalFollow = p_cameraVerticalFollow;
+    }
+    public (bool, bool) LoadCameraState() // Load camera state into camera when returning to checkpoint
+    {
+        return (cameraFollow, cameraVerticalFollow);
+    }
+
 
 
     public void PlayerHasDied()
