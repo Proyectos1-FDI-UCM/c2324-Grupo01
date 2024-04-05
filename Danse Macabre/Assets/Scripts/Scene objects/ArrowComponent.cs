@@ -6,6 +6,8 @@ public class ArrowComponent : MonoBehaviour
     private float perfectRadius = 0.2f;
     private float goodRadius = 0.35f;
     private float badRadius = 0.5f;
+
+    private bool actionDone = false;
     #endregion
 
     #region refrences
@@ -59,5 +61,10 @@ public class ArrowComponent : MonoBehaviour
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position + (Vector3)collider.offset, badRadius);
         }
+    }
+
+    public void ActionDone()
+    {
+        actionDone = true;
     }
 }

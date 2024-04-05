@@ -7,9 +7,6 @@ public class ComboManager : MonoBehaviour
 {
     private float combo = 0;
     public float multiplier = 0;
-    [SerializeField]
-    public float comboPenaltyMultiplier = 5f; // Multiplicador para aumentar la cantidad de puntos restados al combo en caso de fallo (cuando se añaden puntos negativos)
-
    
     public float threshold1 = 100; // Threshold de multiplicador
     [SerializeField]
@@ -27,6 +24,7 @@ public class ComboManager : MonoBehaviour
     #region references
     private ComboSliderComponent comboSliderComponent;
     #endregion
+
     private void Start()
     {
         comboSliderComponent = FindObjectOfType<ComboSliderComponent>();
@@ -38,24 +36,29 @@ public class ComboManager : MonoBehaviour
         {
             multiplier = 1;
         }
-        else if (combo >= threshold3)
+        else if (combo >= threshold3 && multiplier != threshold3mul)
         {
             multiplier = threshold3mul;
         }
-        else if (combo >= threshold2)
+        else if (combo >= threshold2 && multiplier != threshold3mul)
         {
             multiplier = threshold2mul;
         }
-        else if (combo >= threshold1)
+        else if (combo >= threshold1 && multiplier != threshold1mul)
         {
             multiplier = threshold1mul;
         }
         comboSliderComponent.ChangeColor(multiplier);
-        //Debug.Log("Combo: " + Math.Round(combo) + " | Multiplier: " + multiplier);
+        Debug.Log("Combo: " + Math.Round(combo) + " | Multiplier: " + multiplier);
     }
     public void addCombo(float n)
     {
         combo = combo + n;
+    }
+
+    public void resetCombo()
+    {
+        combo = 0;
     }
     
 }

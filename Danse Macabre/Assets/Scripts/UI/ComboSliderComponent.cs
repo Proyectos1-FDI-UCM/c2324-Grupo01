@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ComboSliderComponent : MonoBehaviour
 {
@@ -12,11 +13,18 @@ public class ComboSliderComponent : MonoBehaviour
     #region references
     [SerializeField]
     private Image backgroundRender;
+    [SerializeField]
+    private Image fillRender;
     private Slider slider;
     [SerializeField]
-    private Color[] colors = new Color[4];
+    private Color[] bgColors = new Color[4];
+    [SerializeField]
+    private Color[] fillColors = new Color[4];
     private ScoreManager scoreManager;
     private ComboManager comboManager;
+
+    [SerializeField]
+    private TextMeshProUGUI textoMul;
     #endregion
     #region properties
     //el valor actual del slider, que llevara al slider.value;
@@ -32,29 +40,34 @@ public class ComboSliderComponent : MonoBehaviour
         {
             previousMul = mul;
             ResetCursor();
-            //x1.1
-            if (mul-1.1f < 0.1f)
+            //x1.5
+            if (mul-1.5f < 0.1f)
             {
-                backgroundRender.color = colors[1];
+                backgroundRender.color = bgColors[1];
+                fillRender.color = fillColors[1];
                 slider.maxValue = comboManager.threshold2;
             }
-            //x1.2
-            else if (mul - 1.2f < 0.1f)
+            //x2
+            else if (mul - 2f < 0.1f)
             {
-                backgroundRender.color = colors[2];
+                backgroundRender.color = bgColors[2];
+                fillRender.color = fillColors[2];
                 slider.maxValue = comboManager.threshold3;
             }
-            //x1.3
-            else if (mul - 1.3f < 0.1f)
+            //x3
+            else if (mul - 3f < 0.1f)
             {
-                backgroundRender.color = colors[3];
+                backgroundRender.color = bgColors[3];
+                fillRender.color = fillColors[3];
             }
             //x1.0 (default)
             else
             {
-                backgroundRender.color = colors[0];
+                backgroundRender.color = bgColors[0];
+                fillRender.color = fillColors[0];
                 slider.maxValue = comboManager.threshold1;
             }
+            textoMul.text = $"X{mul}";
         }
         
     }

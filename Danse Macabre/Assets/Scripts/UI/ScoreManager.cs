@@ -9,8 +9,8 @@ public class ScoreManager : MonoBehaviour
 {
     #region parameters
     private float perfectTimingValue = 10;
-    private float goodTimingValue = 5;
-    private float badTimingValue = 1;
+    private float greatTimingValue = 5;
+    private float goodTimingValue = 1;
     #endregion 
 
     #region references
@@ -52,7 +52,7 @@ public class ScoreManager : MonoBehaviour
             _addPoints = 0;
             _sudPoints += points;
             _textPuntosAñadidos.text = _sudPoints.ToString();
-            _combo.addCombo(points * _combo.comboPenaltyMultiplier);
+            _combo.resetCombo();
         }
         else
         {
@@ -95,18 +95,24 @@ public class ScoreManager : MonoBehaviour
             _totalPoint += (perfectTimingValue * _combo.multiplier);
             _combo.addCombo(perfectTimingValue);
         }
+        else if (timing == "GREAT") {
+            _timingPoints += (greatTimingValue * _combo.multiplier);
+            _totalPoint += (greatTimingValue * _combo.multiplier);
+            _combo.addCombo(greatTimingValue);
+        }
         else if (timing == "GOOD") {
             _timingPoints += (goodTimingValue * _combo.multiplier);
             _totalPoint += (goodTimingValue * _combo.multiplier);
             _combo.addCombo(goodTimingValue);
         }
-        else if (timing == "BAD") {
-            _timingPoints += (badTimingValue * _combo.multiplier);
-            _totalPoint += (badTimingValue * _combo.multiplier);
-            _combo.addCombo(badTimingValue);
+        else if (timing == "WRONG")
+        {
+            _combo.resetCombo();
         }
-        else if (timing == "WRONG") { /*lo dejo por si acaso*/ }
-        else if (timing == "MISSED") { /*lo dejo por si acaso*/ }
+        else if (timing == "MISSED")
+        {
+            //_combo.resetCombo();
+        }
     }
 
     public void CoinRegister()
@@ -153,6 +159,7 @@ public class ScoreManager : MonoBehaviour
 
         //para el slider del combo
         comboSliderComponent.SetPoint(_totalPoint);
+
         //Debug.Log("Puntos" + _totalPoint);
         _textPuntos.text = _totalPoint.ToString("0");
 
