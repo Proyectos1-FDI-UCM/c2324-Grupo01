@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundRender: {fileID: 895872212133827309}
-  fillRender: {fileID: 0}
+  fillRender: {fileID: 3575962699146486306}
   bgColors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.26144534, g: 0.509434, b: 0.28741416, a: 1}
