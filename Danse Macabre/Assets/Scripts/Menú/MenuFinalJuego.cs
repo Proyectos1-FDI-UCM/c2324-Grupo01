@@ -16,9 +16,15 @@ public class MenuFinalJuego : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _textPuntuacionObjecto;
     #endregion
+    #region properties
+    //public bool quitToMenuLevel = false;
+    #endregion
     public void QuitMenuFinal()
     {
         GameManager.Instance.ResetCheckpoint();
+
+        //Una bandera para cuando le damos al quit ir directamente al menú de niveles
+        PlayerPrefs.SetInt("MenuLevelActivo", 1);
         SceneManager.LoadScene(0);
     }
     public void Restart()
