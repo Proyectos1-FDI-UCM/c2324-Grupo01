@@ -65,7 +65,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         LoadAllReferences();
-        _TimingTextController= FindObjectOfType<TimingTextController>();
     }
 
     #region methods
@@ -231,6 +230,9 @@ public class GameManager : MonoBehaviour
 
         _levelDataLoader = GetComponent<LevelDataLoader>();
         if (_levelDataLoader == null) Debug.LogError("Level data missing in GameManager!");
+
+        _TimingTextController= FindObjectOfType<TimingTextController>();
+
     }
 
     public void ArrowTiming(string timing)
