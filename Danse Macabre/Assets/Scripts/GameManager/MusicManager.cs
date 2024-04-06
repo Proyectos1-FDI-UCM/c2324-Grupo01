@@ -41,7 +41,7 @@ public class MusicManager : MonoBehaviour
     public void StopPlayingSong()
     {
         pauseTime = _myAudioSource.time;
-        print(pauseTime);
+        //print(pauseTime);
         _myAudioSource.Stop();
     }
     public void PlayLoop(AudioClip clip, float volume)

@@ -36,6 +36,7 @@ public class MenuPausa : MonoBehaviour
     }
     public void Quit() 
     {
+        GameManager.Instance.ResetCheckpoint();
         SceneManager.LoadScene(0);
     }
 }
