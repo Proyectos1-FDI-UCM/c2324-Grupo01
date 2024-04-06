@@ -33,7 +33,7 @@ public class DeathFilterColor : MonoBehaviour
         if(c < 4)
         {
             _DeathFilter.color = Color[c];
-            Debug.Log("c: " + c + "  " + Time.time);
+            //Debug.Log("c: " + c + "  " + Time.time);
             c++;
             Invoke("ColorChange", 0.3f);
         }

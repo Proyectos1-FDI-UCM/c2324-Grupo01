@@ -48,7 +48,7 @@ public class DeathComponent : MonoBehaviour
         if (GameManager.Instance.PlayerCanBeKilled())
         {
             PlayerAlive = false;
-            Debug.Log("Death()");
+            //Debug.Log("Death()");
             _DeathFilter.enabled = true;
             _DeathFilterColor.ColorChange();
             Invoke("CallPlayerDeath", 1.2f);

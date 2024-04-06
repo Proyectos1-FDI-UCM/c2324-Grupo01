@@ -39,7 +39,7 @@ public class AnimationComponent : MonoBehaviour
         {
             if (_actionComponent.isDashing == true)
             {
-                Debug.Log("Dashing");
+                //Debug.Log("Dashing");
                 _myAnimator.SetInteger("State", 5); //esto seria dash en el futuro
             }
             else //if (_actionComponent.actionState == ActionComponent.ActionStateEnum)

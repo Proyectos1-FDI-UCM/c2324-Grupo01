@@ -142,6 +142,7 @@ public class ActionComponent : MonoBehaviour
         if (!IsGrounded() && canDash && !isDashing && !isStomping)
         {
             isDashing = true;
+            _isJumping = false;
             canDash = false;
             StartCoroutine(Dash());
 

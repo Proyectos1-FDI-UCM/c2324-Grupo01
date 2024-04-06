@@ -51,7 +51,7 @@ public class ComboManager : MonoBehaviour
         comboSliderComponent.ChangeColor(multiplier);
         //para el slider del combo
         comboSliderComponent.SetPoint(combo);
-        Debug.Log("Combo: " + Math.Round(combo) + " | Multiplier: " + multiplier);
+        //Debug.Log("Combo: " + Math.Round(combo) + " | Multiplier: " + multiplier);
     }
     public void addCombo(float n)
     {
