@@ -1,15 +1,22 @@
 using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
+    #region paramenters
+    private int playerMaxLife = 4; // La primera más 3 checkpoints;
+    #endregion
+
     #region references
+    [SerializeField]
+    private GameObject _camera;
+    private CameraController _cameraController;
     private UIManager _UIManager;
     private ScoreManager _ScoreManager;
+    private TimingTextController _TimingTextController;
     [SerializeField]
     private GameObject Player;
     private MovementComponent _playerMovement;
@@ -29,6 +36,9 @@ public class GameManager : MonoBehaviour
     }
 
     private static Vector3 checkpointPosition;
+    private static bool hasCheckpoint = false; 
+    private static bool cameraFollow;
+    private static bool cameraVerticalFollow;
     private static float playerSpeed;
     public float PlayerSpeed
     {
@@ -36,7 +46,9 @@ public class GameManager : MonoBehaviour
         set { playerSpeed = value; }
     }
 
-    private string previousScene;
+    private static string previousScene = "";
+    public bool playerCanBeKilled = false;
+    private static int playerRemainingLife;
     #endregion
 
    private void Awake()
@@ -57,21 +69,28 @@ public class GameManager : MonoBehaviour
 
     #region methods
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
+    { // Runs whenever a scene is loaded
+
         GameManager.Instance.LoadAllReferences();
         GameManager.Instance.LoadLevelData();
         MusicManager.Instance.LoadAllReferences();
 
-        if (previousScene != SceneManager.GetActiveScene().name)
+        playerCanBeKilled = false;
+
+        if (SceneHasChanged())
         {
-            checkpointPosition = Vector3.zero;
+            hasCheckpoint = false;
+            previousScene = SceneManager.GetActiveScene().name;
         }
 
-        previousScene = SceneManager.GetActiveScene().name;
-
-        if (checkpointPosition != Vector3.zero)
+        if (hasCheckpoint)
         {
-            LoadCheckpoint();
+            StartCoroutine(LoadCheckpoint());
+        }
+        else // if starting a level for the first time
+        {
+            ResetPlayerLife();
+            _playerMovement.Autoscroll();
         }
     }
     void OnEnable()
@@ -82,18 +101,54 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+    private bool SceneHasChanged()
+    {
+        return previousScene != SceneManager.GetActiveScene().name;
+    }
 
 
+    // CAMERA
+    public void SaveCameraState(bool p_cameraFollow, bool p_cameraVerticalFollow) // Save current state to be loaded after checkpoint
+    {
+        cameraFollow = p_cameraFollow;
+        cameraVerticalFollow = p_cameraVerticalFollow;
+    }
+    public (bool, bool) LoadCameraState() // Load camera state into camera when returning to checkpoint
+    {
+        return (cameraFollow, cameraVerticalFollow);
+    }
+
+
+    // DEATH
     public void PlayerHasDied()
     {
-        if (checkpointPosition != Vector3.zero)
-        { // if a checkpoint exists
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (playerCanBeKilled)
+        {
+            PlayerLosesLife();
+
+            if (CheckpointExists() && PlayerHasLife())
+            { // if a checkpoint exists
+                SceneManager.LoadScene(previousScene);
+            }
+            else
+            { // if there's no checkpoint
+                _ScoreManager.SaveFinalScore();
+                ResetPlayerLife();
+                LoadDeathScene();
+            }
         }
-        else{
-            _ScoreManager.SaveFinalScore();
-            LoadDeathScene();
-        }
+    }
+    private bool PlayerHasLife()
+    {
+        return playerRemainingLife > 0;
+    }
+    private void PlayerLosesLife()
+    {
+        playerRemainingLife -= 1;
+    }
+    private void ResetPlayerLife()
+    {
+        playerRemainingLife = playerMaxLife;
     }
     private void LoadDeathScene()
     {
@@ -104,32 +159,57 @@ public class GameManager : MonoBehaviour
     }
 
 
+    // CHECKPOINT
+    public void ResetCheckpoint()
+    {
+        hasCheckpoint = false;
+    }
+    public bool CheckpointExists()
+    {
+        return hasCheckpoint;
+    }
     public void CheckpointReached(Vector3 position)
     {
+        hasCheckpoint = true;
         checkpointPosition = position;
         _ScoreManager.SaveCheckpointScore();
+        _cameraController.SaveCurrentFollowState();
     }
-    private void LoadCheckpoint()
+    private IEnumerator LoadCheckpoint()
     {
+        float startTime = Time.time;
+        float durationTime = 2f;
+        float endTime = startTime + durationTime;
+
         _ScoreManager.LoadCheckpointScore();
-
         _playerMovement.InitialPosition(checkpointPosition);
-
+        _cameraController.ResetToFramePlayer();
+        _cameraController.SetFollowState();
         float startColliderPosX = _startColliderTransform.position.x;
-        float time = math.abs(checkpointPosition.x - startColliderPosX)/PlayerSpeed;
 
+        while (Time.time < endTime)
+        {
+            yield return null;
+        }
+
+        float time = math.abs(checkpointPosition.x - startColliderPosX)/PlayerSpeed;
+        _playerMovement.Autoscroll();
         MusicManager.Instance.ChangeTime(time);
         MusicManager.Instance.PlayMusic();
+
     }
+
 
     public void LoadLevelData()
     {
         PlayerSpeed = _levelDataLoader.GetCurrentScenePlayerSpeed();
-        //_levelDataLoader.LoadPlayerSpeed();
     }
 
     private void LoadAllReferences()
     {
+        _cameraController = _camera.GetComponent<CameraController>();
+        if (_cameraController == null) Debug.LogError("CAMERA missing in GameManager!");
+
         _UIManager = GetComponent<UIManager>();
         if (_UIManager == null) Debug.LogError("UIManager missing in GameManager!");
 
@@ -150,12 +230,16 @@ public class GameManager : MonoBehaviour
 
         _levelDataLoader = GetComponent<LevelDataLoader>();
         if (_levelDataLoader == null) Debug.LogError("Level data missing in GameManager!");
+
+        _TimingTextController= FindObjectOfType<TimingTextController>();
+
     }
 
     public void ArrowTiming(string timing)
     {
         _UIManager.DisplayTiming(timing);
         _ScoreManager.AddTimingPoints(timing);
+        _TimingTextController.TimingText(timing);
     }
     #endregion
 }

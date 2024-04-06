@@ -40,7 +40,7 @@ public class AnimationComponent : MonoBehaviour
             if (_actionComponent.isDashing == true)
             {
                 Debug.Log("Dashing");
-                _myAnimator.SetInteger("State", 4); //esto seria dash en el futuro
+                _myAnimator.SetInteger("State", 5); //esto seria dash en el futuro
             }
             else //if (_actionComponent.actionState == ActionComponent.ActionStateEnum)
             if (_actionComponent.isStomping == true)
@@ -63,7 +63,7 @@ public class AnimationComponent : MonoBehaviour
                 else
                 {
                    // Debug.Log("Air static");
-                    _myAnimator.SetInteger("State", 4);
+                    _myAnimator.SetInteger("State", 5);
                 }
             }
             

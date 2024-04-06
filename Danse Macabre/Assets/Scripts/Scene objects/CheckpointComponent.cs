@@ -17,7 +17,7 @@ public class CheckpointComponent : MonoBehaviour
 
         if (player != null)
         {
-            GameManager.Instance.CheckpointReached(_myTransform.position);
+            GameManager.Instance.CheckpointReached(player.transform.position);
         }
     }
 }

@@ -32,16 +32,10 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private float finalLerpDistance = 5f; // Distancia que recorre el lerp final del nivel
 
-    void Start()
+    void Awake()
     {
         _cameraTransform = transform;
         cameraHeight = cameraHeight / 2; // Para convertirlo en distancia desde el centro hasta el borde superior o inferior
-
-        // To match initial offset of the character with the cameras
-        // allowVerticalFollow = true;
-        // TrackPlayer(_playerTransform.position.y - _cameraTransform.position.y);
-        // FollowPlayer();
-        // allowVerticalFollow = false;
     }
 
     void LateUpdate()
@@ -133,5 +127,24 @@ public class CameraController : MonoBehaviour
         end = true;
         endTargetPosition = Mathf.Round(_cameraTransform.position.x + finalLerpDistance);
         Debug.Log("FINAL DE NIVEL; parando c�mara en X = " + endTargetPosition);
+    }
+
+
+    // For checkpoints
+    public void ResetToFramePlayer() // Reset camera to frame the player after checkpoint
+    {
+        allowVerticalFollow = true; allowFollow = true;
+        TrackPlayer(_playerTransform.position.y - _cameraTransform.position.y);
+        FollowPlayer();
+    }
+
+    public void SetFollowState() // Called by game manager to set camera parameters after checkpoint
+    {
+        (allowFollow, allowVerticalFollow) = GameManager.Instance.LoadCameraState();
+    }
+
+    public void SaveCurrentFollowState() // Called by game manager when reaching a checkpoint to save camera state parameters
+    {
+        GameManager.Instance.SaveCameraState(allowFollow, allowVerticalFollow);
     }
 }

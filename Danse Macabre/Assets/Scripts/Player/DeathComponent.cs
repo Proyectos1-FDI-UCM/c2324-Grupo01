@@ -66,7 +66,9 @@ public class DeathComponent : MonoBehaviour
     private void CheckVelocityChange()
     {
         if (_RB.velocity.x < _movementComponent.speed - 0.1f && PlayerAlive)
+        {
             Death();
+        }
     }
     
     private void OnCollisionEnter2D(Collision2D collision)
@@ -108,7 +110,6 @@ public class DeathComponent : MonoBehaviour
             enemy.GetComponent<EnemyAnimation>().DeathAnimation();
             enemy.GetComponent<EnemyInteractionComponent>().DestroyEnemy();
 
-            //Invoke("DestroyEnemy", 0.1f);
             if (enemy.GetComponent<EnemyInteractionComponent>().BouncyEnemy)
             {
                 _actionComponent.Bounce();

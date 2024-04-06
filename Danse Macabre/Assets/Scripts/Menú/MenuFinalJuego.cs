@@ -18,6 +18,7 @@ public class MenuFinalJuego : MonoBehaviour
     #endregion
     public void QuitMenuFinal()
     {
+        GameManager.Instance.ResetCheckpoint();
         SceneManager.LoadScene(0);
     }
     public void Restart()
@@ -25,14 +26,15 @@ public class MenuFinalJuego : MonoBehaviour
         //Obtiene el nombre de la escena anterior
         string sceneName = PlayerPrefs.GetString("PreviousScene", "DefaultSceneName");
         //Carga la escena anterior
+        GameManager.Instance.ResetCheckpoint();
         SceneManager.LoadScene(sceneName);
     }
     void Start()
     {
-        // Verifica si la puntuación final está disponible en PlayerPrefs
+        // Verifica si la puntuaciï¿½n final estï¿½ disponible en PlayerPrefs
         if (PlayerPrefs.HasKey("FinalScore"))
         {
-            // Carga la puntuación guardada desde PlayerPrefs y la muestra
+            // Carga la puntuaciï¿½n guardada desde PlayerPrefs y la muestra
             float finalScore = PlayerPrefs.GetFloat("FinalScore", 0f);
             float coinScore = PlayerPrefs.GetFloat("CoinScore", 0f);
             float enemyScore = PlayerPrefs.GetFloat("EnemyScore", 0f);

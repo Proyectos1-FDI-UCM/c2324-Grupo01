@@ -9,8 +9,10 @@ public class ScoreManager : MonoBehaviour
 {
     #region parameters
     private float perfectTimingValue = 10;
-    private float goodTimingValue = 5;
-    private float badTimingValue = 1;
+    private float greatTimingValue = 5;
+    private float goodTimingValue = 1;
+
+    private bool _gameStart = false;
     #endregion 
 
     #region references
@@ -40,8 +42,13 @@ public class ScoreManager : MonoBehaviour
     #endregion
 
     #region methods
+    public void GameStart()
+    {
+        _gameStart = true;
+    }
     public void AddPoints(float points, int type)
     {
+        //Añade puntos segun su tipo y lo escribe en pantalla
         //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
         if (type==0) _coinPoint += (points * _combo.multiplier);
         else if (type==1) _enemyPoint += (points * _combo.multiplier);
@@ -52,7 +59,7 @@ public class ScoreManager : MonoBehaviour
             _addPoints = 0;
             _sudPoints += points;
             _textPuntosAñadidos.text = _sudPoints.ToString();
-            _combo.addCombo(points * _combo.comboPenaltyMultiplier);
+            _combo.resetCombo();
         }
         else
         {
@@ -62,31 +69,31 @@ public class ScoreManager : MonoBehaviour
         }
         _lastPickupTime = Time.time;
     }
-    private void ResetText()
+    private void ResetText() //texto qie al lado del player
     {
         _textPuntosAñadidos.text = " "; //quitar el texto
-        AddToTotalPoint();
+        AddToTotalPoint(); //sumar la puntuacion al score
+    }
+    private void ResetUpText()
+    {
+        _textoArriba.text = "   ";
     }
     void AddToTotalPoint()
     {
         float points;
-        if (_addPoints > 0) //poner el texto arriba cuando lleva un tiempo sin coger nada
+        if (_addPoints > 0) //puntos positivos
         {
             points = _addPoints;          
             _totalPoint += _addPoints;
             _textoArriba.text ="+"+ points.ToString();
         }
-        else
+        else //puntos negativos
         {
             points = _sudPoints;
             _totalPoint += _sudPoints;
             _textoArriba.text = points.ToString();
         }
         Invoke("ResetUpText", 0.4f);
-    }
-    private void ResetUpText()
-    {
-        _textoArriba.text = "   ";
     }
     public void AddTimingPoints(string timing)
     {
@@ -95,18 +102,24 @@ public class ScoreManager : MonoBehaviour
             _totalPoint += (perfectTimingValue * _combo.multiplier);
             _combo.addCombo(perfectTimingValue);
         }
+        else if (timing == "GREAT") {
+            _timingPoints += (greatTimingValue * _combo.multiplier);
+            _totalPoint += (greatTimingValue * _combo.multiplier);
+            _combo.addCombo(greatTimingValue);
+        }
         else if (timing == "GOOD") {
             _timingPoints += (goodTimingValue * _combo.multiplier);
             _totalPoint += (goodTimingValue * _combo.multiplier);
             _combo.addCombo(goodTimingValue);
         }
-        else if (timing == "BAD") {
-            _timingPoints += (badTimingValue * _combo.multiplier);
-            _totalPoint += (badTimingValue * _combo.multiplier);
-            _combo.addCombo(badTimingValue);
+        else if (timing == "WRONG")
+        {
+            _combo.resetCombo();
         }
-        else if (timing == "WRONG") { /*lo dejo por si acaso*/ }
-        else if (timing == "MISSED") { /*lo dejo por si acaso*/ }
+        else if (timing == "MISSED")
+        {
+            _combo.resetCombo();
+        }
     }
 
     public void CoinRegister()
@@ -148,14 +161,14 @@ public class ScoreManager : MonoBehaviour
     }
     void Update()
     {
-        _basicPoint += Time.deltaTime;
-        _totalPoint += Time.deltaTime;
+        if (_gameStart) //empieza a contar los puntos cuando inicie la musica
+        {
+            _basicPoint += Time.deltaTime;
+            _totalPoint += Time.deltaTime;
+        }
 
-        //para el slider del combo
-        comboSliderComponent.SetPoint(_totalPoint);
         //Debug.Log("Puntos" + _totalPoint);
         _textPuntos.text = _totalPoint.ToString("0");
-
 
         // cuando lleva un tiempo sin coger objeto se resetea
         if (Time.time - _lastPickupTime >= _resetTime) 
