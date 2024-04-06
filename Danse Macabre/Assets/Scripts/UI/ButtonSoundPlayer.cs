@@ -19,7 +19,7 @@ public class ButtonSoundPlayer : MonoBehaviour
     public void OnPointerEnters()
     {
         int i = Random.Range(0, cursorAudio.Count);
-        MusicManager.Instance.PlaySoundEffect(cursorAudio[0],buttonCTR);
+        MusicManager.Instance.PlaySoundEffect(cursorAudio[i],buttonCTR);
     }
     public void OnButtonClick()
     {

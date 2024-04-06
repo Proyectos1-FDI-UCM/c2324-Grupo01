@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private CameraController _cameraController;
     private UIManager _UIManager;
     private ScoreManager _ScoreManager;
+    private TimingTextController _TimingTextController;
     [SerializeField]
     private GameObject Player;
     private MovementComponent _playerMovement;
@@ -64,6 +65,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         LoadAllReferences();
+        _TimingTextController= FindObjectOfType<TimingTextController>();
     }
 
     #region methods
@@ -235,6 +237,7 @@ public class GameManager : MonoBehaviour
     {
         _UIManager.DisplayTiming(timing);
         _ScoreManager.AddTimingPoints(timing);
+        _TimingTextController.TimingText(timing);
     }
     #endregion
 }
