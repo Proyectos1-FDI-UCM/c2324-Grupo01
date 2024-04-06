@@ -140,7 +140,7 @@ MonoBehaviour:
   gravityFactor: 0.9
   stompDownwardSpeed: 20
   trampolineJumpSpeed: 15
-  dashDuration: 0.7
+  dashDuration: 0.5
   _dashElapsedTime: 1
   slideCTR: 0.15
   dashCTR: 0.15
@@ -209,6 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ec40bcb618dfd40849cf74a23620e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _DeathFilter: {fileID: 0}
+  _DeathFilterColor: {fileID: 0}
 --- !u!61 &8693597587511461896
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -456,7 +458,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1449030128705392181, guid: 5653d7a7918cf6b43b3fa4043033fa01, type: 2}
+  - {fileID: 5332297005601483691, guid: ed8a9a087dafbbc4eb9b4e8226f9acbd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -498,17 +500,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 22
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5653d7a7918cf6b43b3fa4043033fa01, type: 2}
-  m_sharedMaterial: {fileID: 1449030128705392181, guid: 5653d7a7918cf6b43b3fa4043033fa01, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ed8a9a087dafbbc4eb9b4e8226f9acbd, type: 2}
+  m_sharedMaterial: {fileID: 5332297005601483691, guid: ed8a9a087dafbbc4eb9b4e8226f9acbd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287822069
-  m_fontColor: {r: 0.9623243, g: 0.9716981, b: 0.5720185, a: 1}
+    rgba: 4291428349
+  m_fontColor: {r: 0.9937292, g: 1, b: 0.78679246, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -525,8 +527,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 4
-  m_fontSizeBase: 4
+  m_fontSize: 2.5
+  m_fontSizeBase: 2.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
