@@ -21,7 +21,6 @@ public class DeathComponent : MonoBehaviour
 
     int layerValueEnemy;
     int layerValueTraps;
-    int layerValueTrampoline;
 
     private bool PlayerAlive;
 
@@ -34,7 +33,6 @@ public class DeathComponent : MonoBehaviour
 
         layerValueEnemy = LayerMask.NameToLayer("Enemies");
         layerValueTraps = LayerMask.NameToLayer("Traps");
-        layerValueTrampoline = LayerMask.NameToLayer("Trampoline");
         _DeathFilter.enabled = false;
         PlayerAlive = true;
     }
@@ -45,17 +43,16 @@ public class DeathComponent : MonoBehaviour
     }
 
     #region methods
-    /// <summary>
-    /// Death conditions: change in velocity.x OR collision with Enemies or Traps layers.
-    /// </summary>
     private void Death()
     {
-        PlayerAlive = false;
-        Debug.Log("Death()");
-        _DeathFilter.enabled = true;
-        _DeathFilterColor.ColorChange();
-        Invoke("CallPlayerDeath", 1.2f);
-        //CallPlayerDeath();
+        if (GameManager.Instance.PlayerCanBeKilled())
+        {
+            PlayerAlive = false;
+            Debug.Log("Death()");
+            _DeathFilter.enabled = true;
+            _DeathFilterColor.ColorChange();
+            Invoke("CallPlayerDeath", 1.2f);
+        }
     }
 
     private void CallPlayerDeath()

@@ -120,22 +120,23 @@ public class GameManager : MonoBehaviour
 
 
     // DEATH
+    public bool PlayerCanBeKilled()
+    {
+        return playerCanBeKilled;
+    }
     public void PlayerHasDied()
     {
-        if (playerCanBeKilled)
-        {
-            PlayerLosesLife();
+        PlayerLosesLife();
 
-            if (CheckpointExists() && PlayerHasLife())
-            { // if a checkpoint exists
-                SceneManager.LoadScene(previousScene);
-            }
-            else
-            { // if there's no checkpoint
-                _ScoreManager.SaveFinalScore();
-                ResetPlayerLife();
-                LoadDeathScene();
-            }
+        if (CheckpointExists() && PlayerHasLife())
+        { // if a checkpoint exists
+            SceneManager.LoadScene(previousScene);
+        }
+        else
+        { // if there's no checkpoint
+            _ScoreManager.SaveFinalScore();
+            ResetPlayerLife();
+            LoadDeathScene();
         }
     }
     private bool PlayerHasLife()
