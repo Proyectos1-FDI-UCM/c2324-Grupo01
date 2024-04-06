@@ -12,7 +12,7 @@ public class TryTextController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _tryNumberText.text = 1.ToString(); // cambia el 1 por el metodo de GameManager que devuelve el int
+        _tryNumberText.text = GameManager.Instance.NumberOfTries().ToString(); // cambia el 1 por el metodo de GameManager que devuelve el int
         
     }
 }
