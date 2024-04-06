@@ -692,8 +692,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4288872444
-  m_fontColor: {r: 0.9794279, g: 1, b: 0.3622641, a: 1}
+    rgba: 4284284922
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -780,4 +780,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timingText: {fileID: 5138147722292253610}
+  colors:
+  - {r: 0.7132851, g: 0.11512991, b: 0.7924528, a: 1}
+  - {r: 0.13020645, g: 0.8962264, b: 0.6120474, a: 1}
+  - {r: 0.8190393, g: 0.8784314, b: 0.19215687, a: 1}
+  - {r: 0.8584906, g: 0.15711991, b: 0.15711991, a: 1}
+  - {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
   _resetTime: 0.4
