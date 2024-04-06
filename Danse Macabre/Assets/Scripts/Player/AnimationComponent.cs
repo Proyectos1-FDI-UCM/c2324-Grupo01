@@ -78,4 +78,9 @@ public class AnimationComponent : MonoBehaviour
         }
         
     }
+
+    public void ToggleAnimationOff()
+    {
+        _myAnimator.enabled = false;
+    }
 }

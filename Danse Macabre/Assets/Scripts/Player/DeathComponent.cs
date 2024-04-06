@@ -12,6 +12,7 @@ public class DeathComponent : MonoBehaviour
     // private LayerMask deathLayers;
     private MovementComponent _movementComponent;
     private ActionComponent _actionComponent;
+    private AnimationComponent _animationComponent;
     private Rigidbody2D _RB;
     [SerializeField]
     private Canvas _DeathFilter;
@@ -30,6 +31,7 @@ public class DeathComponent : MonoBehaviour
         _movementComponent = GetComponent<MovementComponent>();
         _actionComponent = GetComponent<ActionComponent>();
         _RB = GetComponent<Rigidbody2D>();
+        _animationComponent = GetComponent<AnimationComponent>();
 
         layerValueEnemy = LayerMask.NameToLayer("Enemies");
         layerValueTraps = LayerMask.NameToLayer("Traps");
@@ -48,7 +50,9 @@ public class DeathComponent : MonoBehaviour
         if (GameManager.Instance.PlayerCanBeKilled())
         {
             PlayerAlive = false;
-            //Debug.Log("Death()");
+            _RB.velocity = Vector3.zero;
+            MusicManager.Instance.StopPlayingSong();
+            _animationComponent.ToggleAnimationOff();
             _DeathFilter.enabled = true;
             _DeathFilterColor.ColorChange();
             Invoke("CallPlayerDeath", 1.2f);
