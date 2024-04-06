@@ -30,6 +30,10 @@ public class ArrowComponent : MonoBehaviour
     {
         actionDone = true;
     }
+    public bool IsDone()
+    {
+        return actionDone;
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {

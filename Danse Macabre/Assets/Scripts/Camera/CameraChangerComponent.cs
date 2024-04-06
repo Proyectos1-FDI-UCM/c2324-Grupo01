@@ -30,8 +30,6 @@ public class CameraChangerComponent : MonoBehaviour
             {
                 _cameraController.EndOfLevelCamera();
             }
-
-            _cameraController.SaveCurrentFollowState(); // For checkpoints
         }
     }
 }

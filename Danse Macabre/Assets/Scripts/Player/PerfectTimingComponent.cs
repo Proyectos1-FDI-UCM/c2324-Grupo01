@@ -31,10 +31,11 @@ public class PerfectTimingComponent : MonoBehaviour
     public void CheckNearbyArrow() // Called everytime there's an input
     {
         Collider2D hitCollider = Physics2D.OverlapCircle(_myTransform.position, badRadius, arrowLayer);
+        ArrowComponent arrowComponent = hitCollider.gameObject.GetComponent<ArrowComponent>();
 
-        if (hitCollider != null)
+        if (hitCollider != null && !arrowComponent.IsDone())
         {
-            hitCollider.gameObject.GetComponent<ArrowComponent>().ActionDone();
+            arrowComponent.ActionDone();
 
             if (_playerAction.isStomping) targetTag = "Stomp";   
             else if (_playerAction._isJumping) targetTag = "Jump";

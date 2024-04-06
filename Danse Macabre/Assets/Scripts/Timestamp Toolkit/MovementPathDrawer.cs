@@ -5,6 +5,8 @@ using UnityEngine;
 public class MovementPathDrawer : MonoBehaviour
 {
     private Rigidbody2D _rb;
+    [SerializeField]
+    private GameObject _player;
     private ActionComponent _actionComponent;
     [SerializeField]
     private LevelDataLoader _levelDataLoader;
@@ -30,7 +32,7 @@ public class MovementPathDrawer : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        _actionComponent = GetComponent<ActionComponent>();
+        _actionComponent = _player.GetComponent<ActionComponent>();
         _rb = GetComponent<Rigidbody2D>();
 
         if (!setCustomHorizontalVelocity) horizontalVelocity = _levelDataLoader.GetCurrentScenePlayerSpeed();

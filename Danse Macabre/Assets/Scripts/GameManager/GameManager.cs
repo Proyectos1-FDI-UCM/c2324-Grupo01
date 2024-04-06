@@ -6,7 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    #region paramenters
+    private int playerMaxLife = 4; // La primera más 3 checkpoints;
+    #endregion
+
     #region references
+    [SerializeField]
+    private GameObject _camera;
+    private CameraController _cameraController;
     private UIManager _UIManager;
     private ScoreManager _ScoreManager;
     [SerializeField]
@@ -40,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     private static string previousScene = "";
     public bool playerCanBeKilled = false;
-    public bool playerCanRun = false;
+    private static int playerRemainingLife;
     #endregion
 
    private void Awake()
@@ -81,6 +88,7 @@ public class GameManager : MonoBehaviour
         }
         else // if starting a level for the first time
         {
+            ResetPlayerLife();
             _playerMovement.Autoscroll();
         }
     }
@@ -115,16 +123,31 @@ public class GameManager : MonoBehaviour
     {
         if (playerCanBeKilled)
         {
-            if (hasCheckpoint)
+            PlayerLosesLife();
+
+            if (CheckpointExists() && PlayerHasLife())
             { // if a checkpoint exists
                 SceneManager.LoadScene(previousScene);
             }
             else
             { // if there's no checkpoint
                 _ScoreManager.SaveFinalScore();
+                ResetPlayerLife();
                 LoadDeathScene();
             }
         }
+    }
+    private bool PlayerHasLife()
+    {
+        return playerRemainingLife > 0;
+    }
+    private void PlayerLosesLife()
+    {
+        playerRemainingLife -= 1;
+    }
+    private void ResetPlayerLife()
+    {
+        playerRemainingLife = playerMaxLife;
     }
     private void LoadDeathScene()
     {
@@ -149,6 +172,7 @@ public class GameManager : MonoBehaviour
         hasCheckpoint = true;
         checkpointPosition = position;
         _ScoreManager.SaveCheckpointScore();
+        _cameraController.SaveCurrentFollowState();
     }
     private IEnumerator LoadCheckpoint()
     {
@@ -158,6 +182,8 @@ public class GameManager : MonoBehaviour
 
         _ScoreManager.LoadCheckpointScore();
         _playerMovement.InitialPosition(checkpointPosition);
+        _cameraController.ResetToFramePlayer();
+        _cameraController.SetFollowState();
         float startColliderPosX = _startColliderTransform.position.x;
 
         while (Time.time < endTime)
@@ -180,6 +206,9 @@ public class GameManager : MonoBehaviour
 
     private void LoadAllReferences()
     {
+        _cameraController = _camera.GetComponent<CameraController>();
+        if (_cameraController == null) Debug.LogError("CAMERA missing in GameManager!");
+
         _UIManager = GetComponent<UIManager>();
         if (_UIManager == null) Debug.LogError("UIManager missing in GameManager!");
 

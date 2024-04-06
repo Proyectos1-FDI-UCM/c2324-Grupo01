@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8792642780009494377}
   - component: {fileID: 2034930393021407579}
   - component: {fileID: 7228781584108892126}
-  - component: {fileID: 8961126591396576294}
   - component: {fileID: 3503182467523279665}
   m_Layer: 0
   m_Name: Dummy Player
@@ -49,15 +48,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b70f45bced386449a2c0e3e4d0a9e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 0}
   _levelDataLoader: {fileID: 8792642780009494377}
-  jumpSpeed: 0
-  trampolineJumpSpeed: 0
-  horizontalVelocity: 0
-  activateJumpPath: 1
-  activateStompPath: 1
-  activateTrampolinePath: 1
-  useCustomHorizontalVelocity: 0
-  useCustomJumpSpeed: 0
+  jumpSpeed: 11
+  trampolineJumpSpeed: 15
+  dashDuration: 0.5
+  horizontalVelocity: 9.266667
+  JumpPath: 1
+  StompPath: 1
+  TrampolinePath: 1
+  DashPath: 1
+  setCustomHorizontalVelocity: 0
+  setCustomJumpSpeed: 0
+  setCustomDashDuration: 0
 --- !u!114 &8792642780009494377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,53 +153,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &8961126591396576294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7148340301470944795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c093d324dbb83f04ab29144eec625412, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpSpeed: 11
-  originalGravityScale: 2
-  gravityFactor: 0.9
-  groundCheckDistance: 0.55
-  stompDownwardSpeed: 20
-  trampolineJumpSpeed: 15
-  dashDuration: 0.5
-  _dashElapsedTime: 1
-  slideCTR: 0.15
-  dashCTR: 0.2
-  jumpCTR: 0.15
-  stompCTR: 0.15
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 72
-  trampolineLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  _jumpSound: {fileID: 8300000, guid: 1c17c8e7f86464e42a180c14eb66471d, type: 3}
-  _stompSound: {fileID: 8300000, guid: a1d98f6cd9f4ea8418bc2a0b8fdb2e4f, type: 3}
-  _slideSound: {fileID: 8300000, guid: 51f70c302533cde46be93314231af042, type: 3}
-  _dashSound: {fileID: 8300000, guid: f449620e666cb564f89c49123a0ebfac, type: 3}
-  DefaultCollisionSizeX: 0.3534185
-  DefaultCollisionSizeY: 0.9795959
-  DefaultCollisionOffsetX: -0.02383977
-  DefaultCollisionOffsetY: -0.01020205
-  SlideCollisionSizeX: 0.3534185
-  SlideCollisionSizeY: 0.4826775
-  SlideCollisionOffsetX: -0.02383977
-  SlideCollisionOffsetY: -0.2373648
-  isStomping: 0
-  isDashing: 0
-  canDash: 0
-  isSliding: 0
-  _isJumping: 0
 --- !u!61 &3503182467523279665
 BoxCollider2D:
   m_ObjectHideFlags: 0

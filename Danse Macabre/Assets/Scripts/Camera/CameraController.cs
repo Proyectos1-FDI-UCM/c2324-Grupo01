@@ -32,12 +32,10 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private float finalLerpDistance = 5f; // Distancia que recorre el lerp final del nivel
 
-    void Start()
+    void Awake()
     {
         _cameraTransform = transform;
         cameraHeight = cameraHeight / 2; // Para convertirlo en distancia desde el centro hasta el borde superior o inferior
-
-        SetFollowState(); // Load camera follow parameters if checkpoint exists
     }
 
     void LateUpdate()
@@ -131,15 +129,21 @@ public class CameraController : MonoBehaviour
         Debug.Log("FINAL DE NIVEL; parando c�mara en X = " + endTargetPosition);
     }
 
-    public void SetFollowState() // Called here at start() and if exists a checkpoint past follow parameters are loaded to ajust camera
+
+    // For checkpoints
+    public void ResetToFramePlayer() // Reset camera to frame the player after checkpoint
     {
-        if (GameManager.Instance.CheckpointExists())
-        {
-            (allowFollow, allowVerticalFollow) = GameManager.Instance.LoadCameraState();
-        }
+        allowVerticalFollow = true; allowFollow = true;
+        TrackPlayer(_playerTransform.position.y - _cameraTransform.position.y);
+        FollowPlayer();
     }
 
-    public void SaveCurrentFollowState() // Called when collides with camera changer to save current camera state for scene checkpoint reload after death
+    public void SetFollowState() // Called by game manager to set camera parameters after checkpoint
+    {
+        (allowFollow, allowVerticalFollow) = GameManager.Instance.LoadCameraState();
+    }
+
+    public void SaveCurrentFollowState() // Called by game manager when reaching a checkpoint to save camera state parameters
     {
         GameManager.Instance.SaveCameraState(allowFollow, allowVerticalFollow);
     }
