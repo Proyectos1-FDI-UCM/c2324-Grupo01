@@ -121,8 +121,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0019881732, y: -0.03}
-  m_Size: {x: 0.15, y: 0.06}
+  m_Offset: {x: -0.00067058875, y: -0.005020631}
+  m_Size: {x: 0.18439348, y: 0.10995915}
   m_Direction: 1
 --- !u!114 &2908576989571070143
 MonoBehaviour:
@@ -151,6 +151,7 @@ MonoBehaviour:
   _destroyTime: 5
   _enemyValue: 20
   BouncyEnemy: 1
+  Collider: {fileID: 6432770650231140465}
 --- !u!95 &7136414799280994542
 Animator:
   serializedVersion: 5
