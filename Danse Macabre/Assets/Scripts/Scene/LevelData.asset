@@ -25,3 +25,5 @@ MonoBehaviour:
     playerSpeed: 4.3666
   - sceneName: BingCombo
     playerSpeed: 9.266667
+  - sceneName: nivel bing inicio 2 test
+    playerSpeed: 9.266667
