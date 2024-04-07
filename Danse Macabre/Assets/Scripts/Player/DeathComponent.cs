@@ -80,7 +80,7 @@ public class DeathComponent : MonoBehaviour
             Death();
         }
 
-        if (collision.gameObject.layer == layerValueEnemy && (_actionComponent.isStomping || _actionComponent.isSliding || _actionComponent.isDashing))
+        if (collision.gameObject.layer == layerValueEnemy && (_actionComponent.isStomping || _actionComponent.isDashing))
         {
             GameObject enemy = collision.gameObject;
             enemy.GetComponent<EnemyAnimation>().DeathAnimation();
@@ -92,7 +92,7 @@ public class DeathComponent : MonoBehaviour
             }
             _actionComponent.isStomping = false;
         }
-        else if (collision.gameObject.layer == layerValueEnemy && !(_actionComponent.isStomping || _actionComponent.isSliding || _actionComponent.isDashing) && PlayerAlive)
+        else if (collision.gameObject.layer == layerValueEnemy && !(_actionComponent.isStomping || _actionComponent.isDashing) && PlayerAlive)
         {
             Death();
         }
@@ -105,7 +105,7 @@ public class DeathComponent : MonoBehaviour
         {
             Death();
         }
-        if (collision.gameObject.layer == layerValueEnemy && (_actionComponent.isStomping || _actionComponent.isSliding || _actionComponent.isDashing))
+        if (collision.gameObject.layer == layerValueEnemy && (_actionComponent.isStomping || _actionComponent.isDashing))
         {
             GameObject enemy = collision.gameObject;
             enemy.GetComponent<EnemyAnimation>().DeathAnimation();
@@ -117,7 +117,7 @@ public class DeathComponent : MonoBehaviour
             }
             _actionComponent.isStomping = false;
         }
-        else if (collision.gameObject.layer == layerValueEnemy && !(_actionComponent.isStomping || _actionComponent.isSliding || _actionComponent.isDashing) && PlayerAlive)
+        else if (collision.gameObject.layer == layerValueEnemy && !(_actionComponent.isStomping || _actionComponent.isDashing) && PlayerAlive)
         {
             Death();
         }

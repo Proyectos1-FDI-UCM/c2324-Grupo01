@@ -110,6 +110,8 @@ public class ActionComponent : MonoBehaviour
 
     public void Jump()
     {
+        //print("isjumping: "+ _isJumping);
+        //print("isGrounded: "+ IsGrounded());
         if (IsGrounded())
         {
             isStomping = false;
