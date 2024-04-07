@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     private static int playerRemainingLife;
     // [SerializeField]
     // private bool intentosInfinitos = true;
-    private static int numberOfTries = 0;
+    //private static int numberOfTries = 0; // INTENTOS
     #endregion
 
    private void Awake()
@@ -92,8 +92,8 @@ public class GameManager : MonoBehaviour
         }
         else // if starting a level for the first time
         {
-            //ResetPlayerLife(); // INTENTOS
-            ResetTries();
+            ResetPlayerLife(); // VIDAS
+            //ResetTries(); // INTENTOS
             _playerMovement.Autoscroll();
         }
     }
@@ -130,36 +130,36 @@ public class GameManager : MonoBehaviour
     }
     public void PlayerHasDied()
     {
-        //PlayerLosesLife(); // INTENTOS
-        IncrementTries();
+        PlayerLosesLife(); // VIDAS
+        //IncrementTries(); // INTENTOS
 
-        if (CheckpointExists() /*&& PlayerHasLife()*/)  // INTENTOS
+        if (CheckpointExists() && PlayerHasLife())  // VIDAS
         { // if a checkpoint exists
             SceneManager.LoadScene(previousScene);
         }
         else
         { // if there's no checkpoint
             _ScoreManager.SaveFinalScore();
-            //ResetPlayerLife(); // INTENTOS
-            ResetTries();
+            ResetPlayerLife(); // VIDAS
+            //ResetTries(); // INTENTOS
             LoadDeathScene();
         }
     
     }
     // TRIES
-    public int NumberOfTries()
-    {
-        return numberOfTries;
-    }
-    private void IncrementTries()
-    {
-        numberOfTries += 1;
-        print("numberofthries: " + numberOfTries);
-    }
-    private void ResetTries()
-    {
-        numberOfTries = 0;
-    }
+    // public int NumberOfTries()
+    // {
+    //     return numberOfTries;
+    // }
+    // private void IncrementTries()
+    // {
+    //     numberOfTries += 1;
+    //     print("numberofthries: " + numberOfTries);
+    // }
+    // private void ResetTries()
+    // {
+    //     numberOfTries = 0;
+    // }
     // LIFES
     private bool PlayerHasLife()
     {
@@ -173,6 +173,10 @@ public class GameManager : MonoBehaviour
     {
         playerRemainingLife = playerMaxLife;
     }
+    public int PlayerRemainingLife()
+    {
+        return playerRemainingLife;
+    }
     private void LoadDeathScene()
     {
         //Guardar el nombre de la escena anterior para el bot�n restart
@@ -185,7 +189,7 @@ public class GameManager : MonoBehaviour
     // CHECKPOINT
     public void ResetCheckpoint()
     {
-        numberOfTries = 0;
+        //numberOfTries = 0; // INTENTOS
         hasCheckpoint = false;
     }
     public bool CheckpointExists()
