@@ -84,13 +84,13 @@ public class DeathComponent : MonoBehaviour
         {
             GameObject enemy = collision.gameObject;
             enemy.GetComponent<EnemyAnimation>().DeathAnimation();
-            //enemy.GetComponent<EnemyInteractionComponent>().DestroingEnemy();
+            enemy.GetComponent<EnemyInteractionComponent>().DestroyEnemy();
             
             if (enemy.GetComponent<EnemyInteractionComponent>().BouncyEnemy)
             {
+                _actionComponent.isStomping = false;
                 _actionComponent.Bounce();
             }
-            _actionComponent.isStomping = false;
         }
         else if (collision.gameObject.layer == layerValueEnemy && !(_actionComponent.isStomping || _actionComponent.isDashing) && PlayerAlive)
         {
@@ -113,9 +113,9 @@ public class DeathComponent : MonoBehaviour
 
             if (enemy.GetComponent<EnemyInteractionComponent>().BouncyEnemy)
             {
+                _actionComponent.isStomping = false;
                 _actionComponent.Bounce();
             }
-            _actionComponent.isStomping = false;
         }
         else if (collision.gameObject.layer == layerValueEnemy && !(_actionComponent.isStomping || _actionComponent.isDashing) && PlayerAlive)
         {
