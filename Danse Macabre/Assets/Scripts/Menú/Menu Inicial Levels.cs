@@ -33,6 +33,7 @@ public class MenuInicialLevels : MonoBehaviour
 
     public void Salir()
     {
+        PlayerPrefs.SetInt("MenuLevelActivo", 0);
         Application.Quit();
     }
     #endregion
