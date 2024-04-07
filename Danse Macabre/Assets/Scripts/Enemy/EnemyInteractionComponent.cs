@@ -19,6 +19,8 @@ public class EnemyInteractionComponent : MonoBehaviour
     private ScoreManager _scoreManager;
     [SerializeField]
     public bool BouncyEnemy;
+
+    [SerializeField] Collider2D Collider;
     #endregion
     // private void OnTriggerEnter2D(Collider2D other)
     // {
@@ -51,6 +53,7 @@ public class EnemyInteractionComponent : MonoBehaviour
     {
         //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
         _scoreManager.AddPoints(_enemyValue, 1);
+        Collider.enabled = false;
         Invoke("DestroyGameObject", _destroyTime);
 
     }
