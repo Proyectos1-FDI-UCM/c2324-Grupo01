@@ -29,3 +29,5 @@ MonoBehaviour:
     playerSpeed: 9.266667
   - sceneName: Nivel1_otraMusica
     playerSpeed: 9.266667
+  - sceneName: Nivel_3_Kai
+    playerSpeed: 0
