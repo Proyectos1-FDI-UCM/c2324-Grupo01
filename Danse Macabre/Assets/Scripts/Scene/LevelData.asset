@@ -33,3 +33,5 @@ MonoBehaviour:
     playerSpeed: 0
   - sceneName: TutorialV3
     playerSpeed: 5.5
+  - sceneName: Nivel_Dear_X
+    playerSpeed: 7.5
