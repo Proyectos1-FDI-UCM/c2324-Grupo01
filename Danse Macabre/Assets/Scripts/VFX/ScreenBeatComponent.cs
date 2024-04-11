@@ -35,6 +35,8 @@ public class ScreenBeatComponent : MonoBehaviour
     [SerializeField]
     float BeatDurationMultiplier = 0.5f; // Multiplicador a la duración total de cada iteración del efecto (multiplica a Time.deltaTime)
 
+    public float timeSinceLastBeat = 0;
+
     Color targetColor;
     float alpha;
     float currentAlpha;
@@ -79,6 +81,7 @@ public class ScreenBeatComponent : MonoBehaviour
             startBeating = false;
         }
 
+        timeSinceLastBeat =+ Time.deltaTime;
         _image.color = new Color(targetColor.r, targetColor.g, targetColor.b, currentAlpha);
         currentAlpha = currentAlpha - Time.deltaTime * BeatDurationMultiplier;
         Debug.Log(currentAlpha + " " + Time.deltaTime * BeatDurationMultiplier);
@@ -93,6 +96,7 @@ public class ScreenBeatComponent : MonoBehaviour
     {
         //Debug.Log("BEAT");
         currentAlpha = alpha;
+        timeSinceLastBeat = 0;
     }
 }
 
