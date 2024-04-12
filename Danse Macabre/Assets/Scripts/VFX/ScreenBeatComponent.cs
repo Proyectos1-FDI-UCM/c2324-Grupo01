@@ -81,7 +81,7 @@ public class ScreenBeatComponent : MonoBehaviour
 
         _image.color = new Color(targetColor.r, targetColor.g, targetColor.b, currentAlpha);
         currentAlpha = currentAlpha - Time.deltaTime * BeatDurationMultiplier;
-        Debug.Log(currentAlpha + " " + Time.deltaTime * BeatDurationMultiplier);
+        //Debug.Log(currentAlpha + " " + Time.deltaTime * BeatDurationMultiplier);
     }
 
     public void StartBeat()

@@ -9,13 +9,18 @@ public class AnimationComponent : MonoBehaviour
     private Animator _myAnimator;
     private Rigidbody2D _myRigidBody;
     private float verticalVelocity;
+    [SerializeField] private TempoManager _Tempo;
     #endregion
+    private float AnimSpeed;
     void Start()
     {
         _myAnimator = GetComponent<Animator>();
         _actionComponent = GetComponent<ActionComponent>();
         _myRigidBody = GetComponent<Rigidbody2D>();
-        
+        //_Tempo.SecondsPerTick
+        Debug.Log(_Tempo.SecondsPerTick);
+        AnimSpeed = _Tempo.SecondsPerTick * 3;
+        _myAnimator.SetFloat("RunSpeed", AnimSpeed);
     }
     void Update()
     {
