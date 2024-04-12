@@ -195,8 +195,9 @@ MonoBehaviour:
   Multiplier2Color: {r: 0.015250087, g: 1, b: 0, a: 0}
   Multiplier3Color: {r: 0, g: 0.7883401, b: 1, a: 0}
   Multiplier4Color: {r: 0.9208026, g: 0, b: 1, a: 0}
-  Multiplier1Intensity: 0.2
+  Multiplier1Intensity: 0
   Multiplier2Intensity: 0.3
   Multiplier3Intensity: 0.4
   Multiplier4Intensity: 0.5
   BeatDurationMultiplier: 1.5
+  timeSinceLastBeat: 0

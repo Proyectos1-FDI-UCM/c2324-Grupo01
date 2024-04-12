@@ -31,3 +31,9 @@ MonoBehaviour:
     playerSpeed: 9.266667
   - sceneName: Nivel_3_Kai
     playerSpeed: 0
+  - sceneName: TutorialV3
+    playerSpeed: 5.5
+  - sceneName: Nivel_Dear_X
+    playerSpeed: 7.5
+  - sceneName: Nivel GnokParty
+    playerSpeed: 9.266667
