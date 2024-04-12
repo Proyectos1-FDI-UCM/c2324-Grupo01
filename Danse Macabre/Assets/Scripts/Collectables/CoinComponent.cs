@@ -22,10 +22,11 @@ public class CoinComponent : MonoBehaviour
         ActionComponent _player = collision.gameObject.GetComponent<ActionComponent>();
         if (_player)
         {
-            print("collision");
-            _points.AddCoinPoints(_coinValue);
+            //print("collision");
+            _points.AddPoints(_coinValue, 0);
+            //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
             _points.CoinRegister();
-            MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.coinSound);
+            //MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.coinSound);
 
             Destroy(gameObject);
         }

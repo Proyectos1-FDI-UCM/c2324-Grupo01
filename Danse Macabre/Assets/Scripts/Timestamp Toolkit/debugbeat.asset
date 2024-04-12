@@ -1,0 +1,435 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e0b0bfec973a646a2b3f2deb0d37d6, type: 3}
+  m_Name: debugbeat
+  m_EditorClassIdentifier: 
+  timestamps:
+  - positionX: -1
+    time: 0
+  - positionX: 3.0000017
+    time: 0.4316547
+  - positionX: 7.0000033
+    time: 0.8633094
+  - positionX: 11.000005
+    time: 1.2949641
+  - positionX: 15.000007
+    time: 1.7266188
+  - positionX: 19.000008
+    time: 2.1582735
+  - positionX: 23.00001
+    time: 2.5899282
+  - positionX: 27.000011
+    time: 3.0215828
+  - positionX: 31.000013
+    time: 3.4532375
+  - positionX: 35.000015
+    time: 3.8848922
+  - positionX: 39.000015
+    time: 4.316547
+  - positionX: 43.00002
+    time: 4.7482014
+  - positionX: 47.00002
+    time: 5.1798563
+  - positionX: 51.000023
+    time: 5.611511
+  - positionX: 55.000023
+    time: 6.0431657
+  - positionX: 59.000027
+    time: 6.47482
+  - positionX: 63.000027
+    time: 6.906475
+  - positionX: 67.00003
+    time: 7.33813
+  - positionX: 71.00003
+    time: 7.7697845
+  - positionX: 75.00003
+    time: 8.201439
+  - positionX: 79.00003
+    time: 8.633094
+  - positionX: 83.00004
+    time: 9.064749
+  - positionX: 87.00004
+    time: 9.496403
+  - positionX: 91.00004
+    time: 9.928058
+  - positionX: 95.00004
+    time: 10.359713
+  - positionX: 99.000046
+    time: 10.791368
+  - positionX: 103.000046
+    time: 11.223022
+  - positionX: 107.000046
+    time: 11.654676
+  - positionX: 111.000046
+    time: 12.086331
+  - positionX: 115.000046
+    time: 12.517986
+  - positionX: 119.00005
+    time: 12.94964
+  - positionX: 123.00005
+    time: 13.381295
+  - positionX: 127.00005
+    time: 13.81295
+  - positionX: 131.00006
+    time: 14.244605
+  - positionX: 135.00006
+    time: 14.67626
+  - positionX: 139.00006
+    time: 15.107914
+  - positionX: 143.00006
+    time: 15.539569
+  - positionX: 147.00006
+    time: 15.971224
+  - positionX: 151.00006
+    time: 16.402878
+  - positionX: 155.00006
+    time: 16.834534
+  - positionX: 159.00006
+    time: 17.266188
+  - positionX: 163.00008
+    time: 17.697842
+  - positionX: 167.00008
+    time: 18.129498
+  - positionX: 171.00008
+    time: 18.561152
+  - positionX: 175.00008
+    time: 18.992805
+  - positionX: 179.00008
+    time: 19.424461
+  - positionX: 183.00008
+    time: 19.856115
+  - positionX: 187.00008
+    time: 20.287771
+  - positionX: 191.00008
+    time: 20.719425
+  - positionX: 195.00008
+    time: 21.15108
+  - positionX: 199.00009
+    time: 21.582735
+  - positionX: 203.00009
+    time: 22.014389
+  - positionX: 207.00009
+    time: 22.446045
+  - positionX: 211.00009
+    time: 22.877699
+  - positionX: 215.00009
+    time: 23.309353
+  - positionX: 219.00009
+    time: 23.741009
+  - positionX: 223.00009
+    time: 24.172663
+  - positionX: 227.00009
+    time: 24.604317
+  - positionX: 231.00009
+    time: 25.035973
+  - positionX: 235.00009
+    time: 25.467627
+  - positionX: 239.0001
+    time: 25.89928
+  - positionX: 243.0001
+    time: 26.330936
+  - positionX: 247.0001
+    time: 26.76259
+  - positionX: 251.0001
+    time: 27.194246
+  - positionX: 255.0001
+    time: 27.6259
+  - positionX: 259.00012
+    time: 28.057554
+  - positionX: 263.00012
+    time: 28.48921
+  - positionX: 267.00012
+    time: 28.920864
+  - positionX: 271.00012
+    time: 29.35252
+  - positionX: 275.00012
+    time: 29.784174
+  - positionX: -1
+    time: 0
+  - positionX: 3.0000017
+    time: 0.4316547
+  - positionX: 7.0000033
+    time: 0.8633094
+  - positionX: 11.000005
+    time: 1.2949641
+  - positionX: 15.000007
+    time: 1.7266188
+  - positionX: 19.000008
+    time: 2.1582735
+  - positionX: 23.00001
+    time: 2.5899282
+  - positionX: 27.000011
+    time: 3.0215828
+  - positionX: 31.000013
+    time: 3.4532375
+  - positionX: 35.000015
+    time: 3.8848922
+  - positionX: 39.000015
+    time: 4.316547
+  - positionX: 43.00002
+    time: 4.7482014
+  - positionX: 47.00002
+    time: 5.1798563
+  - positionX: 51.000023
+    time: 5.611511
+  - positionX: 55.000023
+    time: 6.0431657
+  - positionX: 59.000027
+    time: 6.47482
+  - positionX: 63.000027
+    time: 6.906475
+  - positionX: 67.00003
+    time: 7.33813
+  - positionX: 71.00003
+    time: 7.7697845
+  - positionX: 75.00003
+    time: 8.201439
+  - positionX: 79.00003
+    time: 8.633094
+  - positionX: 83.00004
+    time: 9.064749
+  - positionX: 87.00004
+    time: 9.496403
+  - positionX: 91.00004
+    time: 9.928058
+  - positionX: 95.00004
+    time: 10.359713
+  - positionX: 99.000046
+    time: 10.791368
+  - positionX: 103.000046
+    time: 11.223022
+  - positionX: 107.000046
+    time: 11.654676
+  - positionX: 111.000046
+    time: 12.086331
+  - positionX: 115.000046
+    time: 12.517986
+  - positionX: 119.00005
+    time: 12.94964
+  - positionX: 123.00005
+    time: 13.381295
+  - positionX: 127.00005
+    time: 13.81295
+  - positionX: 131.00006
+    time: 14.244605
+  - positionX: 135.00006
+    time: 14.67626
+  - positionX: 139.00006
+    time: 15.107914
+  - positionX: 143.00006
+    time: 15.539569
+  - positionX: 147.00006
+    time: 15.971224
+  - positionX: 151.00006
+    time: 16.402878
+  - positionX: 155.00006
+    time: 16.834534
+  - positionX: 159.00006
+    time: 17.266188
+  - positionX: 163.00008
+    time: 17.697842
+  - positionX: 167.00008
+    time: 18.129498
+  - positionX: 171.00008
+    time: 18.561152
+  - positionX: 175.00008
+    time: 18.992805
+  - positionX: 179.00008
+    time: 19.424461
+  - positionX: 183.00008
+    time: 19.856115
+  - positionX: 187.00008
+    time: 20.287771
+  - positionX: 191.00008
+    time: 20.719425
+  - positionX: 195.00008
+    time: 21.15108
+  - positionX: 199.00009
+    time: 21.582735
+  - positionX: 203.00009
+    time: 22.014389
+  - positionX: 207.00009
+    time: 22.446045
+  - positionX: 211.00009
+    time: 22.877699
+  - positionX: 215.00009
+    time: 23.309353
+  - positionX: 219.00009
+    time: 23.741009
+  - positionX: 223.00009
+    time: 24.172663
+  - positionX: 227.00009
+    time: 24.604317
+  - positionX: 231.00009
+    time: 25.035973
+  - positionX: 235.00009
+    time: 25.467627
+  - positionX: 239.0001
+    time: 25.89928
+  - positionX: 243.0001
+    time: 26.330936
+  - positionX: 247.0001
+    time: 26.76259
+  - positionX: 251.0001
+    time: 27.194246
+  - positionX: 255.0001
+    time: 27.6259
+  - positionX: 259.00012
+    time: 28.057554
+  - positionX: 263.00012
+    time: 28.48921
+  - positionX: 267.00012
+    time: 28.920864
+  - positionX: 271.00012
+    time: 29.35252
+  - positionX: 275.00012
+    time: 29.784174
+  - positionX: -1
+    time: 0
+  - positionX: 3.0000017
+    time: 0.4316547
+  - positionX: 7.0000033
+    time: 0.8633094
+  - positionX: 11.000005
+    time: 1.2949641
+  - positionX: 15.000007
+    time: 1.7266188
+  - positionX: 19.000008
+    time: 2.1582735
+  - positionX: 23.00001
+    time: 2.5899282
+  - positionX: 27.000011
+    time: 3.0215828
+  - positionX: 31.000013
+    time: 3.4532375
+  - positionX: 35.000015
+    time: 3.8848922
+  - positionX: 39.000015
+    time: 4.316547
+  - positionX: 43.00002
+    time: 4.7482014
+  - positionX: 47.00002
+    time: 5.1798563
+  - positionX: 51.000023
+    time: 5.611511
+  - positionX: 55.000023
+    time: 6.0431657
+  - positionX: 59.000027
+    time: 6.47482
+  - positionX: 63.000027
+    time: 6.906475
+  - positionX: 67.00003
+    time: 7.33813
+  - positionX: 71.00003
+    time: 7.7697845
+  - positionX: 75.00003
+    time: 8.201439
+  - positionX: 79.00003
+    time: 8.633094
+  - positionX: 83.00004
+    time: 9.064749
+  - positionX: 87.00004
+    time: 9.496403
+  - positionX: 91.00004
+    time: 9.928058
+  - positionX: 95.00004
+    time: 10.359713
+  - positionX: 99.000046
+    time: 10.791368
+  - positionX: 103.000046
+    time: 11.223022
+  - positionX: 107.000046
+    time: 11.654676
+  - positionX: 111.000046
+    time: 12.086331
+  - positionX: 115.000046
+    time: 12.517986
+  - positionX: 119.00005
+    time: 12.94964
+  - positionX: 123.00005
+    time: 13.381295
+  - positionX: 127.00005
+    time: 13.81295
+  - positionX: 131.00006
+    time: 14.244605
+  - positionX: 135.00006
+    time: 14.67626
+  - positionX: 139.00006
+    time: 15.107914
+  - positionX: 143.00006
+    time: 15.539569
+  - positionX: 147.00006
+    time: 15.971224
+  - positionX: 151.00006
+    time: 16.402878
+  - positionX: 155.00006
+    time: 16.834534
+  - positionX: 159.00006
+    time: 17.266188
+  - positionX: 163.00008
+    time: 17.697842
+  - positionX: 167.00008
+    time: 18.129498
+  - positionX: 171.00008
+    time: 18.561152
+  - positionX: 175.00008
+    time: 18.992805
+  - positionX: 179.00008
+    time: 19.424461
+  - positionX: 183.00008
+    time: 19.856115
+  - positionX: 187.00008
+    time: 20.287771
+  - positionX: 191.00008
+    time: 20.719425
+  - positionX: 195.00008
+    time: 21.15108
+  - positionX: 199.00009
+    time: 21.582735
+  - positionX: 203.00009
+    time: 22.014389
+  - positionX: 207.00009
+    time: 22.446045
+  - positionX: 211.00009
+    time: 22.877699
+  - positionX: 215.00009
+    time: 23.309353
+  - positionX: 219.00009
+    time: 23.741009
+  - positionX: 223.00009
+    time: 24.172663
+  - positionX: 227.00009
+    time: 24.604317
+  - positionX: 231.00009
+    time: 25.035973
+  - positionX: 235.00009
+    time: 25.467627
+  - positionX: 239.0001
+    time: 25.89928
+  - positionX: 243.0001
+    time: 26.330936
+  - positionX: 247.0001
+    time: 26.76259
+  - positionX: 251.0001
+    time: 27.194246
+  - positionX: 255.0001
+    time: 27.6259
+  - positionX: 259.00012
+    time: 28.057554
+  - positionX: 263.00012
+    time: 28.48921
+  - positionX: 267.00012
+    time: 28.920864
+  - positionX: 271.00012
+    time: 29.35252
+  - positionX: 275.00012
+    time: 29.784174

@@ -17,7 +17,8 @@ public class SaveScoreWin : MonoBehaviour
         {
             _scoreManager.SaveFinalScore();
             //Cambiar escena de Victoria
-            SceneManager.LoadScene(5);
+            GameManager.Instance.ResetCheckpoint();
+            SceneManager.LoadScene(4);
         }
     }
     #endregion

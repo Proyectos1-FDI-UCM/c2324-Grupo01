@@ -9,6 +9,9 @@ TagManager:
   - Enemigo
   - Caja
   - Start Music
+  - Stomp
+  - Jump
+  - DashSlide
   layers:
   - Default
   - TransparentFX
@@ -18,10 +21,11 @@ TagManager:
   - UI
   - Plataformas
   - Player
-  - 
-  - 
-  - 
-  - 
+  - Arrows
+  - Trampoline
+  - Wall
+  - Traps
+  - Enemies
   - 
   - 
   - 

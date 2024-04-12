@@ -9,13 +9,18 @@ public class AnimationComponent : MonoBehaviour
     private Animator _myAnimator;
     private Rigidbody2D _myRigidBody;
     private float verticalVelocity;
+    [SerializeField] private TempoManager _Tempo;
     #endregion
+    private float AnimSpeed;
     void Start()
     {
         _myAnimator = GetComponent<Animator>();
         _actionComponent = GetComponent<ActionComponent>();
         _myRigidBody = GetComponent<Rigidbody2D>();
-        
+        //_Tempo.SecondsPerTick
+        //Debug.Log(_Tempo.SecondsPerTick);
+        AnimSpeed = _Tempo.SecondsPerTick * 3;
+        _myAnimator.SetFloat("RunSpeed", AnimSpeed);
     }
     void Update()
     {
@@ -39,7 +44,7 @@ public class AnimationComponent : MonoBehaviour
         {
             if (_actionComponent.isDashing == true)
             {
-                Debug.Log("Dashing");
+                //Debug.Log("Dashing");
                 _myAnimator.SetInteger("State", 5); //esto seria dash en el futuro
             }
             else //if (_actionComponent.actionState == ActionComponent.ActionStateEnum)
@@ -63,7 +68,7 @@ public class AnimationComponent : MonoBehaviour
                 else
                 {
                    // Debug.Log("Air static");
-                    _myAnimator.SetInteger("State", 4);
+                    _myAnimator.SetInteger("State", 5);
                 }
             }
             
@@ -77,5 +82,10 @@ public class AnimationComponent : MonoBehaviour
             */
         }
         
+    }
+
+    public void ToggleAnimationOff()
+    {
+        _myAnimator.enabled = false;
     }
 }

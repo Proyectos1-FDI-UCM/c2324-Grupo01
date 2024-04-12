@@ -7,7 +7,7 @@ public class EnemyInteractionComponent : MonoBehaviour
 {
     #region parameters
     [SerializeField]
-    private float _destroyTime = 5f;
+    private float _destroyTime = 0.5f;
 
     [SerializeField]
     private int _enemyValue = 5;
@@ -18,33 +18,46 @@ public class EnemyInteractionComponent : MonoBehaviour
     private EnemyAnimation _enemyAnimation;
     private ScoreManager _scoreManager;
     [SerializeField]
-    private bool BouncyEnemy;
+    public bool BouncyEnemy;
+
+    [SerializeField] Collider2D Collider;
     #endregion
-    private void OnTriggerEnter2D(Collider2D other)
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     MovementComponent _player = other.GetComponent<MovementComponent>();
+    //     if (_player != null)
+    //     {
+    //         if (_playerActionComponent.isStomping || _playerActionComponent.isDashing || _playerActionComponent.isSliding)
+    //         {
+    //             _enemyAnimation.DeathAnimation(); //Muere enemigo
+    //             _scoreManager.AddPoints(_enemyValue, 1);
+    //             //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
+            //     Invoke("DestroyEnemy", _destroyTime);
+            //     if (BouncyEnemy)
+            //     {
+            //         _playerActionComponent.Bounce();
+            //     }
+            // }
+            // else 
+            // {
+            //     // _scoreManager.SaveFinalScore();
+            //     // //Guardar el nombre de la escena anterior para el bot�n restart
+            //     // PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
+            //     // //Cambiar escena de Muerte
+            //     // SceneManager.LoadScene(4);
+            // }
+        //}
+    //}
+
+    public void DestroyEnemy()
     {
-        MovementComponent _player = other.GetComponent<MovementComponent>();
-        if (_player != null)
-        {
-            if (_playerActionComponent.isStomping || _playerActionComponent.isDashing || _playerActionComponent.isSliding)
-            {
-                _enemyAnimation.DeathAnimation(); //Muere enemigo
-                _scoreManager.AddEnemyPoints(_enemyValue);
-                Invoke("DestroyEnemy", _destroyTime);
-                if (BouncyEnemy)
-                {
-                    _playerActionComponent.Bounce();
-                    _playerActionComponent.isStomping = false;
-                }
-            }
-            else 
-            {
-                _scoreManager.SaveFinalScore();
-                //Cambiar escena de Muerte
-                SceneManager.LoadScene(4);
-            }
-        }
+        //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
+        _scoreManager.AddPoints(_enemyValue, 1);
+        Collider.enabled = false;
+        Invoke("DestroyGameObject", _destroyTime);
+
     }
-    private void DestroyEnemy()
+    public void DestroyGameObject()
     {
         Destroy(gameObject);
     }

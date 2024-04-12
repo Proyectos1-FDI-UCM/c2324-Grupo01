@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class ActionComponent : MonoBehaviour
@@ -9,21 +6,30 @@ public class ActionComponent : MonoBehaviour
     #region parameters
     //Saltos
     [SerializeField]
-    private float _jumpSpeed;
-    private float originalGravityScale;
+    public float jumpSpeed = 11;
+    public float originalGravityScale = 2;
     [SerializeField]
-    private float gravityFactor = 0.90f;
-    [SerializeField]
+    public float gravityFactor = 0.90f;
     private float groundCheckDistance = 0.55f;
+    private float trampolinCheckDistance = 0.60f;
+    public float stompDownwardSpeed = 20;
+    public float trampolineJumpSpeed = 15;
     [SerializeField]
-    private float impulseStomp = 20;
-    [SerializeField]
-    private float dashDuration = 2.0f;
+    public float dashDuration = 0.7f;
     private float dashEndTime = 0;
 
     //rango de tiempo que puedes hacer dash (cuando coges la moneda especial)
     [SerializeField]
     private float _dashElapsedTime = 0.0f;
+
+    [SerializeField]
+    private float slideCTR = 0.15f;
+    [SerializeField]
+    private float dashCTR = 0.2f;
+    [SerializeField]
+    private float jumpCTR = 0.2f;
+    [SerializeField]
+    private float stompCTR = 0.1f;
     #endregion
 
     #region references
@@ -31,8 +37,21 @@ public class ActionComponent : MonoBehaviour
     private Rigidbody2D _myRB;
     private BoxCollider2D _myCollider;
     [SerializeField]
-    private LayerMask groundLayer; // Capa que representa el suelo
+    private LayerMask groundLayer; // Capa que representa el suelo / Añadir trampoline!
+    [SerializeField]
+    private LayerMask trampolineLayer;
 
+
+    // sfx
+    [SerializeField] 
+    private AudioClip _jumpSound;
+    [SerializeField]
+    private AudioClip _stompSound;
+    [SerializeField]
+    private AudioClip _slideSound;
+    [SerializeField]
+    private AudioClip _dashSound;
+    
     //collider references
     [SerializeField]
     private float DefaultCollisionSizeX;
@@ -51,7 +70,12 @@ public class ActionComponent : MonoBehaviour
     [SerializeField]
     private float SlideCollisionOffsetY;
 
+    [SerializeField]
+    private ParticleSystem SlideParticleSystem;
+    private ParticleSystem.EmissionModule SlideParticleEmitter;
+
     BoxCollider2D myCollider;
+    private AudioSource myAudioSource;
     #endregion
 
     #region properties
@@ -78,20 +102,32 @@ public class ActionComponent : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(_myTransform.position, Vector2.down, groundCheckDistance, groundLayer);
         return hit.collider != null;
     }
+    private bool IsTrampolin()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(_myTransform.position, Vector2.down, trampolinCheckDistance, trampolineLayer);
+        return hit.collider != null;
+    }
+    private void TrampolineBounce()
+    {
+        _myRB.velocity = new Vector3(_myRB.velocity.x, trampolineJumpSpeed);
+    }
+
     public void Jump()
     {
-        //JUMP 
+        //print("isjumping: "+ _isJumping);
+        //print("isGrounded: "+ IsGrounded());
         if (IsGrounded())
         {
             isStomping = false;
-            //_isJumping = true;
+            _isJumping = true;
+            myAudioSource.PlayOneShot(_jumpSound, jumpCTR);
             Bounce();
         }
     }
     public void Bounce()
     {
         // Este m�todo est?separado para que se pueda llamar a la hora de rebotar encima de un enemigo determinado sin comprobar grounded
-        _myRB.velocity = new Vector2(_myRB.velocity.x, _jumpSpeed);
+        _myRB.velocity = new Vector2(_myRB.velocity.x, jumpSpeed);
     }
 
     public void Stomp()
@@ -100,23 +136,37 @@ public class ActionComponent : MonoBehaviour
         {
             isDashing = false;
             isStomping = true;
-            _myRB.AddForce(impulseStomp * Vector2.down, ForceMode2D.Impulse);
+            _myRB.velocity = new Vector3(_myRB.velocity.x, - stompDownwardSpeed);
+            
+            if (!isDashing) myAudioSource.PlayOneShot(_stompSound, stompCTR);
+            
         }
     }
 
-    public void Slide()
+    public void SlideDash()
     {
-        if (!IsGrounded() && canDash) //DASH
+        if (!IsGrounded() && canDash && !isDashing && !isStomping)
         {
             isDashing = true;
+            _isJumping = false;
             canDash = false;
             StartCoroutine(Dash());
+
+            if (!myAudioSource.isPlaying)
+            {
+                myAudioSource.PlayOneShot(_dashSound, dashCTR);
+            }
         }
         else if (IsGrounded())
         {
             isSliding = true;
             myCollider.offset = new Vector2(SlideCollisionOffsetX, SlideCollisionOffsetY);
             myCollider.size = new Vector2(SlideCollisionSizeX, SlideCollisionSizeY);
+            if (!myAudioSource.isPlaying)
+            {
+                myAudioSource.PlayOneShot(_slideSound, slideCTR);
+                myAudioSource.loop = true;
+            }
         }
     }
     public void SlideStop()
@@ -124,6 +174,8 @@ public class ActionComponent : MonoBehaviour
         myCollider.offset = new Vector2(DefaultCollisionOffsetX, DefaultCollisionOffsetY);
         myCollider.size = new Vector2(DefaultCollisionSizeX, DefaultCollisionSizeY);
         isSliding = false;
+        myAudioSource.Stop();
+        myAudioSource.loop = false;
     }
     public void DashCountDown(float _time)
     {
@@ -147,7 +199,9 @@ public class ActionComponent : MonoBehaviour
 
         _myRB.gravityScale = originalGravityScale;
         isDashing = false;
+        myAudioSource.Stop();
     }
+
     #endregion
 
     void Start()
@@ -155,28 +209,41 @@ public class ActionComponent : MonoBehaviour
         _myTransform = transform;
         _myRB = GetComponent<Rigidbody2D>();
         _myCollider = GetComponent<BoxCollider2D>();
-
+        
         myCollider = this.gameObject.GetComponent<BoxCollider2D>();
         myCollider.offset = new Vector2(DefaultCollisionOffsetX, DefaultCollisionOffsetY);
         myCollider.size = new Vector2(DefaultCollisionSizeX, DefaultCollisionSizeY);
 
         originalGravityScale = _myRB.gravityScale;
+        myAudioSource = GetComponent<AudioSource>();
+
+        SlideParticleSystem.Play();
+        SlideParticleEmitter = SlideParticleSystem.emission;
+        SlideParticleEmitter.enabled = false;
+
     }
 
     void Update()
     {
-        //if (IsGrounded() && (actionState == ActionComponent.ActionStateEnum.Stomping)) + state = none
-        if (IsGrounded())
+        if (isStomping && IsTrampolin()) {
+            TrampolineBounce();
+            isStomping = false;
+        }
+        else if (IsGrounded())
         {
             //canDash = false;
             isStomping = false;
+            _isJumping = false;
         }
 
         //Despues de coger la moneda, dash elapsed time se actualiza y entrar?al condicional
         if (_dashElapsedTime >= 0)
         {
             _dashElapsedTime -= Time.deltaTime;
-            canDash = true;
+            if (!isDashing && !isStomping)
+            {
+                canDash = true;
+            }
         }
         else
         {
@@ -184,8 +251,19 @@ public class ActionComponent : MonoBehaviour
         }
         //Debug.Log("Dash time: "+_dashElapsedTime);
 
+        // VFX
+        if (isSliding)
+        {
+            SlideParticleEmitter.enabled = true;
+        }
+        else
+        {
+            SlideParticleEmitter.enabled = false;
+        }
+
     }
-        private void FixedUpdate()
+
+    private void FixedUpdate()
     {
         if (_myRB.velocity.y < -0.01f && !gravityChanged)
         {
