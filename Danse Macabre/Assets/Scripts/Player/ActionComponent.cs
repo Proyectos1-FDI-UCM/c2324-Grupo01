@@ -70,6 +70,10 @@ public class ActionComponent : MonoBehaviour
     [SerializeField]
     private float SlideCollisionOffsetY;
 
+    [SerializeField]
+    private ParticleSystem SlideParticleSystem;
+    private ParticleSystem.EmissionModule SlideParticleEmitter;
+
     BoxCollider2D myCollider;
     private AudioSource myAudioSource;
     #endregion
@@ -172,7 +176,6 @@ public class ActionComponent : MonoBehaviour
         isSliding = false;
         myAudioSource.Stop();
         myAudioSource.loop = false;
-        
     }
     public void DashCountDown(float _time)
     {
@@ -214,6 +217,10 @@ public class ActionComponent : MonoBehaviour
         originalGravityScale = _myRB.gravityScale;
         myAudioSource = GetComponent<AudioSource>();
 
+        SlideParticleSystem.Play();
+        SlideParticleEmitter = SlideParticleSystem.emission;
+        SlideParticleEmitter.enabled = false;
+
     }
 
     void Update()
@@ -243,6 +250,16 @@ public class ActionComponent : MonoBehaviour
             canDash = false;
         }
         //Debug.Log("Dash time: "+_dashElapsedTime);
+
+        // VFX
+        if (isSliding)
+        {
+            SlideParticleEmitter.enabled = true;
+        }
+        else
+        {
+            SlideParticleEmitter.enabled = false;
+        }
 
     }
 
