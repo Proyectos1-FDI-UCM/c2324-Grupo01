@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808cc8c1cbbf7ec4fa94ff866113f50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Distance: 0
-  JeffSpeed: 0
+  Distance: 2
+  JeffSpeed: 2
 --- !u!114 &4226241305321965267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +118,7 @@ MonoBehaviour:
   _destroyTime: 5
   _enemyValue: 10
   BouncyEnemy: 0
+  Collider: {fileID: 1549744496353168120}
 --- !u!58 &1549744496353168120
 CircleCollider2D:
   m_ObjectHideFlags: 0
