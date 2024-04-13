@@ -1,7 +1,6 @@
 using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -64,17 +63,17 @@ public class GameManager : MonoBehaviour
         {
             Destroy(instance);
         }
-    }
-    private void Start()
-    {
+
         LoadAllReferences();
     }
 
     #region methods
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    { // Runs whenever a scene is loaded
-
-        GameManager.Instance.LoadAllReferences();
+    public void DebugGM()
+    {
+        print("GMMMMMMMMMMMM");
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) // Runs whenever a scene is loaded
+    { 
         GameManager.Instance.LoadLevelData();
         MusicManager.Instance.LoadAllReferences();
 

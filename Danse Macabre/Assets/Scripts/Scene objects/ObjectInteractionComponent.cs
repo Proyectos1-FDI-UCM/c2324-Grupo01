@@ -10,7 +10,7 @@ public class ObjectInteractionComponent : MonoBehaviour
     private int _value = 5; //Puntos que suma al jugador
     #endregion
     #region references
-    private ActionComponent _playerActionComponent;
+    private ActionComponent _actionComponent;
     private GameManager _gameManager;
     private ScoreManager _scoreManager;
     private Animator _myAnimator;
@@ -19,10 +19,12 @@ public class ObjectInteractionComponent : MonoBehaviour
     #region methods
     private void OnTriggerEnter2D(Collider2D other) //cuando colisiona
     {
-        ActionComponent _playerActionComponent = other.GetComponent<ActionComponent>();
-        if (_playerActionComponent != null)
+        ActionComponent _actionComponent = other.GetComponent<ActionComponent>();
+        if (_actionComponent != null)
         {
-            if (_playerActionComponent.isSliding || _playerActionComponent.isStomping || _playerActionComponent.isDashing)
+            if (_actionComponent.currentAction == ActionComponent.Action.Sliding 
+            || _actionComponent.currentAction == ActionComponent.Action.Stomping 
+            || _actionComponent.currentAction == ActionComponent.Action.Dashing)
             {
                 _scoreManager.AddPoints(_value,2 );
                 //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
@@ -48,7 +50,7 @@ public class ObjectInteractionComponent : MonoBehaviour
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
-        _playerActionComponent = FindObjectOfType<ActionComponent>();
+        _actionComponent = FindObjectOfType<ActionComponent>();
         _scoreManager = FindObjectOfType<ScoreManager>();
         _myAnimator = GetComponent<Animator>();
     }

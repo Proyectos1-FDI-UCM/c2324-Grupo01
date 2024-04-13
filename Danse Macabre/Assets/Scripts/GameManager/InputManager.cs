@@ -22,22 +22,16 @@ public class InputManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.UpArrow))
         {
             _playerActionComponent.Jump();
-            _timing.CheckNearbyArrow(); // For perfect timing
-
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             _playerActionComponent.Stomp();
-            _timing.CheckNearbyArrow(); // For perfect timing
         }
         else if (Input.GetKey(KeyCode.Z)||Input.GetKey(KeyCode.RightArrow))
         {
             _playerActionComponent.SlideDash();
         }
-        
-        if (Input.GetKeyDown(KeyCode.Z)||Input.GetKeyDown(KeyCode.RightArrow)){
-            _timing.CheckNearbyArrow(); // For perfect timing GETKEYDOWN
-        }
+    
         
         if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.RightArrow))
         {

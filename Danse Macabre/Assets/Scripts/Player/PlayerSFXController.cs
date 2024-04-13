@@ -20,12 +20,12 @@ public class PlayerSFXController : MonoBehaviour
         if ( _myAction != null )
         {
             
-            if (_myAction._isJumping)
+            if (_myAction.currentAction == ActionComponent.Action.Jumping)
             {
                 Debug.Log("Entrado");
                 _audioSource.PlayOneShot(audioClips[0]);
             }
-            else if (_myAction.isStomping)
+            else if (_myAction.currentAction == ActionComponent.Action.Stomping)
             {
                 _audioSource.PlayOneShot(audioClips[1]);
                 Debug.Log("Entrando 2");

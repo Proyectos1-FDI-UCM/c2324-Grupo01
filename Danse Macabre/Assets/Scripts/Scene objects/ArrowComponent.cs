@@ -38,6 +38,7 @@ public class ArrowComponent : MonoBehaviour
     }
     /// <summary>
     /// Checks if an action was already done inside this arrow.
+    /// Missed Component from the edge collider object calls it to give it a missed if case.
     /// </summary>
     /// <returns>If an action was made, TRUE. If not, FALSE.</returns>
     public bool IsDone()
@@ -51,17 +52,6 @@ public class ArrowComponent : MonoBehaviour
     {
         _myAnimator.enabled = false;
         _myRenderer.sprite = graySprite;
-    }
-    /// <summary>
-    /// If any action wasn't done inside the collider of the arrow, this method informs that was a MISSED.
-    /// </summary>
-    /// <param name="collision"></param>
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(!actionDone)
-        {
-            GameManager.Instance.ArrowTiming("MISSED");
-        }
     }
     #endregion
 

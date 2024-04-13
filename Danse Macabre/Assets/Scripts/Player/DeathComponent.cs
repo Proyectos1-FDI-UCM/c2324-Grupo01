@@ -38,13 +38,15 @@ public class DeathComponent : MonoBehaviour
         _DeathFilter.enabled = false;
         PlayerAlive = true;
     }
-
     private void Update()
     {
         CheckVelocityChange();
     }
 
     #region methods
+    /// <summary>
+    /// Method that manages death and processes involved.
+    /// </summary>
     private void Death()
     {
         if (GameManager.Instance.PlayerCanBeKilled())
@@ -58,12 +60,13 @@ public class DeathComponent : MonoBehaviour
             Invoke("CallPlayerDeath", 1.2f);
         }
     }
-
     private void CallPlayerDeath()
     {
         GameManager.Instance.PlayerHasDied();
     }
-
+    /// <summary>
+    /// Checks if horizontal velocity of the player's rigidbody has changed to kill it true.
+    /// </summary>
     private void CheckVelocityChange()
     {
         if (_RB.velocity.x < _movementComponent.speed - 0.1f && PlayerAlive)
@@ -71,41 +74,22 @@ public class DeathComponent : MonoBehaviour
             Death();
         }
     }
-    
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision) // For traps.
     {
-
         if (collision.gameObject.layer == layerValueTraps && PlayerAlive)
         {
             Death();
         }
-
-        if (collision.gameObject.layer == layerValueEnemy && (_actionComponent.isStomping || _actionComponent.isDashing))
-        {
-            GameObject enemy = collision.gameObject;
-            enemy.GetComponent<EnemyAnimation>().DeathAnimation();
-            enemy.GetComponent<EnemyInteractionComponent>().DestroyEnemy();
-            
-            if (enemy.GetComponent<EnemyInteractionComponent>().BouncyEnemy)
-            {
-                _actionComponent.isStomping = false;
-                _actionComponent.Bounce();
-            }
-        }
-        else if (collision.gameObject.layer == layerValueEnemy && !(_actionComponent.isStomping || _actionComponent.isDashing) && PlayerAlive)
-        {
-            Death();
-        }
-
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision) // For enemies and any trigger traps.
     {
         if (collision.gameObject.layer == layerValueTraps && PlayerAlive)
         {
             Death();
         }
-        if (collision.gameObject.layer == layerValueEnemy && (_actionComponent.isStomping || _actionComponent.isDashing))
+        if (collision.gameObject.layer == layerValueEnemy 
+        && (_actionComponent.currentAction == ActionComponent.Action.Stomping || _actionComponent.currentAction == ActionComponent.Action.Dashing))
         {
             GameObject enemy = collision.gameObject;
             enemy.GetComponent<EnemyAnimation>().DeathAnimation();
@@ -113,11 +97,13 @@ public class DeathComponent : MonoBehaviour
 
             if (enemy.GetComponent<EnemyInteractionComponent>().BouncyEnemy)
             {
-                _actionComponent.isStomping = false;
+                //_actionComponent.isStomping = false;
                 _actionComponent.Bounce();
             }
         }
-        else if (collision.gameObject.layer == layerValueEnemy && !(_actionComponent.isStomping || _actionComponent.isDashing) && PlayerAlive)
+        else if (collision.gameObject.layer == layerValueEnemy 
+        && !(_actionComponent.currentAction == ActionComponent.Action.Stomping || _actionComponent.currentAction == ActionComponent.Action.Dashing) 
+        && PlayerAlive)
         {
             Death();
         }
