@@ -225,6 +225,7 @@ public class ActionComponent : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("IsSliding" + isSliding);
         if (isStomping && IsTrampolin()) {
             TrampolineBounce();
             isStomping = false;
