@@ -105,9 +105,4 @@ public class MaxScoreCalculator : MonoBehaviour
         _comboManager=FindObjectOfType<ComboManager>();
         _scoreManager=FindObjectOfType<ScoreManager>();
     }
-    void Update()
-    {
-        ScoreCalculate();
-        Debug.Log("MaxScore"+ _maxScore);
-    }
 }

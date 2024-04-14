@@ -128,6 +128,7 @@ public class ScoreManager : MonoBehaviour
         PlayerPrefs.SetFloat("CheckpointCoinScore", (float)_coinPoint);
         PlayerPrefs.SetFloat("CheckpointEnemyScore", (float)_enemyPoint);
         PlayerPrefs.SetFloat("CheckpointObjectScore", (float)_destroyObjectPoint);
+        PlayerPrefs.SetFloat("CheckpointBasicScore", (float)_basicPoint);
     }
 
     public void LoadCheckpointScore()
@@ -136,6 +137,7 @@ public class ScoreManager : MonoBehaviour
         _coinPoint = PlayerPrefs.GetFloat("CheckpointCoinScore");
         _enemyPoint = PlayerPrefs.GetFloat("CheckpointEnemyScore");
         _destroyObjectPoint = PlayerPrefs.GetFloat("CheckpointObjectScore");
+        _basicPoint = PlayerPrefs.GetFloat("CheckpointBasicScore");
     }
 
     public void SaveFinalScore() 
@@ -162,7 +164,6 @@ public class ScoreManager : MonoBehaviour
             _totalPoint += Time.deltaTime;
 
         }
-        Debug.Log("Puntos basicos" + _basicPoint);
 
         //Debug.Log("Puntos" + _totalPoint);
         _textPuntos.text = _totalPoint.ToString("0");

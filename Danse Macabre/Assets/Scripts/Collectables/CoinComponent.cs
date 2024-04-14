@@ -36,7 +36,7 @@ public class CoinComponent : MonoBehaviour
     void Start()
     {
         _points = FindObjectOfType<ScoreManager>();
-        if (_coinValue > 10) MaxScoreCalculator.Instance.ObjectRegister(3,_coinValue);
+        if (_coinValue > 15) MaxScoreCalculator.Instance.ObjectRegister(3,_coinValue);
         else MaxScoreCalculator.Instance.ObjectRegister(1, _coinValue);
     }
 
