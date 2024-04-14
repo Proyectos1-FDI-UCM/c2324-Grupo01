@@ -53,5 +53,8 @@ public class ObjectInteractionComponent : MonoBehaviour
         _actionComponent = FindObjectOfType<ActionComponent>();
         _scoreManager = FindObjectOfType<ScoreManager>();
         _myAnimator = GetComponent<Animator>();
+
+        //tipo 0=monedas, 1=enemigo, 2=box, 3=DashCoin
+        MaxScoreCalculator.Instance.ObjectRegister(2, _value);
     }
 }

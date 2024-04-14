@@ -25,6 +25,7 @@ public class ArrowComponent : MonoBehaviour
     {
         _myAnimator = GetComponent<Animator>();
         _myRenderer = GetComponent<SpriteRenderer>();
+        MaxScoreCalculator.Instance.ArrowRegister();
     }
 
     #region methods

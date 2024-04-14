@@ -13,9 +13,7 @@ public class EnemyInteractionComponent : MonoBehaviour
     private int _enemyValue = 5;
     #endregion
     #region references
-    private ActionComponent _playerActionComponent;
     private GameManager _gameManager;
-    private EnemyAnimation _enemyAnimation;
     private ScoreManager _scoreManager;
     [SerializeField]
     public bool BouncyEnemy;
@@ -64,8 +62,9 @@ public class EnemyInteractionComponent : MonoBehaviour
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
-        _playerActionComponent=FindObjectOfType<ActionComponent>();
         _scoreManager = FindObjectOfType<ScoreManager>();
-        _enemyAnimation= GetComponent<EnemyAnimation>();
+
+        //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
+        MaxScoreCalculator.Instance.ObjectRegister(1, _enemyValue);
     }
 }

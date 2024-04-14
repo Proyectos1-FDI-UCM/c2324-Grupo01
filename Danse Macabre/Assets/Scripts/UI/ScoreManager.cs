@@ -8,7 +8,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class ScoreManager : MonoBehaviour
 {
     #region parameters
-    private float perfectTimingValue = 10;
+    public float perfectTimingValue = 10;
     private float greatTimingValue = 5;
     private float goodTimingValue = 1;
 
@@ -27,7 +27,7 @@ public class ScoreManager : MonoBehaviour
     #region properties
     //para el slider del combo
     public double _totalPoint = 0f;
-    private double _basicPoint = 0f;
+    public double _basicPoint = 0f;
     private float _coinPoint = 0;
     private float _enemyPoint = 0;
     private float _destroyObjectPoint = 0;
@@ -122,11 +122,6 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void CoinRegister()
-    {
-        _nCoins++;
-    }
-
     public void SaveCheckpointScore()
     {
         PlayerPrefs.SetFloat("CheckpointScore", (float)_totalPoint);
@@ -165,7 +160,9 @@ public class ScoreManager : MonoBehaviour
         {
             _basicPoint += Time.deltaTime;
             _totalPoint += Time.deltaTime;
+
         }
+        Debug.Log("Puntos basicos" + _basicPoint);
 
         //Debug.Log("Puntos" + _totalPoint);
         _textPuntos.text = _totalPoint.ToString("0");

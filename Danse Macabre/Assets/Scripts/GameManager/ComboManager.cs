@@ -8,17 +8,17 @@ public class ComboManager : MonoBehaviour
     private float combo = 0;
     public float multiplier = 0;
    
-    public float threshold1 = 100; // Threshold de multiplicador
+    public float threshold1; // Threshold de multiplicador
     
-    public float threshold1mul = 1.1f; // Multiplicador correspondiente al threshold anterior
+    public float threshold1mul = 2f; // Multiplicador correspondiente al threshold anterior
     
     public float threshold2 = 200; // Threshold de multiplicador
     
-    public float threshold2mul = 1.2f; // Multiplicador correspondiente al threshold anterior
+    public float threshold2mul = 3f; // Multiplicador correspondiente al threshold anterior
     
     public float threshold3 = 300; // Threshold de multiplicador
 
-    public float threshold3mul = 1.3f; // Multiplicador correspondiente al threshold anterior
+    public float threshold3mul = 4f; // Multiplicador correspondiente al threshold anterior
 
     //modificado por Bing 
     #region references

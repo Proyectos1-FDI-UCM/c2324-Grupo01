@@ -15,6 +15,9 @@ public class MenuFinalJuego : MonoBehaviour
     private TextMeshProUGUI _textPuntuacionEnemigo;
     [SerializeField]
     private TextMeshProUGUI _textPuntuacionObjecto;
+
+    [SerializeField]
+    private TextMeshProUGUI _textMaxScore;
     #endregion
     #region properties
     //public bool quitToMenuLevel = false;
@@ -49,6 +52,9 @@ public class MenuFinalJuego : MonoBehaviour
             _textPuntuacionMoneda.text = coinScore.ToString("0");
             _textPuntuacionEnemigo.text = enemyScore.ToString("0");
             _textPuntuacionObjecto.text = objectScore.ToString("0");
+
+            float MaxScore=PlayerPrefs.GetFloat("MaxScore",0f);
+            _textMaxScore.text = MaxScore.ToString("0");
         }
     }
 }

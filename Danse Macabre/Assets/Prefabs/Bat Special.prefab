@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _destroyTime: 5
-  _enemyValue: 20
+  _enemyValue: 10
   BouncyEnemy: 1
   Collider: {fileID: 6432770650231140465}
 --- !u!95 &7136414799280994542
