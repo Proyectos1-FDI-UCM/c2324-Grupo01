@@ -1,10 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuInicialLevels : MonoBehaviour
 {
+    #region references
+    [SerializeField] private GameObject menuLevel;
+    [SerializeField] private GameObject menuInicio;
+
+    private MenuFinalJuego menuFinal;
+    #endregion
+    #region methods
+    public void OnPlayBottonClicked()   
+    {
+        menuLevel.SetActive(true);
+        menuInicio.SetActive(false);
+    }
     public void Jugar_Tutorial() 
     {
         Time.timeScale = 1f;
@@ -19,5 +29,29 @@ public class MenuInicialLevels : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(3);
+    }
+
+    public void Salir()
+    {
+        PlayerPrefs.SetInt("MenuLevelActivo", 0);
+        Application.Quit();
+    }
+    #endregion
+    void Start()
+    {
+        if (PlayerPrefs.HasKey("MenuLevelActivo"))
+        {
+            int isActiveMenuLevel = PlayerPrefs.GetInt("MenuLevelActivo");
+            if (isActiveMenuLevel == 1) 
+            {
+                menuLevel.SetActive(true);
+                menuInicio.SetActive(false);
+            }
+            else
+            {
+                 menuLevel.SetActive(false);
+                menuInicio.SetActive(true);
+            }
+        }
     }
 }

@@ -3,82 +3,178 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoreManager : MonoBehaviour
 {
     #region parameters
-    private double _totalPoint = 0f;
-    private double _basicPoint = 0f;
-    private float _coinPoint = 0;
-    private float _enemyPoint = 0;
-    private float _destroyObjectPoint = 0;
-    
+    public float perfectTimingValue = 10;
+    private float greatTimingValue = 5;
+    private float goodTimingValue = 1;
 
-    private int _nCoins = 0;
-    #endregion
+    private bool _gameStart = false;
+    #endregion 
 
     #region references
-    [SerializeField]
-    private TextMeshProUGUI _textPuntos;
-    private MenuVictoria _victoria;
+    [SerializeField] private TextMeshProUGUI _textPuntos;
+    [SerializeField] private TextMeshPro _textPuntosAñadidos;
+    [SerializeField] private TextMeshProUGUI _textoArriba;
+
+    private ComboSliderComponent comboSliderComponent;
     private ComboManager _combo;
     #endregion
 
+    #region properties
+    //para el slider del combo
+    public double _totalPoint = 0f;
+    public double _basicPoint = 0f;
+    private float _coinPoint = 0;
+    private float _enemyPoint = 0;
+    private float _destroyObjectPoint = 0;
+    private int _nCoins = 0;
+    private float _timingPoints = 0;
+
+    private float _addPoints = 0; //los puntos que se van sumando
+    private float _sudPoints= 0;
+    private float _lastPickupTime; 
+    [SerializeField] private float _resetTime = 0.3f;
+
+    #endregion
+
     #region methods
-    public void AddCoinPoints(int points)
+    public void GameStart()
     {
-        _coinPoint+= points * _combo.multiplier;
-        _totalPoint+= points * _combo.multiplier;
-        float comboPoints = points;
-        if (points < 0)
-        {
-            comboPoints = comboPoints * _combo.comboPenaltyMultiplier;
-        }
-        _combo.addCombo(comboPoints);
+        _gameStart = true;
     }
-    public void AddEnemyPoints(float points)
+    public void AddPoints(float points, int type)
     {
-        _enemyPoint += points * _combo.multiplier;
-        _totalPoint += points * _combo.multiplier;
-        float comboPoints = points;
-        if (points < 0)
+        //Añade puntos segun su tipo y lo escribe en pantalla
+        //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
+        if (type==0) _coinPoint += (points * _combo.multiplier);
+        else if (type==1) _enemyPoint += (points * _combo.multiplier);
+        else if(type==2) _destroyObjectPoint += (points * _combo.multiplier);
+
+        if (points < 0) // si es negativo
         {
-            comboPoints = comboPoints * _combo.comboPenaltyMultiplier;
+            _addPoints = 0;
+            _sudPoints += points;
+            _textPuntosAñadidos.text = _sudPoints.ToString();
+            _combo.resetCombo();
         }
-        _combo.addCombo(comboPoints);
+        else
+        {
+            _addPoints += (points * _combo.multiplier);
+            _textPuntosAñadidos.text = "+" + _addPoints.ToString(); //poner +numero
+            _combo.addCombo(points);
+        }
+        _lastPickupTime = Time.time;
     }
-    public void AddObjectPoints(float points)
+    private void ResetText() //texto qie al lado del player
     {
-        _destroyObjectPoint += points * _combo.multiplier;
-        _totalPoint += points * _combo.multiplier;
-        float comboPoints = points;
-        if (points < 0)
+        _textPuntosAñadidos.text = " "; //quitar el texto
+        AddToTotalPoint(); //sumar la puntuacion al score
+    }
+    private void ResetUpText()
+    {
+        _textoArriba.text = "   ";
+    }
+    void AddToTotalPoint()
+    {
+        float points;
+        if (_addPoints > 0) //puntos positivos
         {
-            comboPoints = comboPoints * _combo.comboPenaltyMultiplier;
+            points = _addPoints;          
+            _totalPoint += _addPoints;
+            _textoArriba.text ="+"+ points.ToString();
         }
-        _combo.addCombo(comboPoints);
+        else //puntos negativos
+        {
+            points = _sudPoints;
+            _totalPoint += _sudPoints;
+            _textoArriba.text = points.ToString();
+        }
+        Invoke("ResetUpText", 0.4f);
+    }
+    public void AddTimingPoints(string timing)
+    {
+        if (timing == "PERFECT") {
+            _timingPoints += (perfectTimingValue * _combo.multiplier);
+            _totalPoint += (perfectTimingValue * _combo.multiplier);
+            _combo.addCombo(perfectTimingValue);
+        }
+        else if (timing == "GREAT") {
+            _timingPoints += (greatTimingValue * _combo.multiplier);
+            _totalPoint += (greatTimingValue * _combo.multiplier);
+            _combo.addCombo(greatTimingValue);
+        }
+        else if (timing == "GOOD") {
+            _timingPoints += (goodTimingValue * _combo.multiplier);
+            _totalPoint += (goodTimingValue * _combo.multiplier);
+            _combo.addCombo(goodTimingValue);
+        }
+        else if (timing == "WRONG")
+        {
+            _combo.resetCombo();
+        }
+        else if (timing == "MISSED")
+        {
+            _combo.resetCombo();
+        }
     }
 
-    public void CoinRegister()
+    public void SaveCheckpointScore()
     {
-        _nCoins++;
+        PlayerPrefs.SetFloat("CheckpointScore", (float)_totalPoint);
+        PlayerPrefs.SetFloat("CheckpointCoinScore", (float)_coinPoint);
+        PlayerPrefs.SetFloat("CheckpointEnemyScore", (float)_enemyPoint);
+        PlayerPrefs.SetFloat("CheckpointObjectScore", (float)_destroyObjectPoint);
+        PlayerPrefs.SetFloat("CheckpointBasicScore", (float)_basicPoint);
     }
+
+    public void LoadCheckpointScore()
+    {
+        _totalPoint = PlayerPrefs.GetFloat("CheckpointScore");
+        _coinPoint = PlayerPrefs.GetFloat("CheckpointCoinScore");
+        _enemyPoint = PlayerPrefs.GetFloat("CheckpointEnemyScore");
+        _destroyObjectPoint = PlayerPrefs.GetFloat("CheckpointObjectScore");
+        _basicPoint = PlayerPrefs.GetFloat("CheckpointBasicScore");
+    }
+
     public void SaveFinalScore() 
     {
         // Guarda la puntuaci�n en PlayerPrefs antes de cambiar de escena
         PlayerPrefs.SetFloat("FinalScore", (float)_totalPoint);
-    }
-
-    void Start()
-    {
-        _combo = FindObjectOfType<ComboManager>();
+        PlayerPrefs.SetFloat("CoinScore", (float)_coinPoint);
+        PlayerPrefs.SetFloat("EnemyScore", (float)_enemyPoint);
+        PlayerPrefs.SetFloat("ObjectScore", (float)_destroyObjectPoint);
     }
     #endregion
+    void Start()
+    {
+        _lastPickupTime = Time.time;
+        _textoArriba.enabled = false;
+        _combo = FindObjectOfType<ComboManager>();
+        comboSliderComponent =FindObjectOfType<ComboSliderComponent>();
+    }
     void Update()
     {
-        _basicPoint += Time.deltaTime;
-        _totalPoint += Time.deltaTime;
+        if (_gameStart) //empieza a contar los puntos cuando inicie la musica
+        {
+            _basicPoint += Time.deltaTime;
+            _totalPoint += Time.deltaTime;
+
+        }
+
         //Debug.Log("Puntos" + _totalPoint);
         _textPuntos.text = _totalPoint.ToString("0");
+
+        // cuando lleva un tiempo sin coger objeto se resetea
+        if (Time.time - _lastPickupTime >= _resetTime) 
+        {
+            _textoArriba.enabled = true;
+            if(_addPoints>0||_sudPoints<0)ResetText();
+            _addPoints = 0;
+            _sudPoints = 0;
+        }
     }
 }

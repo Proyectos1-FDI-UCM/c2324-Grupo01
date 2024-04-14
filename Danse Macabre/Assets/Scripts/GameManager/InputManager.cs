@@ -7,6 +7,8 @@ public class InputManager : MonoBehaviour
     #region references
     [SerializeField]
     private ActionComponent _playerActionComponent;
+    [SerializeField]
+    private PerfectTimingComponent _timing;
     private MenuPausa _menu;
     #endregion
 
@@ -27,8 +29,9 @@ public class InputManager : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.Z)||Input.GetKey(KeyCode.RightArrow))
         {
-            _playerActionComponent.Slide();
+            _playerActionComponent.SlideDash();
         }
+    
         
         if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.RightArrow))
         {

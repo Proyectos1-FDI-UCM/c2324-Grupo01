@@ -31,10 +31,12 @@ public class MenuPausa : MonoBehaviour
     public void Reiniciar() 
     {
         Time.timeScale = 1f;
+        GameManager.Instance.ResetCheckpoint();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);   //Reiniciar la escena que est�
     }
     public void Quit() 
     {
+        GameManager.Instance.ResetCheckpoint();
         SceneManager.LoadScene(0);
     }
 }

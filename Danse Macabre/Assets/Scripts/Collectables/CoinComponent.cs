@@ -22,10 +22,11 @@ public class CoinComponent : MonoBehaviour
         ActionComponent _player = collision.gameObject.GetComponent<ActionComponent>();
         if (_player)
         {
-            print("collision");
-            _points.AddCoinPoints(_coinValue);
-            _points.CoinRegister();
-            MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.coinSound);
+            //print("collision");
+            //tipo de punto, 0=monedas, 1=enemigo, 2=objeto, 3=MonedaDash(MaxScoreCalculator)
+            _points.AddPoints(_coinValue, 0);
+
+           // MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.coinSound);
 
             Destroy(gameObject);
         }
@@ -35,6 +36,8 @@ public class CoinComponent : MonoBehaviour
     void Start()
     {
         _points = FindObjectOfType<ScoreManager>();
+        if (_coinValue > 15) MaxScoreCalculator.Instance.ObjectRegister(3,_coinValue);
+        else MaxScoreCalculator.Instance.ObjectRegister(1, _coinValue);
     }
 
 }

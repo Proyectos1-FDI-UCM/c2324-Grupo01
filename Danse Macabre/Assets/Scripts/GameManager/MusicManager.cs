@@ -6,33 +6,14 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour
 {
     #region parameters
-    // [SerializeField]
-    // private float delay = 0.5f;
-    [SerializeField]
-    private float soundCtr = 1;
-    // private float elapsedTime = 0f;
     #endregion
 
     #region references
     private AudioSource _myAudioSource;
-    public AudioClip coinSound;
-    public AudioClip boxSound;
     #endregion
 
-    // For potential checkpoint
-    // [SerializeField]
-    // private GameObject Player;
-    // private MovementComponent movementComponent;
-    // private ActionComponent actionComponent;
-    // private Rigidbody2D playerRigidbody;
-    // [SerializeField]
-    // private GameObject StartRecordCollider;
-
     #region properties
-    // For potential checkpoint
-    // private bool canCallMethod = true;
-    // float playerPosX;
-    // float starColliderPosX;
+    public float time;
     #endregion
 
     #region properties
@@ -44,7 +25,6 @@ public class MusicManager : MonoBehaviour
     {
         get { return instance; }
     }
-    //private bool isPlaying = false;
     #endregion
 
     #region methods
@@ -52,18 +32,22 @@ public class MusicManager : MonoBehaviour
     {
         _myAudioSource.Play();
     }
-
-    public void PlaySoundEffect(AudioClip clip)
+    public void PlaySoundEffect(AudioClip clip, float volume)
     {
-        _myAudioSource.PlayOneShot(clip,soundCtr);
+        _myAudioSource.PlayOneShot(clip,volume);
+        _myAudioSource.loop = false;
+        
     }
-
     public void StopPlayingSong()
     {
-        
         pauseTime = _myAudioSource.time;
-        print(pauseTime);
+        //print(pauseTime);
         _myAudioSource.Stop();
+    }
+    public void PlayLoop(AudioClip clip, float volume)
+    {
+        _myAudioSource.PlayOneShot(clip,volume);
+        _myAudioSource.loop = true;
     }
 
     public void ResumePlayingSong()
@@ -71,21 +55,15 @@ public class MusicManager : MonoBehaviour
         _myAudioSource.time = pauseTime;
         _myAudioSource.Play();
     }
+    public void ChangeTime(float time)
+    {
+        _myAudioSource.time = time;
+    }
 
-    //private void Sync() // For potential checkpoint
-    //{
-        // float playerSpeed = movementComponent.speed;
-        // float playerVel = playerRigidbody.velocity.x;
-
-        // float time = (playerPosX - starColliderPosX)/playerSpeed;
-
-        // if (playerVel > 0.01f && Time.time > 1)
-        // {
-        //     _myAudioSource.time = time;
-        //     PlayMusic();
-        //     canCallMethod = false;
-        // }
-    //}
+    public void LoadAllReferences()
+    {
+        _myAudioSource = GetComponent<AudioSource>();
+    }
     #endregion
 
     private void Awake()
@@ -100,40 +78,10 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
-        _myAudioSource = GetComponent<AudioSource>();
+        LoadAllReferences();
 
-        // For potential checkpoint
-        // actionComponent = Player.GetComponent<ActionComponent>();
-        // movementComponent = Player.GetComponent<MovementComponent>();
-        // playerRigidbody = Player.GetComponent<Rigidbody2D>();
-
-        // playerPosX = Player.transform.position.x;
-        // starColliderPosX = StartRecordCollider.transform.position.x;
-
-        // if (playerPosX < starColliderPosX)
-        // {
-        //     canCallMethod = false;
-        // }
     }
-
-    //void Update()
-    //{
-        //Calculos para el momento inicial de reproducir el BGM
-        // elapsedTime += Time.deltaTime;
-        // if (elapsedTime >= delay && !isPlaying)
-        // {
-        //     isPlaying = true;
-        //     print("player pos:" + Player.transform.position.x);
-        //     PlayMusic();
-        // }
-
-        // For potential checkpoint
-        // if (canCallMethod)
-        // {
-        //     Sync();
-        // }
-    //}
 
 }

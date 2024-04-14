@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72bff81b628f6f4e8b2b30322e4b99a, type: 3}
+  m_Name: LevelData
+  m_EditorClassIdentifier: 
+  Levels:
+  - sceneName: TutorialV2 bpm109
+    playerSpeed: 7.266666
+  - sceneName: Nivel_1_Bing
+    playerSpeed: 9.266667
+  - sceneName: Template_Nivel
+    playerSpeed: 9.266667
+  - sceneName: Template_Nivel
+    playerSpeed: 9.266667
+  - sceneName: TutorialV2
+    playerSpeed: 4.3666
+  - sceneName: BingCombo
+    playerSpeed: 9.266667
+  - sceneName: nivel bing inicio 2 test
+    playerSpeed: 9.266667
+  - sceneName: Nivel1_otraMusica
+    playerSpeed: 9.266667
+  - sceneName: Nivel_3_Kai
+    playerSpeed: 0
+  - sceneName: TutorialV3
+    playerSpeed: 5.5
+  - sceneName: Nivel_Dear_X
+    playerSpeed: 7.5
+  - sceneName: Nivel GnokParty
+    playerSpeed: 9.266667

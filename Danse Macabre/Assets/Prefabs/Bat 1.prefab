@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 2908576989571070143}
   - component: {fileID: 1783453680825310187}
   - component: {fileID: 7136414799280994542}
-  m_Layer: 0
+  - component: {fileID: -8648944721188200045}
+  m_Layer: 12
   m_Name: Bat 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _destroyTime: 5
-  _enemyValue: 5
+  _enemyValue: 10
+  BouncyEnemy: 0
+  Collider: {fileID: 6432770650231140465}
 --- !u!95 &7136414799280994542
 Animator:
   serializedVersion: 5
@@ -170,3 +173,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-8648944721188200045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753478052353430307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454981a2302112f44981bbee1683f018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AudioClip: {fileID: 8300000, guid: af84ac6734716524dbf772d34147b25f, type: 3}
+  volume: 0.7

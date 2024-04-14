@@ -1,69 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MovementComponent : MonoBehaviour
 {
-    #region parameters
-    #endregion
-
     #region references
     [SerializeField]
     private Transform myTransform;
     private Rigidbody2D myRigidBody;
     [SerializeField]
     private TempoManager TempoManager;
-
-    // DO NOT DELETE
-    // [SerializeField]
-    // private GameObject MusicManager;
-    // private AudioSource music;
     #endregion
 
     #region properties
     public float speed;
     public bool canMove = true;
-    private bool canCallMethod = true;
     #endregion
 
-    void Start()
+    private void Awake()
     {
         myTransform = transform;
         myRigidBody = GetComponent<Rigidbody2D>();
-        
-        //music = MusicManager.GetComponent<AudioSource>();
-
-        if (TempoManager != null) speed = TempoManager.PlayerSpeed;
-        //speed = 1;
-        //speed = TempoManager.PlayerSpeed;
-        //Debug.Log("Movement: Speed" +  speed); 
-        
-         
-        Autoscroll(); // VOLVER
-        //lastYposition = transform.position.y;
     }
-    
-    void Update()
+    void Start()
     {
+        // myTransform = transform;
+        // myRigidBody = GetComponent<Rigidbody2D>();
+        
+        //speed = TempoManager.PlayerSpeed;
+        //GameManager.Instance.PlayerSpeed = speed;
+        //Debug.Log("Movement: Speed = " +  speed); 
 
-        if (myRigidBody.velocity.x < speed - 0.01f){
-
-            GameManager.Instance.Muerte();
-        }
-
-        // NO QUITAR: SIRVE PARA LEVEL BUILDING
-        // if (canCallMethod && Time.time > 2)
-        // {
-        //     Autoscroll();
-        //     canCallMethod = false; 
-        // }
+        //speed = GameManager.Instance.PlayerSpeed;
+        
+        //Autoscroll();
     }
 
     #region methods
-    private void Autoscroll()
+    public void Autoscroll()
     {
+        speed = GameManager.Instance.PlayerSpeed;
         myRigidBody.velocity = Vector2.right * speed;
+        GameManager.Instance.playerCanBeKilled = true;
+    }
+    public void InitialPosition(Vector3 position)
+    {
+        myTransform.position = position;
     }
     #endregion
 }

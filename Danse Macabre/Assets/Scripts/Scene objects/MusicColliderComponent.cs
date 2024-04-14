@@ -7,10 +7,13 @@ public class MusicColliderComponent : MonoBehaviour
     [SerializeField]
     private GameObject musicManager;
     private MusicManager musicManagerComponent;
-
+    private ScoreManager _scoreManager;
+    private ScreenBeatComponent _screenBeatComponent;
     void Start()
     {
         musicManagerComponent = musicManager.GetComponent<MusicManager>();
+        _scoreManager = FindAnyObjectByType<ScoreManager>();
+        _screenBeatComponent = FindAnyObjectByType<ScreenBeatComponent>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,8 +22,9 @@ public class MusicColliderComponent : MonoBehaviour
 
         if (player)
         {
-            print("time: " + Time.time);
             musicManagerComponent.PlayMusic();
+            _scoreManager.GameStart();
+            _screenBeatComponent.StartBeat();
         }
     }
 }
