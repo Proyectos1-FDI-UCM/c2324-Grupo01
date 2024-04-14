@@ -219,7 +219,7 @@ public class GameManager : MonoBehaviour
         _playerMovement.Autoscroll();
         MusicManager.Instance.ChangeTime(time);
         MusicManager.Instance.PlayMusic();
-
+        _ScoreManager.GameStart();
     }
 
 

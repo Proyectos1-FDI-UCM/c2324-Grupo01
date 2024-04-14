@@ -6,7 +6,6 @@ using UnityEngine;
 public class ActionComponent : MonoBehaviour
 {
     #region parameters
-    //Saltos
     [SerializeField]
     public float jumpSpeed = 11;
     public float originalGravityScale;
@@ -142,12 +141,11 @@ public class ActionComponent : MonoBehaviour
         if (!IsGrounded() && currentAction != Action.Stomping)
         {
             currentAction = Action.Stomping;
+            timingComponent.CheckNearbyArrow(currentAction); // Sends stomping to perfect timing.
             _myRB.velocity = new Vector3(_myRB.velocity.x, -stompDownwardSpeed);
             
-            if (currentAction != Action.Dashing) myAudioSource.PlayOneShot(_stompSound, stompCTR);
+            myAudioSource.PlayOneShot(_stompSound, stompCTR);
         }
-
-        timingComponent.CheckNearbyArrow(currentAction); // Sends stomping to perfect timing.
     }
     /// <summary>
     /// Method for Slide an Dash.
@@ -306,13 +304,14 @@ public class ActionComponent : MonoBehaviour
     private void FixedUpdate()
     {
         // Code to change gravity factor for when is going up or down if not dashing.
+        // Is here in fixed update because velocity changes due to gravity are calculated in fixed update time.
         if (currentAction != Action.Dashing)
         {
             if (_myRB.velocity.y < 0) // Gravity going down.
             {
                 _myRB.gravityScale = gravityFactor * originalGravityScale;
             }
-            else{ // Gravity going up.
+            else{                     // Gravity going up.
                 _myRB.gravityScale = originalGravityScale;
             }
         }
