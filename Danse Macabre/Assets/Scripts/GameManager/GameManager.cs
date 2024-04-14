@@ -263,6 +263,7 @@ public class GameManager : MonoBehaviour
         _UIManager.DisplayTiming(timing);
         _ScoreManager.AddTimingPoints(timing);
         _TimingTextController.TimingText(timing);
+
     }
     #endregion
 }

@@ -39,6 +39,12 @@ public class ScoreManager : MonoBehaviour
     private float _lastPickupTime; 
     [SerializeField] private float _resetTime = 0.3f;
 
+    //guardar el timing que hizo el jugador
+    private int _nPerfect;
+    private int _nGreat;
+    private int _nGood;
+    private int _nMiss;
+    private int _nWrong;
     #endregion
 
     #region methods
@@ -98,26 +104,33 @@ public class ScoreManager : MonoBehaviour
     public void AddTimingPoints(string timing)
     {
         if (timing == "PERFECT") {
+
+            _nPerfect++;
             _timingPoints += (perfectTimingValue * _combo.multiplier);
             _totalPoint += (perfectTimingValue * _combo.multiplier);
             _combo.addCombo(perfectTimingValue);
         }
         else if (timing == "GREAT") {
+
+            _nGreat++;
             _timingPoints += (greatTimingValue * _combo.multiplier);
             _totalPoint += (greatTimingValue * _combo.multiplier);
             _combo.addCombo(greatTimingValue);
         }
         else if (timing == "GOOD") {
+            _nGood++;
             _timingPoints += (goodTimingValue * _combo.multiplier);
             _totalPoint += (goodTimingValue * _combo.multiplier);
             _combo.addCombo(goodTimingValue);
         }
         else if (timing == "WRONG")
         {
+            _nWrong++;
             _combo.resetCombo();
         }
         else if (timing == "MISSED")
         {
+            _nMiss++;
             _combo.resetCombo();
         }
     }
@@ -129,6 +142,13 @@ public class ScoreManager : MonoBehaviour
         PlayerPrefs.SetFloat("CheckpointEnemyScore", (float)_enemyPoint);
         PlayerPrefs.SetFloat("CheckpointObjectScore", (float)_destroyObjectPoint);
         PlayerPrefs.SetFloat("CheckpointBasicScore", (float)_basicPoint);
+
+        //el timing
+        PlayerPrefs.SetInt("PerfectNumber", (int)_nPerfect);
+        PlayerPrefs.SetInt("GreatNumber", (int)_nGreat);
+        PlayerPrefs.SetInt("GoodNumber", (int)_nGood);
+        PlayerPrefs.SetInt("MissNumber", (int)_nMiss);
+        PlayerPrefs.SetInt("WrongNumber", (int)_nWrong);
     }
 
     public void LoadCheckpointScore()
@@ -138,6 +158,13 @@ public class ScoreManager : MonoBehaviour
         _enemyPoint = PlayerPrefs.GetFloat("CheckpointEnemyScore");
         _destroyObjectPoint = PlayerPrefs.GetFloat("CheckpointObjectScore");
         _basicPoint = PlayerPrefs.GetFloat("CheckpointBasicScore");
+
+        //timing
+        _nPerfect = PlayerPrefs.GetInt("PerfectNumber");
+        _nGreat = PlayerPrefs.GetInt("GreatNumber");
+        _nGood = PlayerPrefs.GetInt("GoodNumber");
+        _nMiss = PlayerPrefs.GetInt("MissNumber");
+        _nWrong = PlayerPrefs.GetInt("WrongNumber");
     }
 
     public void SaveFinalScore() 
@@ -147,6 +174,13 @@ public class ScoreManager : MonoBehaviour
         PlayerPrefs.SetFloat("CoinScore", (float)_coinPoint);
         PlayerPrefs.SetFloat("EnemyScore", (float)_enemyPoint);
         PlayerPrefs.SetFloat("ObjectScore", (float)_destroyObjectPoint);
+
+        //Timing
+        PlayerPrefs.SetInt("PerfectNumber", (int)_nPerfect);
+        PlayerPrefs.SetInt("GreatNumber", (int)_nGreat);
+        PlayerPrefs.SetInt("GoodNumber", (int)_nGood);
+        PlayerPrefs.SetInt("MissNumber", (int)_nMiss);
+        PlayerPrefs.SetInt("WrongNumber", (int)_nWrong);
     }
     #endregion
     void Start()

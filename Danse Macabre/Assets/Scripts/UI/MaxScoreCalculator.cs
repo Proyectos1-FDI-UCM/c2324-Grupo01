@@ -25,6 +25,8 @@ public class MaxScoreCalculator : MonoBehaviour
     private double _basicScore;
     private double _scoreCombo;
     private double _maxScore;
+
+
     #endregion
 
     #region methods
