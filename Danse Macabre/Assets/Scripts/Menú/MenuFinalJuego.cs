@@ -64,7 +64,7 @@ public class MenuFinalJuego : MonoBehaviour
     {
         if (_finalScore < _MaxScore / 4) _ranking = "C";
         else if (_finalScore < (_MaxScore / 4) * 2) _ranking = "B";
-        else if (_finalScore < (_MaxScore / 4) * 3) _ranking = "A";
+        else if (_finalScore < (_MaxScore / 4) * 2.5) _ranking = "A";
         else _ranking = "S";
     }
     private void WritePlayerRanking()
