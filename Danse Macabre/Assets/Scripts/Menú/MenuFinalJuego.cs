@@ -16,6 +16,9 @@ public class MenuFinalJuego : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _textPuntuacionObjecto;
 
+    [SerializeField]
+    private TextMeshProUGUI _textMaxPuntos;
+
 
     [SerializeField]
     private TextMeshProUGUI _textPerfectNumber;
@@ -59,7 +62,7 @@ public class MenuFinalJuego : MonoBehaviour
 
     private void PlayerRanking()
     {
-        if (_finalScore < (_MaxScore / 4) * 1) _ranking = "C";
+        if (_finalScore < _MaxScore / 4) _ranking = "C";
         else if (_finalScore < (_MaxScore / 4) * 2) _ranking = "B";
         else if (_finalScore < (_MaxScore / 4) * 3) _ranking = "A";
         else _ranking = "S";
@@ -77,6 +80,8 @@ public class MenuFinalJuego : MonoBehaviour
         _textGoodNumber.text = PlayerPrefs.GetInt("GoodNumber").ToString();
         _textMissNumber.text = PlayerPrefs.GetInt("MissNumber").ToString();
         _textWrongNumber.text = PlayerPrefs.GetInt("WrongNumber").ToString();
+
+        _textMaxPuntos.text = ((int)_MaxScore).ToString();
     }
     void Start()
     {

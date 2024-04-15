@@ -87,9 +87,9 @@ public class MaxScoreCalculator : MonoBehaviour
                     + _nArrow * _scoreManager.perfectTimingValue;
 
         //punctuacion con combo
-        _scoreCombo = (_basicScore - _comboManager.threshold3) * _comboManager.threshold3mul
-                        + _comboManager.threshold3 - _comboManager.threshold2 * _comboManager.threshold2mul
-                        + _comboManager.threshold2 - _comboManager.threshold1 * _comboManager.threshold1mul
+        _scoreCombo = (_basicScore - (_comboManager.threshold3+ _comboManager.threshold2+ _comboManager.threshold1)) * _comboManager.threshold3mul
+                        + _comboManager.threshold3 * _comboManager.threshold2mul
+                        + _comboManager.threshold2 * _comboManager.threshold1mul
                         + _comboManager.threshold1;
 
         //puntuacion con los puntos del tiempo transcurrido
