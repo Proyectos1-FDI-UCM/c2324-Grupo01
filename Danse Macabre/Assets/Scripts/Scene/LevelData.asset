@@ -35,5 +35,5 @@ MonoBehaviour:
     playerSpeed: 5.5
   - sceneName: Nivel_Dear_X
     playerSpeed: 7.5
-  - sceneName: Nivel GnokParty
+  - sceneName: Nivel GnorkParty
     playerSpeed: 9.266667
