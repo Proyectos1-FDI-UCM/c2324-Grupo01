@@ -41,14 +41,12 @@ public class ComboManager : MonoBehaviour
             if (multiplier != threshold3mul) 
             {
                 multiplier = threshold3mul;
-                resetCombo();
             }
         }
         else if (combo >= threshold2)
         {
             if (multiplier != threshold2mul)
             { multiplier = threshold2mul;
-                resetCombo();
             }
         }
         else if (combo >= threshold1)
@@ -56,7 +54,6 @@ public class ComboManager : MonoBehaviour
             if (multiplier != threshold1mul)
             {
                 multiplier = threshold1mul;
-                resetCombo();
             }
         }
         comboSliderComponent.ChangeColor(multiplier);

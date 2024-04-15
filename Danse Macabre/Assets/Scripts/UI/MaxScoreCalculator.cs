@@ -88,8 +88,8 @@ public class MaxScoreCalculator : MonoBehaviour
 
         //punctuacion con combo
         _scoreCombo = (_basicScore - (_comboManager.threshold3+ _comboManager.threshold2+ _comboManager.threshold1)) * _comboManager.threshold3mul
-                        + _comboManager.threshold3 * _comboManager.threshold2mul
-                        + _comboManager.threshold2 * _comboManager.threshold1mul
+                        + (_comboManager.threshold3-_comboManager.threshold2 ) * _comboManager.threshold2mul
+                        + (_comboManager.threshold2-_comboManager.threshold1)* _comboManager.threshold1mul
                         + _comboManager.threshold1;
 
         //puntuacion con los puntos del tiempo transcurrido
@@ -99,6 +99,8 @@ public class MaxScoreCalculator : MonoBehaviour
     {
         ScoreCalculate();
         PlayerPrefs.SetFloat("MaxScore", (float)_maxScore);
+        PlayerPrefs.SetFloat("base", (float)_basicScore);
+        PlayerPrefs.SetFloat("combo", (float)_scoreCombo);
     }
     #endregion
     // Start is called before the first frame update
