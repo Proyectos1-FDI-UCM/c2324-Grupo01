@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(instance);
         }
-
+        
         LoadAllReferences();
     }
 
