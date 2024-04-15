@@ -243,6 +243,17 @@ public class ActionComponent : MonoBehaviour
     }
     #endregion
 
+    private void Awake()
+    {
+        SlideParticleSystem.Play();
+        SlideParticleEmitter = SlideParticleSystem.emission;
+        SlideParticleEmitter.enabled = false;
+
+        StompParticleSystem.Play();
+        StompParticleEmitter = StompParticleSystem.emission;
+        StompParticleEmitter.enabled = false;
+    }
+
     void Start()
     {
         _myTransform = transform;
@@ -256,14 +267,6 @@ public class ActionComponent : MonoBehaviour
 
         originalGravityScale = _myRB.gravityScale;
         myAudioSource = GetComponent<AudioSource>();
-
-        SlideParticleSystem.Play();
-        SlideParticleEmitter = SlideParticleSystem.emission;
-        SlideParticleEmitter.enabled = false;
-
-        StompParticleSystem.Play();
-        StompParticleEmitter = StompParticleSystem.emission;
-        StompParticleEmitter.enabled = false;
     }
 
     void Update()
