@@ -24,7 +24,7 @@ public class ScoreSliderController : MonoBehaviour
         float progress = playerScore / MaxScore;
 
         _value = Mathf.Clamp01(progress);
-        _mySlider.value = 1 - _value;
+        _mySlider.value = _value;
     }
     #endregion
     // Start is called before the first frame update
