@@ -15,20 +15,20 @@ public class MovementPathDrawer : MonoBehaviour
 
     public float jumpSpeed;
     public float trampolineJumpSpeed;
-    public float dashDuration;
+    private float dashDuration;
     public float horizontalVelocity;
     private float gravityGoingUp;
     private float gravityGoingDown;
     private float gravity;
-    private float groundCheckDistance = 0.55f;
+    // private float groundCheckDistance = 0.55f;
     
-    private float trampolinCheckDistance = 0.60f;
-    [SerializeField]
-    private LayerMask groundLayer;
-    [SerializeField]
-    private LayerMask trampolineLayer;
-    [SerializeField]
-    private LayerMask enemyLayer;
+    // private float trampolinCheckDistance = 0.60f;
+    // [SerializeField]
+    // private LayerMask groundLayer;
+    // [SerializeField]
+    // private LayerMask trampolineLayer;
+    // [SerializeField]
+    // private LayerMask enemyLayer;
     private int numPoints = 250;
     private int numPointsDown = 150;
     private float timeBetweenPoints = 0.02f;
@@ -36,12 +36,9 @@ public class MovementPathDrawer : MonoBehaviour
     public bool StompPath = true;
     public bool TrampolinePath = true;
     public bool DashPath = true;
-    public bool detectGround = true;
-    public bool detectTrampoline = false;
-    public bool detectEnemyBellow = true;
-    // public bool setCustomHorizontalVelocity = false;
-    // public bool setCustomJumpSpeed = false;
-    // public bool setCustomDashDuration = false;
+    // public bool detectGround = true;
+    // public bool detectTrampoline = false;
+    // public bool detectEnemyBellow = true;
 
     void OnDrawGizmos()
     {
@@ -50,9 +47,7 @@ public class MovementPathDrawer : MonoBehaviour
         _dummyCollider = GetComponent<BoxCollider2D>();
         _dummyTransform = transform;
 
-        // if (!setCustomHorizontalVelocity) horizontalVelocity = _levelDataLoader.GetCurrentScenePlayerSpeed();
-        // if (!setCustomJumpSpeed) jumpSpeed = _actionComponent.jumpSpeed;
-        // if(!setCustomDashDuration) dashDuration = _actionComponent.dashDuration;
+        dashDuration = _actionComponent.GetDashDuration();
 
         gravityGoingUp = Physics2D.gravity.y * _actionComponent.originalGravityScale; // for vel.y > 0
         gravityGoingDown = gravityGoingUp * _actionComponent.gravityFactor; // for vel.y < 0
@@ -60,20 +55,29 @@ public class MovementPathDrawer : MonoBehaviour
         // JUMP PATH DRAWER
         if (JumpPath)
         {
-            Vector3 startPosition = transform.position;
+            Vector3 startPosition = _dummyTransform.position;
             Vector3 previousPoint = startPosition;
             float totalTime = 0f;
 
             gravity = gravityGoingUp;
             bool goingUp = true;
 
+            totalTime += timeBetweenPoints;
+            float dx = horizontalVelocity * totalTime;
+            float dy = (jumpSpeed * totalTime);
+            Vector3 nextPoint = startPosition + new Vector3(dx, dy, 0);
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(previousPoint, nextPoint);
+            previousPoint = nextPoint;
+
+
             for (int i = 0; i < numPoints && goingUp; i++)
             {
                 totalTime += timeBetweenPoints;
 
-                float dx = horizontalVelocity * totalTime;
-                float dy = (jumpSpeed * totalTime) + (0.5f * gravity * Mathf.Pow(totalTime, 2));
-                Vector3 nextPoint = startPosition + new Vector3(dx, dy, 0);
+                dx = horizontalVelocity * totalTime;
+                dy = (jumpSpeed * totalTime) + (0.5f * gravity * Mathf.Pow(totalTime, 2));
+                nextPoint = startPosition + new Vector3(dx, dy, 0);
 
                 if (nextPoint.y < previousPoint.y){
                     nextPoint = previousPoint;
@@ -94,9 +98,9 @@ public class MovementPathDrawer : MonoBehaviour
             {
                 totalTime += timeBetweenPoints;
 
-                float dx = horizontalVelocity * totalTime;
-                float dy = 0.5f * gravity * Mathf.Pow(totalTime, 2);
-                Vector3 nextPoint = startPosition + new Vector3(dx, dy, 0);
+                dx = horizontalVelocity * totalTime;
+                dy = 0.5f * gravity * Mathf.Pow(totalTime, 2);
+                nextPoint = startPosition + new Vector3(dx, dy, 0);
 
                 Gizmos.color = Color.yellow;
                 Gizmos.DrawLine(previousPoint, nextPoint);
@@ -196,30 +200,27 @@ public class MovementPathDrawer : MonoBehaviour
             Gizmos.DrawLine(startPosition, endPosition);
         }
 
-        // IS GROUNDED DETECTOR
-        if (detectGround)
-        {
-            RaycastHit2D hit = Physics2D.Raycast(_dummyTransform.position, Vector2.down, groundCheckDistance, groundLayer);
-            if (hit.collider != null) Gizmos.DrawSphere(_dummyTransform.position, 0.3f);
-        }
+        // // IS GROUNDED DETECTOR
+        // if (detectGround)
+        // {
+        //     RaycastHit2D hit = Physics2D.Raycast(_dummyTransform.position, Vector2.down, groundCheckDistance, groundLayer);
+        //     if (hit.collider != null) Gizmos.DrawSphere(_dummyTransform.position, 0.3f);
+        // }
 
-        // DETECT TRAMPOLINE
-        if (detectTrampoline)
-        {
-            RaycastHit2D hit = Physics2D.Raycast(_dummyTransform.position, Vector2.down, trampolinCheckDistance, trampolineLayer);
-            Gizmos.color = Color.green;
-            if (hit.collider != null) Gizmos.DrawSphere(_dummyTransform.position, 0.3f);
-        }
+        // // DETECT TRAMPOLINE
+        // if (detectTrampoline)
+        // {
+        //     RaycastHit2D hit = Physics2D.Raycast(_dummyTransform.position, Vector2.down, trampolinCheckDistance, trampolineLayer);
+        //     Gizmos.color = Color.green;
+        //     if (hit.collider != null) Gizmos.DrawSphere(_dummyTransform.position, 0.3f);
+        // }
 
-        if (detectEnemyBellow)
-        {
-            RaycastHit2D hit = Physics2D.Raycast(_dummyTransform.position, Vector2.down, _dummyCollider.size.y/2, enemyLayer);
-            Gizmos.color = Color.blue;
-            if (hit.collider != null) Gizmos.DrawSphere(_dummyTransform.position, 0.3f);
-
-
-
-        }
+        // if (detectEnemyBellow)
+        // {
+        //     RaycastHit2D hit = Physics2D.Raycast(_dummyTransform.position, Vector2.down, _dummyCollider.size.y/2, enemyLayer);
+        //     Gizmos.color = Color.blue;
+        //     if (hit.collider != null) Gizmos.DrawSphere(_dummyTransform.position, 0.3f);
+        // }
         
     }
 }

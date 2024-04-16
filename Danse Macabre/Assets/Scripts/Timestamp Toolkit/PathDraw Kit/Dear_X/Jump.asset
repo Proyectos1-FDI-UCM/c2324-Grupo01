@@ -1,0 +1,543 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef2bdd8a6f33c1244863938175b07b25, type: 3}
+  m_Name: Jump
+  m_EditorClassIdentifier: 
+  trajectoryPoints:
+  - positionX: 0
+    positionY: 0
+  - positionX: 0
+    positionY: 0
+  - positionX: 0.33392334
+    positionY: 0.41645086
+  - positionX: 0.4448824
+    positionY: 0.5595982
+  - positionX: 0.5672598
+    positionY: 0.71243656
+  - positionX: 0.69658947
+    positionY: 0.8678477
+  - positionX: 0.828393
+    positionY: 1.0196197
+  - positionX: 0.95269966
+    positionY: 1.1567973
+  - positionX: 1.073782
+    positionY: 1.2844963
+  - positionX: 1.1975088
+    positionY: 1.4081644
+  - positionX: 1.3205729
+    positionY: 1.5254762
+  - positionX: 1.4477911
+    positionY: 1.6407773
+  - positionX: 1.5681438
+    positionY: 1.744307
+  - positionX: 1.6924782
+    positionY: 1.8455248
+  - positionX: 1.8216
+    positionY: 1.9437025
+  - positionX: 1.9283781
+    positionY: 2.0191972
+  - positionX: 2.0747967
+    positionY: 2.1164253
+  - positionX: 2.1972246
+    positionY: 2.1912403
+  - positionX: 2.3234024
+    positionY: 2.262441
+  - positionX: 2.4422827
+    positionY: 2.3242161
+  - positionX: 2.5784922
+    positionY: 2.3876958
+  - positionX: 2.6939745
+    positionY: 2.4349043
+  - positionX: 2.8303127
+    positionY: 2.4846113
+  - positionX: 2.952959
+    positionY: 2.5231345
+  - positionX: 3.0578194
+    positionY: 2.5519474
+  - positionX: 3.198471
+    positionY: 2.583392
+  - positionX: 3.3172274
+    positionY: 2.6037877
+  - positionX: 3.4597092
+    positionY: 2.6207204
+  - positionX: 3.5709257
+    positionY: 2.6280196
+  - positionX: 3.6986876
+    positionY: 2.6309755
+  - positionX: 3.819066
+    positionY: 2.6284106
+  - positionX: 3.9425936
+    positionY: 2.6206896
+  - positionX: 4.065056
+    positionY: 2.607123
+  - positionX: 4.1927786
+    positionY: 2.587086
+  - positionX: 4.3272657
+    positionY: 2.559997
+  - positionX: 4.4396143
+    positionY: 2.5325763
+  - positionX: 4.5643387
+    positionY: 2.4972053
+  - positionX: 4.6896706
+    positionY: 2.4563377
+  - positionX: 4.8308306
+    positionY: 2.4033103
+  - positionX: 4.949315
+    positionY: 2.3525672
+  - positionX: 5.073573
+    positionY: 2.2944365
+  - positionX: 5.204026
+    positionY: 2.2277753
+  - positionX: 5.3533087
+    positionY: 2.1441753
+  - positionX: 5.439538
+    positionY: 2.093092
+  - positionX: 5.5696516
+    positionY: 2.0097523
+  - positionX: 5.6936064
+    positionY: 1.9244237
+  - positionX: 5.819831
+    positionY: 1.8322144
+  - positionX: 5.94534
+    positionY: 1.7351515
+  - positionX: 6.067046
+    positionY: 1.6359775
+  - positionX: 6.2025537
+    positionY: 1.5193601
+  - positionX: 6.3204756
+    positionY: 1.412594
+  - positionX: 6.4537897
+    positionY: 1.285422
+  - positionX: 6.5661917
+    positionY: 1.1732188
+  - positionX: 6.688903
+    positionY: 1.0460829
+  - positionX: 6.820279
+    positionY: 0.9042084
+  - positionX: 6.9418707
+    positionY: 0.76781404
+  - positionX: 7.0805655
+    positionY: 0.60550344
+  - positionX: 7.196391
+    positionY: 0.46387875
+  - positionX: 7.3299017
+    positionY: 0.2953552
+  - positionX: 7.44057
+    positionY: 0.15099853
+  - positionX: 7.5933447
+    positionY: -0.055341005
+  - positionX: 7.70308
+    positionY: -0.20814711
+  - positionX: 7.823348
+    positionY: -0.3807482
+  - positionX: 7.9468946
+    positionY: -0.564158
+  - positionX: 8.066688
+    positionY: -0.7469321
+  - positionX: 8.196303
+    positionY: -0.9501053
+  - positionX: 8.324336
+    positionY: -1.1564598
+  - positionX: 8.438626
+    positionY: -1.3450711
+  - positionX: 8.566915
+    positionY: -1.5631611
+  - positionX: 8.761514
+    positionY: -1.9050934
+  - positionX: 8.833489
+    positionY: -2.03508
+  - positionX: 8.977077
+    positionY: -2.2994437
+  - positionX: 9.072505
+    positionY: -2.479008
+  - positionX: 9.20231
+    positionY: -2.728277
+  - positionX: 9.320649
+    positionY: -2.9607987
+  - positionX: 9.444108
+    positionY: -3.2093384
+  - positionX: 9.569537
+    positionY: -3.4670956
+  - positionX: 9.698779
+    positionY: -3.738289
+  - positionX: 0
+    positionY: 0
+  - positionX: 0
+    positionY: 0
+  - positionX: 0.36269093
+    positionY: 0.32149643
+  - positionX: 0.49982643
+    positionY: 0.5024287
+  - positionX: 0.60034275
+    positionY: 0.63096064
+  - positionX: 0.7197523
+    positionY: 0.77798015
+  - positionX: 0.83755875
+    positionY: 0.91674954
+  - positionX: 0.959857
+    positionY: 1.0554812
+  - positionX: 1.0928774
+    positionY: 1.1999514
+  - positionX: 1.2196608
+    positionY: 1.3313828
+  - positionX: 1.3425026
+    positionY: 1.4530249
+  - positionX: 1.466156
+    positionY: 1.5688798
+  - positionX: 1.6214962
+    positionY: 1.7061474
+  - positionX: 1.7181768
+    positionY: 1.7859025
+  - positionX: 1.8499861
+    positionY: 1.8898149
+  - positionX: 1.96276
+    positionY: 1.9736872
+  - positionX: 2.100708
+    positionY: 2.0692906
+  - positionX: 2.213892
+    positionY: 2.1420255
+  - positionX: 2.3502884
+    positionY: 2.2226505
+  - positionX: 2.466054
+    positionY: 2.2852187
+  - positionX: 2.588933
+    positionY: 2.346303
+  - positionX: 2.7556868
+    positionY: 2.4196162
+  - positionX: 2.8462029
+    positionY: 2.4555724
+  - positionX: 2.9741411
+    positionY: 2.5001366
+  - positionX: 3.0977116
+    positionY: 2.5363038
+  - positionX: 3.2108412
+    positionY: 2.5643458
+  - positionX: 3.3333073
+    positionY: 2.5895023
+  - positionX: 3.4643116
+    positionY: 2.6100352
+  - positionX: 3.5863695
+    positionY: 2.6234918
+  - positionX: 3.7206268
+    positionY: 2.630745
+  - positionX: 3.838622
+    positionY: 2.630779
+  - positionX: 3.969655
+    positionY: 2.625444
+  - positionX: 4.088132
+    positionY: 2.6155627
+  - positionX: 4.2197456
+    positionY: 2.5989244
+  - positionX: 4.34301
+    positionY: 2.578097
+  - positionX: 4.475834
+    positionY: 2.5493104
+  - positionX: 4.594349
+    positionY: 2.5176146
+  - positionX: 4.7115154
+    positionY: 2.4817433
+  - positionX: 4.8501663
+    positionY: 2.4333339
+  - positionX: 4.9607553
+    positionY: 2.3902085
+  - positionX: 5.097454
+    positionY: 2.330739
+  - positionX: 5.221285
+    positionY: 2.2711017
+  - positionX: 5.341833
+    positionY: 2.2071688
+  - positionX: 5.4754086
+    positionY: 2.1307557
+  - positionX: 5.5904264
+    positionY: 2.060023
+  - positionX: 5.725774
+    positionY: 1.970952
+  - positionX: 5.843766
+    positionY: 1.8884418
+  - positionX: 5.960643
+    positionY: 1.8011978
+  - positionX: 6.0868196
+    positionY: 1.7013984
+  - positionX: 6.211362
+    positionY: 1.5975711
+  - positionX: 6.3456964
+    positionY: 1.4796281
+  - positionX: 6.4661913
+    positionY: 1.3686626
+  - positionX: 6.5977316
+    positionY: 1.2417066
+  - positionX: 6.7072
+    positionY: 1.130996
+  - positionX: 6.85888
+    positionY: 0.97081417
+  - positionX: 6.9569063
+    positionY: 0.8624578
+  - positionX: 7.0921354
+    positionY: 0.7081221
+  - positionX: 7.2145243
+    positionY: 0.5631133
+  - positionX: 7.3209734
+    positionY: 0.4328993
+  - positionX: 7.4689875
+    positionY: 0.24452752
+  - positionX: 7.5908823
+    positionY: 0.083135605
+  - positionX: 7.714114
+    positionY: -0.085069954
+  - positionX: 7.8518457
+    positionY: -0.27919668
+  - positionX: 7.9649057
+    positionY: -0.4432541
+  - positionX: 8.087117
+    positionY: -0.6254494
+  - positionX: 8.21322
+    positionY: -0.8197826
+  - positionX: 8.335324
+    positionY: -1.0134903
+  - positionX: 8.443795
+    positionY: -1.1897328
+  - positionX: 8.590962
+    positionY: -1.4353039
+  - positionX: 8.721047
+    positionY: -1.6585753
+  - positionX: 8.835725
+    positionY: -1.8598609
+  - positionX: 8.964992
+    positionY: -2.0933106
+  - positionX: 9.089036
+    positionY: -2.323057
+  - positionX: 9.210839
+    positionY: -2.5537164
+  - positionX: 9.348233
+    positionY: -2.8199658
+  - positionX: 9.468961
+    positionY: -3.0592003
+  - positionX: 9.582021
+    positionY: -3.2873986
+  - positionX: 9.728145
+    positionY: -3.5899947
+  - positionX: 9.850884
+    positionY: -3.850524
+  - positionX: 9.97276
+    positionY: -4.114233
+  - positionX: 10.096177
+    positionY: -4.3863425
+  - positionX: 10.213487
+    positionY: -4.6496387
+  - positionX: 10.340482
+    positionY: -4.9400396
+  - positionX: 10.4713335
+    positionY: -5.2456684
+  - positionX: 10.594684
+    positionY: -5.5398083
+  - positionX: 10.716619
+    positionY: -5.8356137
+  - positionX: 11.483695
+    positionY: -7.815234
+  - positionX: 11.529874
+    positionY: -7.940214
+  - positionX: 11.6243925
+    positionY: -8.200986
+  - positionX: 11.74479
+    positionY: -8.536602
+  - positionX: 11.858132
+    positionY: -8.856821
+  - positionX: 0
+    positionY: 0
+  - positionX: 0
+    positionY: 0
+  - positionX: 0.35565758
+    positionY: 0.47137552
+  - positionX: 0.4609375
+    positionY: 0.6071877
+  - positionX: 0.5835695
+    positionY: 0.75817615
+  - positionX: 0.72595406
+    positionY: 0.92670614
+  - positionX: 0.8383951
+    positionY: 1.053962
+  - positionX: 0.95029736
+    positionY: 1.1762421
+  - positionX: 1.0869532
+    positionY: 1.318826
+  - positionX: 1.208333
+    positionY: 1.4396954
+  - positionX: 1.3321753
+    positionY: 1.555872
+  - positionX: 1.466589
+    positionY: 1.6755817
+  - positionX: 1.586854
+    positionY: 1.7767065
+  - positionX: 1.7236204
+    positionY: 1.8850489
+  - positionX: 1.8395128
+    positionY: 1.9714785
+  - positionX: 1.9616365
+    positionY: 2.057097
+  - positionX: 2.0836897
+    positionY: 2.1355324
+  - positionX: 2.2125225
+    positionY: 2.2123365
+  - positionX: 2.3364115
+    positionY: 2.2802086
+  - positionX: 2.4604845
+    positionY: 2.342411
+  - positionX: 2.5895863
+    positionY: 2.4008842
+  - positionX: 2.7222443
+    positionY: 2.4542274
+  - positionX: 2.8446379
+    positionY: 2.4968605
+  - positionX: 2.966835
+    positionY: 2.5331836
+  - positionX: 3.088725
+    positionY: 2.56388
+  - positionX: 3.2125893
+    positionY: 2.5893955
+  - positionX: 3.3481026
+    positionY: 2.6104736
+  - positionX: 3.4654026
+    positionY: 2.6234443
+  - positionX: 3.5862246
+    positionY: 2.629972
+  - positionX: 3.7104673
+    positionY: 2.630818
+  - positionX: 3.8476286
+    positionY: 2.625555
+  - positionX: 3.9608335
+    positionY: 2.6163604
+  - positionX: 4.0913525
+    positionY: 2.6002827
+  - positionX: 4.208947
+    positionY: 2.5810258
+  - positionX: 4.3468122
+    positionY: 2.551244
+  - positionX: 4.468625
+    positionY: 2.5191312
+  - positionX: 4.592329
+    positionY: 2.4814487
+  - positionX: 4.7068834
+    positionY: 2.442043
+  - positionX: 4.835105
+    positionY: 2.3925881
+  - positionX: 4.974163
+    positionY: 2.332276
+  - positionX: 5.0868387
+    positionY: 2.2780118
+  - positionX: 5.211931
+    positionY: 2.2124093
+  - positionX: 5.3373575
+    positionY: 2.1413038
+  - positionX: 5.491235
+    positionY: 2.0466323
+  - positionX: 5.5918884
+    positionY: 1.9805136
+  - positionX: 5.713625
+    positionY: 1.8959394
+  - positionX: 5.8444757
+    positionY: 1.7982631
+  - positionX: 5.968196
+    positionY: 1.7002203
+  - positionX: 6.0816526
+    positionY: 1.6057634
+  - positionX: 6.208722
+    positionY: 1.4949088
+  - positionX: 6.3502817
+    positionY: 1.3646486
+  - positionX: 6.460703
+    positionY: 1.2588251
+  - positionX: 6.6228113
+    positionY: 1.094245
+  - positionX: 6.7084227
+    positionY: 1.0031273
+  - positionX: 6.8461256
+    positionY: 0.8520475
+  - positionX: 6.9679623
+    positionY: 0.7128921
+  - positionX: 7.097514
+    positionY: 0.559336
+  - positionX: 7.2180176
+    positionY: 0.4115492
+  - positionX: 7.345229
+    positionY: 0.24919814
+  - positionX: 7.473075
+    positionY: 0.0800938
+  - positionX: 7.5909433
+    positionY: -0.08082321
+  - positionX: 7.756383
+    positionY: -0.31455073
+  - positionX: 7.843093
+    positionY: -0.4407042
+  - positionX: 7.9583673
+    positionY: -0.6122455
+  - positionX: 8.093507
+    positionY: -0.8203758
+  - positionX: 8.218661
+    positionY: -1.0189638
+  - positionX: 8.332429
+    positionY: -1.2041141
+  - positionX: 8.474734
+    positionY: -1.4418833
+  - positionX: 8.592092
+    positionY: -1.6430488
+  - positionX: 8.7172575
+    positionY: -1.8628044
+  - positionX: 8.850553
+    positionY: -2.1035275
+  - positionX: 8.988151
+    positionY: -2.3587737
+  - positionX: 9.086978
+    positionY: -2.5465229
+  - positionX: 9.223922
+    positionY: -2.811686
+  - positionX: 9.405002
+    positionY: -3.1724818
+  - positionX: 9.459493
+    positionY: -3.2824352
+  - positionX: 9.589652
+    positionY: -3.5519035
+  - positionX: 9.718509
+    positionY: -3.8244493
+  - positionX: 9.838666
+    positionY: -4.083763
+  - positionX: 9.963918
+    positionY: -4.359226
+  - positionX: 10.090386
+    positionY: -4.6427875
+  - positionX: 10.210845
+    positionY: -4.9177594
+  - positionX: 10.333125
+    positionY: -5.2033725
+  - positionX: 10.462489
+    positionY: -5.510914
+  - positionX: 10.58324
+    positionY: -5.8031845
+  - positionX: 10.719319
+    positionY: -6.138544
+  - positionX: 10.850677
+    positionY: -6.4683423
+  - positionX: 10.970832
+    positionY: -6.774988
+  - positionX: 11.09023
+    positionY: -7.0854874
+  - positionX: 11.2273245
+    positionY: -7.4481864
+  - positionX: 11.941936
+    positionY: -9.445389
+  - positionX: 12.015588
+    positionY: -9.660591
+  - positionX: 12.139663
+    positionY: -10.029262
+  - positionX: 12.311101
+    positionY: -10.546653
+  - positionX: 12.392247
+    positionY: -10.796367

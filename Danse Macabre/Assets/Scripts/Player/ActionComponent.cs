@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 public class ActionComponent : MonoBehaviour
 {
@@ -34,6 +36,7 @@ public class ActionComponent : MonoBehaviour
     #endregion
 
     #region references
+    private PathSaver pathSaver;
     private Transform _myTransform;
     private Rigidbody2D _myRB;
     private BoxCollider2D myCollider;
@@ -79,7 +82,7 @@ public class ActionComponent : MonoBehaviour
     #endregion
 
     #region properties
-    public enum Action {Running, Falling, Jumping, Stomping, Sliding, Dashing}; // enum for every posible action.
+    public enum Action {Running, Falling, Jumping, Stomping, Sliding, Dashing, Null}; // enum for every posible action.
     public Action currentAction; // stores the current action being performed.
     private bool canDash = false;
     #endregion
@@ -111,6 +114,8 @@ public class ActionComponent : MonoBehaviour
     private void TrampolineBounce()
     {
         _myRB.velocity = new Vector3(_myRB.velocity.x, trampolineJumpSpeed);
+        pathSaver.StartSaving();
+
     }
     /// <summary>
     /// Check if the player is grounded before performs a jump. The current action is changed in the Bounce() method.
@@ -120,6 +125,7 @@ public class ActionComponent : MonoBehaviour
         if (IsGrounded())
         {
             myAudioSource.PlayOneShot(_jumpSound, jumpCTR);
+            //pathSaver.StartSaving();
             Bounce();
         }
 
@@ -143,6 +149,7 @@ public class ActionComponent : MonoBehaviour
             currentAction = Action.Stomping;
             timingComponent.CheckNearbyArrow(currentAction); // Sends stomping to perfect timing.
             _myRB.velocity = new Vector3(_myRB.velocity.x, -stompDownwardSpeed);
+            //pathSaver.StartSaving();
             
             myAudioSource.PlayOneShot(_stompSound, stompCTR);
         }
@@ -250,6 +257,8 @@ public class ActionComponent : MonoBehaviour
 
         timingComponent = GetComponent<PerfectTimingComponent>();
 
+        pathSaver = GetComponent<PathSaver>();
+
         originalGravityScale = _myRB.gravityScale;
         myAudioSource = GetComponent<AudioSource>();
 
@@ -262,6 +271,10 @@ public class ActionComponent : MonoBehaviour
     {        
         Action lastAction = currentAction; // To further call SlideStop() if current action is changed by the code bellow.
 
+
+        if (_myTransform.position.x < 393 && _myTransform.position.x > 392){
+            Jump();
+        }
         if (_myRB.velocity.y > 0.1f){ // If the velocity y if greater then 0.1f it means the player is jumping.
             currentAction = Action.Jumping;
         }
@@ -280,6 +293,18 @@ public class ActionComponent : MonoBehaviour
             SlideStop();
         }
 
+        // Code to change gravity factor for when is going up or down if not dashing.
+        if (currentAction != Action.Dashing)
+        {
+            if (_myRB.velocity.y < 0) // Gravity going down.
+            {
+                _myRB.gravityScale = gravityFactor * originalGravityScale;
+            }
+            else{                     // Gravity going up.
+                _myRB.gravityScale = originalGravityScale;
+            }
+        }
+        
         //Despues de coger la moneda, dash elapsed time se actualiza y entrar?al condicional
         if (_dashElapsedTime > 0)
         {
@@ -299,21 +324,18 @@ public class ActionComponent : MonoBehaviour
         {
             SlideParticleEmitter.enabled = false;
         }
-    }
 
-    private void FixedUpdate()
+    }
+    /// <summary>
+    /// Method to control bot's dash.
+    /// </summary>
+    /// <param name="p_canDash"></param>
+    public void BotCanDash(bool p_canDash)
     {
-        // Code to change gravity factor for when is going up or down if not dashing.
-        // Is here in fixed update because velocity changes due to gravity are calculated in fixed update time.
-        if (currentAction != Action.Dashing)
-        {
-            if (_myRB.velocity.y < 0) // Gravity going down.
-            {
-                _myRB.gravityScale = gravityFactor * originalGravityScale;
-            }
-            else{                     // Gravity going up.
-                _myRB.gravityScale = originalGravityScale;
-            }
-        }
+        canDash = p_canDash;
+    }
+    public float GetDashDuration()
+    {
+        return dashDuration;
     }
 }
