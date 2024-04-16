@@ -142,7 +142,7 @@ public class MenuFinalJuego : MonoBehaviour
 
         _puntuacion = Mathf.Lerp(_puntuacion, _finalScore, _ScoreTime*Time.deltaTime);
         _textPuntuacionFinal.text = _puntuacion.ToString("0");
-        if (_time% 10== 0 && _finalScore-_puntuacion<0.1)
+        if (_time%11== 0 && _finalScore-_puntuacion<0.1)
         {
             if (!_coin.enabled)
             {
