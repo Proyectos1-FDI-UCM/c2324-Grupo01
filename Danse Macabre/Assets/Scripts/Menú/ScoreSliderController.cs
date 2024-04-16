@@ -33,11 +33,11 @@ public class ScoreSliderController : MonoBehaviour
     {
         _mySlider = GetComponent<Slider>();
         menuFinalJuego = GetComponent<MenuFinalJuego>();
-        _targetValue = Mathf.Clamp01(_playerScore /( _MaxScore * (float)0.8));
+        _targetValue = Mathf.Clamp01(_playerScore / (_MaxScore * (float)0.8));
     }
     private void Update()
     {
-
+        Debug.Log("valor" + _targetValue);
         progress= Mathf.Lerp(progress, _targetValue, sliderTime*Time.deltaTime);
         
         _mySlider.value = progress;
