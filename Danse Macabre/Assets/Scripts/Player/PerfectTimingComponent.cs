@@ -65,14 +65,37 @@ public class PerfectTimingComponent : MonoBehaviour
                     }
                 }
                 else // If the tag mapped (action) doesn't match the arrow's tag.
-                {
-                    print("TAG: " + targetTag);
+                { 
                     GameManager.Instance.ArrowTiming("WRONG"); // if the movement is not correct
                 }
             }
             
         }    
     }
-    #endregion
 
+    public ActionComponent.Action ArrowActionForBot()
+    {
+        Collider2D hitCollider = Physics2D.OverlapCircle(_myTransform.position, badRadius, arrowLayer); // "Draws" a circle around the player to check if any object in the arrowLayer is within range.
+        
+        if (hitCollider != null) // This is true if the player is within the bad radius range of an arrow.
+        {
+            string arrowTag = hitCollider.tag;
+            //print(arrowTag);
+            ActionComponent.Action action;
+            if (arrowTag == "Stomp") action = ActionComponent.Action.Stomping;   
+            else if (arrowTag == "Jump") action = ActionComponent.Action.Jumping;
+            else if (arrowTag == "DashSlide") action = ActionComponent.Action.Sliding;
+            else action = ActionComponent.Action.Running;
+
+            float distance = Vector2.Distance(_myTransform.position, hitCollider.transform.position); // Calculate the distance between player and arrow.
+            
+            if (distance <= perfectRadius)
+            {
+                return action;
+            }
+            else return ActionComponent.Action.Null;
+        }
+        else return ActionComponent.Action.Null;
+    }
+    #endregion
 }

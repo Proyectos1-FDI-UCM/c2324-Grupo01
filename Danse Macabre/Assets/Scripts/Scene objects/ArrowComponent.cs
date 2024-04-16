@@ -4,10 +4,10 @@
 public class ArrowComponent : MonoBehaviour
 {
     #region paramaters
-    // Parameters used to drawn Gizmos:
-    // private float perfectRadius = 0.2f;
-    // private float goodRadius = 0.35f;
-    // private float badRadius = 0.5f;
+    //Parameters used to drawn Gizmos:
+    private float perfectRadius = 0.2f;
+    private float goodRadius = 0.35f;
+    private float badRadius = 0.5f;
     #endregion
 
     #region refrences
@@ -18,6 +18,8 @@ public class ArrowComponent : MonoBehaviour
     #endregion
 
     #region properties
+    [SerializeField]
+    private bool activateGizmos = false;
     private bool actionDone = false; // Bool that tracks if an any action was made inside the arrow collider.
     #endregion
 
@@ -56,19 +58,22 @@ public class ArrowComponent : MonoBehaviour
     }
     #endregion
 
-    // void OnDrawGizmos()
-    // {
-    //     CircleCollider2D collider = GetComponent<CircleCollider2D>();
-    //     if (collider != null)
-    //     {
-    //         Gizmos.color = Color.red;
-    //         Gizmos.DrawWireSphere(transform.position + (Vector3)collider.offset, perfectRadius);
+    void OnDrawGizmos()
+    {
+        if (activateGizmos)
+        {            
+            CircleCollider2D collider = GetComponent<CircleCollider2D>();
+            if (collider != null)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawWireSphere(transform.position + (Vector3)collider.offset, perfectRadius);
 
-    //         Gizmos.color = Color.blue;
-    //         Gizmos.DrawWireSphere(transform.position + (Vector3)collider.offset, goodRadius);
+                Gizmos.color = Color.blue;
+                Gizmos.DrawWireSphere(transform.position + (Vector3)collider.offset, goodRadius);
 
-    //         Gizmos.color = Color.yellow;
-    //         Gizmos.DrawWireSphere(transform.position + (Vector3)collider.offset, badRadius);
-    //     }
-    // }
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawWireSphere(transform.position + (Vector3)collider.offset, badRadius);
+            }
+        }
+    }
 }

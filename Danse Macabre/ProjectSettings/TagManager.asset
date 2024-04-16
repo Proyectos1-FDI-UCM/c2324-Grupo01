@@ -12,6 +12,7 @@ TagManager:
   - Stomp
   - Jump
   - DashSlide
+  - BotHelper
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,6 @@ TagManager:
   - Wall
   - Traps
   - Enemies
-  - 
   - 
   - 
   - 
