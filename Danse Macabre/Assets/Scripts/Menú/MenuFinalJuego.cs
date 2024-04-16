@@ -58,8 +58,10 @@ public class MenuFinalJuego : MonoBehaviour
 
     private string _ranking;
     private float _puntuacion=0;
+    [SerializeField] private float _ScoreTime=0.6f;
     private int _time=0;
     private int _cont=100;
+
     #endregion
     public void QuitMenuFinal()
     {
@@ -138,17 +140,9 @@ public class MenuFinalJuego : MonoBehaviour
     private void Update()
     {
 
-        if (_time%0.5==0)
-        {
-            if (_cont>0 && _puntuacion <= _finalScore)
-            {
-                _puntuacion =_finalScore /_cont;
-                _textPuntuacionFinal.text = _puntuacion.ToString("0");
-                _cont--;
-
-            }
-        }
-        if (_time% 10== 0 && _puntuacion==_finalScore)
+        _puntuacion = Mathf.Lerp(_puntuacion, _finalScore, _ScoreTime*Time.deltaTime);
+        _textPuntuacionFinal.text = _puntuacion.ToString("0");
+        if (_time% 10== 0 && _finalScore-_puntuacion<0.1)
         {
             if (!_coin.enabled)
             {

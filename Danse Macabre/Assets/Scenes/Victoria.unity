@@ -1070,6 +1070,7 @@ MonoBehaviour:
   _coin: {fileID: 162453713}
   _enemy: {fileID: 1625679929}
   _box: {fileID: 515589585}
+  _ScoreTime: 3
 --- !u!1 &430748755
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,10 +37,9 @@ public class ScoreSliderController : MonoBehaviour
     }
     private void Update()
     {
-        if(progress<=_targetValue)
-        {
-           progress= Mathf.Lerp(progress, _targetValue, sliderTime*Time.deltaTime);
-        }
+
+        progress= Mathf.Lerp(progress, _targetValue, sliderTime*Time.deltaTime);
+        
         _mySlider.value = progress;
     }
 }
