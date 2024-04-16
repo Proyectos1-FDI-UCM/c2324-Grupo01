@@ -116,7 +116,7 @@ public class ActionComponent : MonoBehaviour
     private void TrampolineBounce()
     {
         _myRB.velocity = new Vector3(_myRB.velocity.x, trampolineJumpSpeed);
-        pathSaver.StartSaving();
+        //pathSaver.StartSaving();
 
     }
     /// <summary>
