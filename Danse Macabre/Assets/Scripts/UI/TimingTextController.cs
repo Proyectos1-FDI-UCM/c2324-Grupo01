@@ -12,6 +12,7 @@ public class TimingTextController : MonoBehaviour
 
     #region parameters
     [SerializeField] private float _resetTime=1.0f;
+    private float _time = 0;
     #endregion
 
     #region methods
@@ -20,34 +21,38 @@ public class TimingTextController : MonoBehaviour
         if (timing == "PERFECT")
         {
             _timingText.color = colors[0];
+            _timingText.text = timing;
         }
         else if (timing == "GREAT")
         {
             _timingText.color = colors[1];
+            _timingText.text = timing;
         }
         else if (timing == "GOOD")
         {
             _timingText.color = colors[2];
+            _timingText.text = timing;
         }
         else if (timing == "WRONG")
         {
             _timingText.color = colors[3];
+            _timingText.text = timing;
         }
         else if (timing == "MISSED")
         {
             _timingText.color = colors[4];
         }
         _timingText.text = timing;
-        Invoke("resetText", _resetTime);
-    }
-    private void resetText()
-    {
-        _timingText.text = " ";
     }
     #endregion
     // Update is called once per frame
     void Update()
     {
-        
+        _time+=1*Time.deltaTime;
+        if (_time>_resetTime)
+        {
+            TimingText(" ");
+            _time=0;
+        }
     }
 }
