@@ -11,15 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NivelSugarPlum.unity
     guid: 8aec2ab4bdb464143b6764797f7011ce
-  - enabled: 0
-    path: Assets/Scenes/NivelGnorkParty.unity
-    guid: 90a89693417684948ab04633868316f2
   - enabled: 1
     path: Assets/Scenes/Nivel_Dear_X.unity
     guid: fbfed61ac737cee4e92529488dd3ebce
-  - enabled: 0
-    path: Assets/Scenes/archivo/Nivel_2_Hugo.unity
-    guid: 60e090520b776c9479a8798494a6fc1a
   - enabled: 1
     path: Assets/Scenes/Muerte.unity
     guid: 4dc11d9ea5cf6c64c8203c648a09b55e

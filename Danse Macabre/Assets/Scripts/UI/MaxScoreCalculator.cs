@@ -85,12 +85,27 @@ public class MaxScoreCalculator : MonoBehaviour
                     + _nEnemy * _enemyValue
                     + _nBox * _boxValue
                     + _nArrow * _scoreManager.perfectTimingValue;
-
+        Debug.Log("basico" + _basicScore);
         //punctuacion con combo
-        _scoreCombo = (_basicScore - _comboManager.threshold3) * _comboManager.threshold3mul
-                        + _comboManager.threshold3 - _comboManager.threshold2 * _comboManager.threshold2mul
-                        + _comboManager.threshold2 - _comboManager.threshold1 * _comboManager.threshold1mul
-                        + _comboManager.threshold1;
+        if (_basicScore > _comboManager.threshold3)
+        {
+            _scoreCombo = (_basicScore - _comboManager.threshold3) * _comboManager.threshold3mul
+                            + (_comboManager.threshold3 - _comboManager.threshold2) * _comboManager.threshold2mul
+                            + (_comboManager.threshold2 - _comboManager.threshold1) * _comboManager.threshold1mul
+                            + _comboManager.threshold1;
+        }
+        else if (_basicScore > _comboManager.threshold2)
+        {
+            _scoreCombo = (_basicScore - _comboManager.threshold2) * _comboManager.threshold2mul
+                            + (_comboManager.threshold2 - _comboManager.threshold1) * _comboManager.threshold1mul
+                            + _comboManager.threshold1;
+        }
+        else if (_basicScore > _comboManager.threshold1)
+        {
+            _scoreCombo = (_basicScore - _comboManager.threshold1) * _comboManager.threshold1mul
+                            + _comboManager.threshold1;
+        }
+        else _scoreCombo = _basicScore;
 
         //puntuacion con los puntos del tiempo transcurrido
         _maxScore = _scoreCombo + _scoreManager._basicPoint;
@@ -99,6 +114,8 @@ public class MaxScoreCalculator : MonoBehaviour
     {
         ScoreCalculate();
         PlayerPrefs.SetFloat("MaxScore", (float)_maxScore);
+        PlayerPrefs.SetFloat("base", (float)_basicScore);
+        PlayerPrefs.SetFloat("combo", (float)_scoreCombo);
     }
     #endregion
     // Start is called before the first frame update

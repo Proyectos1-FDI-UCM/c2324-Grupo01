@@ -16,6 +16,16 @@ public class MenuFinalJuego : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _textPuntuacionObjecto;
 
+    /*
+    [SerializeField]
+    private TextMeshProUGUI _textMaxPuntos;
+    [SerializeField]
+    private TextMeshProUGUI _text1;
+    [SerializeField]
+    private TextMeshProUGUI _text2;
+    */
+
+
 
     [SerializeField]
     private TextMeshProUGUI _textPerfectNumber;
@@ -30,6 +40,14 @@ public class MenuFinalJuego : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI _textPlayerRanking;
+
+
+    [SerializeField]
+    private Canvas _coin;
+    [SerializeField]
+    private Canvas _enemy;
+    [SerializeField]
+    private Canvas _box;
     #endregion
 
     #region properties
@@ -39,6 +57,11 @@ public class MenuFinalJuego : MonoBehaviour
     private float _MaxScore;
 
     private string _ranking;
+    private float _puntuacion=0;
+    [SerializeField] private float _ScoreTime=0.6f;
+    private int _time=0;
+    private int _cont=100;
+
     #endregion
     public void QuitMenuFinal()
     {
@@ -59,12 +82,13 @@ public class MenuFinalJuego : MonoBehaviour
 
     private void PlayerRanking()
     {
-        if (_finalScore < (_MaxScore / 4) * 1) _ranking = "C";
+        
+        if (_finalScore < _MaxScore / 4) _ranking = "C";
         else if (_finalScore < (_MaxScore / 4) * 2) _ranking = "B";
-        else if (_finalScore < (_MaxScore / 4) * 3) _ranking = "A";
+        else if (_finalScore < (_MaxScore / 4) * 2.5) _ranking = "A";
         else _ranking = "S";
     }
-    private void WritePlayerRanking()
+    public void WritePlayerRanking()
     {
         PlayerRanking();
         _textPlayerRanking.text = _ranking;
@@ -77,9 +101,19 @@ public class MenuFinalJuego : MonoBehaviour
         _textGoodNumber.text = PlayerPrefs.GetInt("GoodNumber").ToString();
         _textMissNumber.text = PlayerPrefs.GetInt("MissNumber").ToString();
         _textWrongNumber.text = PlayerPrefs.GetInt("WrongNumber").ToString();
+
+       /* _textMaxPuntos.text = ((int)_MaxScore).ToString();
+        _text1.text = ((int)PlayerPrefs.GetFloat("base")).ToString();
+
+        _text2.text = ((int)PlayerPrefs.GetFloat("combo")).ToString();
+       */
     }
-    void Start()
+    void Awake()
     {
+        _coin.enabled = false;
+        _enemy.enabled = false;
+        _box.enabled = false;
+
         // Verifica si la puntuaci�n final est� disponible en PlayerPrefs
         if (PlayerPrefs.HasKey("FinalScore"))
         {
@@ -88,15 +122,43 @@ public class MenuFinalJuego : MonoBehaviour
             float coinScore = PlayerPrefs.GetFloat("CoinScore", 0f);
             float enemyScore = PlayerPrefs.GetFloat("EnemyScore", 0f);
             float objectScore = PlayerPrefs.GetFloat("ObjectScore", 0f);
-            _textPuntuacionFinal.text = _finalScore.ToString("0");
+
+
+
             _textPuntuacionMoneda.text = coinScore.ToString("0");
             _textPuntuacionEnemigo.text = enemyScore.ToString("0");
             _textPuntuacionObjecto.text = objectScore.ToString("0");
 
-            _MaxScore=PlayerPrefs.GetFloat("MaxScore",0f);
+            _MaxScore = PlayerPrefs.GetFloat("MaxScore", 0f);
 
-            WritePlayerRanking();
-            WriteTimingNumber();
         }
+    }
+    private void Start()
+    {
+        WritePlayerRanking();
+        WriteTimingNumber();
+    }
+    private void Update()
+    {
+        Debug.Log("Max" + _MaxScore);
+        _puntuacion = Mathf.Lerp(_puntuacion, _finalScore, _ScoreTime*Time.deltaTime);
+        _textPuntuacionFinal.text = _puntuacion.ToString("0");
+        if (_time%11== 0 && _finalScore-_puntuacion<0.1)
+        {
+            if (!_coin.enabled)
+            {
+                _coin.enabled = true;
+            }
+            else if (!_enemy.enabled)
+            {
+                _enemy.enabled = true;
+            }
+            else if (!_box.enabled)
+            {
+                _box.enabled = true;
+            }
+        }
+        _time++;
+
     }
 }

@@ -9,33 +9,37 @@ public class ScoreSliderController : MonoBehaviour
     #region references
     private MenuFinalJuego menuFinalJuego;
 
+    [SerializeField] private float sliderTime=1f;
+
     private Slider _mySlider;
     #endregion
 
     #region properties
-    private float _value;
+    private float _targetValue;
+    private float _playerScore;
+    private float _MaxScore;
+    private float progress;
+    private float newValue;
     #endregion
 
     #region methods
-    public void SetProgress()
+    private void Awake()
     {
-        float playerScore = PlayerPrefs.GetFloat("FinalScore", 0f);
-        float MaxScore = PlayerPrefs.GetFloat("MaxScore", 0f);
-        float progress = playerScore / MaxScore;
-
-        _value = Mathf.Clamp01(progress);
-        _mySlider.value = _value;
+        _playerScore = PlayerPrefs.GetFloat("FinalScore", 0f);
+        _MaxScore = PlayerPrefs.GetFloat("MaxScore", 0f);
     }
     #endregion
-    // Start is called before the first frame update
     void Start()
     {
         _mySlider = GetComponent<Slider>();
         menuFinalJuego = GetComponent<MenuFinalJuego>();
+        _targetValue = Mathf.Clamp01(_playerScore / (_MaxScore * (float)0.8));
     }
     private void Update()
     {
-        SetProgress();
-        //Debug.Log("progress: "+ _mySlider.value);
+        Debug.Log("valor" + _targetValue);
+        progress= Mathf.Lerp(progress, _targetValue, sliderTime*Time.deltaTime);
+        
+        _mySlider.value = progress;
     }
 }

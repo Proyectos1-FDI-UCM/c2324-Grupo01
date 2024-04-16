@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Profiling;
@@ -77,6 +76,9 @@ public class ActionComponent : MonoBehaviour
     [SerializeField]
     private ParticleSystem SlideParticleSystem;
     private ParticleSystem.EmissionModule SlideParticleEmitter;
+    [SerializeField]
+    private ParticleSystem StompParticleSystem;
+    private ParticleSystem.EmissionModule StompParticleEmitter;
 
     private AudioSource myAudioSource;
     #endregion
@@ -265,6 +267,10 @@ public class ActionComponent : MonoBehaviour
         SlideParticleSystem.Play();
         SlideParticleEmitter = SlideParticleSystem.emission;
         SlideParticleEmitter.enabled = false;
+
+        StompParticleSystem.Play();
+        StompParticleEmitter = StompParticleSystem.emission;
+        StompParticleEmitter.enabled = false;
     }
 
     void Update()

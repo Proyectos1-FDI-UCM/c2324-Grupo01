@@ -38,15 +38,23 @@ public class ComboManager : MonoBehaviour
         }
         else if (combo >= threshold3 )
         {
-            if (multiplier != threshold3mul) multiplier = threshold3mul;
+            if (multiplier != threshold3mul) 
+            {
+                multiplier = threshold3mul;
+            }
         }
         else if (combo >= threshold2)
         {
-            if (multiplier != threshold2mul) multiplier = threshold2mul;
+            if (multiplier != threshold2mul)
+            { multiplier = threshold2mul;
+            }
         }
         else if (combo >= threshold1)
         {
-            if (multiplier != threshold1mul) multiplier = threshold1mul;
+            if (multiplier != threshold1mul)
+            {
+                multiplier = threshold1mul;
+            }
         }
         comboSliderComponent.ChangeColor(multiplier);
         //para el slider del combo

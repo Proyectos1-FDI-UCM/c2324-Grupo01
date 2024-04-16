@@ -19,21 +19,21 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             _playerActionComponent.Jump();
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             _playerActionComponent.Stomp();
         }
-        else if (Input.GetKey(KeyCode.Z)||Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.Z)||Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             _playerActionComponent.SlideDash();
         }
     
         
-        if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.RightArrow))
+        if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.D))
         {
             _playerActionComponent.SlideStop();
         }
