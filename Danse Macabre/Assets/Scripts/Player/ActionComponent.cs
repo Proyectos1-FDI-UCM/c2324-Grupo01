@@ -341,6 +341,15 @@ public class ActionComponent : MonoBehaviour
             SlideParticleEmitter.enabled = false;
         }
 
+        if (currentAction == Action.Stomping)
+        {
+            StompParticleEmitter.enabled = true;
+        }
+        else
+        {
+            StompParticleEmitter.enabled = false;
+        }
+
     }
     /// <summary>
     /// Method to control bot's dash.
