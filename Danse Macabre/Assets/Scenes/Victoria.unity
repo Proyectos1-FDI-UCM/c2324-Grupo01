@@ -382,6 +382,7 @@ MonoBehaviour:
   _enemy: {fileID: 1625679929}
   _box: {fileID: 515589585}
   _ScoreTime: 3
+  _resetTime: 0.5
 --- !u!223 &515589585 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 1409381409112646979, guid: d6d7038e8c5acdb458cc3c58ddf581d9, type: 3}
