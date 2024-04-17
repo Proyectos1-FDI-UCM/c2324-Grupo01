@@ -48,9 +48,7 @@ public class ComboSliderComponent : MonoBehaviour
     #region properties
     //el valor actual del slider, que llevara al slider.value;
     private float actualValue;
-    //el valor que se resta cuando paso de un slider a otro;
-    [SerializeField]
-    private float errasedValue = 0f;
+
     #endregion
     #region methods
     public void ChangeColor(float mul)
@@ -65,7 +63,6 @@ public class ComboSliderComponent : MonoBehaviour
                 backgroundRender.color = bgColors[0];
                 fillRender.color = fillColors[0];
                 slider.maxValue = comboManager.threshold1;
-                errasedValue = 0f;
                 MusicManager.Instance.PlaySoundEffect(comboFailedSound, failedComboVol);
 
             }
@@ -75,7 +72,6 @@ public class ComboSliderComponent : MonoBehaviour
                 backgroundRender.color = bgColors[1];
                 fillRender.color = fillColors[1];
                 slider.maxValue = comboManager.threshold2;
-                errasedValue = comboManager.threshold1;
                 MusicManager.Instance.PlaySoundEffect(comboSound1, combo1Vol);
             }
             //x3
@@ -84,7 +80,6 @@ public class ComboSliderComponent : MonoBehaviour
                 backgroundRender.color = bgColors[2];
                 fillRender.color = fillColors[2];
                 slider.maxValue = comboManager.threshold3;
-                errasedValue = comboManager.threshold2;
                 MusicManager.Instance.PlaySoundEffect(comboSound2, combo2Vol);
             }
             //x4
@@ -92,7 +87,6 @@ public class ComboSliderComponent : MonoBehaviour
             {
                 backgroundRender.color = bgColors[3];
                 fillRender.color = fillColors[3];
-                errasedValue = comboManager.threshold3;
                 MusicManager.Instance.PlaySoundEffect(comboSound3, combo3Vol);
             }
             
@@ -107,7 +101,7 @@ public class ComboSliderComponent : MonoBehaviour
     }
     public void SetPoint(double value)
     {
-        actualValue = Mathf.Clamp((float)value-errasedValue, 0, slider.maxValue);
+        actualValue = Mathf.Clamp((float)value, 0, slider.maxValue);
         slider.value = actualValue;
 
     }

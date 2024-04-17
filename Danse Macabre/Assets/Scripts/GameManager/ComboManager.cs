@@ -25,6 +25,7 @@ public class ComboManager : MonoBehaviour
     private ComboSliderComponent comboSliderComponent;
 
     private bool cambioColor=false;
+    private float sumThreshold = 0;
     
     #endregion
 
@@ -40,20 +41,23 @@ public class ComboManager : MonoBehaviour
         {
             multiplier = 1;
             cambioColor = true;
+            sumThreshold = 0;
         }
-        else if (combo >= threshold3 )
+        else if (combo - (threshold1+threshold2) >= threshold3)
         {
             if (multiplier != threshold3mul) 
             {
                 multiplier = threshold3mul;
+                sumThreshold = threshold3 + threshold2 + threshold1;
                 cambioColor = true;
             }
         }
-        else if (combo >= threshold2)
+        else if (combo - threshold1 >= threshold2)
         {
             if (multiplier != threshold2mul)
             { 
                 multiplier = threshold2mul;
+                sumThreshold = threshold2 + threshold1;
                 cambioColor = true;
             }
         }
@@ -62,6 +66,7 @@ public class ComboManager : MonoBehaviour
             if (multiplier != threshold1mul)
             {
                 multiplier = threshold1mul;
+                sumThreshold = threshold1;
                 cambioColor = true;
             }
         }
@@ -69,9 +74,10 @@ public class ComboManager : MonoBehaviour
         {
             comboSliderComponent.ChangeColor(multiplier);
             //para el slider del combo
-            comboSliderComponent.SetPoint(combo);
+
             //Debug.Log("Combo: " + Math.Round(combo) + " | Multiplier: " + multiplier);
         }
+        comboSliderComponent.SetPoint(combo-sumThreshold);
         cambioColor = false;
     }
     public void addCombo(float n)
@@ -83,5 +89,10 @@ public class ComboManager : MonoBehaviour
     {
         combo = 0;
     }
-    
+    /*
+    private void FixedUpdate()
+    {
+        //Debug.Log("Combo: " + (combo) + " Sum: " + sumThreshold);
+    }
+    */
 }
