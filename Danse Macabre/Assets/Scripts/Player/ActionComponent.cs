@@ -82,6 +82,9 @@ public class ActionComponent : MonoBehaviour
     [SerializeField]
     private ParticleSystem StompParticleSystem;
     private ParticleSystem.EmissionModule StompParticleEmitter;
+    [SerializeField]
+    private ParticleSystem DashParticleSystem;
+    private ParticleSystem.EmissionModule DashParticleEmitter;
 
     private AudioSource myAudioSource;
     #endregion
@@ -267,6 +270,10 @@ public class ActionComponent : MonoBehaviour
         StompParticleSystem.Play();
         StompParticleEmitter = StompParticleSystem.emission;
         StompParticleEmitter.enabled = false;
+
+        DashParticleSystem.Play();
+        DashParticleEmitter = DashParticleSystem.emission;
+        DashParticleEmitter.enabled = false;
     }
 
     void Start()
@@ -348,6 +355,15 @@ public class ActionComponent : MonoBehaviour
         else
         {
             StompParticleEmitter.enabled = false;
+        }
+
+        if (currentAction == Action.Dashing)
+        {
+            DashParticleEmitter.enabled = true;
+        }
+        else
+        {
+            DashParticleEmitter.enabled = false;
         }
 
     }
