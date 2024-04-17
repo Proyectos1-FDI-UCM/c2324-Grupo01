@@ -5043,9 +5043,9 @@ MonoBehaviour:
   DefaultCollisionSizeY: 0.9795959
   DefaultCollisionOffsetX: -0.02383977
   DefaultCollisionOffsetY: -0.01020205
-  SlideCollisionSizeX: 0.86
+  SlideCollisionSizeX: 0.45
   SlideCollisionSizeY: 0.4826775
-  SlideCollisionOffsetX: -0.0088
+  SlideCollisionOffsetX: 0.15
   SlideCollisionOffsetY: -0.2373648
   SlideParticleSystem: {fileID: 3352450513388194685}
   StompParticleSystem: {fileID: 2221979133032681958}

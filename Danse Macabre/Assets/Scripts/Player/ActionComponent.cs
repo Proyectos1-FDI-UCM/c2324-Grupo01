@@ -151,7 +151,7 @@ public class ActionComponent : MonoBehaviour
             currentAction = Action.Stomping;
             timingComponent.CheckNearbyArrow(currentAction); // Sends stomping to perfect timing.
             _myRB.velocity = new Vector3(_myRB.velocity.x, -stompDownwardSpeed);
-            //pathSaver.StartSaving();
+            pathSaver.StartSaving();
             
             myAudioSource.PlayOneShot(_stompSound, stompCTR);
         }
