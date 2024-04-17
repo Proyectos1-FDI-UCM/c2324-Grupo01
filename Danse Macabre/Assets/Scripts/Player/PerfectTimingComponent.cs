@@ -10,6 +10,26 @@ public class PerfectTimingComponent : MonoBehaviour
     private float perfectRadius = 0.2f;
     private float goodRadius = 0.35f;
     private float badRadius = 0.5f;
+
+    [SerializeField]
+    private float PerfectSize = 2.0f;
+    [SerializeField]
+    private float GreatSize = 1.5f;
+    [SerializeField]
+    private float GoodSize = 1.0f;
+    [SerializeField]
+    private float WrongSize = 0.5f;
+    [SerializeField]
+    private Color PerfectColor = new Color32(255, 0, 255, 255);
+    [SerializeField]
+    private Color GreatColor = new Color(0, 255, 100, 255);
+    [SerializeField]
+    private Color GoodColor = new Color(255, 255, 0, 255);
+    [SerializeField]
+    private Color WrongColor = new Color(255, 255, 255, 255);
+    [SerializeField]
+    private float StartAlpha = 0.15f; // From 0 to 1, how visible the particle starts as
+
     #endregion
 
     #region references
@@ -21,25 +41,6 @@ public class PerfectTimingComponent : MonoBehaviour
     private ParticleSystem.MainModule TimingParticleMain;
     private ParticleSystem.EmissionModule TimingParticleEmitter;
     private ParticleSystem.ColorOverLifetimeModule TimingParticleColorOverLifetime;
-
-    [SerializeField]
-    private float PerfectSize = 2.0f;
-    [SerializeField]
-    private float GreatSize = 1.5f;
-    [SerializeField]
-    private float GoodSize = 1.0f;
-    [SerializeField]
-    private float WrongSize = 0.5f;
-    [SerializeField]
-    private Color PerfectColor = new Color32(255,0,255,255);
-    [SerializeField]
-    private Color GreatColor = new Color(255,255,0,255);
-    [SerializeField]
-    private Color GoodColor = new Color(0,255,0,255);
-    [SerializeField]
-    private Color WrongColor = new Color(255,255,255,255);
-    [SerializeField]
-    private float StartAlpha = 0.3f; // From 0 to 1, how visible the particle starts as
     #endregion
 
     #region properties
@@ -115,7 +116,6 @@ public class PerfectTimingComponent : MonoBehaviour
         var gradient = new Gradient(); // Creating the gradient for colour over lifetime
         var colors = new GradientColorKey[2]; // Gradient is defined by two colours
         var alphas = new GradientAlphaKey[2]; // Gradient is defined by two alphas
-        /*
         if (action == "PERFECT")
         {
             TimingParticleMain.startSize = PerfectSize;
@@ -141,10 +141,9 @@ public class PerfectTimingComponent : MonoBehaviour
             colors[1] = new GradientColorKey(WrongColor, 1);
         }
         alphas[0] = new GradientAlphaKey(StartAlpha, 0);
-        alphas[0] = new GradientAlphaKey(0, 1);
+        alphas[1] = new GradientAlphaKey(0, 1);
         gradient.SetKeys(colors, alphas);
         TimingParticleColorOverLifetime.color = gradient;
-        */
         TimingParticleSystem.Emit(1);
     }
 

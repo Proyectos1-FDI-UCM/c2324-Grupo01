@@ -9917,6 +9917,9 @@ MonoBehaviour:
   trampolineLayer:
     serializedVersion: 2
     m_Bits: 512
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _jumpSound: {fileID: 8300000, guid: 1c17c8e7f86464e42a180c14eb66471d, type: 3}
   _stompSound: {fileID: 8300000, guid: a1d98f6cd9f4ea8418bc2a0b8fdb2e4f, type: 3}
   _slideSound: {fileID: 8300000, guid: 51f70c302533cde46be93314231af042, type: 3}
@@ -10065,19 +10068,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47302629587471408beb313212056b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  TimingParticleSystem: {fileID: 7826963980058275976}
   PerfectSize: 2
   GreatSize: 1.5
   GoodSize: 1
   WrongSize: 0.5
   PerfectColor: {r: 1, g: 0, b: 1, a: 1}
-  GreatColor: {r: 0.9926069, g: 1, b: 0, a: 1}
-  GoodColor: {r: 0, g: 1, b: 0.03938818, a: 1}
-  WrongColor: {r: 0, g: 0, b: 0, a: 0}
-  StartAlpha: 0.3
+  GreatColor: {r: 0, g: 1, b: 0.39215687, a: 1}
+  GoodColor: {r: 1, g: 1, b: 0, a: 1}
+  WrongColor: {r: 1, g: 1, b: 1, a: 1}
+  StartAlpha: 0.15
+  arrowLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  TimingParticleSystem: {fileID: 7826963980058275976}
 --- !u!82 &1984238978032885307
 AudioSource:
   m_ObjectHideFlags: 0
