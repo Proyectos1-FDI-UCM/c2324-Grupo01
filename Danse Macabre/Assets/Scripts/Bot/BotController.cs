@@ -32,7 +32,7 @@ public class BotController : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject != null && other.gameObject.tag == "BotHelper")
+        if (other.gameObject != null && other.gameObject.CompareTag("BotHelper"))
         {
             if (actionComponent.currentAction == ActionComponent.Action.Dashing){
                 actionComponent.BotCanDash(true);

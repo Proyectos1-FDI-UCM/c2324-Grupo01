@@ -288,9 +288,6 @@ public class ActionComponent : MonoBehaviour
         Action lastAction = currentAction; // To further call SlideStop() if current action is changed by the code bellow.
 
 
-        if (_myTransform.position.x < 393 && _myTransform.position.x > 392){
-            Jump();
-        }
         if (_myRB.velocity.y > 0.1f){ // If the velocity y if greater then 0.1f it means the player is jumping.
             currentAction = Action.Jumping;
         }
