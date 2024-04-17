@@ -23,6 +23,9 @@ public class ComboManager : MonoBehaviour
     //modificado por Bing 
     #region references
     private ComboSliderComponent comboSliderComponent;
+
+    private bool cambioColor=false;
+    
     #endregion
 
     private void Start()
@@ -31,24 +34,27 @@ public class ComboManager : MonoBehaviour
     }
     void Update()
     {
+        
         // Procesar multiplicador
         if (combo < threshold1)
         {
             multiplier = 1;
+            cambioColor = true;
         }
         else if (combo >= threshold3 )
         {
             if (multiplier != threshold3mul) 
             {
                 multiplier = threshold3mul;
-                resetCombo();
+                cambioColor = true;
             }
         }
         else if (combo >= threshold2)
         {
             if (multiplier != threshold2mul)
-            { multiplier = threshold2mul;
-                resetCombo();
+            { 
+                multiplier = threshold2mul;
+                cambioColor = true;
             }
         }
         else if (combo >= threshold1)
@@ -56,13 +62,17 @@ public class ComboManager : MonoBehaviour
             if (multiplier != threshold1mul)
             {
                 multiplier = threshold1mul;
-                resetCombo();
+                cambioColor = true;
             }
         }
-        comboSliderComponent.ChangeColor(multiplier);
-        //para el slider del combo
-        comboSliderComponent.SetPoint(combo);
-        //Debug.Log("Combo: " + Math.Round(combo) + " | Multiplier: " + multiplier);
+        if (cambioColor)
+        {
+            comboSliderComponent.ChangeColor(multiplier);
+            //para el slider del combo
+            comboSliderComponent.SetPoint(combo);
+            //Debug.Log("Combo: " + Math.Round(combo) + " | Multiplier: " + multiplier);
+        }
+        cambioColor = false;
     }
     public void addCombo(float n)
     {

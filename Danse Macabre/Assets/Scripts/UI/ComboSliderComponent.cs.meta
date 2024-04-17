@@ -3,7 +3,14 @@ guid: 97393e17fcdbb6c4bbf3e0a2be23b201
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - backgroundRender: {instanceID: 0}
+  - fillRender: {instanceID: 0}
+  - textoMul: {instanceID: 0}
+  - comboSound1: {fileID: 8300000, guid: 488cc32fd7e367c48afa5e8fc86e047a, type: 3}
+  - comboSound2: {fileID: 8300000, guid: 3c82bf58731c34a478c14beb103e56b3, type: 3}
+  - comboSound3: {fileID: 8300000, guid: 00ecaa95ec7a9264e8f8a6d9f63232ae, type: 3}
+  - comboFailedSound: {fileID: 8300000, guid: 87112bb8b73f65e4fa4c668458f6d351, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

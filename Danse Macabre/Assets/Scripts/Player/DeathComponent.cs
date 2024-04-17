@@ -8,8 +8,6 @@ using UnityEngine.SceneManagement;
 public class DeathComponent : MonoBehaviour
 {
     #region references
-    // [SerializeField]
-    // private LayerMask deathLayers;
     private MovementComponent _movementComponent;
     private ActionComponent _actionComponent;
     private AnimationComponent _animationComponent;
@@ -108,6 +106,11 @@ public class DeathComponent : MonoBehaviour
             Death();
         }
     }
+
+    // public bool CheckPlayerIsAlive()
+    // {
+    //     return PlayerAlive;
+    // }
     #endregion
 }
 
