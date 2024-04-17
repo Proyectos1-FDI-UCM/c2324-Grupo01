@@ -16,6 +16,14 @@ public class MenuFinalJuego : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _textPuntuacionObjecto;
 
+    private AudioSource _audioSource;
+    [SerializeField]
+    private AudioClip _pointSound1;
+    [SerializeField]
+    private AudioClip _pointSound2;
+    [SerializeField]
+    private AudioClip _pointSound3;
+
     /*
     [SerializeField]
     private TextMeshProUGUI _textMaxPuntos;
@@ -137,6 +145,7 @@ public class MenuFinalJuego : MonoBehaviour
     {
         WritePlayerRanking();
         WriteTimingNumber();
+        _audioSource = FindObjectOfType<AudioSource>();
     }
     private void Update()
     {
@@ -148,14 +157,17 @@ public class MenuFinalJuego : MonoBehaviour
             if (!_coin.enabled)
             {
                 _coin.enabled = true;
+                _audioSource.PlayOneShot(_pointSound1);
             }
             else if (!_enemy.enabled)
             {
                 _enemy.enabled = true;
+                _audioSource.PlayOneShot(_pointSound2);
             }
             else if (!_box.enabled)
             {
                 _box.enabled = true;
+                _audioSource.PlayOneShot(_pointSound3);
             }
             _time = 0;
         }
