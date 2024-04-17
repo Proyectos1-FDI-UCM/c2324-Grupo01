@@ -144450,6 +144450,38 @@ PrefabInstance:
     m_TransformParent: {fileID: 33653398}
     m_Modifications:
     - target: {fileID: 2111175019218233419, guid: 4486159ca9a553c43a3d7f4ce92d34bd, type: 3}
+      propertyPath: combo1Vol
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111175019218233419, guid: 4486159ca9a553c43a3d7f4ce92d34bd, type: 3}
+      propertyPath: combo2Vol
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111175019218233419, guid: 4486159ca9a553c43a3d7f4ce92d34bd, type: 3}
+      propertyPath: combo3Vol
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111175019218233419, guid: 4486159ca9a553c43a3d7f4ce92d34bd, type: 3}
+      propertyPath: comboSound1
+      value: 
+      objectReference: {fileID: 8300000, guid: 488cc32fd7e367c48afa5e8fc86e047a, type: 3}
+    - target: {fileID: 2111175019218233419, guid: 4486159ca9a553c43a3d7f4ce92d34bd, type: 3}
+      propertyPath: comboSound2
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c82bf58731c34a478c14beb103e56b3, type: 3}
+    - target: {fileID: 2111175019218233419, guid: 4486159ca9a553c43a3d7f4ce92d34bd, type: 3}
+      propertyPath: comboSound3
+      value: 
+      objectReference: {fileID: 8300000, guid: 00ecaa95ec7a9264e8f8a6d9f63232ae, type: 3}
+    - target: {fileID: 2111175019218233419, guid: 4486159ca9a553c43a3d7f4ce92d34bd, type: 3}
+      propertyPath: failedComboVol
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111175019218233419, guid: 4486159ca9a553c43a3d7f4ce92d34bd, type: 3}
+      propertyPath: comboFailedSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 87112bb8b73f65e4fa4c668458f6d351, type: 3}
+    - target: {fileID: 2111175019218233419, guid: 4486159ca9a553c43a3d7f4ce92d34bd, type: 3}
       propertyPath: bgColors.Array.data[0].b
       value: 0.8666667
       objectReference: {fileID: 0}
