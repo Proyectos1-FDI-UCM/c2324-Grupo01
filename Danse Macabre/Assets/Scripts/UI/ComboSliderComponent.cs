@@ -25,6 +25,15 @@ public class ComboSliderComponent : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI textoMul;
+
+    [SerializeField]
+    private AudioClip comboSound1;
+    [SerializeField]
+    private AudioClip comboSound2;
+    [SerializeField]
+    private AudioClip comboSound3;
+    [SerializeField]
+    private AudioClip comboFailedSound;
     #endregion
     #region properties
     //el valor actual del slider, que llevara al slider.value;
@@ -47,6 +56,7 @@ public class ComboSliderComponent : MonoBehaviour
                 fillRender.color = fillColors[0];
                 slider.maxValue = comboManager.threshold1;
                 errasedValue = 0f;
+
             }
             //x1.5
             else if (mul-comboManager.threshold1mul < 0.1f)

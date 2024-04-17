@@ -24,6 +24,7 @@ public class ComboManager : MonoBehaviour
     #region references
     private ComboSliderComponent comboSliderComponent;
     #endregion
+    private float previousCombo =1f;
 
     private void Start()
     {
@@ -46,7 +47,8 @@ public class ComboManager : MonoBehaviour
         else if (combo >= threshold2)
         {
             if (multiplier != threshold2mul)
-            { multiplier = threshold2mul;
+            { 
+                multiplier = threshold2mul;
             }
         }
         else if (combo >= threshold1)
