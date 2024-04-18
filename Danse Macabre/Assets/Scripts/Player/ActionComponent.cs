@@ -423,9 +423,4 @@ public class ActionComponent : MonoBehaviour
     {
         return dashDuration;
     }
-    // design only
-    public Vector3 PlayerPosition()
-    {
-        return _myTransform.position;
-    }
 }

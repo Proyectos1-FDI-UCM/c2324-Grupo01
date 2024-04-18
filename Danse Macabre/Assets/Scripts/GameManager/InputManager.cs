@@ -41,14 +41,5 @@ public class InputManager : MonoBehaviour
         {
             _menu.Pausa();
         }
-
-        // design only
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            GameManager.Instance.InstantDeath();
-        }
-        if (Input.GetKeyDown(KeyCode.T)) {
-            print(_playerActionComponent.PlayerPosition());
-        }
     }
 }

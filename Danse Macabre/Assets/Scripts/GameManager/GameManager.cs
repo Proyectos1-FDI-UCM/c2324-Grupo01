@@ -144,13 +144,6 @@ public class GameManager : MonoBehaviour
             LoadDeathScene();
         }
     }
-    /// <summary>
-    /// For design only!
-    /// </summary>
-    public void InstantDeath()
-    {
-        SceneManager.LoadScene(previousScene);
-    }
 
 
 
