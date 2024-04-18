@@ -1,4 +1,7 @@
 // ASSIGN TO THE PLAYER'S OBJECT
+using System;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PerfectTimingComponent : MonoBehaviour
@@ -7,12 +10,37 @@ public class PerfectTimingComponent : MonoBehaviour
     private float perfectRadius = 0.2f;
     private float goodRadius = 0.35f;
     private float badRadius = 0.5f;
+
+    [SerializeField]
+    private float PerfectSize = 2.0f;
+    [SerializeField]
+    private float GreatSize = 1.5f;
+    [SerializeField]
+    private float GoodSize = 1.0f;
+    [SerializeField]
+    private float WrongSize = 0.5f;
+    [SerializeField]
+    private Color PerfectColor = new Color32(255, 0, 255, 255);
+    [SerializeField]
+    private Color GreatColor = new Color(0, 255, 100, 255);
+    [SerializeField]
+    private Color GoodColor = new Color(255, 255, 0, 255);
+    [SerializeField]
+    private Color WrongColor = new Color(255, 255, 255, 255);
+    [SerializeField]
+    private float StartAlpha = 0.15f; // From 0 to 1, how visible the particle starts as
+
     #endregion
 
     #region references
     private Transform _myTransform;
     [SerializeField]
     private LayerMask arrowLayer;
+    [SerializeField]
+    private ParticleSystem TimingParticleSystem;
+    private ParticleSystem.MainModule TimingParticleMain;
+    private ParticleSystem.EmissionModule TimingParticleEmitter;
+    private ParticleSystem.ColorOverLifetimeModule TimingParticleColorOverLifetime;
     #endregion
 
     #region properties
@@ -22,6 +50,13 @@ public class PerfectTimingComponent : MonoBehaviour
     private void Start()
     {
         _myTransform = transform;
+
+        TimingParticleMain = TimingParticleSystem.main;
+        TimingParticleEmitter = TimingParticleSystem.emission;
+        TimingParticleColorOverLifetime = TimingParticleSystem.colorOverLifetime;
+        TimingParticleSystem.Play();
+        TimingParticleEmitter.enabled = true;
+        TimingParticleMain.loop = false;
     }
 
     #region methods
@@ -54,23 +89,62 @@ public class PerfectTimingComponent : MonoBehaviour
                     if (distance <= perfectRadius)
                     {
                         GameManager.Instance.ArrowTiming("PERFECT");
+                        EmitTimingParticle("PERFECT");
                     }
                     else if (distance <= goodRadius)
                     {
                         GameManager.Instance.ArrowTiming("GREAT");
+                        EmitTimingParticle("GREAT");
                     }
                     else
                     {
                         GameManager.Instance.ArrowTiming("GOOD");
+                        EmitTimingParticle("GOOD");
                     }
                 }
                 else // If the tag mapped (action) doesn't match the arrow's tag.
                 { 
                     GameManager.Instance.ArrowTiming("WRONG"); // if the movement is not correct
+                    EmitTimingParticle("WRONG");
                 }
             }
-            
         }    
+    }
+
+    private void EmitTimingParticle(string action)
+    {
+        var gradient = new Gradient(); // Creating the gradient for colour over lifetime
+        var colors = new GradientColorKey[2]; // Gradient is defined by two colours
+        var alphas = new GradientAlphaKey[2]; // Gradient is defined by two alphas
+        if (action == "PERFECT")
+        {
+            TimingParticleMain.startSize = PerfectSize;
+            colors[0] = new GradientColorKey(PerfectColor, 0);
+            colors[1] = new GradientColorKey(PerfectColor, 1);
+        }
+        else if (action == "GREAT")
+        {
+            TimingParticleMain.startSize = GreatSize;
+            colors[0] = new GradientColorKey(GreatColor, 0);
+            colors[1] = new GradientColorKey(GreatColor, 1);
+        }
+        else if (action == "GOOD")
+        {
+            TimingParticleMain.startSize = GoodSize;
+            colors[0] = new GradientColorKey(GoodColor, 0);
+            colors[1] = new GradientColorKey(GoodColor, 1);
+        }
+        else if (action == "WRONG")
+        {
+            TimingParticleMain.startSize = WrongSize;
+            colors[0] = new GradientColorKey(WrongColor, 0);
+            colors[1] = new GradientColorKey(WrongColor, 1);
+        }
+        alphas[0] = new GradientAlphaKey(StartAlpha, 0);
+        alphas[1] = new GradientAlphaKey(0, 1);
+        gradient.SetKeys(colors, alphas);
+        TimingParticleColorOverLifetime.color = gradient;
+        TimingParticleSystem.Emit(1);
     }
 
     public ActionComponent.Action ArrowActionForBot()

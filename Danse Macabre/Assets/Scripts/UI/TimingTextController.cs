@@ -11,7 +11,7 @@ public class TimingTextController : MonoBehaviour
     #endregion
 
     #region parameters
-    [SerializeField] private float _resetTime=1.0f;
+    [SerializeField] private float _resetTime=0.6f;
     private float _time = 0;
     #endregion
 
@@ -43,6 +43,7 @@ public class TimingTextController : MonoBehaviour
             _timingText.color = colors[4];
         }
         _timingText.text = timing;
+        _time = 0;
     }
     #endregion
     // Update is called once per frame

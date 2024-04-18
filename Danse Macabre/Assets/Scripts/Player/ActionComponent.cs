@@ -14,6 +14,7 @@ public class ActionComponent : MonoBehaviour
     public float gravityFactor = 0.90f;
     private float groundCheckDistance = 0.55f;
     private float trampolinCheckDistance = 0.60f;
+    private float enemyCheckDistance = 0.60f;
     public float stompDownwardSpeed = 20;
     public float trampolineJumpSpeed = 15;
     [SerializeField]
@@ -43,6 +44,8 @@ public class ActionComponent : MonoBehaviour
     private LayerMask groundLayer; // Capa que representa el suelo / Añadir trampoline!
     [SerializeField]
     private LayerMask trampolineLayer;
+    [SerializeField]
+    private LayerMask enemyLayer;
     private PerfectTimingComponent timingComponent;
 
     // sfx
@@ -79,6 +82,9 @@ public class ActionComponent : MonoBehaviour
     [SerializeField]
     private ParticleSystem StompParticleSystem;
     private ParticleSystem.EmissionModule StompParticleEmitter;
+    [SerializeField]
+    private ParticleSystem DashParticleSystem;
+    private ParticleSystem.EmissionModule DashParticleEmitter;
 
     private AudioSource myAudioSource;
     #endregion
@@ -109,6 +115,13 @@ public class ActionComponent : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(_myTransform.position, Vector2.down, trampolinCheckDistance, trampolineLayer);
         return hit.collider != null;
     }
+    // private bool IsBouncyEnemy()
+    // {
+    //     RaycastHit2D hit = Physics2D.Raycast(_myTransform.position, Vector2.down, enemyCheckDistance, enemyLayer);
+
+    //     return hit.gameObject.GetComponent<EmemyInteractionComponent>().BouncyEnemy;
+
+    // }
     /// <summary>
     /// Sets an upward velocity to the player (but fist a code needs to check if isTrampoline() and is stomping)
     /// and sets the current action to jumping.
@@ -248,6 +261,21 @@ public class ActionComponent : MonoBehaviour
     }
     #endregion
 
+    private void Awake()
+    {
+        SlideParticleSystem.Play();
+        SlideParticleEmitter = SlideParticleSystem.emission;
+        SlideParticleEmitter.enabled = false;
+
+        StompParticleSystem.Play();
+        StompParticleEmitter = StompParticleSystem.emission;
+        StompParticleEmitter.enabled = false;
+
+        DashParticleSystem.Play();
+        DashParticleEmitter = DashParticleSystem.emission;
+        DashParticleEmitter.enabled = false;
+    }
+
     void Start()
     {
         _myTransform = transform;
@@ -263,14 +291,6 @@ public class ActionComponent : MonoBehaviour
 
         originalGravityScale = _myRB.gravityScale;
         myAudioSource = GetComponent<AudioSource>();
-
-        SlideParticleSystem.Play();
-        SlideParticleEmitter = SlideParticleSystem.emission;
-        SlideParticleEmitter.enabled = false;
-
-        StompParticleSystem.Play();
-        StompParticleEmitter = StompParticleSystem.emission;
-        StompParticleEmitter.enabled = false;
     }
 
     void Update()
@@ -278,9 +298,6 @@ public class ActionComponent : MonoBehaviour
         Action lastAction = currentAction; // To further call SlideStop() if current action is changed by the code bellow.
 
 
-        if (_myTransform.position.x < 393 && _myTransform.position.x > 392){
-            Jump();
-        }
         if (_myRB.velocity.y > 0.1f){ // If the velocity y if greater then 0.1f it means the player is jumping.
             currentAction = Action.Jumping;
         }
@@ -329,6 +346,24 @@ public class ActionComponent : MonoBehaviour
         else
         {
             SlideParticleEmitter.enabled = false;
+        }
+
+        if (currentAction == Action.Stomping)
+        {
+            StompParticleEmitter.enabled = true;
+        }
+        else
+        {
+            StompParticleEmitter.enabled = false;
+        }
+
+        if (currentAction == Action.Dashing)
+        {
+            DashParticleEmitter.enabled = true;
+        }
+        else
+        {
+            DashParticleEmitter.enabled = false;
         }
 
     }

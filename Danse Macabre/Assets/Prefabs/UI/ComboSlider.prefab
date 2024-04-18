@@ -313,6 +313,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97393e17fcdbb6c4bbf3e0a2be23b201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combo1Vol: 0.2
+  combo2Vol: 0.3
+  combo3Vol: 0.4
+  failedComboVol: 0.2
   backgroundRender: {fileID: 895872212133827309}
   fillRender: {fileID: 3575962699146486306}
   bgColors:
@@ -326,6 +330,11 @@ MonoBehaviour:
   - {r: 0.23809181, g: 0.6083181, b: 0.8301887, a: 1}
   - {r: 0.39676002, g: 0.12703808, b: 0.5754717, a: 1}
   textoMul: {fileID: 3494989564348493023}
+  comboSound1: {fileID: 8300000, guid: 488cc32fd7e367c48afa5e8fc86e047a, type: 3}
+  comboSound2: {fileID: 8300000, guid: 3c82bf58731c34a478c14beb103e56b3, type: 3}
+  comboSound3: {fileID: 8300000, guid: 00ecaa95ec7a9264e8f8a6d9f63232ae, type: 3}
+  comboFailedSound: {fileID: 8300000, guid: 87112bb8b73f65e4fa4c668458f6d351, type: 3}
+  errasedValue: 0
 --- !u!1 &5057898569581719629
 GameObject:
   m_ObjectHideFlags: 0

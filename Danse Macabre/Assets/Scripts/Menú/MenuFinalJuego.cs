@@ -16,6 +16,14 @@ public class MenuFinalJuego : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _textPuntuacionObjecto;
 
+    private AudioSource _audioSource;
+    [SerializeField]
+    private AudioClip _pointSound1;
+    [SerializeField]
+    private AudioClip _pointSound2;
+    [SerializeField]
+    private AudioClip _pointSound3;
+
     /*
     [SerializeField]
     private TextMeshProUGUI _textMaxPuntos;
@@ -59,8 +67,8 @@ public class MenuFinalJuego : MonoBehaviour
     private string _ranking;
     private float _puntuacion=0;
     [SerializeField] private float _ScoreTime=0.6f;
-    private int _time=0;
-    private int _cont=100;
+    private float _time=0;
+    [SerializeField]private float _resetTime = 1.0f;
 
     #endregion
     public void QuitMenuFinal()
@@ -137,28 +145,33 @@ public class MenuFinalJuego : MonoBehaviour
     {
         WritePlayerRanking();
         WriteTimingNumber();
+        _audioSource = FindObjectOfType<AudioSource>();
     }
     private void Update()
     {
         Debug.Log("Max" + _MaxScore);
         _puntuacion = Mathf.Lerp(_puntuacion, _finalScore, _ScoreTime*Time.deltaTime);
         _textPuntuacionFinal.text = _puntuacion.ToString("0");
-        if (_time%11== 0 && _finalScore-_puntuacion<0.1)
+        if (_resetTime-_time<0.1f && _finalScore - _puntuacion<0.1f)
         {
             if (!_coin.enabled)
             {
                 _coin.enabled = true;
+                _audioSource.PlayOneShot(_pointSound1);
             }
             else if (!_enemy.enabled)
             {
                 _enemy.enabled = true;
+                _audioSource.PlayOneShot(_pointSound2);
             }
             else if (!_box.enabled)
             {
                 _box.enabled = true;
+                _audioSource.PlayOneShot(_pointSound3);
             }
+            _time = 0;
         }
-        _time++;
+        _time+=1*Time.deltaTime;
 
     }
 }

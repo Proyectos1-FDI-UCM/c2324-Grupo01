@@ -1697,7 +1697,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -5
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -3396,7 +3396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -959.96094, y: -542.06}
+  m_AnchoredPosition: {x: -959.96094, y: -541.99}
   m_SizeDelta: {x: 688, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1369475432
@@ -3739,8 +3739,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -959.96094, y: -540.7443}
-  m_SizeDelta: {x: 688, y: 125}
+  m_AnchoredPosition: {x: -959.99, y: -540.61}
+  m_SizeDelta: {x: 800.4032, y: 141.1587}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1473832876
 MonoBehaviour:
@@ -4533,8 +4533,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -959.96094, y: -539.938}
-  m_SizeDelta: {x: 1133.26, y: 499.89}
+  m_AnchoredPosition: {x: -960, y: -537.37}
+  m_SizeDelta: {x: 593.4487, y: 154.7745}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1615990951
 MonoBehaviour:
@@ -5175,7 +5175,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -959.96094, y: -539.47534}
+  m_AnchoredPosition: {x: -959.96094, y: -539.2}
   m_SizeDelta: {x: 746, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1717203517
@@ -5692,7 +5692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1881628339
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6084,7 +6084,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 13}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2007474323
@@ -6107,7 +6107,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nivel 2
+  m_text: Dear_X
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5653d7a7918cf6b43b3fa4043033fa01, type: 2}
   m_sharedMaterial: {fileID: 1449030128705392181, guid: 5653d7a7918cf6b43b3fa4043033fa01, type: 2}
@@ -6144,7 +6144,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -5
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -6293,8 +6293,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 20.38}
+  m_SizeDelta: {x: 0, y: -40.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2093963303
 MonoBehaviour:
@@ -6316,7 +6316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nivel 1
+  m_text: Gnork Party
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5653d7a7918cf6b43b3fa4043033fa01, type: 2}
   m_sharedMaterial: {fileID: 1449030128705392181, guid: 5653d7a7918cf6b43b3fa4043033fa01, type: 2}
@@ -6353,8 +6353,8 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_characterSpacing: -5
+  m_wordSpacing: -10
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0

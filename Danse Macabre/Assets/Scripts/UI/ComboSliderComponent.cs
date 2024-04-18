@@ -10,6 +10,15 @@ public class ComboSliderComponent : MonoBehaviour
     #region parameters
     //por defecto, viene x1
     private float previousMul = 1f;
+
+    [SerializeField]
+    private float combo1Vol = 1f;
+    [SerializeField]
+    private float combo2Vol = 1f;
+    [SerializeField]
+    private float combo3Vol = 1f;
+    [SerializeField]
+    private float failedComboVol = 1f;
     #endregion
     #region references
     [SerializeField]
@@ -25,13 +34,21 @@ public class ComboSliderComponent : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI textoMul;
+
+    [SerializeField]
+    private AudioClip comboSound1;
+    [SerializeField]
+    private AudioClip comboSound2;
+    [SerializeField]
+    private AudioClip comboSound3;
+    [SerializeField]
+    private AudioClip comboFailedSound;
     #endregion
+
     #region properties
     //el valor actual del slider, que llevara al slider.value;
     private float actualValue;
-    //el valor que se resta cuando paso de un slider a otro;
-    [SerializeField]
-    private float errasedValue = 0f;
+
     #endregion
     #region methods
     public void ChangeColor(float mul)
@@ -46,30 +63,31 @@ public class ComboSliderComponent : MonoBehaviour
                 backgroundRender.color = bgColors[0];
                 fillRender.color = fillColors[0];
                 slider.maxValue = comboManager.threshold1;
-                errasedValue = 0f;
+                MusicManager.Instance.PlaySoundEffect(comboFailedSound, failedComboVol);
+
             }
-            //x1.5
+            //x2
             else if (mul-comboManager.threshold1mul < 0.1f)
             {
                 backgroundRender.color = bgColors[1];
                 fillRender.color = fillColors[1];
                 slider.maxValue = comboManager.threshold2;
-                errasedValue = comboManager.threshold1;
+                MusicManager.Instance.PlaySoundEffect(comboSound1, combo1Vol);
             }
-            //x2
+            //x3
             else if (mul - comboManager.threshold2mul < 0.1f)
             {
                 backgroundRender.color = bgColors[2];
                 fillRender.color = fillColors[2];
                 slider.maxValue = comboManager.threshold3;
-                errasedValue = comboManager.threshold2;
+                MusicManager.Instance.PlaySoundEffect(comboSound2, combo2Vol);
             }
-            //x3
+            //x4
             else if (mul - comboManager.threshold3mul < 0.1f)
             {
                 backgroundRender.color = bgColors[3];
                 fillRender.color = fillColors[3];
-                errasedValue = comboManager.threshold3;
+                MusicManager.Instance.PlaySoundEffect(comboSound3, combo3Vol);
             }
             
             ResetCursor();
@@ -83,7 +101,7 @@ public class ComboSliderComponent : MonoBehaviour
     }
     public void SetPoint(double value)
     {
-        actualValue = Mathf.Clamp((float)value-errasedValue, 0, slider.maxValue);
+        actualValue = Mathf.Clamp((float)value, 0, slider.maxValue);
         slider.value = actualValue;
 
     }

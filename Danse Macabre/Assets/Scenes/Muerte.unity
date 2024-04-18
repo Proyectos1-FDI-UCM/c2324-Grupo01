@@ -1592,7 +1592,8 @@ MonoBehaviour:
   _coin: {fileID: 1724154951}
   _enemy: {fileID: 1280914761}
   _box: {fileID: 2004663237}
-  _ScoreTime: 9
+  _ScoreTime: 6
+  _resetTime: 0.5
 --- !u!114 &1926799336 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6051292760069971054, guid: d6d7038e8c5acdb458cc3c58ddf581d9, type: 3}

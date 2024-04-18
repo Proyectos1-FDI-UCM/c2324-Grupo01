@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1549744496353168120}
   - component: {fileID: 6214214276177603136}
   - component: {fileID: 5670258295646334344}
+  - component: {fileID: -2277351419019764273}
   m_Layer: 12
   m_Name: Jeff
   m_TagString: Untagged
@@ -187,3 +188,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5fe95783b56bdc4bbb47b1c615d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2277351419019764273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4024040575593507935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454981a2302112f44981bbee1683f018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AudioClip: {fileID: 8300000, guid: dd29d96e3016f8b4d88696f4dfa7a08c, type: 3}
+  volume: 0.5
