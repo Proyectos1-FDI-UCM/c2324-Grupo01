@@ -86,7 +86,7 @@ public class DeathComponent : MonoBehaviour
         {
             Death();
         }
-        if (collision.gameObject.layer == layerValueEnemy 
+        else if (collision.gameObject.layer == layerValueEnemy 
         && (_actionComponent.currentAction == ActionComponent.Action.Stomping || _actionComponent.currentAction == ActionComponent.Action.Dashing))
         {
             GameObject enemy = collision.gameObject;

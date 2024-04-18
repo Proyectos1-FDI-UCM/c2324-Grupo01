@@ -51,13 +51,18 @@ public class EnemyInteractionComponent : MonoBehaviour
     {
         //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
         _scoreManager.AddPoints(_enemyValue, 1);
-        Collider.enabled = false;
+        //Collider.enabled = false;
         Invoke("DestroyGameObject", _destroyTime);
 
     }
     public void DestroyGameObject()
     {
         Destroy(gameObject);
+    }
+
+    public bool IsBouncy()
+    {
+        return BouncyEnemy;
     }
     void Start()
     {
