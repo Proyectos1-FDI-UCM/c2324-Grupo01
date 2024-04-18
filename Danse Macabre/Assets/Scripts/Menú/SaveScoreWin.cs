@@ -16,7 +16,7 @@ public class SaveScoreWin : MonoBehaviour
         if (_player != null)
         {
             _scoreManager.SaveFinalScore();
-            MaxScoreCalculator.Instance.SaveSceneMaxScore();
+
 
             //Cambiar escena de Victoria
             GameManager.Instance.ResetCheckpoint();

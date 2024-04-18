@@ -139,6 +139,7 @@ public class GameManager : MonoBehaviour
         else
         { // if there's no checkpoint
             _ScoreManager.SaveFinalScore();
+            MaxScoreCalculator.Instance.SaveSceneMaxScore();
             ResetPlayerLife(); // INTENTOS
             //ResetTries();
             LoadDeathScene();
