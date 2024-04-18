@@ -143,8 +143,17 @@ public class GameManager : MonoBehaviour
             //ResetTries();
             LoadDeathScene();
         }
-    
     }
+    /// <summary>
+    /// For design only!
+    /// </summary>
+    public void InstantDeath()
+    {
+        SceneManager.LoadScene(previousScene);
+    }
+
+
+
     // TRIES
     // public int NumberOfTries()
     // {
