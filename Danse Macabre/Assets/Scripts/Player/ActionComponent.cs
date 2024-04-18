@@ -84,6 +84,9 @@ public class ActionComponent : MonoBehaviour
     [SerializeField]
     private ParticleSystem StompParticleSystem;
     private ParticleSystem.EmissionModule StompParticleEmitter;
+    [SerializeField]
+    private ParticleSystem DashParticleSystem;
+    private ParticleSystem.EmissionModule DashParticleEmitter;
 
     private AudioSource myAudioSource;
     #endregion
@@ -271,6 +274,21 @@ public class ActionComponent : MonoBehaviour
     }
     #endregion
 
+    private void Awake()
+    {
+        SlideParticleSystem.Play();
+        SlideParticleEmitter = SlideParticleSystem.emission;
+        SlideParticleEmitter.enabled = false;
+
+        StompParticleSystem.Play();
+        StompParticleEmitter = StompParticleSystem.emission;
+        StompParticleEmitter.enabled = false;
+
+        DashParticleSystem.Play();
+        DashParticleEmitter = DashParticleSystem.emission;
+        DashParticleEmitter.enabled = false;
+    }
+
     void Start()
     {
         _myTransform = transform;
@@ -286,14 +304,6 @@ public class ActionComponent : MonoBehaviour
 
         originalGravityScale = _myRB.gravityScale;
         myAudioSource = GetComponent<AudioSource>();
-
-        SlideParticleSystem.Play();
-        SlideParticleEmitter = SlideParticleSystem.emission;
-        SlideParticleEmitter.enabled = false;
-
-        StompParticleSystem.Play();
-        StompParticleEmitter = StompParticleSystem.emission;
-        StompParticleEmitter.enabled = false;
     }
 
     void Update()
@@ -374,6 +384,24 @@ public class ActionComponent : MonoBehaviour
         else
         {
             SlideParticleEmitter.enabled = false;
+        }
+
+        if (currentAction == Action.Stomping)
+        {
+            StompParticleEmitter.enabled = true;
+        }
+        else
+        {
+            StompParticleEmitter.enabled = false;
+        }
+
+        if (currentAction == Action.Dashing)
+        {
+            DashParticleEmitter.enabled = true;
+        }
+        else
+        {
+            DashParticleEmitter.enabled = false;
         }
 
     }
