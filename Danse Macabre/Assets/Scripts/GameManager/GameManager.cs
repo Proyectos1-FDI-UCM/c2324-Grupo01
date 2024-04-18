@@ -190,7 +190,7 @@ public class GameManager : MonoBehaviour
         //Guardar el nombre de la escena anterior para el bot�n restart
         PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
         //Cambiar escena de muerte
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("Muerte");
     }
 
 
