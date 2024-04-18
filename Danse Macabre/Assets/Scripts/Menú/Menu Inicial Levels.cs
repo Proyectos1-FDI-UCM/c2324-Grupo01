@@ -47,7 +47,7 @@ public class MenuInicialLevels : MonoBehaviour
         if (PlayerPrefs.HasKey("MenuLevelActivo"))
         {
             int isActiveMenuLevel = PlayerPrefs.GetInt("MenuLevelActivo");
-            if (isActiveMenuLevel == 0) 
+            if (isActiveMenuLevel == 1) 
             {
                 menuLevel.SetActive(true);
                 menuInicio.SetActive(false);
