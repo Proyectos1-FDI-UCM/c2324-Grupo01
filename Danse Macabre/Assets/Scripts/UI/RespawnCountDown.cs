@@ -12,20 +12,17 @@ public class RespawnCountDown : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _Count;
     [SerializeField] private Canvas _Canvas;
     // Start is called before the first frame update
+    private void Awake() {
+        _Canvas.enabled = false;
+    }
     void Start()
     {
-
-        SetCount();
+        //SetCount();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetCount()
     {
-        
-    }
-
-    private void SetCount()
-    {
+        _Canvas.enabled = true;
         c = 3;
         CountDown();
     }

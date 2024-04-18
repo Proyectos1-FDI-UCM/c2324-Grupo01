@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     private ScoreManager _ScoreManager;
     private TimingTextController _TimingTextController;
     [SerializeField]
+    private RespawnCountDown _RespawnCountDown;
+    [SerializeField]
     private GameObject Player;
     private MovementComponent _playerMovement;
     private Transform _playerTransform;
@@ -217,6 +219,8 @@ public class GameManager : MonoBehaviour
         _cameraController.SetFollowState();
         float startColliderPosX = _startColliderTransform.position.x;
 
+        _RespawnCountDown.SetCount();
+
         while (Time.time < endTime)
         {
             yield return null;
@@ -262,6 +266,8 @@ public class GameManager : MonoBehaviour
         if (_levelDataLoader == null) Debug.LogError("Level data missing in GameManager!");
 
         _TimingTextController= FindObjectOfType<TimingTextController>();
+
+        _RespawnCountDown = FindObjectOfType<RespawnCountDown>();
 
     }
 
