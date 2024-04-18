@@ -28,7 +28,12 @@ public class MenuInicialLevels : MonoBehaviour
     public void Jugar_Nivel2() 
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("Nivel_Dear_X");
+    }
+    public void Jugar_Nivel3()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Nivel_Sugar");
     }
 
     public void Salir()
