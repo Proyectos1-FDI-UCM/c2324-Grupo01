@@ -12,4 +12,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e0b0bfec973a646a2b3f2deb0d37d6, type: 3}
   m_Name: BPM
   m_EditorClassIdentifier: 
-  timestamps: []
+  timestamps:
+  - positionX: -6.82
+    time: 0
+  - positionX: -2.1414287
+    time: 1.0714285
+  - positionX: 2.5371428
+    time: 2.142857
+  - positionX: 7.215714
+    time: 3.2142856
+  - positionX: 11.894285
+    time: 4.285714
+  - positionX: 16.572857
+    time: 5.3571424
+  - positionX: 21.251429
+    time: 6.428571
+  - positionX: 25.93
+    time: 7.5
+  - positionX: 30.608572
+    time: 8.571428
+  - positionX: 35.287144
+    time: 9.642857
+  - positionX: 39.965714
+    time: 10.714285
+  - positionX: 44.644287
+    time: 11.785714
+  - positionX: 49.322857
+    time: 12.857142
+  - positionX: 54.001427
+    time: 13.928571
+  - positionX: 58.68
+    time: 15
+  - positionX: 63.35857
+    time: 16.071428
+  - positionX: 68.03714
+    time: 17.142857
+  - positionX: 72.71571
+    time: 18.214285
+  - positionX: 77.39429
+    time: 19.285713
+  - positionX: 82.07285
+    time: 20.357141
+  - positionX: 86.75143
+    time: 21.42857
+  - positionX: 91.43
+    time: 22.5
+  - positionX: 96.108574
+    time: 23.571428
+  - positionX: 100.78714
+    time: 24.642857
+  - positionX: 105.46571
+    time: 25.714285
+  - positionX: 110.14429
+    time: 26.785713
+  - positionX: 114.82285
+    time: 27.857141
+  - positionX: 119.50143
+    time: 28.92857
