@@ -91,8 +91,8 @@ public class GameManager : MonoBehaviour
         }
         else // if starting a level for the first time
         {
-            //ResetPlayerLife(); // INTENTOS
-            ResetTries();
+            ResetPlayerLife(); // INTENTOS
+            //ResetTries();
             _playerMovement.Autoscroll();
         }
     }
@@ -129,36 +129,36 @@ public class GameManager : MonoBehaviour
     }
     public void PlayerHasDied()
     {
-        //PlayerLosesLife(); // INTENTOS
-        IncrementTries();
+        PlayerLosesLife(); // INTENTOS
+        //IncrementTries();
 
-        if (CheckpointExists() /*&& PlayerHasLife()*/)  // INTENTOS
+        if (CheckpointExists() && PlayerHasLife())  // INTENTOS
         { // if a checkpoint exists
             SceneManager.LoadScene(previousScene);
         }
         else
         { // if there's no checkpoint
             _ScoreManager.SaveFinalScore();
-            //ResetPlayerLife(); // INTENTOS
-            ResetTries();
+            ResetPlayerLife(); // INTENTOS
+            //ResetTries();
             LoadDeathScene();
         }
     
     }
     // TRIES
-    public int NumberOfTries()
-    {
-        return numberOfTries;
-    }
-    private void IncrementTries()
-    {
-        numberOfTries += 1;
-        print("numberofthries: " + numberOfTries);
-    }
-    private void ResetTries()
-    {
-        numberOfTries = 0;
-    }
+    // public int NumberOfTries()
+    // {
+    //     return numberOfTries;
+    // }
+    // private void IncrementTries()
+    // {
+    //     numberOfTries += 1;
+    //     print("numberofthries: " + numberOfTries);
+    // }
+    // private void ResetTries()
+    // {
+    //     numberOfTries = 0;
+    // }
     // LIFES
     private bool PlayerHasLife()
     {
@@ -171,6 +171,10 @@ public class GameManager : MonoBehaviour
     private void ResetPlayerLife()
     {
         playerRemainingLife = playerMaxLife;
+    }
+    public int PlayerRemainingLife()
+    {
+        return playerRemainingLife;
     }
     private void LoadDeathScene()
     {
