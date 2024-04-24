@@ -20,6 +20,7 @@ public class SaveScoreWin : MonoBehaviour
 
             //Cambiar escena de Victoria
             GameManager.Instance.ResetCheckpoint();
+            PlayerPrefs.SetInt("PreviousScene", SceneManager.GetActiveScene().buildIndex); // For restarting the same level after victory
             SceneManager.LoadScene("Victoria");
         }
     }

@@ -44,7 +44,7 @@ public class ScoreSliderController : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log("valor" + _targetValue);
+        //Debug.Log("valor" + _targetValue);
         progress= Mathf.Lerp(progress, _targetValue, sliderTime*Time.deltaTime);
         
         _mySlider.value = progress;

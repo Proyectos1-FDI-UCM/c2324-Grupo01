@@ -79,13 +79,24 @@ public class MenuFinalJuego : MonoBehaviour
         PlayerPrefs.SetInt("MenuLevelActivo", 1);
         SceneManager.LoadScene(0);
     }
+    /// <summary>
+    /// Go to the next level button fuction.
+    /// </summary>
+    public void NextLevel()
+    {
+        int sceneIndex = PlayerPrefs.GetInt("PreviousScene");
+        GameManager.Instance.ResetCheckpoint();
+        SceneManager.LoadScene(sceneIndex + 1);
+    }
+
     public void Restart()
     {
         //Obtiene el nombre de la escena anterior
-        string sceneName = PlayerPrefs.GetString("PreviousScene", "DefaultSceneName");
+        //string sceneName = PlayerPrefs.GetString("PreviousScene", "DefaultSceneName");
+        int sceneIndex = PlayerPrefs.GetInt("PreviousScene");
         //Carga la escena anterior
         GameManager.Instance.ResetCheckpoint();
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneIndex);
     }
 
     private void PlayerRanking()
@@ -149,7 +160,7 @@ public class MenuFinalJuego : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log("Max" + _MaxScore);
+        //Debug.Log("Max" + _MaxScore);
         _puntuacion = Mathf.Lerp(_puntuacion, _finalScore, _ScoreTime*Time.deltaTime);
         _textPuntuacionFinal.text = _puntuacion.ToString("0");
         if (_resetTime-_time<0.1f && _finalScore - _puntuacion<0.1f)
