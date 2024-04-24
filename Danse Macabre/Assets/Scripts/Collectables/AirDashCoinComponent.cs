@@ -10,6 +10,7 @@ public class AirDashCoinComponent : MonoBehaviour
     #endregion
 
     #region methods 
+    //cuanto lo colecciono llamo a la corrutina del dash
     private void OnTriggerEnter2D(Collider2D collision)
     {
         ActionComponent _player = collision.gameObject.GetComponent<ActionComponent>();

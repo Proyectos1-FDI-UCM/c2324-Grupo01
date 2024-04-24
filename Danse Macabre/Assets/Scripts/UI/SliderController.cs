@@ -12,6 +12,7 @@ public class SliderController : MonoBehaviour
     private Transform _playerTransform;
     [SerializeField]
     private Transform _endTransform;
+
     [SerializeField]
     private float _startTransform;
     [SerializeField]

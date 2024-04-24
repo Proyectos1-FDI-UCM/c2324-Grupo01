@@ -11,6 +11,7 @@ public class ComboSliderComponent : MonoBehaviour
     //por defecto, viene x1
     private float previousMul = 1f;
 
+    //parametros que controlan el volumen de los sfx
     [SerializeField]
     private float combo1Vol = 1f;
     [SerializeField]
@@ -20,6 +21,7 @@ public class ComboSliderComponent : MonoBehaviour
     [SerializeField]
     private float failedComboVol = 1f;
     #endregion
+
     #region references
     [SerializeField]
     private Image backgroundRender;
@@ -32,9 +34,11 @@ public class ComboSliderComponent : MonoBehaviour
     private Color[] fillColors = new Color[4];
     private ComboManager comboManager;
 
+    //texto que está al lado de la barra
     [SerializeField]
     private TextMeshProUGUI textoMul;
 
+    //sfx
     [SerializeField]
     private AudioClip comboSound1;
     [SerializeField]

@@ -6,13 +6,16 @@ using UnityEngine;
 public class ButtonSoundPlayer : MonoBehaviour
 {
     #region parameters
+    //variable que controla el sonido del boton
     [SerializeField]
     private float buttonCTR = 1f;
     #endregion
 
     #region references
+    //audioclip para on pointer enters
     [SerializeField]
     private List<AudioClip> cursorAudio;
+    //audioclip para on button click
     [SerializeField]
     private AudioClip selected;
     #endregion
