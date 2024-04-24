@@ -146595,7 +146595,6 @@ GameObject:
   - component: {fileID: 2077163344}
   - component: {fileID: 2077163349}
   - component: {fileID: 2077163348}
-  - component: {fileID: 2077163347}
   - component: {fileID: 2077163346}
   - component: {fileID: 2077163354}
   m_Layer: 0
@@ -146667,22 +146666,6 @@ MonoBehaviour:
   threshold2mul: 3
   threshold3: 200
   threshold3mul: 4
---- !u!114 &2077163347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077163342}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29ab6fe29faa32e44bcd12c3db23eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Text1: {fileID: 1122998292}
-  _startPoint: {fileID: 795223346}
-  _playerTransform: {fileID: 635698580}
-  _deactivateTime: 7
 --- !u!114 &2077163348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146754,7 +146737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 590757384}
-  _RespawnCountDown: {fileID: 0}
+  _RespawnCountDown: {fileID: 2134834713}
   Player: {fileID: 635698579}
   StartCollider: {fileID: 795223345}
   playerCanBeKilled: 0
@@ -147959,6 +147942,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2113622046247752203, guid: 622629b01280c0842aaa4b6c87906d22, type: 3}
   m_PrefabInstance: {fileID: 1070404668}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2134834713 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8651843280326420634, guid: 622629b01280c0842aaa4b6c87906d22, type: 3}
+  m_PrefabInstance: {fileID: 1070404668}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98585439ca60b92439f6b91ca7385f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2138226355
 GameObject:
   m_ObjectHideFlags: 0
