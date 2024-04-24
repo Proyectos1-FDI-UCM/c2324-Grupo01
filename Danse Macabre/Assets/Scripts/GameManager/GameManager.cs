@@ -219,7 +219,7 @@ public class GameManager : MonoBehaviour
         _cameraController.SetFollowState();
         float startColliderPosX = _startColliderTransform.position.x;
 
-        _RespawnCountDown.SetCount();
+        //_RespawnCountDown.SetCount();
 
         while (Time.time < endTime)
         {

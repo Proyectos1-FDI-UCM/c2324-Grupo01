@@ -17,7 +17,7 @@ public class RespawnCountDown : MonoBehaviour
     }
     void Start()
     {
-        //SetCount();
+        SetCount();
     }
 
     public void SetCount()
