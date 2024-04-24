@@ -30,12 +30,12 @@ public class DeathFilterColor : MonoBehaviour
     {
         
 
-        if(c < 4)
+        if(c < 4) //cycles through 4 different colors. can be changed if you add more colors just increasing the counter but time needs to be adjusted manually
         {
             _DeathFilter.color = Color[c];
             //Debug.Log("c: " + c + "  " + Time.time);
             c++;
-            Invoke("ColorChange", 0.3f);
+            Invoke("ColorChange", 0.3f); //change every 0.3 seconds
         }
         
 
