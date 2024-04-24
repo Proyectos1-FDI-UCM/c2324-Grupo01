@@ -5,15 +5,8 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    #region parameters
-    #endregion
-
     #region references
     private AudioSource _myAudioSource;
-    #endregion
-
-    #region properties
-    public float time;
     #endregion
 
     #region properties
@@ -28,28 +21,32 @@ public class MusicManager : MonoBehaviour
     #endregion
 
     #region methods
+    //método para reproducir el bgm
     public void PlayMusic()
     {
         _myAudioSource.Play();
     }
+    //método para reproducir un efecto de sonido
     public void PlaySoundEffect(AudioClip clip, float volume)
     {
         _myAudioSource.PlayOneShot(clip,volume);
         _myAudioSource.loop = false;
         
     }
+    //método para pausar la reproduccion del bgm
     public void StopPlayingSong()
     {
         pauseTime = _myAudioSource.time;
         //print(pauseTime);
         _myAudioSource.Stop();
     }
+    //metodo para reproducir el slide y el dash
     public void PlayLoop(AudioClip clip, float volume)
     {
         _myAudioSource.PlayOneShot(clip,volume);
         _myAudioSource.loop = true;
     }
-
+    //metodo para continuar reproducir el bgm a partir del tiempo cuando se paró
     public void ResumePlayingSong()
     {
         _myAudioSource.time = pauseTime;

@@ -13,7 +13,6 @@ public class EnemyInteractionComponent : MonoBehaviour
     private int _enemyValue = 5;
     #endregion
     #region references
-    private GameManager _gameManager;
     private ScoreManager _scoreManager;
     [SerializeField]
     public bool BouncyEnemy;
@@ -66,7 +65,6 @@ public class EnemyInteractionComponent : MonoBehaviour
     }
     void Start()
     {
-        _gameManager = FindObjectOfType<GameManager>();
         _scoreManager = FindObjectOfType<ScoreManager>();
 
         //tipo de punto, 0=monedas, 1=enemigo, 2=objeto

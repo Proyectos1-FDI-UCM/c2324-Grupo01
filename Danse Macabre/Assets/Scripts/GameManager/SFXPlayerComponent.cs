@@ -10,6 +10,7 @@ public class SFXPlayerComponent : MonoBehaviour
     private AudioClip m_AudioClip;
     [SerializeField]
     private float volume;
+    //llama a music manager
     private void OnTriggerEnter2D(Collider2D collision)
     {
         MusicManager.Instance.PlaySoundEffect(m_AudioClip, volume);
