@@ -18,6 +18,7 @@ public class TimingTextController : MonoBehaviour
     #region methods
     public void TimingText(string timing)
     {
+        //Escribe el timing del jugador segun como ha jugado
         if (timing == "PERFECT")
         {
             _timingText.color = colors[0];
@@ -49,6 +50,7 @@ public class TimingTextController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //contador de tiempo para que desaparezca el texto
         _time+=1*Time.deltaTime;
         if (_time>_resetTime)
         {

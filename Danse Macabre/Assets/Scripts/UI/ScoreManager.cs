@@ -86,6 +86,7 @@ public class ScoreManager : MonoBehaviour
     }
     void AddToTotalPoint()
     {
+        //sumar los puntos obtenidos a la puntuacion total
         float points;
         if (_addPoints > 0) //puntos positivos
         {
@@ -103,6 +104,7 @@ public class ScoreManager : MonoBehaviour
     }
     public void AddTimingPoints(string timing)
     {
+        //suma puntos segun el timing
         if (timing == "PERFECT") {
 
             _nPerfect++;
