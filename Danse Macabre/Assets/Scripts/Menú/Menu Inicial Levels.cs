@@ -35,6 +35,11 @@ public class MenuInicialLevels : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Nivel_Sugar");
     }
+    public void Jugar_Prueba()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("NivelPruebaDash");
+    }
 
     public void Salir()
     {
