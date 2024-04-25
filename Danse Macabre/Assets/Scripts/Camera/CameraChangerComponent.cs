@@ -3,7 +3,6 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CameraChangerComponent : MonoBehaviour
 {
-    [SerializeField]
     CameraController _cameraController;
 
     [SerializeField]
@@ -22,6 +21,7 @@ public class CameraChangerComponent : MonoBehaviour
     private void Start()
     {
         float colliderHeight = this.gameObject.GetComponent<SpriteRenderer>().bounds.size.y;
+        _cameraController = FindObjectOfType<CameraController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
