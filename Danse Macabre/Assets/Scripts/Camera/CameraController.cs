@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private float horizontalCameraOffset = 7f; // Distancia horizontal constante entre jugador y centro de la c�mara
     [SerializeField]
-    private float verticalCameraOffset = 2.445f; // Distancia vertical ideal (para el seguimiento vertical) entre jugador y centro de la c�mara
+    public float verticalCameraOffset = 2.445f; // Distancia vertical ideal (para el seguimiento vertical) entre jugador y centro de la c�mara
     [SerializeField]
     private float cameraHeight = 10; // Altura total de la c�mara
     [SerializeField]
@@ -17,9 +17,11 @@ public class CameraController : MonoBehaviour
     private float topMargin = 3; // Distancia desde el borde superior de la c�mara a la que comenzar a subirla durante el seguimiento vertical
 
     [SerializeField]
-    private bool allowFollow = true; // Permite el seguimiento del jugador en general. Desactivar y activar con ChangeFollow()
+    public bool allowFollow = true; // Permite el seguimiento del jugador en general. Desactivar y activar con ChangeFollow()
     [SerializeField]
-    private bool allowVerticalFollow = true; // Permite el seguimiento vertical del jugador. Desactivar y activar con ChangeVerticalFollow()
+    public bool allowVerticalFollow = true; // Permite el seguimiento vertical del jugador. Desactivar y activar con ChangeVerticalFollow()
+
+    private float NonFollowVerticalPosition; // Actualizada por camerachangers, indica la posición vertical deseada cuando no hay seguimiento vertical
 
     private bool goingUp = false; // Variable de control del seguimiento vertical
     private bool goingDown = false; // Variable de control del seguimiento vertical
@@ -35,6 +37,7 @@ public class CameraController : MonoBehaviour
     void Awake()
     {
         _cameraTransform = transform;
+        NonFollowVerticalPosition = _playerTransform.position.y + verticalCameraOffset;
         cameraHeight = cameraHeight / 2; // Para convertirlo en distancia desde el centro hasta el borde superior o inferior
     }
 
@@ -101,12 +104,16 @@ public class CameraController : MonoBehaviour
             //Debug.Log("Subiendo");
             targetY = Mathf.Lerp(_cameraTransform.position.y, Mathf.Round(_playerTransform.position.y + verticalCameraOffset), defaultLerpSpeed * Time.deltaTime);
         }
-        else // En medio quieta
+        else if (!allowVerticalFollow) // Movimiento vertical deshabilitado
         {
             //Debug.Log("En medio");
+            targetY = Mathf.Lerp(_cameraTransform.position.y, NonFollowVerticalPosition, defaultLerpSpeed * 10 * Time.deltaTime);
+        }
+        else // Mantenerla igual en caso de error
+        {
             targetY = _cameraTransform.position.y;
         }
-
+        //Debug.Log(targetY);
         _cameraTransform.position = new Vector3(_playerTransform.position.x + horizontalCameraOffset, targetY, -20);
     }
 
@@ -146,5 +153,11 @@ public class CameraController : MonoBehaviour
     public void SaveCurrentFollowState() // Called by game manager when reaching a checkpoint to save camera state parameters
     {
         GameManager.Instance.SaveCameraState(allowFollow, allowVerticalFollow);
+    }
+
+    public void SetVerticalHeight(float height) // Called by camera changers when vertical follow changes to update the desired vertical position (in case vertical follow is disabled)
+    {
+        NonFollowVerticalPosition = height;
+        Debug.Log(height);
     }
 }

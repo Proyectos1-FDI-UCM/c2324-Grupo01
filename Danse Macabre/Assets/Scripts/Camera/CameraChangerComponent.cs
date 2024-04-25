@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CameraChangerComponent : MonoBehaviour
 {
@@ -11,6 +12,17 @@ public class CameraChangerComponent : MonoBehaviour
     bool ChangeVerticalFollow = false; // Para activar/desactivar el seguimiento vertical
     [SerializeField]
     bool EndOfLevel = false; // Si es para parar la c�mara al final del nivel
+    [SerializeField]
+    float ApproximatePlayerHeight = 1.0f; // Tamaño aproximado del jugador en worldspace
+    [SerializeField]
+    float ApproximateCameraToFloorHeight = 5.0f; // Distancia aproximada del centro de la cámara al suelo
+
+    float colliderHeight;
+
+    private void Start()
+    {
+        float colliderHeight = this.gameObject.GetComponent<SpriteRenderer>().bounds.size.y;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,6 +37,7 @@ public class CameraChangerComponent : MonoBehaviour
             if (ChangeVerticalFollow)
             {
                 _cameraController.ChangeVerticalFollow();
+                _cameraController.SetVerticalHeight(this.transform.position.y - (colliderHeight / 2) + (ApproximatePlayerHeight / 2) + _cameraController.verticalCameraOffset - ApproximateCameraToFloorHeight);
             }
             if (EndOfLevel)
             {
