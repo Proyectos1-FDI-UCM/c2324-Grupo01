@@ -34,11 +34,15 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private float finalLerpDistance = 5f; // Distancia que recorre el lerp final del nivel
 
-    void Awake()
+    private void Awake()
     {
         _cameraTransform = transform;
-        NonFollowVerticalPosition = _playerTransform.position.y + verticalCameraOffset;
         cameraHeight = cameraHeight / 2; // Para convertirlo en distancia desde el centro hasta el borde superior o inferior
+    }
+
+    private void Start()
+    {
+        NonFollowVerticalPosition = _playerTransform.position.y + verticalCameraOffset;
     }
 
     void LateUpdate()
