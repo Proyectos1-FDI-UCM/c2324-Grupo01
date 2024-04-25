@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private UIManager _UIManager;
     private ScoreManager _ScoreManager;
     private TimingTextController _TimingTextController;
+    private SliderController _sliderController;
     [SerializeField]
     private RespawnCountDown _RespawnCountDown;
     [SerializeField]
@@ -142,6 +143,7 @@ public class GameManager : MonoBehaviour
         { // if there's no checkpoint
             _ScoreManager.SaveFinalScore();
             MaxScoreCalculator.Instance.SaveSceneMaxScore();
+            _sliderController.SaveProgess();
             ResetPlayerLife(); // INTENTOS
             //ResetTries();
             LoadDeathScene();
@@ -269,6 +271,8 @@ public class GameManager : MonoBehaviour
         _TimingTextController= FindObjectOfType<TimingTextController>();
 
         _RespawnCountDown = FindObjectOfType<RespawnCountDown>();
+
+        _sliderController = FindObjectOfType<SliderController>();
 
     }
 

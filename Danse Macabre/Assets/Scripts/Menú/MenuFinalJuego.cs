@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuFinalJuego : MonoBehaviour
 {
@@ -65,10 +66,10 @@ public class MenuFinalJuego : MonoBehaviour
     private float _MaxScore;
 
     private string _ranking;
-    private float _puntuacion=0;
-    [SerializeField] private float _ScoreTime=0.6f;
-    private float _time=0;
-    [SerializeField]private float _resetTime = 1.0f;
+    private float _puntuacion = 0;
+    [SerializeField] private float _ScoreTime = 0.6f;
+    private float _time = 0;
+    [SerializeField] private float _resetTime = 1.0f;
 
     #endregion
     public void QuitMenuFinal()
@@ -101,7 +102,7 @@ public class MenuFinalJuego : MonoBehaviour
 
     private void PlayerRanking()
     {
-        
+        //calcula la puntuacion parar cada rango
         if (_finalScore < _MaxScore / 4) _ranking = "C";
         else if (_finalScore < (_MaxScore / 4) * 2) _ranking = "B";
         else if (_finalScore < (_MaxScore / 4) * 2.5) _ranking = "A";
@@ -115,20 +116,22 @@ public class MenuFinalJuego : MonoBehaviour
 
     private void WriteTimingNumber()
     {
+        //Escribe el numero de timing que ha conseguido
         _textPerfectNumber.text = PlayerPrefs.GetInt("PerfectNumber").ToString();
         _textGreatNumber.text = PlayerPrefs.GetInt("GreatNumber").ToString();
         _textGoodNumber.text = PlayerPrefs.GetInt("GoodNumber").ToString();
         _textMissNumber.text = PlayerPrefs.GetInt("MissNumber").ToString();
         _textWrongNumber.text = PlayerPrefs.GetInt("WrongNumber").ToString();
 
-       /* _textMaxPuntos.text = ((int)_MaxScore).ToString();
-        _text1.text = ((int)PlayerPrefs.GetFloat("base")).ToString();
+        /* _textMaxPuntos.text = ((int)_MaxScore).ToString();
+         _text1.text = ((int)PlayerPrefs.GetFloat("base")).ToString();
 
-        _text2.text = ((int)PlayerPrefs.GetFloat("combo")).ToString();
-       */
+         _text2.text = ((int)PlayerPrefs.GetFloat("combo")).ToString();
+        */
     }
     void Awake()
     {
+        //se inicia desactivado la puntuacion  de monedas, enemigo, caja
         _coin.enabled = false;
         _enemy.enabled = false;
         _box.enabled = false;
@@ -141,8 +144,6 @@ public class MenuFinalJuego : MonoBehaviour
             float coinScore = PlayerPrefs.GetFloat("CoinScore", 0f);
             float enemyScore = PlayerPrefs.GetFloat("EnemyScore", 0f);
             float objectScore = PlayerPrefs.GetFloat("ObjectScore", 0f);
-
-
 
             _textPuntuacionMoneda.text = coinScore.ToString("0");
             _textPuntuacionEnemigo.text = enemyScore.ToString("0");
@@ -161,9 +162,11 @@ public class MenuFinalJuego : MonoBehaviour
     private void Update()
     {
         //Debug.Log("Max" + _MaxScore);
-        _puntuacion = Mathf.Lerp(_puntuacion, _finalScore, _ScoreTime*Time.deltaTime);
+        _puntuacion = Mathf.Lerp(_puntuacion, _finalScore, _ScoreTime * Time.deltaTime);
         _textPuntuacionFinal.text = _puntuacion.ToString("0");
-        if (_resetTime-_time<0.1f && _finalScore - _puntuacion<0.1f)
+
+        //cuando llega el tiempo y cuando estea la puntuacion puesta, se activan las puntuaciones de monedas, caja, enemigo
+        if (_resetTime - _time < 0.1f && _finalScore - _puntuacion < 0.1f)
         {
             if (!_coin.enabled)
             {
@@ -182,7 +185,9 @@ public class MenuFinalJuego : MonoBehaviour
             }
             _time = 0;
         }
-        _time+=1*Time.deltaTime;
+        _time += 1 * Time.deltaTime;
+
 
     }
 }
+

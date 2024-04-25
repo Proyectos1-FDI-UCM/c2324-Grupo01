@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class SliderController : MonoBehaviour
 {
@@ -23,11 +24,12 @@ public class SliderController : MonoBehaviour
 
     #region properties
     private float _value;
+    private int _progressPercent;
     #endregion
 
     #region methods
     // Método para actualizar el valor del Slider.
-    public void SetProgress()
+    private void SetProgress()
     {
         float progress = (_endTransform.position.x - _playerTransform.position.x)/(_endTransform.position.x-_startTransform);
         
@@ -35,17 +37,24 @@ public class SliderController : MonoBehaviour
         _mySlider.value = 1-_value;
         if (_mySlider.value <= 1 && _mySlider.value >=0 )
         {
-            progressPercent.text = Mathf.Round(_mySlider.value * 100f).ToString() + "%";
+            _progressPercent = (int)Mathf.Round(_mySlider.value * 100f);
         }
         else if (_mySlider.value<0)
         {
-            progressPercent.text = "0%";
+            _progressPercent=0;
         }
         else
         {
-            progressPercent.text = "100%";
+            _progressPercent = 100;
         }
-        
+        progressPercent.text =_progressPercent+ "%";
+
+    }
+    public void SaveProgess()
+    {
+        SetProgress();
+        PlayerPrefs.SetFloat("Progress", (float)_value);
+        PlayerPrefs.SetInt("ProgressPercent",(int) _progressPercent);
     }
     #endregion
     // Start is called before the first frame update
