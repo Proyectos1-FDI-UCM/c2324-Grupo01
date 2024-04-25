@@ -37,3 +37,5 @@ MonoBehaviour:
     playerSpeed: 7.5
   - sceneName: Nivel GnorkParty
     playerSpeed: 9.266667
+  - sceneName: NivelPruebaDash
+    playerSpeed: 5.5
