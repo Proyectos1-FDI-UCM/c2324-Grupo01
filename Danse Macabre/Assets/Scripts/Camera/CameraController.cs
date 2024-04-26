@@ -42,7 +42,7 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        NonFollowVerticalPosition = _playerTransform.position.y + verticalCameraOffset;
+        NonFollowVerticalPosition = _cameraTransform.position.y;
     }
 
     void LateUpdate()
@@ -111,7 +111,7 @@ public class CameraController : MonoBehaviour
         else if (!allowVerticalFollow) // Movimiento vertical deshabilitado
         {
             //Debug.Log("En medio");
-            targetY = Mathf.Lerp(_cameraTransform.position.y, NonFollowVerticalPosition, defaultLerpSpeed * 10 * Time.deltaTime);
+            targetY = Mathf.Lerp(_cameraTransform.position.y, NonFollowVerticalPosition, defaultLerpSpeed * 5 * Time.deltaTime);
         }
         else // Mantenerla igual en caso de error
         {
