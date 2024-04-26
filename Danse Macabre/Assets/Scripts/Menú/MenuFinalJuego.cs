@@ -105,7 +105,7 @@ public class MenuFinalJuego : MonoBehaviour
         //calcula la puntuacion parar cada rango
         if (_finalScore < _MaxScore / 4) _ranking = "C";
         else if (_finalScore < (_MaxScore / 4) * 2) _ranking = "B";
-        else if (_finalScore < (_MaxScore / 4) * 2.5) _ranking = "A";
+        else if (_finalScore < (_MaxScore / 4) * 2.8) _ranking = "A";
         else _ranking = "S";
     }
     public void WritePlayerRanking()
