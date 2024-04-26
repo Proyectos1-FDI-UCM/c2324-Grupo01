@@ -6,12 +6,19 @@ using UnityEngine;
 
 public class RespawnCountDown : MonoBehaviour
 {
+    #region parameters
+    private static float respawnTickSeconds = 0.66f;
+    private static float respawnTimeSeconds = 3 * respawnTickSeconds;
+    #endregion
 
+    #region properties
+    public float RespawnTime { get { return respawnTimeSeconds;}}
+    #endregion
 
     private int c;
     [SerializeField] private TextMeshProUGUI _Count;
     [SerializeField] private Canvas _Canvas;
-    // Start is called before the first frame update
+    
     private void Awake() {
         _Canvas.enabled = false;
     }
@@ -34,7 +41,7 @@ public class RespawnCountDown : MonoBehaviour
             _Count.text = c.ToString();
             //Debug.Log("c: " + c + "  " + Time.time);
             c--;
-            Invoke("CountDown", 0.66f);
+            Invoke("CountDown", respawnTickSeconds);
         }
         else
         {

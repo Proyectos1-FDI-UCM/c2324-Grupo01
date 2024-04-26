@@ -96,8 +96,12 @@ public class GameManager : MonoBehaviour
         {
             ResetPlayerLife(); // INTENTOS
             //ResetTries();
-            _playerMovement.Autoscroll();
+            Invoke("StartAutoscroll", _RespawnCountDown.RespawnTime);
         }
+    }
+    public void StartAutoscroll()
+    {
+        _playerMovement.Autoscroll();
     }
     void OnEnable()
     {
@@ -213,7 +217,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator LoadCheckpoint()
     {
         float startTime = Time.time;
-        float durationTime = 2f;
+        float durationTime = _RespawnCountDown.RespawnTime;
         float endTime = startTime + durationTime;
 
         _ScoreManager.LoadCheckpointScore();
@@ -221,8 +225,6 @@ public class GameManager : MonoBehaviour
         _cameraController.ResetToFramePlayer();
         _cameraController.SetFollowState();
         float startColliderPosX = _startColliderTransform.position.x;
-
-        //_RespawnCountDown.SetCount();
 
         while (Time.time < endTime)
         {
