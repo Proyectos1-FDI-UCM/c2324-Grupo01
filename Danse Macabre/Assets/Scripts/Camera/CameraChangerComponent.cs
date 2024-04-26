@@ -36,8 +36,8 @@ public class CameraChangerComponent : MonoBehaviour
             }
             if (ChangeVerticalFollow)
             {
-                _cameraController.ChangeVerticalFollow();
                 _cameraController.SetVerticalHeight(this.transform.position.y - (colliderHeight / 2) + (ApproximatePlayerHeight / 2) + _cameraController.verticalCameraOffset - ApproximateCameraToFloorHeight);
+                _cameraController.ChangeVerticalFollow();
             }
             if (EndOfLevel)
             {
