@@ -8,6 +8,7 @@ public class SaveScoreWin : MonoBehaviour
 {
     #region references
     private ScoreManager _scoreManager;
+    private SliderController _sliderController;
     #endregion
     #region methods
     public void OnTriggerEnter2D(Collider2D collision)
@@ -17,7 +18,7 @@ public class SaveScoreWin : MonoBehaviour
         {
             _scoreManager.SaveFinalScore();
 
-
+            _sliderController.SaveProgess();
             //Cambiar escena de Victoria
             GameManager.Instance.ResetCheckpoint();
             PlayerPrefs.SetInt("PreviousScene", SceneManager.GetActiveScene().buildIndex); // For restarting the same level after victory
@@ -28,5 +29,6 @@ public class SaveScoreWin : MonoBehaviour
     void Start()
     {
         _scoreManager = FindObjectOfType<ScoreManager>();
+        _sliderController = FindObjectOfType<SliderController>();
     }
 }
