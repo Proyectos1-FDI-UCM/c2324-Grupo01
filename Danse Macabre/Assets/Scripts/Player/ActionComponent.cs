@@ -108,6 +108,7 @@ public class ActionComponent : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(_myTransform.position, Vector2.down, groundCheckDistance, groundLayer);
         return hit.collider != null;
     }
+
     /// <summary>
     /// Checks the collision with the trampoline layer.
     /// </summary>
@@ -123,6 +124,7 @@ public class ActionComponent : MonoBehaviour
         // }
         // else return false;
     }
+
     // private bool IsBouncyEnemy()
     // {
     //     RaycastHit2D hit = Physics2D.Raycast(_myTransform.position, Vector2.down, enemyCheckDistance, enemyLayer);
@@ -134,6 +136,7 @@ public class ActionComponent : MonoBehaviour
     //     }
     //     return false;
     // }
+
     /// <summary>
     /// Sets an upward velocity to the player (but fist a code needs to check if isTrampoline() and is stomping)
     /// and sets the current action to jumping.
@@ -142,22 +145,23 @@ public class ActionComponent : MonoBehaviour
     {
         _myRB.velocity = new Vector3(_myRB.velocity.x, trampolineJumpSpeed);
         //pathSaver.StartSaving();
-
     }
+
     /// <summary>
     /// Check if the player is grounded before performs a jump. The current action is changed in the Bounce() method.
     /// </summary>
     public void Jump()
     {
+        timingComponent.CheckNearbyArrow(Action.Jumping); // Sends jumping to perfect timing.
+
         if (IsGrounded())
         {
             myAudioSource.PlayOneShot(_jumpSound, jumpCTR);
             //pathSaver.StartSaving();
             Bounce();
         }
-
-        timingComponent.CheckNearbyArrow(currentAction); // Sends jumping to perfect timing.
     }
+
     /// <summary>
     /// Este método est?separado para que se pueda llamar a la hora de rebotar encima de un enemigo determinado sin comprobar grounded.
     /// </summary>
@@ -166,21 +170,24 @@ public class ActionComponent : MonoBehaviour
         _myRB.velocity = new Vector2(_myRB.velocity.x, jumpSpeed);
         currentAction = Action.Jumping;
     }
+
     /// <summary>
     /// Performs a rapid descent, but checks if it is not already doing it (not stomping).
     /// </summary>
     public void Stomp()
     {
+        timingComponent.CheckNearbyArrow(Action.Stomping); // Sends stomping to perfect timing.
+
         if (!IsGrounded() && currentAction != Action.Stomping)
         {
             currentAction = Action.Stomping;
-            timingComponent.CheckNearbyArrow(currentAction); // Sends stomping to perfect timing.
             _myRB.velocity = new Vector3(_myRB.velocity.x, -stompDownwardSpeed);
             //pathSaver.StartSaving();
             
             myAudioSource.PlayOneShot(_stompSound, stompCTR);
         }
     }
+
     /// <summary>
     /// Method for Slide an Dash.
     /// If the player is grounded a slide is performed. If in the air and can dash due to a dash coin, performs a dash.
@@ -219,6 +226,7 @@ public class ActionComponent : MonoBehaviour
             }
         }
     }
+
     /// <summary>
     /// Stops sliding: collider set to original parameters and action to running if grounded.
     /// </summary>
@@ -235,6 +243,7 @@ public class ActionComponent : MonoBehaviour
         myAudioSource.Stop();
         myAudioSource.loop = false;
     }
+
     /// <summary>
     /// Method that sets a countdown to perform a dash. The action is available for the parameter specified seconds.
     /// </summary>
@@ -320,13 +329,13 @@ public class ActionComponent : MonoBehaviour
             TrampolineBounce();
             //print("depois tramp: "+ _myTransform.position);
             currentAction = Action.Jumping;
-        // }
+        }
         // else if (IsBouncyEnemy() && currentAction == Action.Stomping){
         //     Bounce();
         //     print(_myTransform.position);
         //     debugThis = true;
         //     currentAction = Action.Jumping;
-        }
+        //}
 
         // else if (currentAction == Action.Stomping){
         //     if (IsBouncyEnemy()) {
@@ -341,16 +350,14 @@ public class ActionComponent : MonoBehaviour
         //         currentAction = Action.Jumping;
         //     }
         // }
-
         else if (IsGrounded() && currentAction != Action.Sliding){ // If is in the ground and not sliding it's definitely running.
             currentAction = Action.Running;
         }
 
+
         if (lastAction == Action.Sliding && currentAction != Action.Sliding){ // Stops the slide if the current action changed from sliding.
             SlideStop();
         }
-
-
 
 
         // Code to change gravity factor for when is going up or down if not dashing.
@@ -405,12 +412,14 @@ public class ActionComponent : MonoBehaviour
         }
 
     }
+
     // private void ChangeGravity()
     // {
     //     if (currentAction == Action.Jumping) _myRB.gravityScale = originalGravityScale;
     //     else if (currentAction == Action.Dashing) {}
     //     else _myRB.gravityScale = gravityFactor * originalGravityScale;
     // }
+
     /// <summary>
     /// Method to control bot's dash.
     /// </summary>
@@ -419,6 +428,7 @@ public class ActionComponent : MonoBehaviour
     {
         canDash = p_canDash;
     }
+    
     public float GetDashDuration()
     {
         return dashDuration;
