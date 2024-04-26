@@ -16,8 +16,10 @@ public class MissedComponent : MonoBehaviour
 
         if (player != null)
         {
-            if (!_myArrow.IsDone()) GameManager.Instance.ArrowTiming("MISSED");
-            _myArrow.GetComponent<ArrowComponent>().DeactivateGray();
+            if (!_myArrow.IsDone()) {
+                GameManager.Instance.ArrowTiming("MISSED");
+                _myArrow.GetComponent<ArrowComponent>().DeactivateGray();
+            }
         }
     }
     void Start()
