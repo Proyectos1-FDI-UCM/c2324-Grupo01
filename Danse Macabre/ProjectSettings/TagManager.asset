@@ -53,9 +53,6 @@ TagManager:
   - name: bg
     uniqueID: 2775646603
     locked: 0
-  - name: rain
-    uniqueID: 3360931325
-    locked: 0
   - name: ui
     uniqueID: 1235769257
     locked: 0
