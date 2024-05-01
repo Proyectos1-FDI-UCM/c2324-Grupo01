@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NivelPruebaDash.unity
     guid: e97e440266ffec746b3f3e5f4e0db7cd
+  - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: 79515a3084c90d0408b0fdb40e50dd26
   m_configObjects: {}

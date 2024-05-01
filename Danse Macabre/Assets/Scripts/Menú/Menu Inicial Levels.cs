@@ -41,6 +41,12 @@ public class MenuInicialLevels : MonoBehaviour
         SceneManager.LoadScene("NivelPruebaDash");
     }
 
+    public void Credits()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Creditos");
+    }
+
     public void Salir()
     {
         PlayerPrefs.SetInt("MenuLevelActivo", 0);
