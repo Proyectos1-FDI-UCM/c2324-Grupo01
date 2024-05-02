@@ -46,6 +46,11 @@ public class MenuInicialLevels : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Creditos");
     }
+    public void Story()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Historia");
+    }
 
     public void Salir()
     {
