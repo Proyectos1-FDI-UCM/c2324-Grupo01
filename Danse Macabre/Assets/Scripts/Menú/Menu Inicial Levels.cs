@@ -17,38 +17,31 @@ public class MenuInicialLevels : MonoBehaviour
     }
     public void Jugar_Tutorial() 
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene("TutorialV3");
     }
     public void Jugar_Nivel1() 
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene("Nivel GnorkParty");
     }
     public void Jugar_Nivel2() 
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene("Nivel_Dear_X");
     }
     public void Jugar_Nivel3()
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene("Nivel_Sugar");
     }
     public void Jugar_Prueba()
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene("NivelPruebaDash");
     }
 
     public void Credits()
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene("Creditos");
     }
     public void Story()
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene("Historia");
     }
 
@@ -60,10 +53,9 @@ public class MenuInicialLevels : MonoBehaviour
     #endregion
     void Start()
     {
-        if (PlayerPrefs.HasKey("MenuLevelActivo"))
+        if (PlayerPrefs.HasKey("MenuLevelActivo")) //si desde fin de juego se ha guardado el int
         {
-            int isActiveMenuLevel = PlayerPrefs.GetInt("MenuLevelActivo");
-            if (isActiveMenuLevel == 1) 
+            if (PlayerPrefs.GetInt("MenuLevelActivo") == 1) 
             {
                 menuLevel.SetActive(true);
                 menuInicio.SetActive(false);
