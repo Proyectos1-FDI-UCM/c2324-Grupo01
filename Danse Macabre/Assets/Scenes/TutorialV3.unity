@@ -28240,6 +28240,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 845
       objectReference: {fileID: 0}
+    - target: {fileID: 1343604867685604126, guid: 5dc8b83f1041bba4db766ee044178b53, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2498428148480269957, guid: 5dc8b83f1041bba4db766ee044178b53, type: 3}
       propertyPath: m_text
       value: Marionette - Bingoo30
@@ -28335,6 +28339,18 @@ PrefabInstance:
     - target: {fileID: 8697957493144768166, guid: 5dc8b83f1041bba4db766ee044178b53, type: 3}
       propertyPath: m_LocalPosition.x
       value: -972.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796688552800853052, guid: 5dc8b83f1041bba4db766ee044178b53, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796688552800853052, guid: 5dc8b83f1041bba4db766ee044178b53, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796688552800853052, guid: 5dc8b83f1041bba4db766ee044178b53, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
