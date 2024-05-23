@@ -5,7 +5,6 @@ using UnityEngine;
 public class ActionComponent : MonoBehaviour
 {
     #region parameters
-    bool debugThis = false;
     [SerializeField]
     public float jumpSpeed = 11;
     public float originalGravityScale;
@@ -13,7 +12,6 @@ public class ActionComponent : MonoBehaviour
     public float gravityFactor = 0.90f;
     private float groundCheckDistance = 0.55f;
     private float trampolinCheckDistance = 0.60f;
-    private float enemyCheckDistance = 0.75f;
     public float stompDownwardSpeed = 20;
     public float trampolineJumpSpeed = 15;
     [SerializeField]
@@ -35,7 +33,7 @@ public class ActionComponent : MonoBehaviour
     #endregion
 
     #region references
-    private PathSaver pathSaver;
+    //private PathSaver pathSaver;
     private Transform _myTransform;
     private Rigidbody2D _myRB;
     private BoxCollider2D myCollider;
@@ -287,7 +285,7 @@ public class ActionComponent : MonoBehaviour
 
         timingComponent = GetComponent<PerfectTimingComponent>();
 
-        pathSaver = GetComponent<PathSaver>();
+        //pathSaver = GetComponent<PathSaver>();
 
         originalGravityScale = _myRB.gravityScale;
         myAudioSource = GetComponent<AudioSource>();

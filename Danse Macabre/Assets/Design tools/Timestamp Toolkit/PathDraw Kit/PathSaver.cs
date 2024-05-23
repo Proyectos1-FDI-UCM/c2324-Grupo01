@@ -1,19 +1,15 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Profiling.LowLevel.Unsafe;
 using UnityEngine;
 
+/// <summary>
+/// Tool for designing levels: saves path points from the player movement.
+/// </summary>
 public class PathSaver : MonoBehaviour
 {
     #region parameters
-    //public float playerSpeed;
     public float recordingTime = 2;
     private float recordingEnd;
     private bool recording = false;
     private bool firstClock;
-    private bool pointRecorded = false;
-
     #endregion
 
     #region references
@@ -35,21 +31,19 @@ public class PathSaver : MonoBehaviour
     }
     private void LateUpdate()
     {
-        
-        if (recording /*&& !pointRecorded*/)
+        if (recording)
         {
             SaveTrajectoryPoint();
-
             if (Time.time > recordingEnd) recording = false;
         }
-
-        //pointRecorded = !pointRecorded;
     }
 
     #region methods
+    /// <summary>
+    /// Saves trajectory points to a scriptable object.
+    /// </summary>
     private void SaveTrajectoryPoint()
     {
-
         if (firstClock)
         {
             transformInitialPosition = playerTransform.position;
@@ -62,8 +56,11 @@ public class PathSaver : MonoBehaviour
             positionX = playerTransform.position.x - transformInitialPosition.x,
             positionY = playerTransform.position.y - transformInitialPosition.y,
         });
-
     }
+
+    /// <summary>
+    /// Called to start saving points. Usually aftes an input.
+    /// </summary>
     public void StartSaving()
     {
         recording = true;
