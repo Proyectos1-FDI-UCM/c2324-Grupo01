@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEditor;
 
+/// <summary>
+/// User interface for development to create timestamps. A design tool to sync objects in space to music tempos and custom beats.
+/// </summary>
 [CustomEditor(typeof(BeatPositionCalculator))]
 public class BeatPositionCalculatorEditor : Editor
 {
@@ -35,6 +38,11 @@ public class BeatPositionCalculatorEditor : Editor
         }
     }
 
+    /// <summary>
+    /// Creates a game object BPM Timestamps that has child timestamp prefabs.
+    /// They are positioned on the xs recorded in the scriptable object set as data.
+    /// </summary>
+    /// <param name="calculator"></param>
     private void InstatantiateBPMTimestamps(BeatPositionCalculator calculator)
     {
         GameObject newObj = new("BPM Timestamps");
@@ -56,7 +64,12 @@ public class BeatPositionCalculatorEditor : Editor
         Debug.Log("BPM timestamps created!");
     }
 
-        private void InstatantiateCustomBeatsTimestamps(BeatPositionCalculator calculator)
+    /// <summary>
+    /// Creates a game object Custom Timestamps that has child timestamp prefabs.
+    /// They are positioned on the xs recorded in the scriptable object set as data.
+    /// </summary>
+    /// <param name="calculator"></param>
+    private void InstatantiateCustomBeatsTimestamps(BeatPositionCalculator calculator)
     {
         GameObject newObj = new("Custom Timestamps");
 

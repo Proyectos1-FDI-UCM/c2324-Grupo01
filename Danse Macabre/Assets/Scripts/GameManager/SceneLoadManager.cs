@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class SceneLoadManager : MonoBehaviour
 {
+    /// <summary>
+    /// Load procedure for 
+    /// </summary>
+    public void CheckpointLoadRequirements()
+    {
+        MinimunLevelLoadRequirements();
+    }
+
+    /// <summary>
+    /// All that needs to be loaded for any level: when playing for the first time and starting from checkpoint.
+    /// </summary>
+    public void MinimunLevelLoadRequirements()
+    {
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {

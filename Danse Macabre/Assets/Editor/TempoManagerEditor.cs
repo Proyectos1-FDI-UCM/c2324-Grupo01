@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEditor;
 
+/// <summary>
+/// User interface for development.
+/// Calls TempoManager in editor time.
+/// </summary>
 [CustomEditor(typeof(TempoManager))]
 public class TempoManagerEditor : Editor
 {
