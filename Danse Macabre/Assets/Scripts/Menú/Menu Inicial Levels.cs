@@ -18,22 +18,27 @@ public class MenuInicialLevels : MonoBehaviour
     public void Jugar_Tutorial() 
     {
         SceneManager.LoadScene("TutorialV3");
+        Time.timeScale = 1.0f;
     }
     public void Jugar_Nivel1() 
     {
         SceneManager.LoadScene("Nivel GnorkParty");
+        Time.timeScale = 1.0f;
     }
     public void Jugar_Nivel2() 
     {
         SceneManager.LoadScene("Nivel_Dear_X");
+        Time.timeScale = 1.0f;
     }
     public void Jugar_Nivel3()
     {
         SceneManager.LoadScene("Nivel_Sugar");
+        Time.timeScale = 1.0f;
     }
     public void Jugar_Prueba()
     {
         SceneManager.LoadScene("NivelPruebaDash");
+        Time.timeScale = 1.0f;
     }
 
     public void Credits()
