@@ -1337,11 +1337,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Flechas-Sergio Croche Trigo\n\rProtagonista-Legnops \nCajas-David G\r\nMonedas-Totus
-    Lotus\r\nEnemigos-Admurin\r\nTileset del escenario-Rotting Pixels\r\nCoraz\xF3n
-    de intentos-Swoosh Whoosh\r\nUI de Pausa y selecci\xF3n de nivel-Batuhan\r\nFondo
-    de men\xFA principal-Eder Muniz\r\nLetra de textos del tutorial-Daniel Linssen\r\nLetra
-    Timing-Sr.Toasty\r\nTeclas-Joshua JennerDev\r\nFondo-Assets from Itch.io\r\n"
+  m_text: "Flechas - Sergio Croche Trigo\n\rProtagonista - Legnops \nCajas - David
+    G\r\nMonedas - Totus Lotus\r\nEnemigos - Admurin\r\nTileset del escenario - Rotting
+    Pixels\r\nCoraz\xF3n de intentos - Swoosh Whoosh\r\nUI de Pausa y selecci\xF3n
+    de nivel - Batuhan\r\nFondo de men\xFA principal - Eder Muniz\r\nLetra de textos
+    del tutorial - Daniel Linssen\r\nLetra Timing - Sr.Toasty\r\nTeclas - Joshua
+    JennerDev\r\nFondo - Assets from Itch.io\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 666116ea7c346854981f0e7e67585fcb, type: 2}
   m_sharedMaterial: {fileID: 6529686139074178731, guid: 666116ea7c346854981f0e7e67585fcb, type: 2}
@@ -2830,8 +2831,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Danse Macabre: BGM men\xFA inicial, \nselecci\xF3n de nivel, victoria
-    y muerte\n\nMarionette- Bingoo30\nDance of the Sugar Plum Fairy\nGnork Party
-    -Piemert\r\nDear_X - Bingoo30\r"
+    y muerte\n\nMarionette - Bingoo30\nDance of the Sugar Plum Fairy\nGnork Party
+    - Piemert\r\nDear_X - Bingoo30\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 666116ea7c346854981f0e7e67585fcb, type: 2}
   m_sharedMaterial: {fileID: 6529686139074178731, guid: 666116ea7c346854981f0e7e67585fcb, type: 2}
