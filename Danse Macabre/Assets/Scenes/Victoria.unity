@@ -581,7 +581,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next Level
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5653d7a7918cf6b43b3fa4043033fa01, type: 2}
   m_sharedMaterial: {fileID: 1449030128705392181, guid: 5653d7a7918cf6b43b3fa4043033fa01, type: 2}
@@ -1768,7 +1768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9397d899db340f84ba758bd5e66c9a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextButton: {fileID: 541354409}
+  _text: {fileID: 521012601}
 --- !u!114 &1926846689 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1747137940050152862, guid: d6d7038e8c5acdb458cc3c58ddf581d9, type: 3}
