@@ -6,14 +6,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     #region paramenters
-    private int playerMaxLife = 4; // La primera más 3 checkpoints;
+    //private int playerMaxLife = 4; // La primera más 3 checkpoints; // #
     #endregion
 
     #region references
     [SerializeField]
     private GameObject _camera;
     private CameraController _cameraController;
-    private UIManager _UIManager;
     private ScoreManager _ScoreManager;
     private TimingTextController _TimingTextController;
     private SliderController _sliderController;
@@ -23,6 +22,7 @@ public class GameManager : MonoBehaviour
     private GameObject Player;
     private MovementComponent _playerMovement;
     private Transform _playerTransform;
+    private LifeManager _lifeManager;
     private Rigidbody2D _playerRB;
     [SerializeField]
     private GameObject StartCollider;
@@ -50,10 +50,10 @@ public class GameManager : MonoBehaviour
 
     private static string previousScene = "";
     public bool playerCanBeKilled = false;
-    private static int playerRemainingLife;
-    // [SerializeField]
-    // private bool intentosInfinitos = true;
-    private static int numberOfTries = 0;
+    // private static int playerRemainingLife; // #
+    // // [SerializeField] // #
+    // // private bool intentosInfinitos = true; // #
+    // private static int numberOfTries = 0; // #
     #endregion
 
    private void Awake()
@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
         }
         else // if starting a level for the first time
         {
-            ResetPlayerLife(); // INTENTOS
+            _lifeManager.ResetPlayerLife(); // INTENTOS
             //ResetTries();
             Invoke("StartAutoscroll", _RespawnCountDown.RespawnTime);
         }
@@ -136,10 +136,10 @@ public class GameManager : MonoBehaviour
     }
     public void PlayerHasDied()
     {
-        PlayerLosesLife(); // INTENTOS
+        _lifeManager.PlayerLosesLife(); // INTENTOS
         //IncrementTries();
 
-        if (CheckpointExists() && PlayerHasLife())  // INTENTOS
+        if (CheckpointExists() && _lifeManager.PlayerHasLife())  // INTENTOS
         { // if a checkpoint exists
             SceneManager.LoadScene(previousScene);
         }
@@ -148,45 +148,47 @@ public class GameManager : MonoBehaviour
             _ScoreManager.SaveFinalScore();
             MaxScoreCalculator.Instance.SaveSceneMaxScore();
             _sliderController.SaveProgess();
-            ResetPlayerLife(); // INTENTOS
-            //ResetTries();
+            _lifeManager.ResetPlayerLife(); // INTENTOS
+            //_lifeManager.ResetTries();
             LoadDeathScene();
         }
     }
 
 
+    #region playerlife
+    // // TRIES
+    // // public int NumberOfTries()
+    // // {
+    // //     return numberOfTries;
+    // // }
+    // // private void IncrementTries()
+    // // {
+    // //     numberOfTries += 1;
+    // //     print("numberofthries: " + numberOfTries);
+    // // }
+    // // private void ResetTries()
+    // // {
+    // //     numberOfTries = 0;
+    // // }
+    // // LIFES
+    // private bool PlayerHasLife()
+    // {
+    //     return playerRemainingLife > 0;
+    // }
+    // private void PlayerLosesLife()
+    // {
+    //     playerRemainingLife -= 1;
+    // }
+    // private void ResetPlayerLife()
+    // {
+    //     playerRemainingLife = playerMaxLife;
+    // }
+    // public int PlayerRemainingLife()
+    // {
+    //     return playerRemainingLife;
+    // }
+    #endregion
 
-    // TRIES
-    // public int NumberOfTries()
-    // {
-    //     return numberOfTries;
-    // }
-    // private void IncrementTries()
-    // {
-    //     numberOfTries += 1;
-    //     print("numberofthries: " + numberOfTries);
-    // }
-    // private void ResetTries()
-    // {
-    //     numberOfTries = 0;
-    // }
-    // LIFES
-    private bool PlayerHasLife()
-    {
-        return playerRemainingLife > 0;
-    }
-    private void PlayerLosesLife()
-    {
-        playerRemainingLife -= 1;
-    }
-    private void ResetPlayerLife()
-    {
-        playerRemainingLife = playerMaxLife;
-    }
-    public int PlayerRemainingLife()
-    {
-        return playerRemainingLife;
-    }
     private void LoadDeathScene()
     {
         //Guardar el nombre de la escena anterior para el bot�n restart
@@ -200,7 +202,7 @@ public class GameManager : MonoBehaviour
     // CHECKPOINT
     public void ResetCheckpoint()
     {
-        numberOfTries = 0;
+        //_lifeManager.ResetTries(); // TRIES
         hasCheckpoint = false;
     }
     public bool CheckpointExists()
@@ -249,9 +251,6 @@ public class GameManager : MonoBehaviour
         _cameraController = _camera.GetComponent<CameraController>();
         if (_cameraController == null) Debug.LogError("CAMERA missing in GameManager!");
 
-        _UIManager = GetComponent<UIManager>();
-        if (_UIManager == null) Debug.LogError("UIManager missing in GameManager!");
-
         _ScoreManager = GetComponent<ScoreManager>();
         if (_ScoreManager == null) Debug.LogError("ScoreManager missing in GameManager!");
 
@@ -260,6 +259,8 @@ public class GameManager : MonoBehaviour
 
         _playerMovement = Player.GetComponent<MovementComponent>();
         if (_playerMovement == null) Debug.LogError("Player's MovementComponent missing in GameManager!");
+
+        _lifeManager = Player.GetComponent<LifeManager>();
 
         _playerRB = Player.GetComponent<Rigidbody2D>();
         if (_playerRB == null) Debug.LogError("Player's RigidBody missing in GameManager!");
@@ -280,10 +281,8 @@ public class GameManager : MonoBehaviour
 
     public void ArrowTiming(string timing)
     {
-        _UIManager.DisplayTiming(timing);
         _ScoreManager.AddTimingPoints(timing);
         _TimingTextController.TimingText(timing);
-
     }
     #endregion
 }

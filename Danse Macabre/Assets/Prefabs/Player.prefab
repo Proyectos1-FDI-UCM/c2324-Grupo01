@@ -9774,8 +9774,8 @@ GameObject:
   - component: {fileID: 9020972057079241171}
   - component: {fileID: 2084211724469973391}
   - component: {fileID: 959711535566899561}
-  - component: {fileID: 2500461856226702833}
   - component: {fileID: 7167278231102041047}
+  - component: {fileID: 3987234351337888122}
   - component: {fileID: 40319704020148416}
   - component: {fileID: 8693597587511461896}
   - component: {fileID: 3743249431654715070}
@@ -9937,18 +9937,6 @@ MonoBehaviour:
   StompParticleSystem: {fileID: 2221979133032681958}
   DashParticleSystem: {fileID: 439032042945097432}
   currentAction: 0
---- !u!114 &2500461856226702833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3996297822920346081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b627a12e63db62b4db053d637437e442, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7167278231102041047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9965,6 +9953,18 @@ MonoBehaviour:
   TempoManager: {fileID: 0}
   speed: 1
   canMove: 1
+--- !u!114 &3987234351337888122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3996297822920346081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25c4ab9a8363adf4fa620c2a6893db7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &40319704020148416
 MonoBehaviour:
   m_ObjectHideFlags: 0

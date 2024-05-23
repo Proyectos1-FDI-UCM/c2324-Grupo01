@@ -1,7 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// - Load level data
+/// - Load music manager references
+/// - Set player can be killed to false
+/// - new scene = checkpoint false
+/// - Load checkpoint if any
+/// - Player life reset if no checkpoint
+/// - Start autoscroll (who calls this? start game component?)
+/// - SceneHas changed
+/// - Save and load camera states
+/// </summary>
 public class SceneLoadManager : MonoBehaviour
 {
     /// <summary>

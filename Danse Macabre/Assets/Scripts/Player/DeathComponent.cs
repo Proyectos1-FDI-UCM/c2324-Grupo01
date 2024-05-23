@@ -18,6 +18,14 @@ public class DeathComponent : MonoBehaviour
     private DeathFilterColor _DeathFilterColor;
     #endregion
 
+    private bool playerCanBeKilled = false;
+    public bool PlayerCanBeKilled
+    {
+        get { return playerCanBeKilled; }
+        set { playerCanBeKilled = value; }
+    }
+
+
     int layerValueEnemy;
     int layerValueTraps;
 
