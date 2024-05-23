@@ -15,8 +15,6 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textPuntos;
     [SerializeField] private TextMeshPro _textPuntosAñadidos;
     [SerializeField] private TextMeshProUGUI _textoArriba;
-
-    private ComboSliderComponent comboSliderComponent;
     private ComboManager _combo;
     #endregion
 
@@ -27,8 +25,6 @@ public class ScoreManager : MonoBehaviour
     private float _coinPoint = 0;
     private float _enemyPoint = 0;
     private float _destroyObjectPoint = 0;
-    private int _nCoins = 0;
-    private float _timingPoints = 0;
 
     private float _addPoints = 0; //los puntos que se van sumando
     private float _sudPoints= 0;
@@ -104,20 +100,17 @@ public class ScoreManager : MonoBehaviour
         if (timing == "PERFECT") {
 
             _nPerfect++;
-            _timingPoints += (perfectTimingValue * _combo.multiplier);
             _totalPoint += (perfectTimingValue * _combo.multiplier);
             _combo.addCombo(perfectTimingValue);
         }
         else if (timing == "GREAT") {
 
             _nGreat++;
-            _timingPoints += (greatTimingValue * _combo.multiplier);
             _totalPoint += (greatTimingValue * _combo.multiplier);
             _combo.addCombo(greatTimingValue);
         }
         else if (timing == "GOOD") {
             _nGood++;
-            _timingPoints += (goodTimingValue * _combo.multiplier);
             _totalPoint += (goodTimingValue * _combo.multiplier);
             _combo.addCombo(goodTimingValue);
         }
@@ -186,7 +179,6 @@ public class ScoreManager : MonoBehaviour
         _lastPickupTime = Time.time;
         _textoArriba.enabled = false;
         _combo = FindObjectOfType<ComboManager>();
-        comboSliderComponent =FindObjectOfType<ComboSliderComponent>();
     }
     void Update()
     {
