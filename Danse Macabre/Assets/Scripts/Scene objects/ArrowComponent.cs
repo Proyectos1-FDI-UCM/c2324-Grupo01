@@ -1,5 +1,4 @@
 // ASSIGN TO THE ARROW'S OBJECT
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ArrowComponent : MonoBehaviour
@@ -77,6 +76,9 @@ public class ArrowComponent : MonoBehaviour
     }
     #endregion
 
+    /// <summary>
+    /// Draws timing regions for design purposes.
+    /// </summary>
     void OnDrawGizmos()
     {
         if (activateGizmos)

@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class MaxScoreCalculator : MonoBehaviour
 {
@@ -25,11 +21,7 @@ public class MaxScoreCalculator : MonoBehaviour
     private double _basicScore;
     private double _scoreCombo;
     private double _maxScore;
-
-
     #endregion
-
-    #region methods
 
     private static MaxScoreCalculator instance;
     public static MaxScoreCalculator Instance
@@ -117,8 +109,8 @@ public class MaxScoreCalculator : MonoBehaviour
         PlayerPrefs.SetFloat("base", (float)_basicScore);
         PlayerPrefs.SetFloat("combo", (float)_scoreCombo);
     }
-    #endregion
-    // Start is called before the first frame update
+
+
     void Start()
     {
         _comboManager=FindObjectOfType<ComboManager>();

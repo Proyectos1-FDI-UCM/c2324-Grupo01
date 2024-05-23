@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class CoinComponent : MonoBehaviour
 {
@@ -22,11 +18,8 @@ public class CoinComponent : MonoBehaviour
         ActionComponent _player = collision.gameObject.GetComponent<ActionComponent>();
         if (_player)
         {
-            //print("collision");
             //tipo de punto, 0=monedas, 1=enemigo, 2=objeto, 3=MonedaDash(MaxScoreCalculator)
             _points.AddPoints(_coinValue, 0);
-
-           // MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.coinSound);
 
             Destroy(gameObject);
         }

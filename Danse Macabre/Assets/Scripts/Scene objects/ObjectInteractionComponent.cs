@@ -1,17 +1,18 @@
 using UnityEngine;
 
+/// <summary>
+/// Component to control interaction with BOXES.
+/// </summary>
 public class ObjectInteractionComponent : MonoBehaviour
 {
     #region parameters
     [SerializeField]
     private float _destroyTime = 5f; //tiempo que tarda en destruir el objeto
-
     [SerializeField]
     private int _value = 5; //Puntos que suma al jugador
     #endregion
+
     #region references
-    private ActionComponent _actionComponent;
-    private GameManager _gameManager;
     private ScoreManager _scoreManager;
     private Animator _myAnimator;
     #endregion
@@ -26,15 +27,14 @@ public class ObjectInteractionComponent : MonoBehaviour
             || _actionComponent.currentAction == ActionComponent.Action.Stomping 
             || _actionComponent.currentAction == ActionComponent.Action.Dashing)
             {
-                _scoreManager.AddPoints(_value,2 );
-                //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
+                _scoreManager.AddPoints(_value,2 ); // tipo de punto, 0=monedas, 1=enemigo, 2=objeto
             }
             else
             {
-                _scoreManager.AddPoints(-_value, 2);
+                _scoreManager.AddPoints(-_value, 2); // loses points
             }
-            //MusicManager.Instance.PlaySoundEffect(MusicManager.Instance.boxSound);
-            DestroyAnimation();
+
+            _myAnimator.SetTrigger("destroy"); 
             Invoke("DestroyObject", _destroyTime);
         }
     }
@@ -42,15 +42,10 @@ public class ObjectInteractionComponent : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    private void DestroyAnimation()
-    {
-        _myAnimator.SetTrigger("destroy");
-    }
     #endregion
+
     void Start()
     {
-        _gameManager = FindObjectOfType<GameManager>();
-        _actionComponent = FindObjectOfType<ActionComponent>();
         _scoreManager = FindObjectOfType<ScoreManager>();
         _myAnimator = GetComponent<Animator>();
 

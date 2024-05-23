@@ -1,6 +1,4 @@
 // ASSIGN TO THE PLAYER'S OBJECT
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PerfectTimingComponent : MonoBehaviour
@@ -146,6 +144,10 @@ public class PerfectTimingComponent : MonoBehaviour
         TimingParticleSystem.Emit(1);
     }
 
+    /// <summary>
+    /// Method used to control bot(design purposes) action based on arrows.
+    /// </summary>
+    /// <returns></returns>
     public ActionComponent.Action ArrowActionForBot()
     {
         Collider2D hitCollider = Physics2D.OverlapCircle(_myTransform.position, badRadius, arrowLayer); // "Draws" a circle around the player to check if any object in the arrowLayer is within range.
@@ -153,7 +155,6 @@ public class PerfectTimingComponent : MonoBehaviour
         if (hitCollider != null) // This is true if the player is within the bad radius range of an arrow.
         {
             string arrowTag = hitCollider.tag;
-            //print(arrowTag);
             ActionComponent.Action action;
             if (arrowTag == "Stomp") action = ActionComponent.Action.Stomping;   
             else if (arrowTag == "Jump") action = ActionComponent.Action.Jumping;

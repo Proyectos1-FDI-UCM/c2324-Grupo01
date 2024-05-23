@@ -8,11 +8,14 @@ public class LevelDataLoader : MonoBehaviour
     private LevelDataContainer levelData;
     #endregion
 
+    /// <summary>
+    /// Gets player speed stored in level data scriptable object for the particular scene active.
+    /// </summary>
+    /// <returns>player speed</returns>
     public float GetCurrentScenePlayerSpeed()
     {
         float playerSpeed = 0;
         string sceneName = SceneManager.GetActiveScene().name;
-        //print("scene name: "+sceneName);
 
         int i = 0;
         bool match = false;
@@ -23,15 +26,20 @@ public class LevelDataLoader : MonoBehaviour
             {
                 playerSpeed = data.playerSpeed;
                 match = true;
-                //print("vel: "+data.playerSpeed);
             }
             i++;
         }
+
         if (!match) Debug.LogError("Nombre de la escena no encontrada en el level data container!!!");
 
         return playerSpeed;
     }
 
+    /// <summary>
+    /// Saves scene name and player speed associated in level data container.
+    /// </summary>
+    /// <param name="p_sceneName"></param>
+    /// <param name="p_playerSpeed"></param>
     public void SaveLevelDataInContainer(string p_sceneName, float p_playerSpeed)
     {
         int numberOfLevelsStored = levelData.Levels.Count;

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,13 +13,11 @@ public class TempoManager : MonoBehaviour
     public float SecondsPerTick; // Cantidad de tiempo para completar un tick. Referenciable
     public float PlayerSpeed; // Velocidad del jugador calculada basado en BPM y TilesPerTick. Referenciable
 
-    // void Awake()
-    // {
-    //     SecondsPerTick = 60f / BPM;
-    //     PlayerSpeed = TilesPerTick / SecondsPerTick;
-    //     Debug.Log("SPT: " + SecondsPerTick + " / PlayerSpeed: " + PlayerSpeed);
-    // }
 
+
+    /// <summary>
+    /// Calculas the player speed base on setted parameters.
+    /// </summary>
     public void UpdatePlayerSpeedInInspector()
     {
         SecondsPerTick = 60f / BPM;
@@ -30,6 +25,9 @@ public class TempoManager : MonoBehaviour
         Debug.Log("SPT: " + SecondsPerTick + " / PlayerSpeed: " + PlayerSpeed);
     }
 
+    /// <summary>
+    /// Register in data container the player speed and level associated.
+    /// </summary>
     public void SetLevelTempo()
     {
         _levelDataLoader = GetComponent<LevelDataLoader>();

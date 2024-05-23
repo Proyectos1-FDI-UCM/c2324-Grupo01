@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -10,7 +8,6 @@ public class TryTextController : MonoBehaviour
     #endregion
     int num;
 
-    // Update is called once per frame
     void Update()
     {
         num = GameManager.Instance.PlayerRemainingLife();

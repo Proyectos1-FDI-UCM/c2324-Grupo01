@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,7 +18,7 @@ public class ScreenBeatComponent : MonoBehaviour
     [SerializeField]
     Color Multiplier4Color;
 
-    // Valores del 1 al 0 correspondientes a cada multiplicador. Cuanto más cerca del 1, más visible será
+    // Valores del 1 al 0 correspondientes a cada multiplicador. Cuanto mï¿½s cerca del 1, mï¿½s visible serï¿½
     [SerializeField]
     float Multiplier1Intensity = 0.25f;
     [SerializeField]
@@ -33,7 +29,7 @@ public class ScreenBeatComponent : MonoBehaviour
     float Multiplier4Intensity = 1f;
 
     [SerializeField]
-    float BeatDurationMultiplier = 0.5f; // Multiplicador a la duración total de cada iteración del efecto (multiplica a Time.deltaTime)
+    float BeatDurationMultiplier = 0.5f; // Multiplicador a la duraciï¿½n total de cada iteraciï¿½n del efecto (multiplica a Time.deltaTime)
 
     public float timeSinceLastBeat = 0;
 

@@ -95,7 +95,6 @@ public class DeathComponent : MonoBehaviour
 
             if (enemy.GetComponent<EnemyInteractionComponent>().BouncyEnemy)
             {
-                //_actionComponent.isStomping = false;
                 _actionComponent.Bounce();
             }
         }

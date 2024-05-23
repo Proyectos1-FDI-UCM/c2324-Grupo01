@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.IO;
 
 public class ComboSliderComponent : MonoBehaviour
 {
@@ -34,7 +31,7 @@ public class ComboSliderComponent : MonoBehaviour
     private Color[] fillColors = new Color[4];
     private ComboManager comboManager;
 
-    //texto que está al lado de la barra
+    //texto que estï¿½ al lado de la barra
     [SerializeField]
     private TextMeshProUGUI textoMul;
 

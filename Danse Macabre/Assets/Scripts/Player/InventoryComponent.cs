@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public class InventoryComponent : MonoBehaviour
 {
@@ -14,9 +13,4 @@ public class InventoryComponent : MonoBehaviour
         _nCoins++;
     }
     #endregion
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
 }

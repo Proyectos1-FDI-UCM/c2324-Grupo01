@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class MusicManager : MonoBehaviour
@@ -21,19 +18,19 @@ public class MusicManager : MonoBehaviour
     #endregion
 
     #region methods
-    //método para reproducir el bgm
+    //mï¿½todo para reproducir el bgm
     public void PlayMusic()
     {
         _myAudioSource.Play();
     }
-    //método para reproducir un efecto de sonido
+    //mï¿½todo para reproducir un efecto de sonido
     public void PlaySoundEffect(AudioClip clip, float volume)
     {
         _myAudioSource.PlayOneShot(clip,volume);
         _myAudioSource.loop = false;
         
     }
-    //método para pausar la reproduccion del bgm
+    //mï¿½todo para pausar la reproduccion del bgm
     public void StopPlayingSong()
     {
         pauseTime = _myAudioSource.time;
@@ -46,7 +43,7 @@ public class MusicManager : MonoBehaviour
         _myAudioSource.PlayOneShot(clip,volume);
         _myAudioSource.loop = true;
     }
-    //metodo para continuar reproducir el bgm a partir del tiempo cuando se paró
+    //metodo para continuar reproducir el bgm a partir del tiempo cuando se parï¿½
     public void ResumePlayingSong()
     {
         _myAudioSource.time = pauseTime;

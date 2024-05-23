@@ -1,9 +1,6 @@
-using System;
 using System.Collections;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Profiling;
+
 
 public class ActionComponent : MonoBehaviour
 {
@@ -117,25 +114,7 @@ public class ActionComponent : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast(_myTransform.position, Vector2.down, trampolinCheckDistance, trampolineLayer);
         return hit.collider != null;
-        //print("antes tramp: "+ _myTransform.position);
-        // if (hit.collider != null) {
-        //     _myTransform.position = new Vector3(_myTransform.position.x, Mathf.Sign(hit.point.y)*(math.abs(hit.point.y) - myCollider.size.y/2), 0);
-        //     return true;
-        // }
-        // else return false;
     }
-
-    // private bool IsBouncyEnemy()
-    // {
-    //     RaycastHit2D hit = Physics2D.Raycast(_myTransform.position, Vector2.down, enemyCheckDistance, enemyLayer);
-
-    //     if (hit.collider != null && hit.collider.gameObject.GetComponent<EnemyInteractionComponent>().IsBouncy())
-    //     {
-    //         _myTransform.position = new Vector3(_myTransform.position.x, Mathf.Sign(hit.point.y)*(math.abs(hit.point.y) - myCollider.size.y/2), 0);
-    //         return true;
-    //     }
-    //     return false;
-    // }
 
     /// <summary>
     /// Sets an upward velocity to the player (but fist a code needs to check if isTrampoline() and is stomping)
@@ -277,7 +256,6 @@ public class ActionComponent : MonoBehaviour
         _myRB.gravityScale = originalGravityScale;
 
         if (currentAction != Action.Stomping) currentAction = Action.Falling; // Changes to falling if dash time ends and there's no other action being made.
-        //ChangeGravity();
 
         myAudioSource.Stop();
     }
@@ -330,26 +308,6 @@ public class ActionComponent : MonoBehaviour
             //print("depois tramp: "+ _myTransform.position);
             currentAction = Action.Jumping;
         }
-        // else if (IsBouncyEnemy() && currentAction == Action.Stomping){
-        //     Bounce();
-        //     print(_myTransform.position);
-        //     debugThis = true;
-        //     currentAction = Action.Jumping;
-        //}
-
-        // else if (currentAction == Action.Stomping){
-        //     if (IsBouncyEnemy()) {
-        //         Bounce();
-        //         //print(_myTransform.position);
-        //         debugThis = true;
-        //         currentAction = Action.Jumping;
-        //     }
-        //     else if (IsTrampolin()){ // If hits a trampoline while stomping calls TrampolineBounce and sets action to jumping.
-        //         TrampolineBounce();
-        //         print("depois tramp: "+ _myTransform.position);
-        //         currentAction = Action.Jumping;
-        //     }
-        // }
         else if (IsGrounded() && currentAction != Action.Sliding){ // If is in the ground and not sliding it's definitely running.
             currentAction = Action.Running;
         }
@@ -361,7 +319,6 @@ public class ActionComponent : MonoBehaviour
 
 
         // Code to change gravity factor for when is going up or down if not dashing.
-        //ChangeGravity();
         if (currentAction != Action.Dashing)
         {
             if (_myRB.velocity.y < 0) // Gravity going down.
@@ -412,13 +369,6 @@ public class ActionComponent : MonoBehaviour
         }
 
     }
-
-    // private void ChangeGravity()
-    // {
-    //     if (currentAction == Action.Jumping) _myRB.gravityScale = originalGravityScale;
-    //     else if (currentAction == Action.Dashing) {}
-    //     else _myRB.gravityScale = gravityFactor * originalGravityScale;
-    // }
 
     /// <summary>
     /// Method to control bot's dash.

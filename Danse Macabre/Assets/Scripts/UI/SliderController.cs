@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static System.Net.Mime.MediaTypeNames;
 
 public class SliderController : MonoBehaviour
 {
@@ -28,7 +25,7 @@ public class SliderController : MonoBehaviour
     #endregion
 
     #region methods
-    // Método para actualizar el valor del Slider.
+    // Mï¿½todo para actualizar el valor del Slider.
     private void SetProgress()
     {
         float progress = (_endTransform.position.x - _playerTransform.position.x)/(_endTransform.position.x-_startTransform);

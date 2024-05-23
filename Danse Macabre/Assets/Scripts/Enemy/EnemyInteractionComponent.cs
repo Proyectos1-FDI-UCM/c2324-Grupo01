@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class EnemyInteractionComponent : MonoBehaviour
 {
@@ -12,57 +10,33 @@ public class EnemyInteractionComponent : MonoBehaviour
     [SerializeField]
     private int _enemyValue = 5;
     #endregion
+
     #region references
     private ScoreManager _scoreManager;
     [SerializeField]
     public bool BouncyEnemy;
-
     [SerializeField] Collider2D Collider;
     #endregion
-    // private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     MovementComponent _player = other.GetComponent<MovementComponent>();
-    //     if (_player != null)
-    //     {
-    //         if (_playerActionComponent.isStomping || _playerActionComponent.isDashing || _playerActionComponent.isSliding)
-    //         {
-    //             _enemyAnimation.DeathAnimation(); //Muere enemigo
-    //             _scoreManager.AddPoints(_enemyValue, 1);
-    //             //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
-            //     Invoke("DestroyEnemy", _destroyTime);
-            //     if (BouncyEnemy)
-            //     {
-            //         _playerActionComponent.Bounce();
-            //     }
-            // }
-            // else 
-            // {
-            //     // _scoreManager.SaveFinalScore();
-            //     // //Guardar el nombre de la escena anterior para el bot�n restart
-            //     // PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
-            //     // //Cambiar escena de Muerte
-            //     // SceneManager.LoadScene(4);
-            // }
-        //}
-    //}
 
+    /// <summary>
+    /// Add score and invokes method to destroy enemy object.
+    /// </summary>
     public void DestroyEnemy()
     {
         //tipo de punto, 0=monedas, 1=enemigo, 2=objeto
         _scoreManager.AddPoints(_enemyValue, 1);
-        //Collider.enabled = false;
         Invoke("DestroyGameObject", _destroyTime);
 
     }
+
+    /// <summary>
+    /// Destroy enemy object.
+    /// </summary>
     public void DestroyGameObject()
     {
         Destroy(gameObject);
     }
 
-    public bool IsBouncy()
-    {
-        return BouncyEnemy;
-    }
     void Start()
     {
         _scoreManager = FindObjectOfType<ScoreManager>();
