@@ -70,12 +70,8 @@ public class MusicManager : MonoBehaviour
         {
             Destroy(instance);
         }
-    }
 
-    private void Start()
-    {
         LoadAllReferences();
-
     }
-
+    
 }

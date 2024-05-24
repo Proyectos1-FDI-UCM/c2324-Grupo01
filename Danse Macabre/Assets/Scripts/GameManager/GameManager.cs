@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     private GameObject _camera;
     private CameraController _cameraController;
 
-    private ScoreManager _ScoreManager;
+    private ScoreManager _scoreManager;
 
     private SliderController _sliderController;
 
@@ -71,15 +71,38 @@ public class GameManager : MonoBehaviour
         }
         
         LoadAllReferences();
+        LoadLevelData();
         _DeathFilter.enabled = false;
     }
 
     #region methods
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) // Runs whenever a scene is loaded
-    { 
-        GameManager.Instance.LoadLevelData();
-        MusicManager.Instance.LoadAllReferences();
+    public void LoadLevelData()
+    {
+        PlayerSpeed = _levelDataLoader.GetCurrentScenePlayerSpeed();
+    }
+    private void LoadAllReferences()
+    {
+        _checkpointManager = GetComponent<CheckpointManager>();
+        _cameraController = _camera.GetComponent<CameraController>();
+        _scoreManager = GetComponent<ScoreManager>();
+        _startColliderTransform = StartCollider.GetComponent<Transform>();
+        _playerMovement = Player.GetComponent<MovementComponent>();
+        _lifeManager = Player.GetComponent<LifeManager>();
+        _levelDataLoader = GetComponent<LevelDataLoader>();
+        _RespawnCountDown = FindObjectOfType<RespawnCountDown>();
+        _sliderController = FindObjectOfType<SliderController>();
+    }
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) // Runs whenever a scene is loaded
+    {
         if (SceneHasChanged())
         {
             _checkpointManager.ResetCheckpoint();
@@ -99,57 +122,23 @@ public class GameManager : MonoBehaviour
             Invoke("StartAutoscroll", _RespawnCountDown.RespawnTime);
         }
     }
-    public void StartAutoscroll()
-    {
-        _playerMovement.Autoscroll();
-    }
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-    void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
     private bool SceneHasChanged()
     {
         return previousScene != SceneManager.GetActiveScene().name;
     }
-
-
-    // CAMERA
-    public void SaveCameraState(bool p_cameraFollow, bool p_cameraVerticalFollow) // Save current state to be loaded after checkpoint
+    
+    public void StartAutoscroll()
     {
-        cameraFollow = p_cameraFollow;
-        cameraVerticalFollow = p_cameraVerticalFollow;
-    }
-    public (bool, bool) LoadCameraState() // Load camera state into camera when returning to checkpoint
-    {
-        return (cameraFollow, cameraVerticalFollow);
+        _playerMovement.Autoscroll();
     }
 
-    private void PlayerHasDied()
-    {
-        if (!_lifeManager.PlayerHasLife()) // no life remaining
-        {
-            _checkpointManager.ResetCheckpoint();
-            _ScoreManager.SaveFinalScore();
-            MaxScoreCalculator.Instance.SaveSceneMaxScore();
-            _sliderController.SaveProgess();
-            LoadDeathScene();
-        }
-        else if (_checkpointManager.Checkpoint)  // INTENTOS
-        { // if a checkpoint exists and has life
-            SceneManager.LoadScene(previousScene);
-        }
-    }
 
     public IEnumerator PlayerDeath()
     {
         _DeathFilter.enabled = true;
         _DeathFilterColor.ColorChange();
         MusicManager.Instance.StopPlayingSong();
-        _ScoreManager.GameStart(false);
+        _scoreManager.GameStart(false);
         _lifeManager.PlayerLosesLife(); // INTENTOS
         //IncrementTries();
 
@@ -163,6 +152,22 @@ public class GameManager : MonoBehaviour
         PlayerHasDied();
     }
 
+    private void PlayerHasDied()
+    {
+        if (!_lifeManager.PlayerHasLife()) // no life remaining
+        {
+            _checkpointManager.ResetCheckpoint();
+            _scoreManager.SaveFinalScore();
+            MaxScoreCalculator.Instance.SaveSceneMaxScore();
+            _sliderController.SaveProgess();
+            LoadDeathScene();
+        }
+        else if (_checkpointManager.Checkpoint)  // INTENTOS
+        { // if a checkpoint exists and has life
+            SceneManager.LoadScene(previousScene);
+        }
+    }
+
     private void LoadDeathScene()
     {
         //Guardar el nombre de la escena anterior para el bot�n restart
@@ -172,55 +177,40 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Muerte");
     }
 
+    public void SaveCameraState(bool p_cameraFollow, bool p_cameraVerticalFollow) // Save current state to be loaded after checkpoint
+    {
+        cameraFollow = p_cameraFollow;
+        cameraVerticalFollow = p_cameraVerticalFollow;
+    }
+    public (bool, bool) LoadCameraState() // Load camera state into camera when returning to checkpoint
+    {
+        return (cameraFollow, cameraVerticalFollow);
+    }
+
+    /// <summary>
+    /// All procedures to load a scene when ca checkpoint exists.
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator LoadCheckpoint()
     {
-        float startTime = Time.time;
-        float durationTime = _RespawnCountDown.RespawnTime;
-        float endTime = startTime + durationTime;
-
-        _ScoreManager.LoadCheckpointScore();
+        _scoreManager.LoadCheckpointScore();
         _playerMovement.InitialPosition(_checkpointManager.CheckpointPosition);
         _cameraController.ResetToFramePlayer();
         _cameraController.SetFollowState();
         float startColliderPosX = _startColliderTransform.position.x;
 
+        float endTime = Time.time + _RespawnCountDown.RespawnTime;
         while (Time.time < endTime)
         {
             yield return null;
         }
 
         float time = math.abs(_checkpointManager.CheckpointPosition.x - startColliderPosX)/PlayerSpeed;
-        _playerMovement.Autoscroll();
         MusicManager.Instance.ChangeTime(time);
         MusicManager.Instance.PlayMusic();
-        _ScoreManager.GameStart(true);
+        _scoreManager.GameStart(true);
+        StartAutoscroll();
     }
 
-
-    public void LoadLevelData()
-    {
-        PlayerSpeed = _levelDataLoader.GetCurrentScenePlayerSpeed();
-    }
-
-    private void LoadAllReferences()
-    {
-        _checkpointManager = GetComponent<CheckpointManager>();
-
-        _cameraController = _camera.GetComponent<CameraController>();
-
-        _ScoreManager = GetComponent<ScoreManager>();
-
-        _startColliderTransform = StartCollider.GetComponent<Transform>();
-
-        _playerMovement = Player.GetComponent<MovementComponent>();
-
-        _lifeManager = Player.GetComponent<LifeManager>();
-
-        _levelDataLoader = GetComponent<LevelDataLoader>();
-
-        _RespawnCountDown = FindObjectOfType<RespawnCountDown>();
-
-        _sliderController = FindObjectOfType<SliderController>();
-    }
     #endregion
 }
