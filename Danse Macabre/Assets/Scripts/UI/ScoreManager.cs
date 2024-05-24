@@ -40,9 +40,9 @@ public class ScoreManager : MonoBehaviour
     #endregion
 
     #region methods
-    public void GameStart()
+    public void GameStart(bool start)
     {
-        _gameStart = true;
+        _gameStart = start;
     }
     public void AddPoints(float points, int type)
     {

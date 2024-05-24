@@ -26,6 +26,6 @@ public class ProgressSliderController : MonoBehaviour
         _initial = Mathf.Lerp(_initial, 1-_playerProgress, _sliderTime*Time.deltaTime);
         _progressSlider.value = _initial;
         _Percent.text = _progressPercent.ToString() + "%";
-        Debug.Log("Percent"+_progressPercent);
+        //Debug.Log("Percent"+_progressPercent);
     }
 }

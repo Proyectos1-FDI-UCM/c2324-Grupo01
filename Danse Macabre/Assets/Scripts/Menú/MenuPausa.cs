@@ -1,13 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuPausa : MonoBehaviour
 {
+    private CheckpointManager _checkpointManager;
     [SerializeField] private GameObject menuPausa;
     private bool isPausado = false;
 
+    private void Start()
+    {
+        _checkpointManager = GetComponent<CheckpointManager>();
+    }
     public void Pausa() 
     {
         if (isPausado) {
@@ -31,12 +34,12 @@ public class MenuPausa : MonoBehaviour
     public void Reiniciar() 
     {
         Time.timeScale = 1f;
-        GameManager.Instance.ResetCheckpoint();
+        _checkpointManager.ResetCheckpoint();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);   //Reiniciar la escena que est�
     }
     public void Quit() 
     {
-        GameManager.Instance.ResetCheckpoint();
+        _checkpointManager.ResetCheckpoint();
         PlayerPrefs.SetInt("MenuLevelActivo", 1);
         SceneManager.LoadScene(0);
     }

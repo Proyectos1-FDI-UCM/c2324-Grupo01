@@ -9,23 +9,35 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region references
+    private CheckpointManager _checkpointManager;
+
     [SerializeField]
     private GameObject _camera;
     private CameraController _cameraController;
+
     private ScoreManager _ScoreManager;
+
     private SliderController _sliderController;
+
     [SerializeField]
     private RespawnCountDown _RespawnCountDown;
+
     [SerializeField]
     private GameObject Player;
     private MovementComponent _playerMovement;
-    private Transform _playerTransform;
+
     private LifeManager _lifeManager;
-    private Rigidbody2D _playerRB;
+
     [SerializeField]
     private GameObject StartCollider;
     private Transform _startColliderTransform;
+
     private LevelDataLoader _levelDataLoader;
+
+    [SerializeField]
+    private Canvas _DeathFilter;
+    [SerializeField]
+    private DeathFilterColor _DeathFilterColor;
     #endregion
   
     #region properties
@@ -35,8 +47,6 @@ public class GameManager : MonoBehaviour
         get { return instance; }
     }
 
-    private static Vector3 checkpointPosition;
-    private static bool hasCheckpoint = false; 
     private static bool cameraFollow;
     private static bool cameraVerticalFollow;
     private static float playerSpeed;
@@ -61,13 +71,10 @@ public class GameManager : MonoBehaviour
         }
         
         LoadAllReferences();
+        _DeathFilter.enabled = false;
     }
 
     #region methods
-    public void DebugGM()
-    {
-        print("GMMMMMMMMMMMM");
-    }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) // Runs whenever a scene is loaded
     { 
         GameManager.Instance.LoadLevelData();
@@ -75,11 +82,13 @@ public class GameManager : MonoBehaviour
 
         if (SceneHasChanged())
         {
-            hasCheckpoint = false;
+            _checkpointManager.ResetCheckpoint();
+            _lifeManager.ResetPlayerLife(); // INTENTOS
+            //_lifeManager.ResetTries();
             previousScene = SceneManager.GetActiveScene().name;
         }
 
-        if (hasCheckpoint)
+        if (_checkpointManager.Checkpoint)
         {
             StartCoroutine(LoadCheckpoint());
         }
@@ -119,24 +128,39 @@ public class GameManager : MonoBehaviour
         return (cameraFollow, cameraVerticalFollow);
     }
 
-    public void PlayerHasDied()
+    private void PlayerHasDied()
     {
-        _lifeManager.PlayerLosesLife(); // INTENTOS
-        //IncrementTries();
-
-        if (CheckpointExists() && _lifeManager.PlayerHasLife())  // INTENTOS
-        { // if a checkpoint exists
-            SceneManager.LoadScene(previousScene);
-        }
-        else
-        { // if there's no checkpoint
+        if (!_lifeManager.PlayerHasLife()) // no life remaining
+        {
+            _checkpointManager.ResetCheckpoint();
             _ScoreManager.SaveFinalScore();
             MaxScoreCalculator.Instance.SaveSceneMaxScore();
             _sliderController.SaveProgess();
-            _lifeManager.ResetPlayerLife(); // INTENTOS
-            //_lifeManager.ResetTries();
             LoadDeathScene();
         }
+        else if (_checkpointManager.Checkpoint)  // INTENTOS
+        { // if a checkpoint exists and has life
+            SceneManager.LoadScene(previousScene);
+        }
+    }
+
+    public IEnumerator PlayerDeath()
+    {
+        _DeathFilter.enabled = true;
+        _DeathFilterColor.ColorChange();
+        MusicManager.Instance.StopPlayingSong();
+        _ScoreManager.GameStart(false);
+        _lifeManager.PlayerLosesLife(); // INTENTOS
+        //IncrementTries();
+
+        float endTime = Time.time + 1.2f;
+
+        while (Time.time < endTime)
+        {
+            yield return null;
+        }
+
+        PlayerHasDied();
     }
 
     private void LoadDeathScene()
@@ -148,24 +172,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Muerte");
     }
 
-
-    // CHECKPOINT
-    public void ResetCheckpoint()
-    {
-        //_lifeManager.ResetTries(); // TRIES
-        hasCheckpoint = false;
-    }
-    public bool CheckpointExists()
-    {
-        return hasCheckpoint;
-    }
-    public void CheckpointReached(Vector3 position)
-    {
-        hasCheckpoint = true;
-        checkpointPosition = position;
-        _ScoreManager.SaveCheckpointScore();
-        _cameraController.SaveCurrentFollowState();
-    }
     private IEnumerator LoadCheckpoint()
     {
         float startTime = Time.time;
@@ -173,7 +179,7 @@ public class GameManager : MonoBehaviour
         float endTime = startTime + durationTime;
 
         _ScoreManager.LoadCheckpointScore();
-        _playerMovement.InitialPosition(checkpointPosition);
+        _playerMovement.InitialPosition(_checkpointManager.CheckpointPosition);
         _cameraController.ResetToFramePlayer();
         _cameraController.SetFollowState();
         float startColliderPosX = _startColliderTransform.position.x;
@@ -183,11 +189,11 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        float time = math.abs(checkpointPosition.x - startColliderPosX)/PlayerSpeed;
+        float time = math.abs(_checkpointManager.CheckpointPosition.x - startColliderPosX)/PlayerSpeed;
         _playerMovement.Autoscroll();
         MusicManager.Instance.ChangeTime(time);
         MusicManager.Instance.PlayMusic();
-        _ScoreManager.GameStart();
+        _ScoreManager.GameStart(true);
     }
 
 
@@ -198,33 +204,23 @@ public class GameManager : MonoBehaviour
 
     private void LoadAllReferences()
     {
+        _checkpointManager = GetComponent<CheckpointManager>();
+
         _cameraController = _camera.GetComponent<CameraController>();
-        if (_cameraController == null) Debug.LogError("CAMERA missing in GameManager!");
 
         _ScoreManager = GetComponent<ScoreManager>();
-        if (_ScoreManager == null) Debug.LogError("ScoreManager missing in GameManager!");
 
         _startColliderTransform = StartCollider.GetComponent<Transform>();
-        if (_startColliderTransform == null) Debug.LogError("StartCollider's Transform missing in GameManager!");
 
         _playerMovement = Player.GetComponent<MovementComponent>();
-        if (_playerMovement == null) Debug.LogError("Player's MovementComponent missing in GameManager!");
 
         _lifeManager = Player.GetComponent<LifeManager>();
 
-        _playerRB = Player.GetComponent<Rigidbody2D>();
-        if (_playerRB == null) Debug.LogError("Player's RigidBody missing in GameManager!");
-
-        _playerTransform = Player.GetComponent<Transform>();
-        if (_playerTransform == null) Debug.LogError("Player's Transform missing in GameManager!");
-
         _levelDataLoader = GetComponent<LevelDataLoader>();
-        if (_levelDataLoader == null) Debug.LogError("Level data missing in GameManager!");
 
         _RespawnCountDown = FindObjectOfType<RespawnCountDown>();
 
         _sliderController = FindObjectOfType<SliderController>();
-
     }
     #endregion
 }

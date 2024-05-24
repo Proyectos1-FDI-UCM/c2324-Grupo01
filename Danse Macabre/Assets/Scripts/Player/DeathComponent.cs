@@ -8,14 +8,12 @@ public class DeathComponent : MonoBehaviour
     #endregion
 
     #region references
+    [SerializeField]
+    private ScoreManager _scoreManager;
     private MovementComponent _movementComponent;
     private ActionComponent _actionComponent;
     private AnimationComponent _animationComponent;
     private Rigidbody2D _RB;
-    [SerializeField]
-    private Canvas _DeathFilter;
-    [SerializeField]
-    private DeathFilterColor _DeathFilterColor;
     #endregion
 
     #region properties
@@ -36,7 +34,7 @@ public class DeathComponent : MonoBehaviour
 
         layerValueEnemy = LayerMask.NameToLayer("Enemies");
         layerValueTraps = LayerMask.NameToLayer("Traps");
-        _DeathFilter.enabled = false;
+        //_DeathFilter.enabled = false;
         //PlayerAlive = true;
     }
     private void Update()
@@ -54,19 +52,11 @@ public class DeathComponent : MonoBehaviour
         {
             PlayerCanBeKilled = false;
             _RB.velocity = Vector3.zero;
-            MusicManager.Instance.StopPlayingSong();
             _animationComponent.ToggleAnimationOff();
-            _DeathFilter.enabled = true;
-            _DeathFilterColor.ColorChange();
-            Invoke("CallPlayerDeath", 1.2f);
+            StartCoroutine(GameManager.Instance.PlayerDeath());
         }
     }
     
-    private void CallPlayerDeath()
-    {
-        GameManager.Instance.PlayerHasDied();
-    }
-
     /// <summary>
     /// Checks if horizontal velocity of the player's rigidbody has changed he dies.
     /// </summary>

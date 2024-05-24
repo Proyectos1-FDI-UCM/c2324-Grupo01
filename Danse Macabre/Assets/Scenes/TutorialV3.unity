@@ -259,6 +259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8961288918693220215, guid: 769695fbd6fd2a140a3d9fd6a627a564, type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 2077163342}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32583,6 +32587,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8961288918693220215, guid: 769695fbd6fd2a140a3d9fd6a627a564, type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 2077163342}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -90225,6 +90233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint
       objectReference: {fileID: 0}
+    - target: {fileID: 8961288918693220215, guid: 769695fbd6fd2a140a3d9fd6a627a564, type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 2077163342}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -90507,6 +90519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8961288918693220215, guid: 769695fbd6fd2a140a3d9fd6a627a564, type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 2077163342}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -140074,6 +140090,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 268524339378854983, guid: 299f6e2b70a91f6488763b0954c8c6fb, type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 2077163342}
     - target: {fileID: 1027477345326523941, guid: 299f6e2b70a91f6488763b0954c8c6fb, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -140513,6 +140533,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8961288918693220215, guid: 769695fbd6fd2a140a3d9fd6a627a564, type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 2077163342}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -146846,6 +146870,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8961288918693220215, guid: 769695fbd6fd2a140a3d9fd6a627a564, type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 2077163342}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -146948,6 +146976,7 @@ GameObject:
   - component: {fileID: 2077163351}
   - component: {fileID: 2077163345}
   - component: {fileID: 2077163350}
+  - component: {fileID: 2077163355}
   - component: {fileID: 2077163343}
   - component: {fileID: 2077163344}
   - component: {fileID: 2077163348}
@@ -147083,7 +147112,8 @@ MonoBehaviour:
   _RespawnCountDown: {fileID: 2134834713}
   Player: {fileID: 635698579}
   StartCollider: {fileID: 795223345}
-  playerCanBeKilled: 0
+  _DeathFilter: {fileID: 1131687520}
+  _DeathFilterColor: {fileID: 1131687518}
 --- !u!4 &2077163353
 Transform:
   m_ObjectHideFlags: 0
@@ -147111,6 +147141,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8cfeaee3998854c9cee23df2fc630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2077163355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077163342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404855481e6bcaf4796d99de601f758f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 590757384}
 --- !u!1001 &2086478994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -147402,6 +147445,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8961288918693220215, guid: 769695fbd6fd2a140a3d9fd6a627a564, type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 2077163342}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

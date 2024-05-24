@@ -31,7 +31,7 @@ public class MusicColliderComponent : MonoBehaviour
         if (player)
         {
             musicManagerComponent.PlayMusic();
-            _scoreManager.GameStart();
+            _scoreManager.GameStart(true);
             _screenBeatComponent.StartBeat();
         }
     }

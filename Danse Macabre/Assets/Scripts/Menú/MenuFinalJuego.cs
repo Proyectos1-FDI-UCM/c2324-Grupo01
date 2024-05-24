@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class MenuFinalJuego : MonoBehaviour
 {
@@ -24,17 +21,6 @@ public class MenuFinalJuego : MonoBehaviour
     private AudioClip _pointSound2;
     [SerializeField]
     private AudioClip _pointSound3;
-
-    /*
-    [SerializeField]
-    private TextMeshProUGUI _textMaxPuntos;
-    [SerializeField]
-    private TextMeshProUGUI _text1;
-    [SerializeField]
-    private TextMeshProUGUI _text2;
-    */
-
-
 
     [SerializeField]
     private TextMeshProUGUI _textPerfectNumber;
@@ -60,8 +46,6 @@ public class MenuFinalJuego : MonoBehaviour
     #endregion
 
     #region properties
-    //public bool quitToMenuLevel = false;
-
     private float _finalScore;
     private float _MaxScore;
 
@@ -74,8 +58,6 @@ public class MenuFinalJuego : MonoBehaviour
     #endregion
     public void QuitMenuFinal()
     {
-        GameManager.Instance.ResetCheckpoint();
-
         //Una bandera para cuando le damos al quit ir directamente al menú de niveles
         PlayerPrefs.SetInt("MenuLevelActivo", 1);
         SceneManager.LoadScene(0);
@@ -86,7 +68,6 @@ public class MenuFinalJuego : MonoBehaviour
     public void NextLevel()
     {
         int sceneIndex = PlayerPrefs.GetInt("PreviousScene");
-        GameManager.Instance.ResetCheckpoint();
         SceneManager.LoadScene(sceneIndex + 1);
     }
 
@@ -96,7 +77,6 @@ public class MenuFinalJuego : MonoBehaviour
         //string sceneName = PlayerPrefs.GetString("PreviousScene", "DefaultSceneName");
         int sceneIndex = PlayerPrefs.GetInt("PreviousScene");
         //Carga la escena anterior
-        GameManager.Instance.ResetCheckpoint();
         SceneManager.LoadScene(sceneIndex);
     }
 

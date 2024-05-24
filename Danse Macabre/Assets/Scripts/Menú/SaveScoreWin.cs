@@ -1,15 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SaveScoreWin : MonoBehaviour
 {
     #region references
+    [SerializeField]
+    private GameObject _manager;
+    private CheckpointManager _checkpointManager;
     private ScoreManager _scoreManager;
     private SliderController _sliderController;
     #endregion
+    
     #region methods
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,14 +21,16 @@ public class SaveScoreWin : MonoBehaviour
             _sliderController.SaveProgess();
             MaxScoreCalculator.Instance.SaveSceneMaxScore();
             //Cambiar escena de Victoria
-            GameManager.Instance.ResetCheckpoint();
+            _checkpointManager.ResetCheckpoint();
             PlayerPrefs.SetInt("PreviousScene", SceneManager.GetActiveScene().buildIndex); // For restarting the same level after victory
             SceneManager.LoadScene("Victoria");
         }
     }
     #endregion
+
     void Start()
     {
+        _checkpointManager = _manager.GetComponent<CheckpointManager>();
         _scoreManager = FindObjectOfType<ScoreManager>();
         _sliderController = FindObjectOfType<SliderController>();
     }
