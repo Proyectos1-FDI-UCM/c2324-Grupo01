@@ -1,12 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class DeathComponent : MonoBehaviour
 {
+    #region parameters
+    int layerValueEnemy;
+    int layerValueTraps;
+    #endregion
+
     #region references
     private MovementComponent _movementComponent;
     private ActionComponent _actionComponent;
@@ -18,19 +18,14 @@ public class DeathComponent : MonoBehaviour
     private DeathFilterColor _DeathFilterColor;
     #endregion
 
+    #region properties
     private bool playerCanBeKilled = false;
     public bool PlayerCanBeKilled
     {
         get { return playerCanBeKilled; }
         set { playerCanBeKilled = value; }
     }
-
-
-    int layerValueEnemy;
-    int layerValueTraps;
-
-    private bool PlayerAlive;
-
+    #endregion
 
     private void Start()
     {
@@ -42,7 +37,7 @@ public class DeathComponent : MonoBehaviour
         layerValueEnemy = LayerMask.NameToLayer("Enemies");
         layerValueTraps = LayerMask.NameToLayer("Traps");
         _DeathFilter.enabled = false;
-        PlayerAlive = true;
+        //PlayerAlive = true;
     }
     private void Update()
     {
@@ -55,9 +50,9 @@ public class DeathComponent : MonoBehaviour
     /// </summary>
     private void Death()
     {
-        if (GameManager.Instance.PlayerCanBeKilled())
+        if (PlayerCanBeKilled)
         {
-            PlayerAlive = false;
+            PlayerCanBeKilled = false;
             _RB.velocity = Vector3.zero;
             MusicManager.Instance.StopPlayingSong();
             _animationComponent.ToggleAnimationOff();
@@ -66,31 +61,34 @@ public class DeathComponent : MonoBehaviour
             Invoke("CallPlayerDeath", 1.2f);
         }
     }
+    
     private void CallPlayerDeath()
     {
         GameManager.Instance.PlayerHasDied();
     }
+
     /// <summary>
-    /// Checks if horizontal velocity of the player's rigidbody has changed to kill it true.
+    /// Checks if horizontal velocity of the player's rigidbody has changed he dies.
     /// </summary>
     private void CheckVelocityChange()
     {
-        if (_RB.velocity.x < _movementComponent.speed - 0.1f && PlayerAlive)
-        {
-            Death();
-        }
-    }
-    private void OnCollisionEnter2D(Collision2D collision) // For traps.
-    {
-        if (collision.gameObject.layer == layerValueTraps && PlayerAlive)
+        if (_RB.velocity.x < _movementComponent.speed - 0.1f && PlayerCanBeKilled)
         {
             Death();
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision) // For enemies and any trigger traps.
+    private void OnCollisionEnter2D(Collision2D collision) // For traps death.
     {
-        if (collision.gameObject.layer == layerValueTraps && PlayerAlive)
+        if (collision.gameObject.layer == layerValueTraps && PlayerCanBeKilled)
+        {
+            Death();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) // For enemies and any trigger traps.
+    {
+        if (collision.gameObject.layer == layerValueTraps && PlayerCanBeKilled)
         {
             Death();
         }
@@ -108,16 +106,11 @@ public class DeathComponent : MonoBehaviour
         }
         else if (collision.gameObject.layer == layerValueEnemy 
         && !(_actionComponent.currentAction == ActionComponent.Action.Stomping || _actionComponent.currentAction == ActionComponent.Action.Dashing) 
-        && PlayerAlive)
+        && PlayerCanBeKilled)
         {
             Death();
         }
     }
-
-    // public bool CheckPlayerIsAlive()
-    // {
-    //     return PlayerAlive;
-    // }
     #endregion
 }
 

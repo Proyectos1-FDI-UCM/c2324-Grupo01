@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     #region paramenters
-    //private int playerMaxLife = 4; // La primera más 3 checkpoints; // #
     #endregion
 
     #region references
@@ -48,11 +47,6 @@ public class GameManager : MonoBehaviour
     }
 
     private static string previousScene = "";
-    public bool playerCanBeKilled = false;
-    // private static int playerRemainingLife; // #
-    // // [SerializeField] // #
-    // // private bool intentosInfinitos = true; // #
-    // private static int numberOfTries = 0; // #
     #endregion
 
    private void Awake()
@@ -78,8 +72,6 @@ public class GameManager : MonoBehaviour
     { 
         GameManager.Instance.LoadLevelData();
         MusicManager.Instance.LoadAllReferences();
-
-        playerCanBeKilled = false;
 
         if (SceneHasChanged())
         {
@@ -127,12 +119,6 @@ public class GameManager : MonoBehaviour
         return (cameraFollow, cameraVerticalFollow);
     }
 
-
-    // DEATH
-    public bool PlayerCanBeKilled()
-    {
-        return playerCanBeKilled;
-    }
     public void PlayerHasDied()
     {
         _lifeManager.PlayerLosesLife(); // INTENTOS
@@ -152,41 +138,6 @@ public class GameManager : MonoBehaviour
             LoadDeathScene();
         }
     }
-
-
-    #region playerlife
-    // // TRIES
-    // // public int NumberOfTries()
-    // // {
-    // //     return numberOfTries;
-    // // }
-    // // private void IncrementTries()
-    // // {
-    // //     numberOfTries += 1;
-    // //     print("numberofthries: " + numberOfTries);
-    // // }
-    // // private void ResetTries()
-    // // {
-    // //     numberOfTries = 0;
-    // // }
-    // // LIFES
-    // private bool PlayerHasLife()
-    // {
-    //     return playerRemainingLife > 0;
-    // }
-    // private void PlayerLosesLife()
-    // {
-    //     playerRemainingLife -= 1;
-    // }
-    // private void ResetPlayerLife()
-    // {
-    //     playerRemainingLife = playerMaxLife;
-    // }
-    // public int PlayerRemainingLife()
-    // {
-    //     return playerRemainingLife;
-    // }
-    #endregion
 
     private void LoadDeathScene()
     {
