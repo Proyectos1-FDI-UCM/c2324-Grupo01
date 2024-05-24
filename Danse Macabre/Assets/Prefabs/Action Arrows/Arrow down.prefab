@@ -86,6 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f4f6321b73330499f45fc9a2f7768f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timingComponent: {fileID: 4896818492767952883, guid: 39da1f0844fe2cd43a41a86dec3fd06f, type: 3}
 --- !u!1 &3239344272102193927
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +209,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   graySprite: {fileID: -1659387424, guid: eaf0ea0c6dca27341adda000bf690826, type: 3}
+  DesaturationMultiplier: 1.5
+  activateGizmos: 0
 --- !u!58 &7001547186716217985
 CircleCollider2D:
   m_ObjectHideFlags: 0

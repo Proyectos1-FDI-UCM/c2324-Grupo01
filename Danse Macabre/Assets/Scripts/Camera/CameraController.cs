@@ -162,6 +162,6 @@ public class CameraController : MonoBehaviour
     public void SetVerticalHeight(float height) // Called by camera changers when vertical follow changes to update the desired vertical position (in case vertical follow is disabled)
     {
         NonFollowVerticalPosition = height;
-        Debug.Log(height);
+        //Debug.Log(height);
     }
 }

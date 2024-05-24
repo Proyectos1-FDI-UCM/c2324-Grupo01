@@ -10082,6 +10082,8 @@ MonoBehaviour:
   arrowLayer:
     serializedVersion: 2
     m_Bits: 256
+  _ScoreManager: {fileID: 0}
+  _TimingTextController: {fileID: 4187952702604027681}
   TimingParticleSystem: {fileID: 7826963980058275976}
 --- !u!82 &1984238978032885307
 AudioSource:

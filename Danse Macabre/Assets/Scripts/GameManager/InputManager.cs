@@ -5,8 +5,6 @@ public class InputManager : MonoBehaviour
     #region references
     [SerializeField]
     private ActionComponent _playerActionComponent;
-    [SerializeField]
-    private PerfectTimingComponent _timing;
     private MenuPausa _menu;
     #endregion
 

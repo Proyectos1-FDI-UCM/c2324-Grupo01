@@ -157,6 +157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   graySprite: {fileID: -1077718550, guid: 781c4cd5b72593d4c8429894a3da32b3, type: 3}
+  DesaturationMultiplier: 1.5
+  activateGizmos: 0
 --- !u!1 &4593074891019661914
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,3 +245,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f4f6321b73330499f45fc9a2f7768f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timingComponent: {fileID: 4896818492767952883, guid: 39da1f0844fe2cd43a41a86dec3fd06f, type: 3}

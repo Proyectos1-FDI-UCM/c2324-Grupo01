@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     private GameObject _camera;
     private CameraController _cameraController;
     private ScoreManager _ScoreManager;
-    private TimingTextController _TimingTextController;
     private SliderController _sliderController;
     [SerializeField]
     private RespawnCountDown _RespawnCountDown;
@@ -271,18 +270,10 @@ public class GameManager : MonoBehaviour
         _levelDataLoader = GetComponent<LevelDataLoader>();
         if (_levelDataLoader == null) Debug.LogError("Level data missing in GameManager!");
 
-        _TimingTextController= FindObjectOfType<TimingTextController>();
-
         _RespawnCountDown = FindObjectOfType<RespawnCountDown>();
 
         _sliderController = FindObjectOfType<SliderController>();
 
-    }
-
-    public void ArrowTiming(string timing)
-    {
-        _ScoreManager.AddTimingPoints(timing);
-        _TimingTextController.TimingText(timing);
     }
     #endregion
 }

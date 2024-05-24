@@ -5,8 +5,13 @@ public class PerfectTimingComponent : MonoBehaviour
 {
     #region parameters
     private float perfectRadius = 0.2f;
-    private float goodRadius = 0.35f;
-    private float badRadius = 0.5f;
+    private float greatRadius = 0.35f;
+    private float goodRadius = 0.5f;
+    private string perfect = "PERFECT";
+    private string great = "GREAT";
+    private string good = "GOOD";
+    private string wrong = "WRONG";
+
 
     [SerializeField]
     private float PerfectSize = 2.0f;
@@ -34,6 +39,12 @@ public class PerfectTimingComponent : MonoBehaviour
     [SerializeField]
     private LayerMask arrowLayer;
     [SerializeField]
+    private GameObject _gameManager;
+    private ScoreManager _ScoreManager;
+    [SerializeField]
+    private GameObject _timingObject;
+    private TimingTextController _TimingTextController;
+    [SerializeField]
     private ParticleSystem TimingParticleSystem;
     private ParticleSystem.MainModule TimingParticleMain;
     private ParticleSystem.EmissionModule TimingParticleEmitter;
@@ -47,6 +58,8 @@ public class PerfectTimingComponent : MonoBehaviour
     private void Start()
     {
         _myTransform = transform;
+        _ScoreManager = _gameManager.GetComponent<ScoreManager>();
+        _TimingTextController = _timingObject.GetComponent<TimingTextController>();
 
         TimingParticleMain = TimingParticleSystem.main;
         TimingParticleEmitter = TimingParticleSystem.emission;
@@ -63,7 +76,7 @@ public class PerfectTimingComponent : MonoBehaviour
     /// </summary>
     public void CheckNearbyArrow(ActionComponent.Action action)
     {
-        Collider2D hitCollider = Physics2D.OverlapCircle(_myTransform.position, badRadius, arrowLayer); // "Draws" a circle around the player to check if any object in the arrowLayer is within range.
+        Collider2D hitCollider = Physics2D.OverlapCircle(_myTransform.position, goodRadius, arrowLayer); // "Draws" a circle around the player to check if any object in the arrowLayer is within range.
         
         if (hitCollider != null) // This is true if the player is within the bad radius range of an arrow.
         {
@@ -85,27 +98,33 @@ public class PerfectTimingComponent : MonoBehaviour
                 
                     if (distance <= perfectRadius)
                     {
-                        GameManager.Instance.ArrowTiming("PERFECT");
-                        EmitTimingParticle("PERFECT");
+                        TimingHandler(perfect);
+                        EmitTimingParticle(perfect);
                     }
-                    else if (distance <= goodRadius)
+                    else if (distance <= greatRadius)
                     {
-                        GameManager.Instance.ArrowTiming("GREAT");
-                        EmitTimingParticle("GREAT");
+                        TimingHandler(great);
+                        EmitTimingParticle(great);
                     }
                     else
                     {
-                        GameManager.Instance.ArrowTiming("GOOD");
-                        EmitTimingParticle("GOOD");
+                        TimingHandler(good);
+                        EmitTimingParticle(good);
                     }
                 }
                 else // If the tag mapped (action) doesn't match the arrow's tag.
                 { 
-                    GameManager.Instance.ArrowTiming("WRONG"); // if the movement is not correct
-                    EmitTimingParticle("WRONG");
+                    TimingHandler(wrong); // if the movement is not correct
+                    EmitTimingParticle(wrong);
                 }
             }
         }    
+    }
+
+    public void TimingHandler(string timing)
+    {
+        _ScoreManager.AddTimingPoints(timing);
+        _TimingTextController.TimingText(timing);
     }
 
     private void EmitTimingParticle(string action)
@@ -113,25 +132,25 @@ public class PerfectTimingComponent : MonoBehaviour
         var gradient = new Gradient(); // Creating the gradient for colour over lifetime
         var colors = new GradientColorKey[2]; // Gradient is defined by two colours
         var alphas = new GradientAlphaKey[2]; // Gradient is defined by two alphas
-        if (action == "PERFECT")
+        if (action == perfect)
         {
             TimingParticleMain.startSize = PerfectSize;
             colors[0] = new GradientColorKey(PerfectColor, 0);
             colors[1] = new GradientColorKey(PerfectColor, 1);
         }
-        else if (action == "GREAT")
+        else if (action == great)
         {
             TimingParticleMain.startSize = GreatSize;
             colors[0] = new GradientColorKey(GreatColor, 0);
             colors[1] = new GradientColorKey(GreatColor, 1);
         }
-        else if (action == "GOOD")
+        else if (action == good)
         {
             TimingParticleMain.startSize = GoodSize;
             colors[0] = new GradientColorKey(GoodColor, 0);
             colors[1] = new GradientColorKey(GoodColor, 1);
         }
-        else if (action == "WRONG")
+        else if (action == wrong)
         {
             TimingParticleMain.startSize = WrongSize;
             colors[0] = new GradientColorKey(WrongColor, 0);
@@ -147,10 +166,10 @@ public class PerfectTimingComponent : MonoBehaviour
     /// <summary>
     /// Method used to control bot(design purposes) action based on arrows.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Action the bot needs to perform</returns>
     public ActionComponent.Action ArrowActionForBot()
     {
-        Collider2D hitCollider = Physics2D.OverlapCircle(_myTransform.position, badRadius, arrowLayer); // "Draws" a circle around the player to check if any object in the arrowLayer is within range.
+        Collider2D hitCollider = Physics2D.OverlapCircle(_myTransform.position, goodRadius, arrowLayer); // "Draws" a circle around the player to check if any object in the arrowLayer is within range.
         
         if (hitCollider != null) // This is true if the player is within the bad radius range of an arrow.
         {

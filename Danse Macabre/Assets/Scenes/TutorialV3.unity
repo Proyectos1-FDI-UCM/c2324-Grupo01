@@ -272,6 +272,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1582993738}
     m_Modifications:
+    - target: {fileID: 3942511990713968358, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 5217549692575559733, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
       propertyPath: m_Name
       value: Arrow up (1)
@@ -4319,6 +4323,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1582993738}
     m_Modifications:
+    - target: {fileID: 3942511990713968358, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 5217549692575559733, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
       propertyPath: m_Name
       value: Arrow up (4)
@@ -5279,6 +5287,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1582993738}
     m_Modifications:
+    - target: {fileID: 3942511990713968358, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 5217549692575559733, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
       propertyPath: m_Name
       value: Arrow up (4)
@@ -5509,6 +5521,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow down (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7888101470723856537, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 9000648220089057375, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
       propertyPath: m_LocalPosition.x
       value: -39.65724
@@ -25627,6 +25643,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1582993738}
     m_Modifications:
+    - target: {fileID: 3942511990713968358, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 5217549692575559733, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
       propertyPath: m_Name
       value: Arrow up (3)
@@ -25728,6 +25748,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow Left (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6827651561394556686, guid: b296bb6a07450414dba84d69202e1a82, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27471,6 +27495,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow down (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7888101470723856537, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 9000648220089057375, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
       propertyPath: m_LocalPosition.x
       value: 29.22
@@ -27709,6 +27737,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow down (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7888101470723856537, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 9000648220089057375, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
       propertyPath: m_LocalPosition.x
       value: -105.688995
@@ -28762,6 +28794,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow down
       objectReference: {fileID: 0}
+    - target: {fileID: 7888101470723856537, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 9000648220089057375, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
       propertyPath: m_LocalPosition.x
       value: -116.73
@@ -29349,6 +29385,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1582993738}
     m_Modifications:
+    - target: {fileID: 3942511990713968358, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 5217549692575559733, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
       propertyPath: m_Name
       value: Arrow up (5)
@@ -29543,6 +29583,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525688471}
   m_CullTransparentMesh: 1
+--- !u!1 &526923875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8652989672358773068, guid: 39da1f0844fe2cd43a41a86dec3fd06f, type: 3}
+  m_PrefabInstance: {fileID: 1571169484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &530936675 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2315124116551502312, guid: 0fc814c3ef3b8654ca1bb1e799b96f76, type: 3}
@@ -29897,6 +29942,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1582993738}
     m_Modifications:
+    - target: {fileID: 3942511990713968358, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 5217549692575559733, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
       propertyPath: m_Name
       value: Arrow up (7)
@@ -31989,17 +32038,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2946605283369907019, guid: 39da1f0844fe2cd43a41a86dec3fd06f, type: 3}
   m_PrefabInstance: {fileID: 1571169484}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &635698581 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4896818492767952883, guid: 39da1f0844fe2cd43a41a86dec3fd06f, type: 3}
-  m_PrefabInstance: {fileID: 1571169484}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635698579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b47302629587471408beb313212056b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &635698582 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 959711535566899561, guid: 39da1f0844fe2cd43a41a86dec3fd06f, type: 3}
@@ -32602,6 +32640,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow Left (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6827651561394556686, guid: b296bb6a07450414dba84d69202e1a82, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32895,6 +32937,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1582993738}
     m_Modifications:
+    - target: {fileID: 3942511990713968358, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 5217549692575559733, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
       propertyPath: m_Name
       value: Arrow up
@@ -35225,6 +35271,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 6827651561394556686, guid: b296bb6a07450414dba84d69202e1a82, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36238,6 +36288,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow down (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7888101470723856537, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 9000648220089057375, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
       propertyPath: m_LocalPosition.x
       value: 108.049194
@@ -86052,6 +86106,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1582993738}
     m_Modifications:
+    - target: {fileID: 3942511990713968358, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 5217549692575559733, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
       propertyPath: m_Name
       value: Arrow up (6)
@@ -86803,6 +86861,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow down
       objectReference: {fileID: 0}
+    - target: {fileID: 7888101470723856537, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 9000648220089057375, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
       propertyPath: m_LocalPosition.x
       value: 56.372406
@@ -88871,6 +88933,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow down
       objectReference: {fileID: 0}
+    - target: {fileID: 7888101470723856537, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 9000648220089057375, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.279175
@@ -94439,6 +94505,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow Left (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6827651561394556686, guid: b296bb6a07450414dba84d69202e1a82, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -137072,6 +137142,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1582993738}
     m_Modifications:
+    - target: {fileID: 3942511990713968358, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 5217549692575559733, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
       propertyPath: m_Name
       value: Arrow up (2)
@@ -137207,6 +137281,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow Left (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6827651561394556686, guid: b296bb6a07450414dba84d69202e1a82, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -137388,6 +137466,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1582993738}
     m_Modifications:
+    - target: {fileID: 3942511990713968358, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 5217549692575559733, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
       propertyPath: m_Name
       value: Arrow up
@@ -137589,6 +137671,14 @@ PrefabInstance:
       propertyPath: colors.Array.data[4].r
       value: 0.4811321
       objectReference: {fileID: 0}
+    - target: {fileID: 4896818492767952883, guid: 39da1f0844fe2cd43a41a86dec3fd06f, type: 3}
+      propertyPath: _gameManager
+      value: 
+      objectReference: {fileID: 2077163342}
+    - target: {fileID: 4896818492767952883, guid: 39da1f0844fe2cd43a41a86dec3fd06f, type: 3}
+      propertyPath: _timingObject
+      value: 
+      objectReference: {fileID: 526923875}
     - target: {fileID: 5138147722292253610, guid: 39da1f0844fe2cd43a41a86dec3fd06f, type: 3}
       propertyPath: m_fontColor.b
       value: 1
@@ -140520,6 +140610,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1582993738}
     m_Modifications:
+    - target: {fileID: 3942511990713968358, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 5217549692575559733, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
       propertyPath: m_Name
       value: Arrow up (2)
@@ -140975,6 +141069,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow down (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7888101470723856537, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 9000648220089057375, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
       propertyPath: m_LocalPosition.x
       value: 95.58298
@@ -141028,6 +141126,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1582993738}
     m_Modifications:
+    - target: {fileID: 3942511990713968358, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 5217549692575559733, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
       propertyPath: m_Name
       value: Arrow up (3)
@@ -141687,6 +141789,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1582993738}
     m_Modifications:
+    - target: {fileID: 3942511990713968358, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 5217549692575559733, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
       propertyPath: m_Name
       value: Arrow up (1)
@@ -142871,6 +142977,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow Left
       objectReference: {fileID: 0}
+    - target: {fileID: 6827651561394556686, guid: b296bb6a07450414dba84d69202e1a82, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -145982,6 +146092,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1582993738}
     m_Modifications:
+    - target: {fileID: 3942511990713968358, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 5217549692575559733, guid: bd75c09983a61bf449f4c39d6bd546f8, type: 3}
       propertyPath: m_Name
       value: Arrow up
@@ -146940,7 +147054,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerActionComponent: {fileID: 635698582}
-  _timing: {fileID: 635698581}
 --- !u!114 &2077163351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147010,6 +147123,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow down (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7888101470723856537, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 635698579}
     - target: {fileID: 9000648220089057375, guid: cb3396d94a64837458d3d490b2df9b53, type: 3}
       propertyPath: m_LocalPosition.x
       value: 74.509186
