@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ComboManager : MonoBehaviour
@@ -23,6 +20,7 @@ public class ComboManager : MonoBehaviour
     //modificado por Bing 
     #region references
     private ComboSliderComponent comboSliderComponent;
+    private ScreenBeatComponent screenBeatComponent;
 
     private bool cambioColor=false;
     private float sumThreshold = 0;
@@ -32,9 +30,12 @@ public class ComboManager : MonoBehaviour
     private void Start()
     {
         comboSliderComponent = FindObjectOfType<ComboSliderComponent>();
+        screenBeatComponent = FindAnyObjectByType<ScreenBeatComponent>();
     }
     void Update()
     {
+        if (combo >= threshold1 && !screenBeatComponent.Combo) screenBeatComponent.Combo = true;
+        else if (combo < threshold1 && screenBeatComponent.Combo) screenBeatComponent.Combo = false;
         
         // Procesar multiplicador
         if (combo < threshold1)

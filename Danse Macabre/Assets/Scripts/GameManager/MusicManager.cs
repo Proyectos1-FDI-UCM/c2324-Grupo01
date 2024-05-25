@@ -54,6 +54,11 @@ public class MusicManager : MonoBehaviour
         _myAudioSource.time = time;
     }
 
+    public float GetTime()
+    {
+        return _myAudioSource.time;
+    }
+
     public void LoadAllReferences()
     {
         _myAudioSource = GetComponent<AudioSource>();

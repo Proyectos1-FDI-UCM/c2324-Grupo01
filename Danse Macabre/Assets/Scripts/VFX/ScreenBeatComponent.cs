@@ -5,6 +5,7 @@ public class ScreenBeatComponent : MonoBehaviour
 {
     private ComboManager _combo;
     private TempoManager _tempo;
+    private MusicManager _music;
     [SerializeField]
     private Image _image;
 
@@ -31,77 +32,72 @@ public class ScreenBeatComponent : MonoBehaviour
     [SerializeField]
     float BeatDurationMultiplier = 0.5f; // Multiplicador a la duraci�n total de cada iteraci�n del efecto (multiplica a Time.deltaTime)
 
-    public float timeSinceLastBeat = 0;
-
     Color targetColor;
-    float alpha;
+    float baseAlpha = 0.1f;
+    float maxAlpha = 0;
     float currentAlpha;
-    bool startBeating = false;
+    bool combo = false;
+    public bool Combo
+    {
+        get { return combo; }
+        set { combo = value; }
+    }
 
-    bool toggle = true;
-
-    // Start is called before the first frame update
     void Start()
     {
         _combo = FindObjectOfType<ComboManager>();
         _tempo = FindObjectOfType<TempoManager>();
+        _music = FindObjectOfType<MusicManager>();
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        if (combo) Beat();
+        else ResetColor();
+    }
+
+    public void Beat()
+    {
+        float time = _music.GetTime();
+
+        float aux = time % _tempo.SecondsPerTick; // integer
+        string formattedNumber = "0." + aux.ToString(); // decimal string
+        float betweenBeats = float.Parse(formattedNumber); // convert to float 0.integer
+        float interpolate = betweenBeats/_tempo.SecondsPerTick;
+
+        targetColor = TargetColor();
+        currentAlpha = Mathf.Clamp(interpolate, baseAlpha, maxAlpha - 0.1f);
+        _image.color = new Color(targetColor.r, targetColor.g, targetColor.b, currentAlpha);
+    }
+
+    private void ResetColor()
+    {
+        _image.color = new Color(0, 0, 0, 0);
+    }
+
+    private Color TargetColor()
     {
         if (_combo.multiplier < 2)
         {
-            alpha = Multiplier1Intensity;
+            maxAlpha = Multiplier1Intensity;
             targetColor = new Color(Multiplier1Color.r, Multiplier1Color.g, Multiplier1Color.b, Multiplier1Intensity);
         }
         else if (_combo.multiplier >= 4)
         {
-            alpha = Multiplier4Intensity;
+            maxAlpha = Multiplier4Intensity;
             targetColor = new Color(Multiplier4Color.r, Multiplier4Color.g, Multiplier4Color.b, Multiplier4Intensity);
         }
         else if (_combo.multiplier >= 3)
         {
-            alpha = Multiplier3Intensity;
+            maxAlpha = Multiplier3Intensity;
             targetColor = new Color(Multiplier3Color.r, Multiplier3Color.g, Multiplier3Color.b, Multiplier3Intensity);
         }
         else if (_combo.multiplier >= 2)
         {
-            alpha = Multiplier2Intensity;
+            maxAlpha = Multiplier2Intensity;
             targetColor = new Color(Multiplier2Color.r, Multiplier2Color.g, Multiplier2Color.b, Multiplier2Intensity);
         }
 
-        if (startBeating)
-        {
-            InvokeRepeating("Beat", 0, _tempo.SecondsPerTick);
-            startBeating = false;
-        }
-
-        timeSinceLastBeat =+ Time.deltaTime;
-        _image.color = new Color(targetColor.r, targetColor.g, targetColor.b, currentAlpha);
-        currentAlpha = currentAlpha - Time.deltaTime * BeatDurationMultiplier;
-        //Debug.Log(currentAlpha + " " + Time.deltaTime * BeatDurationMultiplier);
-    }
-
-    public void StartBeat()
-    {
-        startBeating = true;
-    }
-
-    void Beat()
-    {
-        //Debug.Log("BEAT");
-        currentAlpha = alpha;
-        timeSinceLastBeat = 0;
+        return targetColor;
     }
 }
-
-/*
- for (int i = 0; i < BeatDurationTicks; i++)
-        {
-            currentAlpha = Mathf.Lerp(alphaGoal, 0, i / BeatDurationTicks);
-            _image.color = new Color(BaseColor.r, BaseColor.g, BaseColor.b, alphaGoal);
-            Debug.Log(currentAlpha + " " + i);
-        }
-        _image.color = new Color(BaseColor.r, BaseColor.g, BaseColor.b, 0);
-*/

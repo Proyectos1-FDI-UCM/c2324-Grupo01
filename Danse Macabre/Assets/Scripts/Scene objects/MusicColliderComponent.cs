@@ -7,14 +7,12 @@ public class MusicColliderComponent : MonoBehaviour
     private GameObject musicManager;
     private MusicManager musicManagerComponent;
     private ScoreManager _scoreManager;
-    private ScreenBeatComponent _screenBeatComponent;
     #endregion
 
     void Start()
     {
         musicManagerComponent = musicManager.GetComponent<MusicManager>();
         _scoreManager = FindAnyObjectByType<ScoreManager>();
-        _screenBeatComponent = FindAnyObjectByType<ScreenBeatComponent>();
     }
 
     /// <summary>
@@ -32,7 +30,6 @@ public class MusicColliderComponent : MonoBehaviour
         {
             musicManagerComponent.PlayMusic();
             _scoreManager.GameStart(true);
-            _screenBeatComponent.StartBeat();
         }
     }
 }
