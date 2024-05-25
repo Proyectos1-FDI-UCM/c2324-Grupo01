@@ -33,7 +33,7 @@ public class ScreenBeatComponent : MonoBehaviour
     float BeatDurationMultiplier = 0.5f; // Multiplicador a la duraci�n total de cada iteraci�n del efecto (multiplica a Time.deltaTime)
 
     Color targetColor;
-    float baseAlpha = 0.1f;
+    float baseAlpha = 0;
     float maxAlpha = 0;
     float currentAlpha;
     bool combo = false;
@@ -66,7 +66,7 @@ public class ScreenBeatComponent : MonoBehaviour
         float interpolate = betweenBeats/_tempo.SecondsPerTick;
 
         targetColor = TargetColor();
-        currentAlpha = Mathf.Clamp(interpolate, baseAlpha, maxAlpha - 0.1f);
+        currentAlpha = Mathf.Clamp(interpolate, baseAlpha, maxAlpha);
         _image.color = new Color(targetColor.r, targetColor.g, targetColor.b, currentAlpha);
     }
 
