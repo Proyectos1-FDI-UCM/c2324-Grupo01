@@ -79,20 +79,17 @@ public class ScoreManager : MonoBehaviour
     void AddToTotalPoint()
     {
         //sumar los puntos obtenidos a la puntuacion total
-        float points;
         if (_addPoints > 0) //puntos positivos
-        {
-            points = _addPoints;          
+        {       
             _totalPoint += _addPoints;
-            _textoArriba.text ="+"+ points.ToString();
+            _textoArriba.text ="+"+ _addPoints.ToString();
         }
         else //puntos negativos
         {
-            points = _sudPoints;
             _totalPoint += _sudPoints;
-            _textoArriba.text = points.ToString();
+            _textoArriba.text = _sudPoints.ToString();
         }
-        Invoke("ResetUpText", 0.4f);
+        Invoke("ResetUpText", _resetTime);
     }
     public void AddTimingPoints(string timing)
     {

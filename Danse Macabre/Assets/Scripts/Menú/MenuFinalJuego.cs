@@ -103,11 +103,6 @@ public class MenuFinalJuego : MonoBehaviour
         _textMissNumber.text = PlayerPrefs.GetInt("MissNumber").ToString();
         _textWrongNumber.text = PlayerPrefs.GetInt("WrongNumber").ToString();
 
-        /* _textMaxPuntos.text = ((int)_MaxScore).ToString();
-         _text1.text = ((int)PlayerPrefs.GetFloat("base")).ToString();
-
-         _text2.text = ((int)PlayerPrefs.GetFloat("combo")).ToString();
-        */
     }
     void Awake()
     {
@@ -141,7 +136,6 @@ public class MenuFinalJuego : MonoBehaviour
     }
     private void Update()
     {
-        //Debug.Log("Max" + _MaxScore);
         _puntuacion = Mathf.Lerp(_puntuacion, _finalScore, _ScoreTime * Time.deltaTime);
         _textPuntuacionFinal.text = _puntuacion.ToString("0");
 
